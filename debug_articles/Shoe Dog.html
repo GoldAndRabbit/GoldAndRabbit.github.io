@@ -1,0 +1,1035 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Shoe Dog 鞋狗 | G&amp;R Blog</title>
+  <meta name="keywords" content="">
+  <meta name="description" content="Shoe Dog 鞋狗 | G&amp;R Blog">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="Overview1.Why User Response Prediction Calibration? 为什么需要校准?2.Calibration Metrics  校准指标3.Calibration Solutions 校准方案4.Neural Calibration 一种拟合残差的的校准网络    User Response Prediction CalibrationAUC无法反映模">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Field-aware Calibration： A Simple and Empirically Strong Method for Reliable Probabilistic Predictions">
+<meta property="og:url" content="http://example.com/debug_articles/Field-aware%20Calibration%EF%BC%9A%20A%20Simple%20and%20Empirically%20Strong%20Method%20for%20Reliable%20Probabilistic%20Predictions.html">
+<meta property="og:site_name" content="G&amp;R Blog">
+<meta property="og:description" content="Overview1.Why User Response Prediction Calibration? 为什么需要校准?2.Calibration Metrics  校准指标3.Calibration Solutions 校准方案4.Neural Calibration 一种拟合残差的的校准网络    User Response Prediction CalibrationAUC无法反映模">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://s4.ax1x.com/2022/02/13/HrwR3j.png">
+<meta property="og:image" content="https://s4.ax1x.com/2022/02/13/HrwqC4.png">
+<meta property="og:image" content="https://s4.ax1x.com/2022/02/13/HrwR3j.png">
+<meta property="article:published_time" content="2022-02-14T13:00:00.000Z">
+<meta property="article:modified_time" content="2024-03-22T05:17:40.745Z">
+<meta property="article:author" content="G &amp; R">
+<meta property="article:tag" content="Recommending System">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s4.ax1x.com/2022/02/13/HrwR3j.png">
+
+
+<link rel="icon" href="/img/avatar.jpg">
+
+<link href="/css/style.css?v=1.1.0" rel="stylesheet">
+
+<link href="/css/hl_theme/github.css?v=1.1.0" rel="stylesheet">
+
+<link href="//cdn.jsdelivr.net/npm/animate.css@4.1.0/animate.min.css" rel="stylesheet">
+
+<script src="//cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+<script src="/js/titleTip.js?v=1.1.0" ></script>
+
+<script src="//cdn.jsdelivr.net/npm/highlightjs@9.16.2/highlight.pack.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+
+<script src="//cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js"></script>
+
+
+
+<script src="//cdn.jsdelivr.net/npm/jquery.cookie@1.4.1/jquery.cookie.min.js" ></script>
+
+<script src="/js/iconfont.js?v=1.1.0" ></script>
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+<div style="display: none">
+  <input class="theme_disqus_on" value="false">
+  <input class="theme_preload_comment" value="">
+  <input class="theme_blog_path" value="">
+  <input id="theme_shortcut" value="true" />
+  <input id="theme_highlight_on" value="true" />
+  <input id="theme_code_copy" value="true" />
+</div>
+
+
+
+<body>
+<aside class="nav">
+    <div class="nav-left">
+        <a href="/"
+   class="avatar_target">
+    <img class="avatar"
+         src="/img/avatar.jpg"/>
+</a>
+<div class="author">
+    <span>G &amp; R</span>
+</div>
+
+<div class="icon">
+    
+        
+            <a title="github"
+               href="https://github.com/goldandrabbit"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-github"></use>
+                    </svg>
+                
+            </a>
+        
+    
+</div>
+
+
+
+
+
+<ul>
+    <li>
+        <div class="all active" data-rel="All">All
+            
+                <small>(53)</small>
+            
+        </div>
+    </li>
+    
+        
+            
+                
+    <li>
+        <div data-rel="Ads_RecSys">
+            
+            Ads_RecSys
+            <small>(8)</small>
+        </div>
+        
+    </li>
+
+            
+        
+    
+        
+            
+                
+    <li>
+        <div data-rel="Coding">
+            
+            Coding
+            <small>(30)</small>
+        </div>
+        
+    </li>
+
+            
+        
+    
+        
+            
+                
+    <li>
+        <div data-rel="Machine_Learning">
+            
+            Machine_Learning
+            <small>(3)</small>
+        </div>
+        
+    </li>
+
+            
+        
+    
+        
+            
+                
+    <li>
+        <div data-rel="Reading">
+            
+            Reading
+            <small>(6)</small>
+        </div>
+        
+    </li>
+
+            
+        
+    
+        
+            
+                
+    <li>
+        <div data-rel="Rethinking">
+            
+            Rethinking
+            <small>(6)</small>
+        </div>
+        
+    </li>
+
+            
+        
+    
+</ul>
+<div class="left-bottom">
+    <div class="menus">
+        
+    </div>
+    <div>
+        
+            <a class="about  hasFriend  site_url"
+               
+               href="/about">About</a>
+        
+        <a style="width: 50%"
+                
+                                           class="friends">Friends</a>
+        
+    </div>
+</div>
+<input type="hidden" id="yelog_site_posts_number" value="53">
+
+<div style="display: none">
+    <span id="busuanzi_value_site_uv"></span>
+    <span id="busuanzi_value_site_pv"></span>
+</div>
+
+    </div>
+    <div class="nav-right">
+        <div class="friends-area">
+    <div class="friends-title">
+        Links
+        <i class="iconfont icon-left"></i>
+    </div>
+    <div class="friends-content">
+        <ul>
+            
+            <li><a target="_blank" href="http://yelog.org/">叶落阁</a></li>
+            
+        </ul>
+    </div>
+</div>
+        <div class="title-list">
+    <div class="right-top">
+        <div id="default-panel">
+            <i class="iconfont icon-search" data-title="搜索 快捷键 i"></i>
+            <div class="right-title">All</div>
+            <i class="iconfont icon-file-tree" data-title="切换到大纲视图 快捷键 w"></i>
+        </div>
+        <div id="search-panel">
+            <i class="iconfont icon-left" data-title="返回"></i>
+            <input id="local-search-input" autocomplete="off"/>
+            <label class="border-line" for="input"></label>
+            <i class="iconfont icon-case-sensitive" data-title="大小写敏感"></i>
+            <i class="iconfont icon-tag" data-title="标签"></i>
+        </div>
+        <div id="outline-panel" style="display: none">
+            <div class="right-title">大纲</div>
+            <i class="iconfont icon-list" data-title="切换到文章列表"></i>
+        </div>
+    </div>
+
+    <div class="tags-list">
+    <input id="tag-search" />
+    <div class="tag-wrapper">
+        
+    </div>
+
+</div>
+
+    
+    <nav id="title-list-nav">
+        
+        
+        <a  class="All Coding "
+           href="/2099/01/30/G&R%20%E7%9A%84%20Blog%20%E5%8F%91%E5%B8%83%E8%A7%84%E8%8C%83/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="G&amp;R 的 Blog 发布规范">G&amp;R 的 Blog 发布规范</span>
+            <span class="post-date" title="2099-01-30 20:00:00">2099/01/30</span>
+        </a>
+        
+        
+        <a  class="All Rethinking "
+           href="/2024/02/20/2023%20Annual%20Summary%20%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="2023 Annual Summary 年终总结">2023 Annual Summary 年终总结</span>
+            <span class="post-date" title="2024-02-20 20:00:00">2024/02/20</span>
+        </a>
+        
+        
+        <a  class="All Rethinking "
+           href="/2023/05/20/2022%20Annual%20Summary%20%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="2022 Annual Summary 年终总结">2022 Annual Summary 年终总结</span>
+            <span class="post-date" title="2023-05-20 20:00:00">2023/05/20</span>
+        </a>
+        
+        
+        <a  class="All Ads_RecSys "
+           href="/2022/05/20/TabTransformer%20Tabular%20Data%20Modeling%20Using%20Contextual%20Embeddings/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="TabTransformer：Tabular Data Modeling Using Contextual Embeddings">TabTransformer：Tabular Data Modeling Using Contextual Embeddings</span>
+            <span class="post-date" title="2022-05-20 20:43:00">2022/05/20</span>
+        </a>
+        
+        
+        <a  class="All Ads_RecSys "
+           href="/2022/05/15/H&M%20Recommendation%20Competition%20Top1%20%E6%96%B9%E6%A1%88/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="H&amp;M Recommendation Competition Top1 方案">H&amp;M Recommendation Competition Top1 方案</span>
+            <span class="post-date" title="2022-05-15 23:55:00">2022/05/15</span>
+        </a>
+        
+        
+        <a  class="All Ads_RecSys "
+           href="/2022/03/20/Deep%20Interest%20Highlight%20Network%20for%20Click-Through%20Rate%20Prediction%20in%20Trigger-Induced%20Recommendation/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Deep Interest Highlight Network for Click-Through Rate Prediction in Trigger-Induced Recommendation">Deep Interest Highlight Network for Click-Through Rate Prediction in Trigger-Induced Recommendation</span>
+            <span class="post-date" title="2022-03-20 22:00:00">2022/03/20</span>
+        </a>
+        
+        
+        <a  class="All Ads_RecSys "
+           href="/2022/03/12/Learning-based%20Mechanism%20%E5%9F%BA%E4%BA%8E%E5%AD%A6%E4%B9%A0%E8%8C%83%E5%BC%8F%E4%B8%8B%E7%9A%84%E6%9C%BA%E5%88%B6%E8%AE%BE%E8%AE%A1/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Learning-based Mechanism 基于学习范式下的机制设计">Learning-based Mechanism 基于学习范式下的机制设计</span>
+            <span class="post-date" title="2022-03-12 23:00:00">2022/03/12</span>
+        </a>
+        
+        
+        <a  class="All Ads_RecSys "
+           href="/2022/02/20/Mechanism%20Design%20%E6%9C%BA%E5%88%B6%E8%AE%BE%E8%AE%A1/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Mechanism Design 机制设计">Mechanism Design 机制设计</span>
+            <span class="post-date" title="2022-02-20 20:00:00">2022/02/20</span>
+        </a>
+        
+        
+        <a  class="All Rethinking "
+           href="/2022/02/07/2021%20Annual%20Summary%20%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="2021 Annual Summary 年终总结">2021 Annual Summary 年终总结</span>
+            <span class="post-date" title="2022-02-07 12:11:00">2022/02/07</span>
+        </a>
+        
+        
+        <a  class="All Reading "
+           href="/2021/11/11/Cybernetics%20and%20Society%20%E6%8E%A7%E5%88%B6%E8%AE%BA%E4%B8%8E%E7%A4%BE%E4%BC%9A/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Cybernetics and Society 控制论与社会">Cybernetics and Society 控制论与社会</span>
+            <span class="post-date" title="2021-11-11 21:00:00">2021/11/11</span>
+        </a>
+        
+        
+        <a  class="All Ads_RecSys "
+           href="/2021/09/10/Bias%20and%20Debias%20in%20Recommender%20System%20%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E4%B8%AD%E7%9A%84%20bias%20%E5%92%8C%20debias/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Bias and Debias in Recommender System 推荐系统中的 bias 和 debias">Bias and Debias in Recommender System 推荐系统中的 bias 和 debias</span>
+            <span class="post-date" title="2021-09-10 21:00:00">2021/09/10</span>
+        </a>
+        
+        
+        <a  class="All Reading "
+           href="/2021/05/20/Causal%20Inference%20%E5%9B%A0%E6%9E%9C%E6%8E%A8%E6%96%AD/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Causal Inference 因果推断">Causal Inference 因果推断</span>
+            <span class="post-date" title="2021-05-20 20:00:00">2021/05/20</span>
+        </a>
+        
+        
+        <a  class="All Rethinking "
+           href="/2020/12/31/2020%20Annual%20Summary%20%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="2020 Annual Summary 年终总结">2020 Annual Summary 年终总结</span>
+            <span class="post-date" title="2020-12-31 23:11:00">2020/12/31</span>
+        </a>
+        
+        
+        <a  class="All Ads_RecSys "
+           href="/2020/11/08/The%20Essence%20of%20RecSys%20%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E7%B2%BE%E8%A6%81/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="The Essence of RecSys 推荐系统精要">The Essence of RecSys 推荐系统精要</span>
+            <span class="post-date" title="2020-11-08 11:56:00">2020/11/08</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/10/01/Hexo%20%E6%90%AD%E5%BB%BA%E6%80%BB%E7%BB%93/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Hexo 搭建总结">Hexo 搭建总结</span>
+            <span class="post-date" title="2020-10-01 20:11:00">2020/10/01</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/09/10/cpp_0_0_%E5%B1%9E%E4%BA%8E%20cpp%20%E7%9A%84%E8%AE%BE%E8%AE%A1%E5%93%B2%E5%AD%A6/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cpp_0_1_cpp设计哲学">cpp_0_1_cpp设计哲学</span>
+            <span class="post-date" title="2020-09-10 08:00:00">2020/09/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/09/10/cpp_0_1_vscode%20%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cpp_0_1_vscode 环境配置">cpp_0_1_vscode 环境配置</span>
+            <span class="post-date" title="2020-09-10 08:00:00">2020/09/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/09/10/cpp_0_2_%E5%A4%B4%E6%96%87%E4%BB%B6%20header%20file/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cpp_0_2_头文件 headerfile">cpp_0_2_头文件 headerfile</span>
+            <span class="post-date" title="2020-09-10 08:00:00">2020/09/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/09/10/cpp_0_3_%E8%B0%B7%E6%AD%8C%20C++%20%E7%BC%96%E7%A8%8B%E9%A3%8E%E6%A0%BC/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cpp_0_3_谷歌 C++ 编程风格">cpp_0_3_谷歌 C++ 编程风格</span>
+            <span class="post-date" title="2020-09-10 08:00:00">2020/09/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/09/10/cpp_1_1_%E5%B7%A6%E5%80%BC%E5%92%8C%E5%8F%B3%E5%80%BC%20Lvalue%20and%20Rvalue/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cpp_2_1_左值和右值 Lvalue and Rvalue">cpp_2_1_左值和右值 Lvalue and Rvalue</span>
+            <span class="post-date" title="2020-09-10 08:00:00">2020/09/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/09/10/cpp_1_2_%E5%B7%A6%E5%80%BC%E5%BC%95%E7%94%A8%20Lvalue%20reference/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cpp_1_2_左值引用 Lvalue reference">cpp_1_2_左值引用 Lvalue reference</span>
+            <span class="post-date" title="2020-09-10 08:00:00">2020/09/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/09/10/cpp_1_3_%E5%8F%B3%E5%80%BC%E5%BC%95%E7%94%A8%20Rvalue%20reference/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cpp_1_3_右值引用 Rvalue reference">cpp_1_3_右值引用 Rvalue reference</span>
+            <span class="post-date" title="2020-09-10 08:00:00">2020/09/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/09/10/cpp_2_1_%E6%8C%87%E9%92%88%20Pointer_1_%E5%9C%B0%E5%9D%80%E5%92%8C%E6%8C%87%E9%92%88/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cpp_2_1_指针 Pointer_1_地址和指针">cpp_2_1_指针 Pointer_1_地址和指针</span>
+            <span class="post-date" title="2020-09-10 08:00:00">2020/09/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/09/10/cpp_2_2_%E6%8C%87%E9%92%88%20Pointer_2_%E7%A9%BA%E6%8C%87%E9%92%88/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cpp_2_2_指针 Pointer_2_空指针">cpp_2_2_指针 Pointer_2_空指针</span>
+            <span class="post-date" title="2020-09-10 08:00:00">2020/09/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/09/10/cpp_2_3_%E6%8C%87%E9%92%88%20Pointer_3_const%E4%B8%8E%E6%8C%87%E9%92%88/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cpp_2_3_指针 Pointer_3_const与指针">cpp_2_3_指针 Pointer_3_const与指针</span>
+            <span class="post-date" title="2020-09-10 08:00:00">2020/09/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/09/10/cpp_2_3_%E6%8C%87%E9%92%88%20Pointer_4_%E4%BC%A0%E5%9C%B0%E5%9D%80%20Pass%20by%20address/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cpp_2_3_指针 Pointer_4_传地址 Pass by address">cpp_2_3_指针 Pointer_4_传地址 Pass by address</span>
+            <span class="post-date" title="2020-09-10 08:00:00">2020/09/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/09/10/cpp_2_4_%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88_0_%E8%AE%BE%E8%AE%A1%E6%80%9D%E6%83%B3/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cpp_2_4_智能指针_0_设计思想">cpp_2_4_智能指针_0_设计思想</span>
+            <span class="post-date" title="2020-09-10 08:00:00">2020/09/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/09/10/cpp_2_5_%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88_1_shared_ptr/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cpp_2_5_智能指针_1_shared_ptr">cpp_2_5_智能指针_1_shared_ptr</span>
+            <span class="post-date" title="2020-09-10 08:00:00">2020/09/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/09/10/cpp_2_6_%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88_2_unique_ptr/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cpp_2_6_智能指针_2_unique_ptr">cpp_2_6_智能指针_2_unique_ptr</span>
+            <span class="post-date" title="2020-09-10 08:00:00">2020/09/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/09/10/cpp_3_0_constexpr%20%E5%85%B3%E9%94%AE%E5%AD%97/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cpp_3_0_constexpr关键字">cpp_3_0_constexpr关键字</span>
+            <span class="post-date" title="2020-09-10 08:00:00">2020/09/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/09/10/cpp_3_1_const%20%E5%85%B3%E9%94%AE%E5%AD%97/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cpp_3_1_const 关键字">cpp_3_1_const 关键字</span>
+            <span class="post-date" title="2020-09-10 08:00:00">2020/09/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/09/10/cpp_3_2_Lambda%20%E8%A1%A8%E8%BE%BE%E5%BC%8F/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cpp_3_2_Lambda 表达式">cpp_3_2_Lambda 表达式</span>
+            <span class="post-date" title="2020-09-10 08:00:00">2020/09/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/09/10/cpp_5_1_%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1_0_overview/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cpp_5_1_面向对象_0_overview">cpp_5_1_面向对象_0_overview</span>
+            <span class="post-date" title="2020-09-10 08:00:00">2020/09/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/09/10/cpp_5_2_%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1_1_%E7%B1%BB%E5%92%8C%E6%88%90%E5%91%98%E5%87%BD%E6%95%B0/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cpp_5_2_面向对象_1_类和成员函数">cpp_5_2_面向对象_1_类和成员函数</span>
+            <span class="post-date" title="2020-09-10 08:00:00">2020/09/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/09/10/cpp_5_3_%E5%A4%9A%E6%80%81_0_%E8%99%9A%E5%87%BD%E6%95%B0%20Virtual%20Functions/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cpp_5_3_多态_0_虚函数 Virtual Functions">cpp_5_3_多态_0_虚函数 Virtual Functions</span>
+            <span class="post-date" title="2020-09-10 08:00:00">2020/09/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/09/10/cpp_6_0_%E6%A8%A1%E6%9D%BF%20template/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cpp_6_0_模板 template">cpp_6_0_模板 template</span>
+            <span class="post-date" title="2020-09-10 08:00:00">2020/09/10</span>
+        </a>
+        
+        
+        <a  class="All Ads_RecSys "
+           href="/2020/08/15/%E6%B7%B1%E5%BA%A6%E7%82%B9%E5%87%BB%E7%8E%87%E9%A2%84%E4%BC%B0%E6%A8%A1%E5%9E%8B%E4%B8%AD%E7%9A%84%E7%89%B9%E5%BE%81%E4%BA%A4%E5%8F%89/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="深度点击率预估模型中的特征交叉">深度点击率预估模型中的特征交叉</span>
+            <span class="post-date" title="2020-08-15 20:11:00">2020/08/15</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/07/18/Leetcode_hot_100%20%E6%80%BB%E7%BB%93/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Leetcode_hot_100 总结">Leetcode_hot_100 总结</span>
+            <span class="post-date" title="2020-07-18 22:56:00">2020/07/18</span>
+        </a>
+        
+        
+        <a  class="All Machine_Learning "
+           href="/2020/04/04/Faiss%20%E5%90%91%E9%87%8F%E6%A3%80%E7%B4%A2%E5%BA%93/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Faiss 向量检索库">Faiss 向量检索库</span>
+            <span class="post-date" title="2020-04-04 20:11:00">2020/04/04</span>
+        </a>
+        
+        
+        <a  class="All Reading "
+           href="/2020/03/22/%E7%8B%BC%E4%BA%BA%E6%9D%80%E5%A6%82%E4%BD%95%E8%87%B4%E8%83%9C/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="狼人杀如何致胜">狼人杀如何致胜</span>
+            <span class="post-date" title="2020-03-22 02:12:57">2020/03/22</span>
+        </a>
+        
+        
+        <a  class="All Reading "
+           href="/2020/02/18/David%20Stern,%20who%20turned%20NBA%20into%20powerhouse/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="David Stern, who turned NBA into powerhouse">David Stern, who turned NBA into powerhouse</span>
+            <span class="post-date" title="2020-02-18 22:56:00">2020/02/18</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/02/18/Linux%20%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E6%80%BB%E7%BB%93/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Linux 常用命令总结">Linux 常用命令总结</span>
+            <span class="post-date" title="2020-02-18 22:56:00">2020/02/18</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/02/13/Tensorflow%20API%20%E6%80%BB%E7%BB%93/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Tensorflow API 总结">Tensorflow API 总结</span>
+            <span class="post-date" title="2020-02-13 22:56:00">2020/02/13</span>
+        </a>
+        
+        
+        <a  class="All Machine_Learning "
+           href="/2020/01/11/Tricks%20in%20Data%20Mining%20Competitions%20%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98%E6%AF%94%E8%B5%9B%E6%8A%80%E5%B7%A7/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Tricks in Data Mining Competitions 数据挖掘比赛技巧">Tricks in Data Mining Competitions 数据挖掘比赛技巧</span>
+            <span class="post-date" title="2020-01-11 20:11:00">2020/01/11</span>
+        </a>
+        
+        
+        <a  class="All Machine_Learning "
+           href="/2020/01/11/Word2Vec/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Word2Vec">Word2Vec</span>
+            <span class="post-date" title="2020-01-11 20:11:00">2020/01/11</span>
+        </a>
+        
+        
+        <a  class="All Reading "
+           href="/2020/01/11/Yoshua%20Bengio%20%E5%AF%B9%20ML%20%E7%A0%94%E7%A9%B6%E8%80%85%E7%9A%84%E5%BB%BA%E8%AE%AE/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Yoshua Bengio 对 ML 研究者的建议">Yoshua Bengio 对 ML 研究者的建议</span>
+            <span class="post-date" title="2020-01-11 20:11:00">2020/01/11</span>
+        </a>
+        
+        
+        <a  class="All Rethinking "
+           href="/2019/12/31/2019%20Annual%20Summary%20%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="2019 Annual Summary 年终总结">2019 Annual Summary 年终总结</span>
+            <span class="post-date" title="2019-12-31 15:11:00">2019/12/31</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2019/12/12/Ubuntu%20%E7%B3%BB%E7%BB%9F%E8%AE%BE%E7%BD%AE/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Ubuntu 系统设置">Ubuntu 系统设置</span>
+            <span class="post-date" title="2019-12-12 20:11:00">2019/12/12</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2019/12/11/Data%20Analysis%20Tutorial:(Part%20I)/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Data Analysis Tutorial:(Part I)">Data Analysis Tutorial:(Part I)</span>
+            <span class="post-date" title="2019-12-11 20:11:00">2019/12/11</span>
+        </a>
+        
+        
+        <a  class="All Reading "
+           href="/2019/10/01/Interview%20record%20of%20ML%20intern%20in%202019/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Interview record of ML intern in 2019">Interview record of ML intern in 2019</span>
+            <span class="post-date" title="2019-10-01 12:12:57">2019/10/01</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2019/05/01/Errors%20Archives%20%E6%8A%A5%E9%94%99%E5%BD%92%E6%A1%A3/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Errors Archives 报错归档">Errors Archives 报错归档</span>
+            <span class="post-date" title="2019-05-01 13:03:00">2019/05/01</span>
+        </a>
+        
+        
+        <a  class="All Rethinking "
+           href="/2018/12/31/2018%20Annual%20Summary%20%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="2018 Annual Summary 年终总结">2018 Annual Summary 年终总结</span>
+            <span class="post-date" title="2018-12-31 20:17:00">2018/12/31</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2018/04/05/Git%20%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Git 使用指南">Git 使用指南</span>
+            <span class="post-date" title="2018-04-05 22:56:00">2018/04/05</span>
+        </a>
+        
+        <div id="no-item-tips">
+
+        </div>
+    </nav>
+    <div id="outline-list">
+    </div>
+</div>
+
+    </div>
+    <div class="hide-list">
+        <div class="semicircle" data-title="切换全屏 快捷键 s">
+            <div class="brackets first"><</div>
+            <div class="brackets">&gt;</div>
+        </div>
+    </div>
+</aside>
+<div id="post">
+    <div class="pjax">
+        <article id="page-" class="article article-type-page" itemscope itemprop="blogPost">
+    
+        <h1 class="article-title">Shoe Dog 鞋狗</h1>
+    
+    <div class="article-meta">
+        
+        
+        
+        <span class="book">
+            <i class="iconfont icon-category"></i>
+            
+            
+            <a  data-rel=""></a>
+            
+        </span>
+        
+        
+    </div>
+    <div class="article-meta">
+        
+            Created At : <time class="date" title='Updated At: 2024-03-22 13:17:40'>2020-12-20 18:53</time>
+        
+    </div>
+    <div class="article-meta">
+        
+        
+        <span id="busuanzi_container_page_pv">
+            Views 👀 :<span id="busuanzi_value_page_pv">
+                <span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </span>
+        </span>
+        
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Phil-Knight-%E8%8F%B2%E5%B0%94%C2%B7%E5%A5%88%E7%89%B9"><span class="toc-text">Phil Knight 菲尔·奈特</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%93%E6%84%9F"><span class="toc-text">体感</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%8E%AF%E6%B8%B8%E4%B8%96%E7%95%8C%E7%9A%84%E6%84%8F%E4%B9%89"><span class="toc-text">环游世界的意义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%96%AF%E7%8B%82%E7%9A%84%E8%B7%91%E6%AD%A5%E4%BF%A1%E5%BE%92%E4%BB%AC"><span class="toc-text">疯狂的跑步信徒们</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%97%B6%E4%BB%A3%E8%B5%8B%E4%BA%88%E7%9A%84%E6%84%8F%E4%B9%89-%E5%B1%9E%E4%BA%8EPhil%E7%9A%84%E9%A1%BA%E5%8A%BF%E8%80%8C%E4%B8%BA"><span class="toc-text">时代赋予的意义: 属于Phil的顺势而为</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%89%E8%AE%AE%E6%97%B6%E5%88%BB"><span class="toc-text">争议时刻</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BE%8E%E5%BC%8F%E5%B9%BD%E9%BB%98%E7%9A%84%E5%86%99%E4%BD%9C%E9%A3%8E%E6%A0%BC"><span class="toc-text">美式幽默的写作风格</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1962"><span class="toc-text">1962</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1964"><span class="toc-text">1964</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1965"><span class="toc-text">1965</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1966"><span class="toc-text">1966</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1971"><span class="toc-text">1971</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1972"><span class="toc-text">1972</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1973"><span class="toc-text">1973</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1976"><span class="toc-text">1976</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1980"><span class="toc-text">1980</span></a></li></ol></li></ol>
+    
+<style>
+    .left-col .switch-btn,
+    .left-col .switch-area {
+        display: none;
+    }
+    .toc-level-3 i,
+    .toc-level-3 ol {
+        display: none !important;
+    }
+</style>
+</div>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <div align="center">
+<img src="https://s4.ax1x.com/2022/02/19/HHsqne.jpg" width="100%"/>
+</div>
+
+
+
+<h2 id="Phil-Knight-菲尔·奈特"><a href="#Phil-Knight-菲尔·奈特" class="headerlink" title="Phil Knight 菲尔·奈特"></a>Phil Knight 菲尔·奈特</h2><p>Phil Kight出生于俄勒冈州 (State of Oregon) , 俄勒冈州: 位于美国太平洋沿岸, 面为加利福尼亚州, 北面为华盛顿州, 气候温和, 季节分明.  </p>
+<div align="center">
+<img src="https://s3.ax1x.com/2020/12/20/raWBrV.png" width="61.8%"/>
+</div>
+
+<h2 id="体感"><a href="#体感" class="headerlink" title="体感"></a>体感</h2><h3 id="环游世界的意义"><a href="#环游世界的意义" class="headerlink" title="环游世界的意义"></a>环游世界的意义</h3><p>在第一份工作没开始的时候, phil先环游了一次世界, 对各国文化有着相当深厚的理解. 例如”NIKE”这个词的由来, 虽然文中写到也是经过各种犹豫不定才确定下来, 但是也是在心里埋下了一个种子渴望”胜利”.  </p>
+<h3 id="疯狂的跑步信徒们"><a href="#疯狂的跑步信徒们" class="headerlink" title="疯狂的跑步信徒们"></a>疯狂的跑步信徒们</h3><p>Knight是一个跑步极度爱好者, 是一个疯狂的跑步信徒, 且打心眼相信”跑步让世界能变美好”. 平时跑10km, 遇到压力大的时候跑20km.<br>他的合伙人鲍尔曼是美国田径知名教练, 带出来很多奥运会奖牌得主, 而且这个教练非常喜欢鼓捣鞋子, 经常拆开尝试自制鞋子. 得力干将约翰逊也是个疯狂的跑步爱好者.  </p>
+<h3 id="时代赋予的意义-属于Phil的顺势而为"><a href="#时代赋予的意义-属于Phil的顺势而为" class="headerlink" title="时代赋予的意义: 属于Phil的顺势而为"></a>时代赋予的意义: 属于Phil的顺势而为</h3><p>紧紧抓住每一届奥运会和其他赛事. 每一届奥运会都是NIKE提升品牌价值的重要契机, 他的团队紧紧抓住这些重要的赛事, 推出新的产品, 签约更符合自己心目中品牌形象的运动员.<br>品牌营销的教科书： NIKE所代表的不是一款产品, 而是将NIKE上升为一种美国人的精神, 一种自由精神的寄托.  </p>
+<h3 id="争议时刻"><a href="#争议时刻" class="headerlink" title="争议时刻"></a>争议时刻</h3><p>偷情报: 在观察到自己不受到鬼冢信任时, 偷了北见包里面的文件来看, 本质上是及其不道德的商业行为, 但是却为自己掌握了更多情报.  </p>
+<h3 id="美式幽默的写作风格"><a href="#美式幽默的写作风格" class="headerlink" title="美式幽默的写作风格"></a>美式幽默的写作风格</h3><p>和山姆沃尔顿完全迥异的写作风格, 三句正常文字表达之后就加一句美式幽默.  </p>
+<h3 id="1962"><a href="#1962" class="headerlink" title="1962"></a>1962</h3><p>It was one of my final classes, a seminar on entrepreneurship.<br>I’d written a research paper about shoes, and the paper had evolved from a run-of-the-mill assignment to an all-out obsession.<br>Being a runner, I knew something about running shoes.<br>Being a business buff, I knew that Japanese cameras had made deep cuts into the camera market, which had once been dominated by Germans.<br>Thus, I argued in my paper that Japanese running shoes might do the same thing.<br>The idea interested me, then inspired me, then captivated me.<br>It seemed so obvious, so simple, so potentially huge.</p>
+<h3 id="1964"><a href="#1964" class="headerlink" title="1964"></a>1964</h3><p>Driving back to Portland I’d puzzle over my sudden success at selling.<br>I’d been unable to sell encyclopedias, and I’d despised it to boot.<br>I’d been slightly better at selling mutual funds, but I’d felt dead inside.<br>So why was selling shoes so different?<br>Because, I realized, it wasn’t selling.<br>I believed in running.<br>I believed that if people got out and ran a few miles every day, the world would be a better place, and I believed these shoes were better to run in.<br>People, sensing my belief, wanted some of that belief for themselves.<br>Belief, I decided. Belief is irresistible.</p>
+<h3 id="1965"><a href="#1965" class="headerlink" title="1965"></a>1965</h3><p>In fact, in 1965, running wasn’t even a sport.<br>It wasn’t popular, it wasn’t unpopular—it just was.<br>To go out for a three-mile run was something weirdos did, presumably to burn off manic energy.<br>Running for pleasure, running for exercise, running for endorphins (内啡肽) , running to live better and longer—these things were unheard of People often went out of their way to mock runners.<br>Drivers would slowdown and honk their horns.<br>“Get a horse!” they’d yell, throwing a beer orsoda at the runner’s head.<br>Johnson had been drenched by many a Pepsi.<br>He wanted to change all this.<br>He wanted to help all the oppressed runners of the world, to bring them into the light, enfold them in a community.<br>So maybe he was a social worker after all.<br>He just wanted to socialize exclusively with runners.</p>
+<h3 id="1966"><a href="#1966" class="headerlink" title="1966"></a>1966</h3><p>I look back now and wonder if I was truly being myself, or if I was emulating Bowerman, or my father, or both.<br>Was I adopting their man-of-few-words demeanor? Was I maybe modeling all the men I admired?<br>At the time I was reading everything I could get my hands on about generals, samurai, shoguns, along with biographies of my three main heroes—Churchill, Kennedy, and Tolstoy.<br>I had no love of violence, but I was fascinated by leadership, or lack thereof, under extreme conditions.<br>War is the most extreme of conditions. But business has its warlike parallels.<br>Someone somewhere once said that business is war without bullets, and I tended to agree.  </p>
+<p>To Johnson’s credit, though he craved more communication, he never let the lack of it discourage him.<br>On the contrary, it motivated him. He was anal, he recognized that I was not, and though he enjoyed complaining (to me, to<br>my sister, to mutual friends), he saw that my managerial style gave him freedom.<br>Left to do as he pleased, he responded with boundless creativity and energy.<br>He worked seven days a week, selling and promoting Blue Ribbon, and when he wasn’t selling, he was beaverishly building up his customer data files.</p>
+<p>Each new customer got his or her own index card, and each index card contained that customer’s personal information, shoe size, and shoe preferences.<br>This database enabled Johnson to keep in touch with all his customers, at all times, and to keep them all feeling special. He sent them Christmas cards.<br>He sent them birthday cards. He sent them notes of congratulation after they completed a big race or marathon.<br>Whenever I got a letter from Johnson I knew it was one of dozens he’d carried down to the mailbox that day.<br>He had hundreds and hundreds of customer correspondents, all along the spectrum of humanity, from high school track stars to octogenarian weekend joggers.<br>Many, upon pulling yet another Johnson letter from their mailboxes, must have thought the same thing I did:<br>“Where does this guy find the time?”</p>
+<p>Bowerman told the writer from <em>Sports Illustrated</em> that Pre was the fastest middle-distance runner alive.<br>I’d never heard such unbridled enthusiasm frommy stolid coach.<br>In the days ahead, in other articles I clipped, Bowerman waseven more effusive, calling Pre “the best runner I’ve ever had.”<br>Bowerman’s assistant, Bill Dellinger, said Pre’s secret weapon was his confidence, whichwas as freakish as his lung capacity.<br>“Usually,” Dellinger said, “it takes ourguys twelve years to build confidence in themselves, and here’s a young manwho has the right attitude naturally.”<br>Yes, I thought. Confidence. More than equity, more than liquidity, that’s what a man needs.<br>I wished I had more. I wished I could borrow some.<br>But confidence was cash. You had to have some to get some. And people were loath to give it to you.</p>
+<h3 id="1971"><a href="#1971" class="headerlink" title="1971"></a>1971</h3><p>I’d never heard of Senter, but Sumeragi assured me the man was a genuine, head-to-toe shoe dog.<br>I’d heard this phrase a few times.<br>Shoe dogs were people who devoted themselves wholly to the making, selling, buying, or designing of shoes.<br>Lifers used the phrase cheerfully to describe other lifers, men and women who had toiled so long and hard in the shoe trade, they thought and talked about nothing else.<br>It was an all-consuming mania, a recognizable psychological disorder, to care so much about insoles and outsoles, linings and welts, rivets and vamps.<br>But I understood.<br>The average person takes seventy-five hundred steps a day, 274 million steps over the course of a long life, the equivalent of six times around the globe—shoe dogs, it seemed to me, simply wanted to be part of that journey.<br>Shoes were their way of connecting with humanity.<br>What better way of connecting, shoe dogs thought, than by refining the hinge that joins each person to the world’s surface?<br>I felt an unusual sympathy for such sad cases.<br>I wondered how many I might have met in my travels.</p>
+<h3 id="1972"><a href="#1972" class="headerlink" title="1972"></a>1972</h3><p>They started to barrage us with questions. Hey—what IS this?<br>That’s a Nike.<br>The hell’s a Nike?<br>It’s the Greek goddess of victory.<br>Greek what now?<br>Goddess of vic—<br>And what’s THIS?<br>That’s a swoosh.<br>The hell’s a swoosh?<br>The answer flew out of me: It’s the sound of someone going past you.<br>They liked that. Oh, they liked it a whole lot.  </p>
+<p>“This is—the moment,” I said. “This is the moment we’ve been waiting for. Our moment.<br>No more selling someone else’s brand.<br>No more working for someone else.<br>Onitsuka has been holding us down for years.<br>Their late deliveries, their mixed-up orders, their refusal to hear and implement our design ideas—who among us isn’t sick of dealing with all that?<br>It’s time we faced facts: If we’re going to succeed, or fail, we should do so on our own terms, with our own ideas—our own brand.<br>We posted two million in sales last year . . . none of which had anything to do with Onitsuka.<br>That number was a testament to our ingenuity and hard work. Let’s not look at this as a crisis.<br>Let’s look at this as our liberation. Our Independence Day.</p>
+<p><em>The cowards never started and the weak died along the way—that leaves us.</em></p>
+<h3 id="1973"><a href="#1973" class="headerlink" title="1973"></a>1973</h3><center>
+<font size=5 color="Red">MacArthur came to mind. <i>Go fast or die.</i></font>
+</center>
+
+<ul>
+<li><font color="blue"><strong>Supply and demand is always the root problem in business.</strong>&lt;&#x2F;fontIt’s been true since Phoenician traders raced to bring Rome the coveted purple dye that colored the clothing of royals and rich people; there was never enough purple to go around. It’s hard enough to invent and manufacture and market a product, but then the logistics, the mechanics, the hydraulics of getting it to the people who want it, when they want it—this is how companies die, how ulcers are born.</li>
+</ul>
+<center>
+<font size=5 color="Red"><i>You are remembered for the rules you break.</i></font>
+</center>
+
+<h3 id="1976"><a href="#1976" class="headerlink" title="1976"></a>1976</h3><p>Watching that shoe evolve in 1976 from popular accessory to cultural artifact, I had a thought.<br>People might start wearing this thing to class.<br>And the office.<br>And the grocery store.<br>And throughout their everyday lives.<br>It was a rather grandiose idea. Adidas had had limited success converting athletic shoes to everyday wear, with the Stan Smith tennis shoe and the<br>Country running shoe.<br>But neither was nearly as distinctive, or popular, as the waffle trainer.<br>So I ordered our factories to start making the waffle trainer in blue, which would go better with jeans, and that’s when it really took off.<br>We couldn’t make enough. Retailers and sales reps were on their knees, pleading for all the waffle trainers we could ship.<br>The soaring pair counts were transforming our company, not to mention the industry.<br>We were seeing numbers that redefined our long-term goals, because they gave us something we’d always lacked—an identity.<br>More than a brand, Nike was now becoming a household word, to such an extent that we would have to change the company name.<br>Blue Ribbon, we decided, had run its course. We would have to incorporate as Nike, Inc.</p>
+<h3 id="1980"><a href="#1980" class="headerlink" title="1980"></a>1980</h3><p>I notified everyone who was going on the trip to get their papers and passports and affairs in order.<br>Then I spent the days leading up to our departure reading, cramming on Chinese history.<br>The Boxer Rebellion. The Great Wall. Opium Wars. Ming dynasty. Confucius. Mao.</p>
+<p>Just before getting on the plane home we signed deals with two Chinese factories, and officially became the first American shoemaker in twenty-five years to be allowed to do business in China.<br>It seems wrong to call it “business.”<br>It seems wrong to throw all those hectic days and sleepless nights, all those magnificent triumphs and desperate struggles, under that bland, generic banner: business.</p>
+<p>What we were doing felt like so much more.<br>Each new day brought fifty new problems, fifty tough decisions that needed to be made, right now, and we were always acutely aware that one rash move, one wrong decision could be the end.<br>The margin for error was forever getting narrower, while the stakes were forever creeping higher—and none of us wavered in the belief that “stakes” didn’t mean “money.”<br>For some, I realize, business is the all-out pursuit of profits, period, full stop, but for us business was no more about making money than being human is about making blood.<br>Yes, the human body needs blood.<br>It needs to manufacture red and white cells and platelets and redistribute them evenly, smoothly, to all the right places, on time, or else.<br>But that day-to-day business of the human body isn’t our mission as human beings.<br>It’s a basic process that enables our higher aims, and life always strives to transcend the basic processes of living—and at some point in the late 1970s, I did, too.<br>I redefined winning, expanded it beyond my original definition of not losing, of merely staying alive.<br>That was no longer enough to sustain me, or my company.<br>We wanted, as all great businesses do, to create, to contribute, and we dared to say so aloud.<br>When you make something, when you improve something, when you deliver something, when you add some new thing or service to the lives of strangers, making them happier, or healthier, or safer, or better, and when you do it all crisply and efficiently, smartly, the way everything should be done but so seldom is—you’re participating more fully in the whole grand human drama.<br>More than simply alive, you’re helping others to live more fully, and if that’s business, all right, call me a businessman.<br>Maybe it will grow on me.</p>
+
+      
+       <hr><span style="font-style: italic;color: gray;"> 转载请注明来源 </span>
+    </div>
+</article>
+
+
+<p>
+    <a  class="dashang" onclick="dashangToggle()">💰</a>
+</p>
+
+
+
+
+
+
+    
+
+
+
+
+    </div>
+    <div class="copyright">
+        <p class="footer-entry">
+    ©2018-2024
+</p>
+<p class="footer-entry">Built with <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/yelog/hexo-theme-3-hexo" target="_blank">3-hexo</a> theme</p>
+
+    </div>
+    <div class="full-toc">
+        <button class="full" data-title="切换全屏 快捷键 s"><span class="min "></span></button>
+<a class="" id="rocket" ></a>
+
+    </div>
+</div>
+
+<div class="hide_box" onclick="dashangToggle()"></div>
+<div class="shang_box">
+    <a class="shang_close"  onclick="dashangToggle()">×</a>
+    <div class="shang_tit">
+        <p>Help us with donation</p>
+    </div>
+    <div class="shang_payimg">
+        <div class="pay_img">
+            <img src="/img/alipay.jpg" class="alipay" title="扫码支持">
+            <img src="/img/weixin.jpg" class="weixin" title="扫码支持">
+        </div>
+    </div>
+    <div class="shang_payselect">
+        <span><label><input type="radio" name="pay" checked value="alipay">alipay</label></span><span><label><input type="radio" name="pay" value="weixin">weixin</label></span>
+    </div>
+</div>
+
+
+</body>
+<script src="/js/jquery.pjax.js?v=1.1.0" ></script>
+
+<script src="/js/script.js?v=1.1.0" ></script>
+<script>
+    var img_resize = 'default';
+    function initArticle() {
+        /*渲染对应的表格样式*/
+        
+            $("#post .pjax table").addClass("green_title");
+        
+
+        /*渲染打赏样式*/
+        
+        $("input[name=pay]").on("click", function () {
+            if($("input[name=pay]:checked").val()=="weixin"){
+                $(".shang_box .shang_payimg .pay_img").addClass("weixin_img");
+            } else {
+                $(".shang_box .shang_payimg .pay_img").removeClass("weixin_img");
+            }
+        })
+        
+
+        /*高亮代码块行号*/
+        
+
+        /*访问数量*/
+        
+        $.getScript("//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js");
+        
+
+        /*代码高亮，行号对齐*/
+        $('.pre-numbering').css('line-height',$('.has-numbering').css('line-height'));
+
+        
+        
+    }
+
+    /*打赏页面隐藏与展示*/
+    
+    function dashangToggle() {
+        $(".shang_box").fadeToggle();
+        $(".hide_box").fadeToggle();
+    }
+    
+
+</script>
+
+<!--加入行号的高亮代码块样式-->
+
+<!--自定义样式设置-->
+<style>
+    
+    
+    .nav {
+        width: 542px;
+    }
+    .nav.fullscreen {
+        margin-left: -542px;
+    }
+    .nav-left {
+        width: 120px;
+    }
+    
+    
+    @media screen and (max-width: 1468px) {
+        .nav {
+            width: 492px;
+        }
+        .nav.fullscreen {
+            margin-left: -492px;
+        }
+        .nav-left {
+            width: 100px;
+        }
+    }
+    
+    
+    @media screen and (max-width: 1024px) {
+        .nav {
+            width: 492px;
+            margin-left: -492px
+        }
+        .nav.fullscreen {
+            margin-left: 0;
+        }
+    }
+    
+    @media screen and (max-width: 426px) {
+        .nav {
+            width: 100%;
+        }
+        .nav-left {
+            width: 100%;
+        }
+    }
+    
+    
+    .nav-right .title-list nav a .post-title, .nav-right .title-list #local-search-result a .post-title {
+        color: #383636;
+    }
+    
+    
+    .nav-right .title-list nav a .post-date, .nav-right .title-list #local-search-result a .post-date {
+        color: #5e5e5f;
+    }
+    
+    
+    .nav-right nav a.hover, #local-search-result a.hover{
+        background-color: #e2e0e0;
+    }
+    
+    
+
+    /*列表样式*/
+    
+
+    /* 背景图样式 */
+    
+    
+
+
+    /*引用块样式*/
+    
+
+    /*文章列表背景图*/
+    
+
+    
+</style>
+
+
+
+
+
+
+
+</html>

@@ -1,0 +1,1007 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Yoshua Bengio 对 ML 研究者的建议 | G&amp;R Blog</title>
+  <meta name="keywords" content="">
+  <meta name="description" content="Yoshua Bengio 对 ML 研究者的建议 | G&amp;R Blog">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="Overview1.Why User Response Prediction Calibration? 为什么需要校准?2.Calibration Metrics  校准指标3.Calibration Solutions 校准方案4.Neural Calibration 一种拟合残差的的校准网络    User Response Prediction CalibrationAUC无法反映模">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Field-aware Calibration： A Simple and Empirically Strong Method for Reliable Probabilistic Predictions">
+<meta property="og:url" content="http://example.com/debug_articles/Field-aware%20Calibration%EF%BC%9A%20A%20Simple%20and%20Empirically%20Strong%20Method%20for%20Reliable%20Probabilistic%20Predictions.html">
+<meta property="og:site_name" content="G&amp;R Blog">
+<meta property="og:description" content="Overview1.Why User Response Prediction Calibration? 为什么需要校准?2.Calibration Metrics  校准指标3.Calibration Solutions 校准方案4.Neural Calibration 一种拟合残差的的校准网络    User Response Prediction CalibrationAUC无法反映模">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://s4.ax1x.com/2022/02/13/HrwR3j.png">
+<meta property="og:image" content="https://s4.ax1x.com/2022/02/13/HrwqC4.png">
+<meta property="og:image" content="https://s4.ax1x.com/2022/02/13/HrwR3j.png">
+<meta property="article:published_time" content="2022-02-14T13:00:00.000Z">
+<meta property="article:modified_time" content="2024-03-22T05:17:40.745Z">
+<meta property="article:author" content="G &amp; R">
+<meta property="article:tag" content="Recommending System">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s4.ax1x.com/2022/02/13/HrwR3j.png">
+
+
+<link rel="icon" href="/img/avatar.jpg">
+
+<link href="/css/style.css?v=1.1.0" rel="stylesheet">
+
+<link href="/css/hl_theme/github.css?v=1.1.0" rel="stylesheet">
+
+<link href="//cdn.jsdelivr.net/npm/animate.css@4.1.0/animate.min.css" rel="stylesheet">
+
+<script src="//cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+<script src="/js/titleTip.js?v=1.1.0" ></script>
+
+<script src="//cdn.jsdelivr.net/npm/highlightjs@9.16.2/highlight.pack.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+
+<script src="//cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js"></script>
+
+
+
+<script src="//cdn.jsdelivr.net/npm/jquery.cookie@1.4.1/jquery.cookie.min.js" ></script>
+
+<script src="/js/iconfont.js?v=1.1.0" ></script>
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+<div style="display: none">
+  <input class="theme_disqus_on" value="false">
+  <input class="theme_preload_comment" value="">
+  <input class="theme_blog_path" value="">
+  <input id="theme_shortcut" value="true" />
+  <input id="theme_highlight_on" value="true" />
+  <input id="theme_code_copy" value="true" />
+</div>
+
+
+
+<body>
+<aside class="nav">
+    <div class="nav-left">
+        <a href="/"
+   class="avatar_target">
+    <img class="avatar"
+         src="/img/avatar.jpg"/>
+</a>
+<div class="author">
+    <span>G &amp; R</span>
+</div>
+
+<div class="icon">
+    
+        
+            <a title="github"
+               href="https://github.com/goldandrabbit"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-github"></use>
+                    </svg>
+                
+            </a>
+        
+    
+</div>
+
+
+
+
+
+<ul>
+    <li>
+        <div class="all active" data-rel="All">All
+            
+                <small>(53)</small>
+            
+        </div>
+    </li>
+    
+        
+            
+                
+    <li>
+        <div data-rel="Ads_RecSys">
+            
+            Ads_RecSys
+            <small>(8)</small>
+        </div>
+        
+    </li>
+
+            
+        
+    
+        
+            
+                
+    <li>
+        <div data-rel="Coding">
+            
+            Coding
+            <small>(30)</small>
+        </div>
+        
+    </li>
+
+            
+        
+    
+        
+            
+                
+    <li>
+        <div data-rel="Machine_Learning">
+            
+            Machine_Learning
+            <small>(3)</small>
+        </div>
+        
+    </li>
+
+            
+        
+    
+        
+            
+                
+    <li>
+        <div data-rel="Reading">
+            
+            Reading
+            <small>(6)</small>
+        </div>
+        
+    </li>
+
+            
+        
+    
+        
+            
+                
+    <li>
+        <div data-rel="Rethinking">
+            
+            Rethinking
+            <small>(6)</small>
+        </div>
+        
+    </li>
+
+            
+        
+    
+</ul>
+<div class="left-bottom">
+    <div class="menus">
+        
+    </div>
+    <div>
+        
+            <a class="about  hasFriend  site_url"
+               
+               href="/about">About</a>
+        
+        <a style="width: 50%"
+                
+                                           class="friends">Friends</a>
+        
+    </div>
+</div>
+<input type="hidden" id="yelog_site_posts_number" value="53">
+
+<div style="display: none">
+    <span id="busuanzi_value_site_uv"></span>
+    <span id="busuanzi_value_site_pv"></span>
+</div>
+
+    </div>
+    <div class="nav-right">
+        <div class="friends-area">
+    <div class="friends-title">
+        Links
+        <i class="iconfont icon-left"></i>
+    </div>
+    <div class="friends-content">
+        <ul>
+            
+            <li><a target="_blank" href="http://yelog.org/">叶落阁</a></li>
+            
+        </ul>
+    </div>
+</div>
+        <div class="title-list">
+    <div class="right-top">
+        <div id="default-panel">
+            <i class="iconfont icon-search" data-title="搜索 快捷键 i"></i>
+            <div class="right-title">All</div>
+            <i class="iconfont icon-file-tree" data-title="切换到大纲视图 快捷键 w"></i>
+        </div>
+        <div id="search-panel">
+            <i class="iconfont icon-left" data-title="返回"></i>
+            <input id="local-search-input" autocomplete="off"/>
+            <label class="border-line" for="input"></label>
+            <i class="iconfont icon-case-sensitive" data-title="大小写敏感"></i>
+            <i class="iconfont icon-tag" data-title="标签"></i>
+        </div>
+        <div id="outline-panel" style="display: none">
+            <div class="right-title">大纲</div>
+            <i class="iconfont icon-list" data-title="切换到文章列表"></i>
+        </div>
+    </div>
+
+    <div class="tags-list">
+    <input id="tag-search" />
+    <div class="tag-wrapper">
+        
+    </div>
+
+</div>
+
+    
+    <nav id="title-list-nav">
+        
+        
+        <a  class="All Coding "
+           href="/2099/01/30/G&R%20%E7%9A%84%20Blog%20%E5%8F%91%E5%B8%83%E8%A7%84%E8%8C%83/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="G&amp;R 的 Blog 发布规范">G&amp;R 的 Blog 发布规范</span>
+            <span class="post-date" title="2099-01-30 20:00:00">2099/01/30</span>
+        </a>
+        
+        
+        <a  class="All Rethinking "
+           href="/2024/02/20/2023%20Annual%20Summary%20%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="2023 Annual Summary 年终总结">2023 Annual Summary 年终总结</span>
+            <span class="post-date" title="2024-02-20 20:00:00">2024/02/20</span>
+        </a>
+        
+        
+        <a  class="All Rethinking "
+           href="/2023/05/20/2022%20Annual%20Summary%20%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="2022 Annual Summary 年终总结">2022 Annual Summary 年终总结</span>
+            <span class="post-date" title="2023-05-20 20:00:00">2023/05/20</span>
+        </a>
+        
+        
+        <a  class="All Ads_RecSys "
+           href="/2022/05/20/TabTransformer%20Tabular%20Data%20Modeling%20Using%20Contextual%20Embeddings/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="TabTransformer：Tabular Data Modeling Using Contextual Embeddings">TabTransformer：Tabular Data Modeling Using Contextual Embeddings</span>
+            <span class="post-date" title="2022-05-20 20:43:00">2022/05/20</span>
+        </a>
+        
+        
+        <a  class="All Ads_RecSys "
+           href="/2022/05/15/H&M%20Recommendation%20Competition%20Top1%20%E6%96%B9%E6%A1%88/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="H&amp;M Recommendation Competition Top1 方案">H&amp;M Recommendation Competition Top1 方案</span>
+            <span class="post-date" title="2022-05-15 23:55:00">2022/05/15</span>
+        </a>
+        
+        
+        <a  class="All Ads_RecSys "
+           href="/2022/03/20/Deep%20Interest%20Highlight%20Network%20for%20Click-Through%20Rate%20Prediction%20in%20Trigger-Induced%20Recommendation/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Deep Interest Highlight Network for Click-Through Rate Prediction in Trigger-Induced Recommendation">Deep Interest Highlight Network for Click-Through Rate Prediction in Trigger-Induced Recommendation</span>
+            <span class="post-date" title="2022-03-20 22:00:00">2022/03/20</span>
+        </a>
+        
+        
+        <a  class="All Ads_RecSys "
+           href="/2022/03/12/Learning-based%20Mechanism%20%E5%9F%BA%E4%BA%8E%E5%AD%A6%E4%B9%A0%E8%8C%83%E5%BC%8F%E4%B8%8B%E7%9A%84%E6%9C%BA%E5%88%B6%E8%AE%BE%E8%AE%A1/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Learning-based Mechanism 基于学习范式下的机制设计">Learning-based Mechanism 基于学习范式下的机制设计</span>
+            <span class="post-date" title="2022-03-12 23:00:00">2022/03/12</span>
+        </a>
+        
+        
+        <a  class="All Ads_RecSys "
+           href="/2022/02/20/Mechanism%20Design%20%E6%9C%BA%E5%88%B6%E8%AE%BE%E8%AE%A1/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Mechanism Design 机制设计">Mechanism Design 机制设计</span>
+            <span class="post-date" title="2022-02-20 20:00:00">2022/02/20</span>
+        </a>
+        
+        
+        <a  class="All Rethinking "
+           href="/2022/02/07/2021%20Annual%20Summary%20%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="2021 Annual Summary 年终总结">2021 Annual Summary 年终总结</span>
+            <span class="post-date" title="2022-02-07 12:11:00">2022/02/07</span>
+        </a>
+        
+        
+        <a  class="All Reading "
+           href="/2021/11/11/Cybernetics%20and%20Society%20%E6%8E%A7%E5%88%B6%E8%AE%BA%E4%B8%8E%E7%A4%BE%E4%BC%9A/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Cybernetics and Society 控制论与社会">Cybernetics and Society 控制论与社会</span>
+            <span class="post-date" title="2021-11-11 21:00:00">2021/11/11</span>
+        </a>
+        
+        
+        <a  class="All Ads_RecSys "
+           href="/2021/09/10/Bias%20and%20Debias%20in%20Recommender%20System%20%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E4%B8%AD%E7%9A%84%20bias%20%E5%92%8C%20debias/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Bias and Debias in Recommender System 推荐系统中的 bias 和 debias">Bias and Debias in Recommender System 推荐系统中的 bias 和 debias</span>
+            <span class="post-date" title="2021-09-10 21:00:00">2021/09/10</span>
+        </a>
+        
+        
+        <a  class="All Reading "
+           href="/2021/05/20/Causal%20Inference%20%E5%9B%A0%E6%9E%9C%E6%8E%A8%E6%96%AD/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Causal Inference 因果推断">Causal Inference 因果推断</span>
+            <span class="post-date" title="2021-05-20 20:00:00">2021/05/20</span>
+        </a>
+        
+        
+        <a  class="All Rethinking "
+           href="/2020/12/31/2020%20Annual%20Summary%20%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="2020 Annual Summary 年终总结">2020 Annual Summary 年终总结</span>
+            <span class="post-date" title="2020-12-31 23:11:00">2020/12/31</span>
+        </a>
+        
+        
+        <a  class="All Ads_RecSys "
+           href="/2020/11/08/The%20Essence%20of%20RecSys%20%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E7%B2%BE%E8%A6%81/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="The Essence of RecSys 推荐系统精要">The Essence of RecSys 推荐系统精要</span>
+            <span class="post-date" title="2020-11-08 11:56:00">2020/11/08</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/10/01/Hexo%20%E6%90%AD%E5%BB%BA%E6%80%BB%E7%BB%93/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Hexo 搭建总结">Hexo 搭建总结</span>
+            <span class="post-date" title="2020-10-01 20:11:00">2020/10/01</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/09/10/cpp_0_0_%E5%B1%9E%E4%BA%8E%20cpp%20%E7%9A%84%E8%AE%BE%E8%AE%A1%E5%93%B2%E5%AD%A6/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cpp_0_1_cpp设计哲学">cpp_0_1_cpp设计哲学</span>
+            <span class="post-date" title="2020-09-10 08:00:00">2020/09/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/09/10/cpp_0_1_vscode%20%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cpp_0_1_vscode 环境配置">cpp_0_1_vscode 环境配置</span>
+            <span class="post-date" title="2020-09-10 08:00:00">2020/09/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/09/10/cpp_0_2_%E5%A4%B4%E6%96%87%E4%BB%B6%20header%20file/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cpp_0_2_头文件 headerfile">cpp_0_2_头文件 headerfile</span>
+            <span class="post-date" title="2020-09-10 08:00:00">2020/09/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/09/10/cpp_0_3_%E8%B0%B7%E6%AD%8C%20C++%20%E7%BC%96%E7%A8%8B%E9%A3%8E%E6%A0%BC/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cpp_0_3_谷歌 C++ 编程风格">cpp_0_3_谷歌 C++ 编程风格</span>
+            <span class="post-date" title="2020-09-10 08:00:00">2020/09/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/09/10/cpp_1_1_%E5%B7%A6%E5%80%BC%E5%92%8C%E5%8F%B3%E5%80%BC%20Lvalue%20and%20Rvalue/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cpp_2_1_左值和右值 Lvalue and Rvalue">cpp_2_1_左值和右值 Lvalue and Rvalue</span>
+            <span class="post-date" title="2020-09-10 08:00:00">2020/09/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/09/10/cpp_1_2_%E5%B7%A6%E5%80%BC%E5%BC%95%E7%94%A8%20Lvalue%20reference/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cpp_1_2_左值引用 Lvalue reference">cpp_1_2_左值引用 Lvalue reference</span>
+            <span class="post-date" title="2020-09-10 08:00:00">2020/09/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/09/10/cpp_1_3_%E5%8F%B3%E5%80%BC%E5%BC%95%E7%94%A8%20Rvalue%20reference/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cpp_1_3_右值引用 Rvalue reference">cpp_1_3_右值引用 Rvalue reference</span>
+            <span class="post-date" title="2020-09-10 08:00:00">2020/09/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/09/10/cpp_2_1_%E6%8C%87%E9%92%88%20Pointer_1_%E5%9C%B0%E5%9D%80%E5%92%8C%E6%8C%87%E9%92%88/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cpp_2_1_指针 Pointer_1_地址和指针">cpp_2_1_指针 Pointer_1_地址和指针</span>
+            <span class="post-date" title="2020-09-10 08:00:00">2020/09/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/09/10/cpp_2_2_%E6%8C%87%E9%92%88%20Pointer_2_%E7%A9%BA%E6%8C%87%E9%92%88/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cpp_2_2_指针 Pointer_2_空指针">cpp_2_2_指针 Pointer_2_空指针</span>
+            <span class="post-date" title="2020-09-10 08:00:00">2020/09/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/09/10/cpp_2_3_%E6%8C%87%E9%92%88%20Pointer_3_const%E4%B8%8E%E6%8C%87%E9%92%88/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cpp_2_3_指针 Pointer_3_const与指针">cpp_2_3_指针 Pointer_3_const与指针</span>
+            <span class="post-date" title="2020-09-10 08:00:00">2020/09/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/09/10/cpp_2_3_%E6%8C%87%E9%92%88%20Pointer_4_%E4%BC%A0%E5%9C%B0%E5%9D%80%20Pass%20by%20address/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cpp_2_3_指针 Pointer_4_传地址 Pass by address">cpp_2_3_指针 Pointer_4_传地址 Pass by address</span>
+            <span class="post-date" title="2020-09-10 08:00:00">2020/09/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/09/10/cpp_2_4_%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88_0_%E8%AE%BE%E8%AE%A1%E6%80%9D%E6%83%B3/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cpp_2_4_智能指针_0_设计思想">cpp_2_4_智能指针_0_设计思想</span>
+            <span class="post-date" title="2020-09-10 08:00:00">2020/09/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/09/10/cpp_2_5_%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88_1_shared_ptr/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cpp_2_5_智能指针_1_shared_ptr">cpp_2_5_智能指针_1_shared_ptr</span>
+            <span class="post-date" title="2020-09-10 08:00:00">2020/09/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/09/10/cpp_2_6_%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88_2_unique_ptr/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cpp_2_6_智能指针_2_unique_ptr">cpp_2_6_智能指针_2_unique_ptr</span>
+            <span class="post-date" title="2020-09-10 08:00:00">2020/09/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/09/10/cpp_3_0_constexpr%20%E5%85%B3%E9%94%AE%E5%AD%97/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cpp_3_0_constexpr关键字">cpp_3_0_constexpr关键字</span>
+            <span class="post-date" title="2020-09-10 08:00:00">2020/09/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/09/10/cpp_3_1_const%20%E5%85%B3%E9%94%AE%E5%AD%97/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cpp_3_1_const 关键字">cpp_3_1_const 关键字</span>
+            <span class="post-date" title="2020-09-10 08:00:00">2020/09/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/09/10/cpp_3_2_Lambda%20%E8%A1%A8%E8%BE%BE%E5%BC%8F/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cpp_3_2_Lambda 表达式">cpp_3_2_Lambda 表达式</span>
+            <span class="post-date" title="2020-09-10 08:00:00">2020/09/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/09/10/cpp_5_1_%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1_0_overview/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cpp_5_1_面向对象_0_overview">cpp_5_1_面向对象_0_overview</span>
+            <span class="post-date" title="2020-09-10 08:00:00">2020/09/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/09/10/cpp_5_2_%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1_1_%E7%B1%BB%E5%92%8C%E6%88%90%E5%91%98%E5%87%BD%E6%95%B0/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cpp_5_2_面向对象_1_类和成员函数">cpp_5_2_面向对象_1_类和成员函数</span>
+            <span class="post-date" title="2020-09-10 08:00:00">2020/09/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/09/10/cpp_5_3_%E5%A4%9A%E6%80%81_0_%E8%99%9A%E5%87%BD%E6%95%B0%20Virtual%20Functions/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cpp_5_3_多态_0_虚函数 Virtual Functions">cpp_5_3_多态_0_虚函数 Virtual Functions</span>
+            <span class="post-date" title="2020-09-10 08:00:00">2020/09/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/09/10/cpp_6_0_%E6%A8%A1%E6%9D%BF%20template/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cpp_6_0_模板 template">cpp_6_0_模板 template</span>
+            <span class="post-date" title="2020-09-10 08:00:00">2020/09/10</span>
+        </a>
+        
+        
+        <a  class="All Ads_RecSys "
+           href="/2020/08/15/%E6%B7%B1%E5%BA%A6%E7%82%B9%E5%87%BB%E7%8E%87%E9%A2%84%E4%BC%B0%E6%A8%A1%E5%9E%8B%E4%B8%AD%E7%9A%84%E7%89%B9%E5%BE%81%E4%BA%A4%E5%8F%89/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="深度点击率预估模型中的特征交叉">深度点击率预估模型中的特征交叉</span>
+            <span class="post-date" title="2020-08-15 20:11:00">2020/08/15</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/07/18/Leetcode_hot_100%20%E6%80%BB%E7%BB%93/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Leetcode_hot_100 总结">Leetcode_hot_100 总结</span>
+            <span class="post-date" title="2020-07-18 22:56:00">2020/07/18</span>
+        </a>
+        
+        
+        <a  class="All Machine_Learning "
+           href="/2020/04/04/Faiss%20%E5%90%91%E9%87%8F%E6%A3%80%E7%B4%A2%E5%BA%93/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Faiss 向量检索库">Faiss 向量检索库</span>
+            <span class="post-date" title="2020-04-04 20:11:00">2020/04/04</span>
+        </a>
+        
+        
+        <a  class="All Reading "
+           href="/2020/03/22/%E7%8B%BC%E4%BA%BA%E6%9D%80%E5%A6%82%E4%BD%95%E8%87%B4%E8%83%9C/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="狼人杀如何致胜">狼人杀如何致胜</span>
+            <span class="post-date" title="2020-03-22 02:12:57">2020/03/22</span>
+        </a>
+        
+        
+        <a  class="All Reading "
+           href="/2020/02/18/David%20Stern,%20who%20turned%20NBA%20into%20powerhouse/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="David Stern, who turned NBA into powerhouse">David Stern, who turned NBA into powerhouse</span>
+            <span class="post-date" title="2020-02-18 22:56:00">2020/02/18</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/02/18/Linux%20%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E6%80%BB%E7%BB%93/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Linux 常用命令总结">Linux 常用命令总结</span>
+            <span class="post-date" title="2020-02-18 22:56:00">2020/02/18</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/02/13/Tensorflow%20API%20%E6%80%BB%E7%BB%93/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Tensorflow API 总结">Tensorflow API 总结</span>
+            <span class="post-date" title="2020-02-13 22:56:00">2020/02/13</span>
+        </a>
+        
+        
+        <a  class="All Machine_Learning "
+           href="/2020/01/11/Tricks%20in%20Data%20Mining%20Competitions%20%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98%E6%AF%94%E8%B5%9B%E6%8A%80%E5%B7%A7/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Tricks in Data Mining Competitions 数据挖掘比赛技巧">Tricks in Data Mining Competitions 数据挖掘比赛技巧</span>
+            <span class="post-date" title="2020-01-11 20:11:00">2020/01/11</span>
+        </a>
+        
+        
+        <a  class="All Machine_Learning "
+           href="/2020/01/11/Word2Vec/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Word2Vec">Word2Vec</span>
+            <span class="post-date" title="2020-01-11 20:11:00">2020/01/11</span>
+        </a>
+        
+        
+        <a  class="All Reading "
+           href="/2020/01/11/Yoshua%20Bengio%20%E5%AF%B9%20ML%20%E7%A0%94%E7%A9%B6%E8%80%85%E7%9A%84%E5%BB%BA%E8%AE%AE/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Yoshua Bengio 对 ML 研究者的建议">Yoshua Bengio 对 ML 研究者的建议</span>
+            <span class="post-date" title="2020-01-11 20:11:00">2020/01/11</span>
+        </a>
+        
+        
+        <a  class="All Rethinking "
+           href="/2019/12/31/2019%20Annual%20Summary%20%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="2019 Annual Summary 年终总结">2019 Annual Summary 年终总结</span>
+            <span class="post-date" title="2019-12-31 15:11:00">2019/12/31</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2019/12/12/Ubuntu%20%E7%B3%BB%E7%BB%9F%E8%AE%BE%E7%BD%AE/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Ubuntu 系统设置">Ubuntu 系统设置</span>
+            <span class="post-date" title="2019-12-12 20:11:00">2019/12/12</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2019/12/11/Data%20Analysis%20Tutorial:(Part%20I)/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Data Analysis Tutorial:(Part I)">Data Analysis Tutorial:(Part I)</span>
+            <span class="post-date" title="2019-12-11 20:11:00">2019/12/11</span>
+        </a>
+        
+        
+        <a  class="All Reading "
+           href="/2019/10/01/Interview%20record%20of%20ML%20intern%20in%202019/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Interview record of ML intern in 2019">Interview record of ML intern in 2019</span>
+            <span class="post-date" title="2019-10-01 12:12:57">2019/10/01</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2019/05/01/Errors%20Archives%20%E6%8A%A5%E9%94%99%E5%BD%92%E6%A1%A3/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Errors Archives 报错归档">Errors Archives 报错归档</span>
+            <span class="post-date" title="2019-05-01 13:03:00">2019/05/01</span>
+        </a>
+        
+        
+        <a  class="All Rethinking "
+           href="/2018/12/31/2018%20Annual%20Summary%20%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="2018 Annual Summary 年终总结">2018 Annual Summary 年终总结</span>
+            <span class="post-date" title="2018-12-31 20:17:00">2018/12/31</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2018/04/05/Git%20%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Git 使用指南">Git 使用指南</span>
+            <span class="post-date" title="2018-04-05 22:56:00">2018/04/05</span>
+        </a>
+        
+        <div id="no-item-tips">
+
+        </div>
+    </nav>
+    <div id="outline-list">
+    </div>
+</div>
+
+    </div>
+    <div class="hide-list">
+        <div class="semicircle" data-title="切换全屏 快捷键 s">
+            <div class="brackets first"><</div>
+            <div class="brackets">&gt;</div>
+        </div>
+    </div>
+</aside>
+<div id="post">
+    <div class="pjax">
+        <article id="post-Yoshua Bengio 对 ML 研究者的建议" class="article article-type-post" itemscope itemprop="blogPost">
+    
+        <h1 class="article-title">Yoshua Bengio 对 ML 研究者的建议</h1>
+    
+    <div class="article-meta">
+        
+        
+        
+        <span class="book">
+            <i class="iconfont icon-category"></i>
+            
+            
+            <a  data-rel="Reading">Reading</a>
+            
+        </span>
+        
+        
+    </div>
+    <div class="article-meta">
+        
+            Created At : <time class="date" title='Updated At: 2024-03-22 13:16:56'>2020-01-11 20:11</time>
+        
+    </div>
+    <div class="article-meta">
+        
+        
+        <span id="busuanzi_container_page_pv">
+            Views 👀 :<span id="busuanzi_value_page_pv">
+                <span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </span>
+        </span>
+        
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Quora-%E5%8E%9F%E5%A7%8B%E9%97%AE%E9%A2%98"><span class="toc-text">Quora 原始问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Reference"><span class="toc-text">Reference</span></a></li></ol>
+    
+<style>
+    .left-col .switch-btn,
+    .left-col .switch-area {
+        display: none;
+    }
+    .toc-level-3 i,
+    .toc-level-3 ol {
+        display: none !important;
+    }
+</style>
+</div>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Quora-原始问题"><a href="#Quora-原始问题" class="headerlink" title="Quora 原始问题"></a>Quora 原始问题</h2><blockquote>
+<p>Originally Answered: Yoshua Bengio: What advise do you have for young researchers entering the field of Machine Learning?</p>
+</blockquote>
+<blockquote>
+<p>Make sure you have a strong training in math and computer science (including the practical part, i.e., programming). Read books and (lots of) papers but that is not enough: you need to develop your intuitions by </p>
+</blockquote>
+<blockquote>
+<p>(a) programming a bunch of learning algorithms yourself, e.g., trying to reproduce existing papers, and </p>
+</blockquote>
+<blockquote>
+<p>(b) by learning to tune hyper-parameters and explore variants (in architecture, objective function, etc.), e.g., by participating in competitions or trying to improve on published results once you have been able to reproduce them. Then, find collaborators with whom you can brainstorm about ideas and share the workload involved in exploring and testing new ideas.  Working with an existing group is ideal, of course, or recruit your own students to work on this with you, if you are a faculty.</p>
+</blockquote>
+<p>intuitively,<br>1.对话Yoshua Bengio：对年轻机器学习领域的研究者的建议？<br>2.四个核心能力<br>(1). 确保数学和计算机学科扎实训练（包括实践部分，即编程)<br>(2). 阅读书籍和<strong>很多</strong>论文<br>(3). 在阅读论文的基础上（a）自己编写一堆学习算法来发展自己的直觉，例如尝试复制现有的论文，（b）通过学习调参和探索变体（在模型结构，目标函数等），例如通过参与竞赛或尝试改进已发表的结果，一旦你能够重现它们.<br>(4). 找到小伙伴与他们头脑风暴，分享探索和测试新想法的相关工作。如果是教师，与现有团队合作当然是很理想的，或者招募学生与一起工作.  </p>
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><p>1.<a target="_blank" rel="noopener" href="https://www.quora.com/bookmarked_answers">https://www.quora.com/bookmarked_answers</a></p>
+
+      
+       <hr><span style="font-style: italic;color: gray;"> 转载请注明来源 </span>
+    </div>
+</article>
+
+
+<p>
+    <a  class="dashang" onclick="dashangToggle()">💰</a>
+</p>
+
+
+
+
+
+
+    
+
+
+
+
+    </div>
+    <div class="copyright">
+        <p class="footer-entry">
+    ©2018-2024
+</p>
+<p class="footer-entry">Built with <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/yelog/hexo-theme-3-hexo" target="_blank">3-hexo</a> theme</p>
+
+    </div>
+    <div class="full-toc">
+        <button class="full" data-title="切换全屏 快捷键 s"><span class="min "></span></button>
+<a class="" id="rocket" ></a>
+
+    </div>
+</div>
+
+<div class="hide_box" onclick="dashangToggle()"></div>
+<div class="shang_box">
+    <a class="shang_close"  onclick="dashangToggle()">×</a>
+    <div class="shang_tit">
+        <p>Help us with donation</p>
+    </div>
+    <div class="shang_payimg">
+        <div class="pay_img">
+            <img src="/img/alipay.jpg" class="alipay" title="扫码支持">
+            <img src="/img/weixin.jpg" class="weixin" title="扫码支持">
+        </div>
+    </div>
+    <div class="shang_payselect">
+        <span><label><input type="radio" name="pay" checked value="alipay">alipay</label></span><span><label><input type="radio" name="pay" value="weixin">weixin</label></span>
+    </div>
+</div>
+
+
+</body>
+<script src="/js/jquery.pjax.js?v=1.1.0" ></script>
+
+<script src="/js/script.js?v=1.1.0" ></script>
+<script>
+    var img_resize = 'default';
+    function initArticle() {
+        /*渲染对应的表格样式*/
+        
+            $("#post .pjax table").addClass("green_title");
+        
+
+        /*渲染打赏样式*/
+        
+        $("input[name=pay]").on("click", function () {
+            if($("input[name=pay]:checked").val()=="weixin"){
+                $(".shang_box .shang_payimg .pay_img").addClass("weixin_img");
+            } else {
+                $(".shang_box .shang_payimg .pay_img").removeClass("weixin_img");
+            }
+        })
+        
+
+        /*高亮代码块行号*/
+        
+
+        /*访问数量*/
+        
+        $.getScript("//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js");
+        
+
+        /*代码高亮，行号对齐*/
+        $('.pre-numbering').css('line-height',$('.has-numbering').css('line-height'));
+
+        
+        
+    }
+
+    /*打赏页面隐藏与展示*/
+    
+    function dashangToggle() {
+        $(".shang_box").fadeToggle();
+        $(".hide_box").fadeToggle();
+    }
+    
+
+</script>
+
+<!--加入行号的高亮代码块样式-->
+
+<!--自定义样式设置-->
+<style>
+    
+    
+    .nav {
+        width: 542px;
+    }
+    .nav.fullscreen {
+        margin-left: -542px;
+    }
+    .nav-left {
+        width: 120px;
+    }
+    
+    
+    @media screen and (max-width: 1468px) {
+        .nav {
+            width: 492px;
+        }
+        .nav.fullscreen {
+            margin-left: -492px;
+        }
+        .nav-left {
+            width: 100px;
+        }
+    }
+    
+    
+    @media screen and (max-width: 1024px) {
+        .nav {
+            width: 492px;
+            margin-left: -492px
+        }
+        .nav.fullscreen {
+            margin-left: 0;
+        }
+    }
+    
+    @media screen and (max-width: 426px) {
+        .nav {
+            width: 100%;
+        }
+        .nav-left {
+            width: 100%;
+        }
+    }
+    
+    
+    .nav-right .title-list nav a .post-title, .nav-right .title-list #local-search-result a .post-title {
+        color: #383636;
+    }
+    
+    
+    .nav-right .title-list nav a .post-date, .nav-right .title-list #local-search-result a .post-date {
+        color: #5e5e5f;
+    }
+    
+    
+    .nav-right nav a.hover, #local-search-result a.hover{
+        background-color: #e2e0e0;
+    }
+    
+    
+
+    /*列表样式*/
+    
+
+    /* 背景图样式 */
+    
+    
+
+
+    /*引用块样式*/
+    
+
+    /*文章列表背景图*/
+    
+
+    
+</style>
+
+
+
+
+
+
+
+</html>
