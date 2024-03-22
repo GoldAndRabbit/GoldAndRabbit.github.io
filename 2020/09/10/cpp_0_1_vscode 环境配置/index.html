@@ -1,0 +1,856 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>cpp_0_1_vscode 环境配置 | G&amp;R Blog</title>
+  <meta name="keywords" content="">
+  <meta name="description" content="cpp_0_1_vscode 环境配置 | G&amp;R Blog">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="Overview1.hexo installation 安装2.hexo 主题设置: yilia theme3.数学公式支持: mathjax + pandoc4.页面细节定制: 两侧宽度、布局&#x2F;字体&#x2F;颜色: main.0cf68a.css5.各种坑 hexo installation 安装安装 Node.js和npmsudo apt-get update sudo apt i">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Hexo 搭建总结">
+<meta property="og:url" content="http://example.com/bck/Hexo%20%E6%90%AD%E5%BB%BA%E6%80%BB%E7%BB%93.html">
+<meta property="og:site_name" content="G&amp;R Blog">
+<meta property="og:description" content="Overview1.hexo installation 安装2.hexo 主题设置: yilia theme3.数学公式支持: mathjax + pandoc4.页面细节定制: 两侧宽度、布局&#x2F;字体&#x2F;颜色: main.0cf68a.css5.各种坑 hexo installation 安装安装 Node.js和npmsudo apt-get update sudo apt i">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-10-01T12:11:00.000Z">
+<meta property="article:modified_time" content="2024-03-22T04:43:08.789Z">
+<meta property="article:author" content="G &amp; R">
+<meta property="article:tag" content="Recommending System">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="icon" href="/img/avatar.jpg">
+
+<link href="/css/style.css?v=1.1.0" rel="stylesheet">
+
+<link href="/css/hl_theme/atom-light.css?v=1.1.0" rel="stylesheet">
+
+<link href="//cdn.jsdelivr.net/npm/animate.css@4.1.0/animate.min.css" rel="stylesheet">
+
+<script src="//cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+<script src="/js/titleTip.js?v=1.1.0" ></script>
+
+<script src="//cdn.jsdelivr.net/npm/highlightjs@9.16.2/highlight.pack.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+
+<script src="//cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js"></script>
+
+
+
+<script src="//cdn.jsdelivr.net/npm/jquery.cookie@1.4.1/jquery.cookie.min.js" ></script>
+
+<script src="/js/iconfont.js?v=1.1.0" ></script>
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+<div style="display: none">
+  <input class="theme_disqus_on" value="false">
+  <input class="theme_preload_comment" value="">
+  <input class="theme_blog_path" value="">
+  <input id="theme_shortcut" value="true" />
+  <input id="theme_highlight_on" value="true" />
+  <input id="theme_code_copy" value="true" />
+</div>
+
+
+
+<body>
+<aside class="nav">
+    <div class="nav-left">
+        <a href="/"
+   class="avatar_target">
+    <img class="avatar"
+         src="/img/avatar.jpg"/>
+</a>
+<div class="author">
+    <span>G &amp; R</span>
+</div>
+
+<div class="icon">
+    
+        
+            <a title="rss"
+               href="/atom.xml"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-rss"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+            <a title="github"
+               href="https://github.com/goldandrabbit"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-github"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+            <a title="neteasemusic"
+               href="https://music.163.com/#/user/home?id=88151013"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-neteasemusic"></use>
+                    </svg>
+                
+            </a>
+        
+    
+</div>
+
+
+
+
+
+<ul>
+    <li>
+        <div class="all active" data-rel="All">All
+            
+                <small>(23)</small>
+            
+        </div>
+    </li>
+    
+        
+            
+                
+    <li>
+        <div data-rel="Coding">
+            
+            Coding
+            <small>(23)</small>
+        </div>
+        
+    </li>
+
+            
+        
+    
+</ul>
+<div class="left-bottom">
+    <div class="menus">
+        
+            
+            
+            
+    </div>
+    <div>
+        
+            <a class="about  hasFriend  site_url"
+               
+               href="/about">About</a>
+        
+        <a style="width: 50%"
+                
+                                           class="friends">Friends</a>
+        
+    </div>
+</div>
+<input type="hidden" id="yelog_site_posts_number" value="23">
+
+<div style="display: none">
+    <span id="busuanzi_value_site_uv"></span>
+    <span id="busuanzi_value_site_pv"></span>
+</div>
+
+    </div>
+    <div class="nav-right">
+        <div class="friends-area">
+    <div class="friends-title">
+        Links
+        <i class="iconfont icon-left"></i>
+    </div>
+    <div class="friends-content">
+        <ul>
+            
+            <li><a target="_blank" href="http://yelog.org/">叶落阁</a></li>
+            
+        </ul>
+    </div>
+</div>
+        <div class="title-list">
+    <div class="right-top">
+        <div id="default-panel">
+            <i class="iconfont icon-search" data-title="搜索 快捷键 i"></i>
+            <div class="right-title">All</div>
+            <i class="iconfont icon-file-tree" data-title="切换到大纲视图 快捷键 w"></i>
+        </div>
+        <div id="search-panel">
+            <i class="iconfont icon-left" data-title="返回"></i>
+            <input id="local-search-input" autocomplete="off"/>
+            <label class="border-line" for="input"></label>
+            <i class="iconfont icon-case-sensitive" data-title="大小写敏感"></i>
+            <i class="iconfont icon-tag" data-title="标签"></i>
+        </div>
+        <div id="outline-panel" style="display: none">
+            <div class="right-title">大纲</div>
+            <i class="iconfont icon-list" data-title="切换到文章列表"></i>
+        </div>
+    </div>
+
+    <div class="tags-list">
+    <input id="tag-search" />
+    <div class="tag-wrapper">
+        
+    </div>
+
+</div>
+
+    
+    <nav id="title-list-nav">
+        
+        
+        <a  class="All Coding "
+           href="/2099/01/30/G&R%20%E7%9A%84%20Blog%20%E5%8F%91%E5%B8%83%E8%A7%84%E8%8C%83/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="G&amp;R 的 Blog 发布规范">G&amp;R 的 Blog 发布规范</span>
+            <span class="post-date" title="2099-01-30 20:00:00">2099/01/30</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/09/10/cpp_0_0_%E5%B1%9E%E4%BA%8E%20cpp%20%E7%9A%84%E8%AE%BE%E8%AE%A1%E5%93%B2%E5%AD%A6/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cpp_0_1_cpp设计哲学">cpp_0_1_cpp设计哲学</span>
+            <span class="post-date" title="2020-09-10 08:00:00">2020/09/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/09/10/cpp_0_1_vscode%20%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cpp_0_1_vscode 环境配置">cpp_0_1_vscode 环境配置</span>
+            <span class="post-date" title="2020-09-10 08:00:00">2020/09/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/09/10/cpp_0_2_%E5%A4%B4%E6%96%87%E4%BB%B6%20header%20file/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cpp_0_2_头文件 headerfile">cpp_0_2_头文件 headerfile</span>
+            <span class="post-date" title="2020-09-10 08:00:00">2020/09/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/09/10/cpp_0_3_%E8%B0%B7%E6%AD%8C%20C++%20%E7%BC%96%E7%A8%8B%E9%A3%8E%E6%A0%BC/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cpp_0_3_谷歌 C++ 编程风格">cpp_0_3_谷歌 C++ 编程风格</span>
+            <span class="post-date" title="2020-09-10 08:00:00">2020/09/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/09/10/cpp_1_1_%E5%B7%A6%E5%80%BC%E5%92%8C%E5%8F%B3%E5%80%BC%20Lvalue%20and%20Rvalue/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cpp_2_1_左值和右值 Lvalue and Rvalue">cpp_2_1_左值和右值 Lvalue and Rvalue</span>
+            <span class="post-date" title="2020-09-10 08:00:00">2020/09/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/09/10/cpp_1_2_%E5%B7%A6%E5%80%BC%E5%BC%95%E7%94%A8%20Lvalue%20reference/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cpp_1_2_左值引用 Lvalue reference">cpp_1_2_左值引用 Lvalue reference</span>
+            <span class="post-date" title="2020-09-10 08:00:00">2020/09/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/09/10/cpp_1_3_%E5%8F%B3%E5%80%BC%E5%BC%95%E7%94%A8%20Rvalue%20reference/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cpp_1_3_右值引用 Rvalue reference">cpp_1_3_右值引用 Rvalue reference</span>
+            <span class="post-date" title="2020-09-10 08:00:00">2020/09/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/09/10/cpp_2_2_%E6%8C%87%E9%92%88%20Pointer_2_%E7%A9%BA%E6%8C%87%E9%92%88/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cpp_2_2_指针 Pointer_2_空指针">cpp_2_2_指针 Pointer_2_空指针</span>
+            <span class="post-date" title="2020-09-10 08:00:00">2020/09/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/09/10/cpp_2_1_%E6%8C%87%E9%92%88%20Pointer_1_%E5%9C%B0%E5%9D%80%E5%92%8C%E6%8C%87%E9%92%88/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cpp_2_1_指针 Pointer_1_地址和指针">cpp_2_1_指针 Pointer_1_地址和指针</span>
+            <span class="post-date" title="2020-09-10 08:00:00">2020/09/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/09/10/cpp_2_3_%E6%8C%87%E9%92%88%20Pointer_4_%E4%BC%A0%E5%9C%B0%E5%9D%80%20Pass%20by%20address/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cpp_2_3_指针 Pointer_4_传地址 Pass by address">cpp_2_3_指针 Pointer_4_传地址 Pass by address</span>
+            <span class="post-date" title="2020-09-10 08:00:00">2020/09/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/09/10/cpp_2_3_%E6%8C%87%E9%92%88%20Pointer_3_const%E4%B8%8E%E6%8C%87%E9%92%88/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cpp_2_3_指针 Pointer_3_const与指针">cpp_2_3_指针 Pointer_3_const与指针</span>
+            <span class="post-date" title="2020-09-10 08:00:00">2020/09/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/09/10/cpp_2_4_%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88_0_%E8%AE%BE%E8%AE%A1%E6%80%9D%E6%83%B3/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cpp_2_4_智能指针_0_设计思想">cpp_2_4_智能指针_0_设计思想</span>
+            <span class="post-date" title="2020-09-10 08:00:00">2020/09/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/09/10/cpp_2_6_%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88_2_unique_ptr/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cpp_2_6_智能指针_2_unique_ptr">cpp_2_6_智能指针_2_unique_ptr</span>
+            <span class="post-date" title="2020-09-10 08:00:00">2020/09/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/09/10/cpp_2_5_%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88_1_shared_ptr/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cpp_2_5_智能指针_1_shared_ptr">cpp_2_5_智能指针_1_shared_ptr</span>
+            <span class="post-date" title="2020-09-10 08:00:00">2020/09/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/09/10/cpp_3_0_constexpr%20%E5%85%B3%E9%94%AE%E5%AD%97/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cpp_3_0_constexpr关键字">cpp_3_0_constexpr关键字</span>
+            <span class="post-date" title="2020-09-10 08:00:00">2020/09/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/09/10/cpp_3_1_const%20%E5%85%B3%E9%94%AE%E5%AD%97/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cpp_3_1_const 关键字">cpp_3_1_const 关键字</span>
+            <span class="post-date" title="2020-09-10 08:00:00">2020/09/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/09/10/cpp_3_2_Lambda%20%E8%A1%A8%E8%BE%BE%E5%BC%8F/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cpp_3_2_Lambda 表达式">cpp_3_2_Lambda 表达式</span>
+            <span class="post-date" title="2020-09-10 08:00:00">2020/09/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/09/10/cpp_5_1_%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1_0_overview/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cpp_5_1_面向对象_0_overview">cpp_5_1_面向对象_0_overview</span>
+            <span class="post-date" title="2020-09-10 08:00:00">2020/09/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/09/10/cpp_5_2_%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1_1_%E7%B1%BB%E5%92%8C%E6%88%90%E5%91%98%E5%87%BD%E6%95%B0/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cpp_5_2_面向对象_1_类和成员函数">cpp_5_2_面向对象_1_类和成员函数</span>
+            <span class="post-date" title="2020-09-10 08:00:00">2020/09/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/09/10/cpp_6_0_%E6%A8%A1%E6%9D%BF%20template/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cpp_6_0_模板 template">cpp_6_0_模板 template</span>
+            <span class="post-date" title="2020-09-10 08:00:00">2020/09/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/09/10/cpp_5_3_%E5%A4%9A%E6%80%81_0_%E8%99%9A%E5%87%BD%E6%95%B0%20Virtual%20Functions/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cpp_5_3_多态_0_虚函数 Virtual Functions">cpp_5_3_多态_0_虚函数 Virtual Functions</span>
+            <span class="post-date" title="2020-09-10 08:00:00">2020/09/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2018/04/05/Git%20%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Git 使用指南">Git 使用指南</span>
+            <span class="post-date" title="2018-04-05 22:56:00">2018/04/05</span>
+        </a>
+        
+        <div id="no-item-tips">
+
+        </div>
+    </nav>
+    <div id="outline-list">
+    </div>
+</div>
+
+    </div>
+    <div class="hide-list">
+        <div class="semicircle" data-title="切换全屏 快捷键 s">
+            <div class="brackets first"><</div>
+            <div class="brackets">&gt;</div>
+        </div>
+    </div>
+</aside>
+<div id="post">
+    <div class="pjax">
+        <article id="post-cpp_0_1_vscode 环境配置" class="article article-type-post" itemscope itemprop="blogPost">
+    
+        <h1 class="article-title">cpp_0_1_vscode 环境配置</h1>
+    
+    <div class="article-meta">
+        
+        
+        
+        <span class="book">
+            <i class="iconfont icon-category"></i>
+            
+            
+            <a  data-rel="Coding">Coding</a>
+            
+        </span>
+        
+        
+    </div>
+    <div class="article-meta">
+        
+            Created At : <time class="date" title='Updated At: 2024-03-22 13:00:09'>2020-09-10 08:00</time>
+        
+    </div>
+    <div class="article-meta">
+        
+        
+        <span id="busuanzi_container_page_pv">
+            Views 👀 :<span id="busuanzi_value_page_pv">
+                <span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </span>
+        </span>
+        
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Overview"><span class="toc-text">Overview</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#vscode-%E9%85%8D%E7%BD%AE"><span class="toc-text">vscode 配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE-launch-json"><span class="toc-text">配置 launch.json</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE-tasks-json"><span class="toc-text">配置 tasks.json</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE-settings-json"><span class="toc-text">配置 settings.json</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE-c-cpp-proterties-json"><span class="toc-text">配置 c_cpp_proterties.json</span></a></li></ol>
+    
+<style>
+    .left-col .switch-btn,
+    .left-col .switch-area {
+        display: none;
+    }
+    .toc-level-3 i,
+    .toc-level-3 ol {
+        display: none !important;
+    }
+</style>
+</div>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><p>1.vscode cpp 配置<br>2.配置 launch.json<br>3.配置 tasks.json<br>4.配置 settings.json<br>5.配置 c_cpp_proterties.json</p>
+<h2 id="vscode-配置"><a href="#vscode-配置" class="headerlink" title="vscode 配置"></a>vscode 配置</h2><p>1.准备一个 .cpp 文件  </p>
+<pre><code class="cpp">#include &lt;iostream&gt;
+using namespace std;
+int main () &#123;
+  cout &lt;&lt; &quot;hello world&quot; &lt;&lt; endl;
+  return 0;
+&#125;
+</code></pre>
+<p>2.左侧栏进入 Run and Debug, 选择 C++(GDB&#x2F;LLDB), 选择 g++ 生成和调试活动文件, 也就是编译器: &#x2F;usr&#x2F;bing&#x2F;g++, 参考下面 launch.json&#x2F;task.json去直接配置<br>3.shift+cmd+p edit configurations (JSON), 参考配置文件见下方 </p>
+<h2 id="配置-launch-json"><a href="#配置-launch-json" class="headerlink" title="配置 launch.json"></a>配置 launch.json</h2><pre><code class="json">&#123;
+  &quot;version&quot;: &quot;0.2.0&quot;,
+  &quot;configurations&quot;: [
+    &#123;
+      &quot;type&quot;: &quot;lldb&quot;,
+      &quot;request&quot;: &quot;launch&quot;,
+      &quot;name&quot;: &quot;C++ debug&quot;,
+      &quot;program&quot;: &quot;&#123;fileDirname&#125;/$&#123;fileBasenameNoExtension&#125;&quot;,
+      &quot;args&quot;: [],
+      &quot;cwd&quot;: &quot;$&#123;workspaceFolder&#125;&quot;,
+      &quot;preLaunchTask&quot;: &quot;C/C++: g++ 生成活动文件&quot;
+    &#125;,
+    &#123;
+      &quot;name&quot;: &quot;C/C++: g++ 生成和调试活动文件&quot;,
+      &quot;type&quot;: &quot;cppdbg&quot;,
+      &quot;request&quot;: &quot;launch&quot;,
+      &quot;program&quot;: &quot;$&#123;fileDirname&#125;/.bin/$&#123;fileBasenameNoExtension&#125;&quot;,
+      &quot;args&quot;: [],
+      &quot;stopAtEntry&quot;: false,
+      &quot;cwd&quot;: &quot;$&#123;fileDirname&#125;&quot;,
+      &quot;environment&quot;: [],
+      &quot;externalConsole&quot;: false,
+      &quot;MIMode&quot;: &quot;lldb&quot;,
+      &quot;preLaunchTask&quot;: &quot;C/C++: g++ 生成活动文件&quot;
+    &#125;
+  ]
+&#125;
+</code></pre>
+<h2 id="配置-tasks-json"><a href="#配置-tasks-json" class="headerlink" title="配置 tasks.json"></a>配置 tasks.json</h2><p>for OSX, 在args里面设置了执行参数</p>
+<ul>
+<li>不想生成.DYSM文件, 需要删除args里面”-g”参数</li>
+<li>换用 cpp 11: 设置args里面”-std&#x3D;c++11”</li>
+<li>设置生成的二进制文件放在.bin下面设置args里面”${fileDirname}&#x2F;.bin&#x2F;${fileBasenameNoExtension}”参数</li>
+</ul>
+<p>完整的 task.json 文件, 如果只想编译一个文件</p>
+<pre><code class="json">&#123;
+  &quot;tasks&quot;: [
+    &#123;
+      &quot;type&quot;: &quot;cppbuild&quot;,
+      &quot;label&quot;: &quot;C/C++: g++ 生成活动文件&quot;,
+      &quot;command&quot;: &quot;/usr/bin/g++&quot;,
+      &quot;args&quot;: [
+        &quot;-std=c++11&quot;,
+        &quot;-stdlib=libc++&quot;,
+        &quot;-fdiagnostics-color=always&quot;,
+        &quot;-Wall&quot;,
+        &quot;$&#123;file&#125;&quot;,
+        &quot;-o&quot;,
+        &quot;$&#123;fileDirname&#125;/.bin/$&#123;fileBasenameNoExtension&#125;&quot;
+      ],
+      &quot;options&quot;: &#123;
+        &quot;cwd&quot;: &quot;$&#123;fileDirname&#125;&quot;
+      &#125;,
+      &quot;problemMatcher&quot;: [
+        &quot;$gcc&quot;
+      ],
+      &quot;group&quot;: &#123;
+        &quot;kind&quot;: &quot;build&quot;,
+        &quot;isDefault&quot;: true
+      &#125;,
+      &quot;detail&quot;: &quot;调试器生成的任务。&quot;
+    &#125;
+  ],
+  &quot;version&quot;: &quot;2.0.0&quot;
+&#125;
+</code></pre>
+<h2 id="配置-settings-json"><a href="#配置-settings-json" class="headerlink" title="配置 settings.json"></a>配置 settings.json</h2><pre><code class="json">&#123;
+  &quot;files.associations&quot;: &#123;
+    &quot;ostream&quot;: &quot;cpp&quot;,
+    &quot;__bit_reference&quot;: &quot;cpp&quot;,
+    &quot;__bits&quot;: &quot;cpp&quot;,
+    &quot;__config&quot;: &quot;cpp&quot;,
+    &quot;__debug&quot;: &quot;cpp&quot;,
+    &quot;__errc&quot;: &quot;cpp&quot;,
+    &quot;__hash_table&quot;: &quot;cpp&quot;,
+    &quot;__locale&quot;: &quot;cpp&quot;,
+    &quot;__mutex_base&quot;: &quot;cpp&quot;,
+    &quot;__node_handle&quot;: &quot;cpp&quot;,
+    &quot;__split_buffer&quot;: &quot;cpp&quot;,
+    &quot;__threading_support&quot;: &quot;cpp&quot;,
+    &quot;__tuple&quot;: &quot;cpp&quot;,
+    &quot;__verbose_abort&quot;: &quot;cpp&quot;,
+    &quot;array&quot;: &quot;cpp&quot;,
+    &quot;atomic&quot;: &quot;cpp&quot;,
+    &quot;bit&quot;: &quot;cpp&quot;,
+    &quot;bitset&quot;: &quot;cpp&quot;,
+    &quot;cctype&quot;: &quot;cpp&quot;,
+    &quot;clocale&quot;: &quot;cpp&quot;,
+    &quot;cmath&quot;: &quot;cpp&quot;,
+    &quot;complex&quot;: &quot;cpp&quot;,
+    &quot;cstdarg&quot;: &quot;cpp&quot;,
+    &quot;cstddef&quot;: &quot;cpp&quot;,
+    &quot;cstdint&quot;: &quot;cpp&quot;,
+    &quot;cstdio&quot;: &quot;cpp&quot;,
+    &quot;cstdlib&quot;: &quot;cpp&quot;,
+    &quot;cstring&quot;: &quot;cpp&quot;,
+    &quot;ctime&quot;: &quot;cpp&quot;,
+    &quot;cwchar&quot;: &quot;cpp&quot;,
+    &quot;cwctype&quot;: &quot;cpp&quot;,
+    &quot;exception&quot;: &quot;cpp&quot;,
+    &quot;initializer_list&quot;: &quot;cpp&quot;,
+    &quot;ios&quot;: &quot;cpp&quot;,
+    &quot;iosfwd&quot;: &quot;cpp&quot;,
+    &quot;iostream&quot;: &quot;cpp&quot;,
+    &quot;istream&quot;: &quot;cpp&quot;,
+    &quot;limits&quot;: &quot;cpp&quot;,
+    &quot;locale&quot;: &quot;cpp&quot;,
+    &quot;memory&quot;: &quot;cpp&quot;,
+    &quot;mutex&quot;: &quot;cpp&quot;,
+    &quot;new&quot;: &quot;cpp&quot;,
+    &quot;optional&quot;: &quot;cpp&quot;,
+    &quot;ratio&quot;: &quot;cpp&quot;,
+    &quot;sstream&quot;: &quot;cpp&quot;,
+    &quot;stdexcept&quot;: &quot;cpp&quot;,
+    &quot;streambuf&quot;: &quot;cpp&quot;,
+    &quot;string&quot;: &quot;cpp&quot;,
+    &quot;string_view&quot;: &quot;cpp&quot;,
+    &quot;system_error&quot;: &quot;cpp&quot;,
+    &quot;tuple&quot;: &quot;cpp&quot;,
+    &quot;type_traits&quot;: &quot;cpp&quot;,
+    &quot;typeinfo&quot;: &quot;cpp&quot;,
+    &quot;unordered_map&quot;: &quot;cpp&quot;,
+    &quot;variant&quot;: &quot;cpp&quot;,
+    &quot;vector&quot;: &quot;cpp&quot;,
+    &quot;__nullptr&quot;: &quot;cpp&quot;,
+    &quot;__string&quot;: &quot;cpp&quot;,
+    &quot;chrono&quot;: &quot;cpp&quot;,
+    &quot;compare&quot;: &quot;cpp&quot;,
+    &quot;concepts&quot;: &quot;cpp&quot;,
+    &quot;algorithm&quot;: &quot;cpp&quot;,
+    &quot;charconv&quot;: &quot;cpp&quot;
+  &#125;
+&#125;
+</code></pre>
+<h2 id="配置-c-cpp-proterties-json"><a href="#配置-c-cpp-proterties-json" class="headerlink" title="配置 c_cpp_proterties.json"></a>配置 c_cpp_proterties.json</h2><p>使用 shift+cmd+p , 选择 Edit Configuration (JSON)</p>
+<pre><code class="json">&#123;
+  &quot;configurations&quot;: [
+    &#123;
+      &quot;name&quot;: &quot;Mac&quot;,
+      &quot;includePath&quot;: [
+        &quot;$&#123;workspaceFolder&#125;/**&quot;
+      ],
+      &quot;defines&quot;: [
+        
+      ],
+      &quot;macFrameworkPath&quot;: [
+        &quot;/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks&quot;
+      ],
+      &quot;cStandard&quot;: &quot;c11&quot;,
+      &quot;cppStandard&quot;: &quot;c++11&quot;,
+      &quot;intelliSenseMode&quot;: &quot;macos-clang-arm64&quot;,
+      &quot;compilerPath&quot;: &quot;/usr/bin/g++&quot;,
+      &quot;browse&quot;: &#123;
+        &quot;limitSymbolsToIncludedHeaders&quot;: false
+      &#125;
+    &#125;
+  ],
+  &quot;version&quot;: 4
+&#125;
+</code></pre>
+
+      
+       <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 jaytp@qq.com </span>
+    </div>
+</article>
+
+
+<p>
+    <a  class="dashang" onclick="dashangToggle()">💰</a>
+</p>
+
+
+
+
+
+
+    
+
+
+
+
+    </div>
+    <div class="copyright">
+        <p class="footer-entry">
+    ©2016-2020 Yelog
+</p>
+<p class="footer-entry">Built with <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/yelog/hexo-theme-3-hexo" target="_blank">3-hexo</a> theme</p>
+
+    </div>
+    <div class="full-toc">
+        <button class="full" data-title="切换全屏 快捷键 s"><span class="min "></span></button>
+<a class="" id="rocket" ></a>
+
+    </div>
+</div>
+
+<div class="hide_box" onclick="dashangToggle()"></div>
+<div class="shang_box">
+    <a class="shang_close"  onclick="dashangToggle()">×</a>
+    <div class="shang_tit">
+        <p>Help us with donation</p>
+    </div>
+    <div class="shang_payimg">
+        <div class="pay_img">
+            <img src="/img/alipay.jpg" class="alipay" title="扫码支持">
+            <img src="/img/weixin.jpg" class="weixin" title="扫码支持">
+        </div>
+    </div>
+    <div class="shang_payselect">
+        <span><label><input type="radio" name="pay" checked value="alipay">alipay</label></span><span><label><input type="radio" name="pay" value="weixin">weixin</label></span>
+    </div>
+</div>
+
+
+</body>
+<script src="/js/jquery.pjax.js?v=1.1.0" ></script>
+
+<script src="/js/script.js?v=1.1.0" ></script>
+<script>
+    var img_resize = 'default';
+    function initArticle() {
+        /*渲染对应的表格样式*/
+        
+            $("#post .pjax table").addClass("green_title");
+        
+
+        /*渲染打赏样式*/
+        
+        $("input[name=pay]").on("click", function () {
+            if($("input[name=pay]:checked").val()=="weixin"){
+                $(".shang_box .shang_payimg .pay_img").addClass("weixin_img");
+            } else {
+                $(".shang_box .shang_payimg .pay_img").removeClass("weixin_img");
+            }
+        })
+        
+
+        /*高亮代码块行号*/
+        
+
+        /*访问数量*/
+        
+        $.getScript("//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js");
+        
+
+        /*代码高亮，行号对齐*/
+        $('.pre-numbering').css('line-height',$('.has-numbering').css('line-height'));
+
+        
+        
+    }
+
+    /*打赏页面隐藏与展示*/
+    
+    function dashangToggle() {
+        $(".shang_box").fadeToggle();
+        $(".hide_box").fadeToggle();
+    }
+    
+
+</script>
+
+<!--加入行号的高亮代码块样式-->
+
+<!--自定义样式设置-->
+<style>
+    
+    
+    .nav {
+        width: 542px;
+    }
+    .nav.fullscreen {
+        margin-left: -542px;
+    }
+    .nav-left {
+        width: 120px;
+    }
+    
+    
+    @media screen and (max-width: 1468px) {
+        .nav {
+            width: 492px;
+        }
+        .nav.fullscreen {
+            margin-left: -492px;
+        }
+        .nav-left {
+            width: 100px;
+        }
+    }
+    
+    
+    @media screen and (max-width: 1024px) {
+        .nav {
+            width: 492px;
+            margin-left: -492px
+        }
+        .nav.fullscreen {
+            margin-left: 0;
+        }
+    }
+    
+    @media screen and (max-width: 426px) {
+        .nav {
+            width: 100%;
+        }
+        .nav-left {
+            width: 100%;
+        }
+    }
+    
+    
+    .nav-right .title-list nav a .post-title, .nav-right .title-list #local-search-result a .post-title {
+        color: #383636;
+    }
+    
+    
+    .nav-right .title-list nav a .post-date, .nav-right .title-list #local-search-result a .post-date {
+        color: #5e5e5f;
+    }
+    
+    
+    .nav-right nav a.hover, #local-search-result a.hover{
+        background-color: #e2e0e0;
+    }
+    
+    
+
+    /*列表样式*/
+    
+
+    /* 背景图样式 */
+    
+    
+
+
+    /*引用块样式*/
+    
+
+    /*文章列表背景图*/
+    
+
+    
+</style>
+
+
+
+
+
+
+
+</html>

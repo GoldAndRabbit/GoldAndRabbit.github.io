@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>cpp_5_1_面向对象_0_overview | G&amp;R Blog</title>
+  <meta name="keywords" content="">
+  <meta name="description" content="cpp_5_1_面向对象_0_overview | G&amp;R Blog">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="Overview1.hexo installation 安装2.hexo 主题设置: yilia theme3.数学公式支持: mathjax + pandoc4.页面细节定制: 两侧宽度、布局&#x2F;字体&#x2F;颜色: main.0cf68a.css5.各种坑 hexo installation 安装安装 Node.js和npmsudo apt-get update sudo apt i">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Hexo 搭建总结">
+<meta property="og:url" content="http://example.com/bck/Hexo%20%E6%90%AD%E5%BB%BA%E6%80%BB%E7%BB%93.html">
+<meta property="og:site_name" content="G&amp;R Blog">
+<meta property="og:description" content="Overview1.hexo installation 安装2.hexo 主题设置: yilia theme3.数学公式支持: mathjax + pandoc4.页面细节定制: 两侧宽度、布局&#x2F;字体&#x2F;颜色: main.0cf68a.css5.各种坑 hexo installation 安装安装 Node.js和npmsudo apt-get update sudo apt i">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-10-01T12:11:00.000Z">
+<meta property="article:modified_time" content="2024-03-22T04:43:08.789Z">
+<meta property="article:author" content="G &amp; R">
+<meta property="article:tag" content="Recommending System">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="icon" href="/img/avatar.jpg">
+
+<link href="/css/style.css?v=1.1.0" rel="stylesheet">
+
+<link href="/css/hl_theme/atom-light.css?v=1.1.0" rel="stylesheet">
+
+<link href="//cdn.jsdelivr.net/npm/animate.css@4.1.0/animate.min.css" rel="stylesheet">
+
+<script src="//cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+<script src="/js/titleTip.js?v=1.1.0" ></script>
+
+<script src="//cdn.jsdelivr.net/npm/highlightjs@9.16.2/highlight.pack.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+
+<script src="//cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js"></script>
+
+
+
+<script src="//cdn.jsdelivr.net/npm/jquery.cookie@1.4.1/jquery.cookie.min.js" ></script>
+
+<script src="/js/iconfont.js?v=1.1.0" ></script>
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+<div style="display: none">
+  <input class="theme_disqus_on" value="false">
+  <input class="theme_preload_comment" value="">
+  <input class="theme_blog_path" value="">
+  <input id="theme_shortcut" value="true" />
+  <input id="theme_highlight_on" value="true" />
+  <input id="theme_code_copy" value="true" />
+</div>
+
+
+
+<body>
+<aside class="nav">
+    <div class="nav-left">
+        <a href="/"
+   class="avatar_target">
+    <img class="avatar"
+         src="/img/avatar.jpg"/>
+</a>
+<div class="author">
+    <span>G &amp; R</span>
+</div>
+
+<div class="icon">
+    
+        
+            <a title="rss"
+               href="/atom.xml"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-rss"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+            <a title="github"
+               href="https://github.com/goldandrabbit"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-github"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+            <a title="neteasemusic"
+               href="https://music.163.com/#/user/home?id=88151013"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-neteasemusic"></use>
+                    </svg>
+                
+            </a>
+        
+    
+</div>
+
+
+
+
+
+<ul>
+    <li>
+        <div class="all active" data-rel="All">All
+            
+                <small>(23)</small>
+            
+        </div>
+    </li>
+    
+        
+            
+                
+    <li>
+        <div data-rel="Coding">
+            
+            Coding
+            <small>(23)</small>
+        </div>
+        
+    </li>
+
+            
+        
+    
+</ul>
+<div class="left-bottom">
+    <div class="menus">
+        
+            
+            
+            
+    </div>
+    <div>
+        
+            <a class="about  hasFriend  site_url"
+               
+               href="/about">About</a>
+        
+        <a style="width: 50%"
+                
+                                           class="friends">Friends</a>
+        
+    </div>
+</div>
+<input type="hidden" id="yelog_site_posts_number" value="23">
+
+<div style="display: none">
+    <span id="busuanzi_value_site_uv"></span>
+    <span id="busuanzi_value_site_pv"></span>
+</div>
+
+    </div>
+    <div class="nav-right">
+        <div class="friends-area">
+    <div class="friends-title">
+        Links
+        <i class="iconfont icon-left"></i>
+    </div>
+    <div class="friends-content">
+        <ul>
+            
+            <li><a target="_blank" href="http://yelog.org/">叶落阁</a></li>
+            
+        </ul>
+    </div>
+</div>
+        <div class="title-list">
+    <div class="right-top">
+        <div id="default-panel">
+            <i class="iconfont icon-search" data-title="搜索 快捷键 i"></i>
+            <div class="right-title">All</div>
+            <i class="iconfont icon-file-tree" data-title="切换到大纲视图 快捷键 w"></i>
+        </div>
+        <div id="search-panel">
+            <i class="iconfont icon-left" data-title="返回"></i>
+            <input id="local-search-input" autocomplete="off"/>
+            <label class="border-line" for="input"></label>
+            <i class="iconfont icon-case-sensitive" data-title="大小写敏感"></i>
+            <i class="iconfont icon-tag" data-title="标签"></i>
+        </div>
+        <div id="outline-panel" style="display: none">
+            <div class="right-title">大纲</div>
+            <i class="iconfont icon-list" data-title="切换到文章列表"></i>
+        </div>
+    </div>
+
+    <div class="tags-list">
+    <input id="tag-search" />
+    <div class="tag-wrapper">
+        
+    </div>
+
+</div>
+
+    
+    <nav id="title-list-nav">
+        
+        
+        <a  class="All Coding "
+           href="/2099/01/30/G&R%20%E7%9A%84%20Blog%20%E5%8F%91%E5%B8%83%E8%A7%84%E8%8C%83/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="G&amp;R 的 Blog 发布规范">G&amp;R 的 Blog 发布规范</span>
+            <span class="post-date" title="2099-01-30 20:00:00">2099/01/30</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/09/10/cpp_0_0_%E5%B1%9E%E4%BA%8E%20cpp%20%E7%9A%84%E8%AE%BE%E8%AE%A1%E5%93%B2%E5%AD%A6/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cpp_0_1_cpp设计哲学">cpp_0_1_cpp设计哲学</span>
+            <span class="post-date" title="2020-09-10 08:00:00">2020/09/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/09/10/cpp_0_1_vscode%20%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cpp_0_1_vscode 环境配置">cpp_0_1_vscode 环境配置</span>
+            <span class="post-date" title="2020-09-10 08:00:00">2020/09/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/09/10/cpp_0_2_%E5%A4%B4%E6%96%87%E4%BB%B6%20header%20file/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cpp_0_2_头文件 headerfile">cpp_0_2_头文件 headerfile</span>
+            <span class="post-date" title="2020-09-10 08:00:00">2020/09/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/09/10/cpp_0_3_%E8%B0%B7%E6%AD%8C%20C++%20%E7%BC%96%E7%A8%8B%E9%A3%8E%E6%A0%BC/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cpp_0_3_谷歌 C++ 编程风格">cpp_0_3_谷歌 C++ 编程风格</span>
+            <span class="post-date" title="2020-09-10 08:00:00">2020/09/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/09/10/cpp_1_1_%E5%B7%A6%E5%80%BC%E5%92%8C%E5%8F%B3%E5%80%BC%20Lvalue%20and%20Rvalue/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cpp_2_1_左值和右值 Lvalue and Rvalue">cpp_2_1_左值和右值 Lvalue and Rvalue</span>
+            <span class="post-date" title="2020-09-10 08:00:00">2020/09/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/09/10/cpp_1_2_%E5%B7%A6%E5%80%BC%E5%BC%95%E7%94%A8%20Lvalue%20reference/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cpp_1_2_左值引用 Lvalue reference">cpp_1_2_左值引用 Lvalue reference</span>
+            <span class="post-date" title="2020-09-10 08:00:00">2020/09/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/09/10/cpp_1_3_%E5%8F%B3%E5%80%BC%E5%BC%95%E7%94%A8%20Rvalue%20reference/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cpp_1_3_右值引用 Rvalue reference">cpp_1_3_右值引用 Rvalue reference</span>
+            <span class="post-date" title="2020-09-10 08:00:00">2020/09/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/09/10/cpp_2_2_%E6%8C%87%E9%92%88%20Pointer_2_%E7%A9%BA%E6%8C%87%E9%92%88/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cpp_2_2_指针 Pointer_2_空指针">cpp_2_2_指针 Pointer_2_空指针</span>
+            <span class="post-date" title="2020-09-10 08:00:00">2020/09/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/09/10/cpp_2_1_%E6%8C%87%E9%92%88%20Pointer_1_%E5%9C%B0%E5%9D%80%E5%92%8C%E6%8C%87%E9%92%88/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cpp_2_1_指针 Pointer_1_地址和指针">cpp_2_1_指针 Pointer_1_地址和指针</span>
+            <span class="post-date" title="2020-09-10 08:00:00">2020/09/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/09/10/cpp_2_3_%E6%8C%87%E9%92%88%20Pointer_4_%E4%BC%A0%E5%9C%B0%E5%9D%80%20Pass%20by%20address/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cpp_2_3_指针 Pointer_4_传地址 Pass by address">cpp_2_3_指针 Pointer_4_传地址 Pass by address</span>
+            <span class="post-date" title="2020-09-10 08:00:00">2020/09/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/09/10/cpp_2_3_%E6%8C%87%E9%92%88%20Pointer_3_const%E4%B8%8E%E6%8C%87%E9%92%88/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cpp_2_3_指针 Pointer_3_const与指针">cpp_2_3_指针 Pointer_3_const与指针</span>
+            <span class="post-date" title="2020-09-10 08:00:00">2020/09/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/09/10/cpp_2_4_%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88_0_%E8%AE%BE%E8%AE%A1%E6%80%9D%E6%83%B3/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cpp_2_4_智能指针_0_设计思想">cpp_2_4_智能指针_0_设计思想</span>
+            <span class="post-date" title="2020-09-10 08:00:00">2020/09/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/09/10/cpp_2_6_%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88_2_unique_ptr/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cpp_2_6_智能指针_2_unique_ptr">cpp_2_6_智能指针_2_unique_ptr</span>
+            <span class="post-date" title="2020-09-10 08:00:00">2020/09/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/09/10/cpp_2_5_%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88_1_shared_ptr/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cpp_2_5_智能指针_1_shared_ptr">cpp_2_5_智能指针_1_shared_ptr</span>
+            <span class="post-date" title="2020-09-10 08:00:00">2020/09/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/09/10/cpp_3_0_constexpr%20%E5%85%B3%E9%94%AE%E5%AD%97/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cpp_3_0_constexpr关键字">cpp_3_0_constexpr关键字</span>
+            <span class="post-date" title="2020-09-10 08:00:00">2020/09/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/09/10/cpp_3_1_const%20%E5%85%B3%E9%94%AE%E5%AD%97/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cpp_3_1_const 关键字">cpp_3_1_const 关键字</span>
+            <span class="post-date" title="2020-09-10 08:00:00">2020/09/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/09/10/cpp_3_2_Lambda%20%E8%A1%A8%E8%BE%BE%E5%BC%8F/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cpp_3_2_Lambda 表达式">cpp_3_2_Lambda 表达式</span>
+            <span class="post-date" title="2020-09-10 08:00:00">2020/09/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/09/10/cpp_5_1_%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1_0_overview/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cpp_5_1_面向对象_0_overview">cpp_5_1_面向对象_0_overview</span>
+            <span class="post-date" title="2020-09-10 08:00:00">2020/09/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/09/10/cpp_5_2_%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1_1_%E7%B1%BB%E5%92%8C%E6%88%90%E5%91%98%E5%87%BD%E6%95%B0/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cpp_5_2_面向对象_1_类和成员函数">cpp_5_2_面向对象_1_类和成员函数</span>
+            <span class="post-date" title="2020-09-10 08:00:00">2020/09/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/09/10/cpp_6_0_%E6%A8%A1%E6%9D%BF%20template/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cpp_6_0_模板 template">cpp_6_0_模板 template</span>
+            <span class="post-date" title="2020-09-10 08:00:00">2020/09/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/09/10/cpp_5_3_%E5%A4%9A%E6%80%81_0_%E8%99%9A%E5%87%BD%E6%95%B0%20Virtual%20Functions/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cpp_5_3_多态_0_虚函数 Virtual Functions">cpp_5_3_多态_0_虚函数 Virtual Functions</span>
+            <span class="post-date" title="2020-09-10 08:00:00">2020/09/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2018/04/05/Git%20%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Git 使用指南">Git 使用指南</span>
+            <span class="post-date" title="2018-04-05 22:56:00">2018/04/05</span>
+        </a>
+        
+        <div id="no-item-tips">
+
+        </div>
+    </nav>
+    <div id="outline-list">
+    </div>
+</div>
+
+    </div>
+    <div class="hide-list">
+        <div class="semicircle" data-title="切换全屏 快捷键 s">
+            <div class="brackets first"><</div>
+            <div class="brackets">&gt;</div>
+        </div>
+    </div>
+</aside>
+<div id="post">
+    <div class="pjax">
+        <article id="post-cpp_5_1_面向对象_0_overview" class="article article-type-post" itemscope itemprop="blogPost">
+    
+        <h1 class="article-title">cpp_5_1_面向对象_0_overview</h1>
+    
+    <div class="article-meta">
+        
+        
+        
+        <span class="book">
+            <i class="iconfont icon-category"></i>
+            
+            
+            <a  data-rel="Coding">Coding</a>
+            
+        </span>
+        
+        
+    </div>
+    <div class="article-meta">
+        
+            Created At : <time class="date" title='Updated At: 2024-03-22 13:00:09'>2020-09-10 08:00</time>
+        
+    </div>
+    <div class="article-meta">
+        
+        
+        <span id="busuanzi_container_page_pv">
+            Views 👀 :<span id="busuanzi_value_page_pv">
+                <span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </span>
+        </span>
+        
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%9A%84%E6%A0%B8%E5%BF%83%E8%A6%81%E7%82%B9"><span class="toc-text">面向对象的核心要点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Procedural-programming-%E8%BF%87%E7%A8%8B%E5%BC%8F%E7%BC%96%E7%A8%8B"><span class="toc-text">Procedural programming 过程式编程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#What-is-object-oriented-programming-%E4%BB%80%E4%B9%88%E6%98%AF%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B"><span class="toc-text">What is object-oriented programming? 什么是面向对象编程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#A-procedural-v-s-OOP-like-example-%E4%B8%80%E4%B8%AA%E9%9D%A2%E5%90%91%E8%BF%87%E7%A8%8B%E5%92%8C%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%9A%84%E4%BE%8B%E5%AD%90%E7%9A%84%E5%AF%B9%E6%AF%94"><span class="toc-text">A procedural v.s. OOP-like example 一个面向过程和面向对象的例子的对比</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#OOP-brings-other-benefits-to-table-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B%E5%B8%A6%E6%9D%A5%E4%BA%86%E5%85%B6%E4%BB%96%E4%BC%98%E5%8A%BF"><span class="toc-text">OOP brings other benefits to table 面向对象编程带来了其他优势</span></a></li></ol>
+    
+<style>
+    .left-col .switch-btn,
+    .left-col .switch-area {
+        display: none;
+    }
+    .toc-level-3 i,
+    .toc-level-3 ol {
+        display: none !important;
+    }
+</style>
+</div>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="面向对象的核心要点"><a href="#面向对象的核心要点" class="headerlink" title="面向对象的核心要点"></a>面向对象的核心要点</h2><p>1.Introduction to object-oriented programming 面向对象编程<br>2.Introduction to classes<br>3.Member functions 成员函数<br>4.Const class object and const member functions<br>5.Public and private mmbers and access specifiers<br>6.Accesss functions<br>7.Member functions returning references to data members<br>8.The benefits of data hiding<br>9.Introduction to constructors<br>10.Constructor member initializer lists<br>11.Default constructors<br>12.Delegating constructors and default arguments<br>13.Temporary class objects<br>14.Introduction to the copy constructor<br>15.Class initialization and copy elision<br>16.Converting constructors and the explicit keyword  </p>
+<h2 id="Procedural-programming-过程式编程"><a href="#Procedural-programming-过程式编程" class="headerlink" title="Procedural programming 过程式编程"></a>Procedural programming 过程式编程</h2><blockquote>
+<p>an object: a piece of memory that can be used to store values. An object with a name is called a variable.</p>
+</blockquote>
+<blockquote>
+<p>C++ programs have consisted of sequential lists of instructions to the computer that define data (via objects) and operations performed on that data (via functions containing statements and expressions).</p>
+</blockquote>
+<blockquote>
+<p>In procedural programming, the focus is on creating “procedures” (which in C++ are called functions) that implement our program logic. We pass data objects to these functions, those functions perform operations on the data, and then potentially return a result to be used by the caller.</p>
+</blockquote>
+<blockquote>
+<p>In procedural programming, the functions and the data those functions operate on are separate entities. The programmer is responsible for combining the functions and the data together to produce the desired result. This leads to code that looks like this:</p>
+</blockquote>
+<pre><code class="cpp">eat(you, apple);
+</code></pre>
+<p>intuitively,<br>1.回顾下 object 和 variable 的定义: 一个 object 我们定义为一小段可以储存值的内存. 一个有名字的 object 我们称之为变量. 一切的代码和程序执行都是围绕着各种 object 进行操作<br>2.cpp 程序将一系列指令送入到计算机, 这些指令本质都是我们定义的 [数据] 和 [运算], 在cpp里面, 数据都是通过 object 定义的, 运算是通过 function 定义的 (函数里面包括了各种声明和表达式).<br>3.在 procedural programming (过程式编程) 里面, 我们聚焦在构造 “procedures” (其实就是函数) 来实现我们要的程序逻辑: 我们将数据 objects 传入到这些 function 里面, 然后这些函数对这些数据进行各种操作, 最终 (可能) 返回函数调用的结果<br>4.在这种 procedural programming 这种范式下, 函数和被函数操纵的数据是相互分离的. 程序员需要将二者组合起来才会产生我们要的结果, 简单来说, 调用的函数的形式都是  </p>
+<pre><code class="cpp">函数(调用函数的主体, 数据)
+</code></pre>
+<h2 id="What-is-object-oriented-programming-什么是面向对象编程"><a href="#What-is-object-oriented-programming-什么是面向对象编程" class="headerlink" title="What is object-oriented programming? 什么是面向对象编程"></a>What is object-oriented programming? 什么是面向对象编程</h2><blockquote>
+<p>In object-oriented programming (often abbreviated as OOP), the focus is on creating program-defined data types that contain both properties and a set of well-defined behaviors. The term “object” in OOP refers to the objects that we can instantiate from such types. This leads to code that looks more like this:</p>
+</blockquote>
+<pre><code class="cpp">you.eat(apple);
+</code></pre>
+<blockquote>
+<p>This makes it clearer who the subject is (you), what behavior is being invoked (eat()), and what objects are accessories to that behavior (apple).</p>
+</blockquote>
+<blockquote>
+<p>Because the properties and behaviors are no longer separate, objects are easier to modularize, which makes our programs easier to write and understand, and also provides a higher degree of code reusability. These objects also provide a more intuitive way to work with our data by allowing us to define how we interact with the objects, and how they interact with other objects.</p>
+</blockquote>
+<p>intuitively,<br>1.在 oop (面向对象) 编程的范式下, 我们目的是要构造一种数据类型 (data types), (这里的 data types 其实指的是 struct&#x2F;class), 数据类型包含[属性 (proberties) ] 和 [一系列定义好的行为(well-defined behaviors)]. “object” 在 oop 里面指的是我们从数据类型中执行实例化, 也就是”对象”, 然后调用函数就变成了类似于 xx.function(xx) 的形式<br>2.相比于面向过程的范式, oop 范式能够更清楚地明确出来谁是调用函数的主体, 谁是主体的行为<br>3.在 oop 范式下, [属性] 和 [行为] 不再相互分离, 而是绑定在一起; objects 实现了更好的模块化的效果, 使得代码更容易被理解, 且达到了更高层次的代码复用性<br>4.objects (对象) 提供了一个更直观的数据操作的抽象, 我们可以去定义对象, 并且去定义多个对象之间的交互  </p>
+<h2 id="A-procedural-v-s-OOP-like-example-一个面向过程和面向对象的例子的对比"><a href="#A-procedural-v-s-OOP-like-example-一个面向过程和面向对象的例子的对比" class="headerlink" title="A procedural v.s. OOP-like example 一个面向过程和面向对象的例子的对比"></a>A procedural v.s. OOP-like example 一个面向过程和面向对象的例子的对比</h2><p>下面我们通过一个例子去对比面向过程和面向对象对于对于数据操纵的不同, 假设我们有三种动物的类型, 动物有返回动物的名称以及动物的腿的个数两个函数, 按照 procedural 范式来写代码如下  </p>
+<pre><code class="cpp">#include &lt;iostream&gt;
+#include &lt;cstring&gt;
+
+enum AnimalType &#123;
+  cat,
+  dog,
+  chicken,
+&#125;;
+
+std::string animalName(AnimalType type) &#123;
+  switch (type) &#123;
+    case cat: return &quot;cat&quot;; break;
+    case dog: return &quot;dog&quot;; break;
+    case chicken: return &quot;chicken&quot;; break;
+    default:  return &quot;&quot;; break;
+  &#125;
+&#125;
+
+int numLegs(AnimalType type) &#123;
+  switch (type) &#123;
+    case cat: return 4; break;
+    case dog: return 4; break;
+    case chicken: return 2; break;
+    default:  return 0; break;
+  &#125;
+&#125;
+
+int main() &#123;
+  constexpr AnimalType animal&#123;cat&#125;;
+  std::cout &lt;&lt; &quot;A &quot; &lt;&lt; animalName(animal) &lt;&lt; &quot; has &quot; &lt;&lt; numLegs(animal) &lt;&lt; &quot; legs\n&quot;;
+  return 0;
+&#125;
+</code></pre>
+<p>这个代码看起来是可以执行的, 但是加上我们现在要新加一个动物, 比如 snake, 为了增加这个新的动物, 我们需要修改 AnimalType, numLegs(), animalName(); 但是其实我们想一下, 不管新增多少个动物, 我们都只是要确定他的名字和腿的数量; 同时, 不管有多少个动物, 他们本质都是一类东西, 都是动物 (这种data type); 因此我们改成 oop 的写法:</p>
+<pre><code class="cpp">#include &lt;iostream&gt;
+#include &lt;cstring&gt;
+
+struct Animal &#123;
+  std::string name&#123;&#125;;
+  int numLegs&#123;&#125;;
+  Animal (std::string name, int numlegs) &#123;
+    this-&gt;name = name;
+    this-&gt;numLegs = numlegs;
+  &#125;
+&#125;;
+
+int main() &#123;
+  std::string catName = &quot;kitty&quot;;
+  std::string chickenName = &quot;joe&quot;;
+  std::string dogName = &quot;lucy&quot;;
+  Animal cat&#123;catName, 4&#125;;
+  Animal chicken&#123;chickenName, 2&#125;;
+  Animal dog&#123;dogName, 4&#125;;
+  std::cout &lt;&lt; cat.name &lt;&lt; &quot; has &quot; &lt;&lt; cat.numLegs &lt;&lt; &quot; legs\n&quot;;
+  std::cout &lt;&lt; chicken.name &lt;&lt; &quot; has &quot; &lt;&lt; chicken.numLegs &lt;&lt; &quot; legs\n&quot;;
+  std::cout &lt;&lt; dog.name &lt;&lt; &quot; has &quot; &lt;&lt; dog.numLegs &lt;&lt; &quot; legs\n&quot;;
+  return 0;
+&#125;
+</code></pre>
+<p>在这种oop的写法之下, 比我们只需要对单独的 struct 进行操作</p>
+<h2 id="OOP-brings-other-benefits-to-table-面向对象编程带来了其他优势"><a href="#OOP-brings-other-benefits-to-table-面向对象编程带来了其他优势" class="headerlink" title="OOP brings other benefits to table 面向对象编程带来了其他优势"></a>OOP brings other benefits to table 面向对象编程带来了其他优势</h2><blockquote>
+<p>In school, when you submit your programming assignments, your work is essentially done. Your professor or teacher’s assistant will run your code to see if it produces the correct result. It either does or doesn’t, and you are graded accordingly. Your code is likely discarded at that point.</p>
+</blockquote>
+<blockquote>
+<p>when you submit your code into a repository that is used by other developers, or into an application that’s used by real users, it’s an entirely different ballgame. Some new OS or software release will break your code. Users will find some logic error you made. A business partner will demand some new capability. Other developers will need to extend your code without breaking it. Your code needs to be able to evolve, perhaps significantly, and it needs to be able to do so with minimal time investment, minimal headaches, and minimal breakage.</p>
+</blockquote>
+<blockquote>
+<p>The best way to address these is by keeping your code as modular (and non-redundant) as possible. To assist with this, OOP also brings a number of other useful concepts to the table: inheritance, encapsulation, abstraction, and polymorphism.</p>
+</blockquote>
+<p>intuitively,<br>1.在学校学习 cs 课程的时候, 当我们提交了代码作业 (学习任务实质上也就做完了). 老师会跑一下代码检查下结果是否正确然后打个分数. 在学校交作业这种模式下, 代码跑完然后打完分之后其实也被丢弃了;<br>2.去到公司里面干活时候, 我们提交代码到仓库, 会有其他的同事使用我们开发的代码继续开发, 这种情况和在学校就截然不同了. 比如:<br>(i). 某些新的操作系统或者软件版本发布会破坏你的代码, 例如你用的是python2.7写的一些逻辑, 现在要升级到python3.5<br>(ii). 用户也会发现你搞出来的错误<br>(iii). 老板也总需要你增加一些新的功能<br>(iv). 其他同时可能需要在你的代码上继续开发  </p>
+<p>所以, 我们写的代码需要具备扩展性, 尤其是面向是大版本大规模的改动, 并且要求我们采用尽可能小的改动满足这些要求, 解决上述这些情况为代表的扩展性问题的一种组织代码的原则就是  </p>
+<blockquote>
+<p>keeping our code as modular as possible (尽可能保持我们的代码模块化)</p>
+</blockquote>
+<p>oop 给我们引入了一系列代码模块化的操作: inheritance, encapsulation, abstraction, polymorphism. 能够让我们更好地将代码具备更强的模块化的能力  </p>
+
+      
+       <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 jaytp@qq.com </span>
+    </div>
+</article>
+
+
+<p>
+    <a  class="dashang" onclick="dashangToggle()">💰</a>
+</p>
+
+
+
+
+
+
+    
+
+
+
+
+    </div>
+    <div class="copyright">
+        <p class="footer-entry">
+    ©2016-2020 Yelog
+</p>
+<p class="footer-entry">Built with <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/yelog/hexo-theme-3-hexo" target="_blank">3-hexo</a> theme</p>
+
+    </div>
+    <div class="full-toc">
+        <button class="full" data-title="切换全屏 快捷键 s"><span class="min "></span></button>
+<a class="" id="rocket" ></a>
+
+    </div>
+</div>
+
+<div class="hide_box" onclick="dashangToggle()"></div>
+<div class="shang_box">
+    <a class="shang_close"  onclick="dashangToggle()">×</a>
+    <div class="shang_tit">
+        <p>Help us with donation</p>
+    </div>
+    <div class="shang_payimg">
+        <div class="pay_img">
+            <img src="/img/alipay.jpg" class="alipay" title="扫码支持">
+            <img src="/img/weixin.jpg" class="weixin" title="扫码支持">
+        </div>
+    </div>
+    <div class="shang_payselect">
+        <span><label><input type="radio" name="pay" checked value="alipay">alipay</label></span><span><label><input type="radio" name="pay" value="weixin">weixin</label></span>
+    </div>
+</div>
+
+
+</body>
+<script src="/js/jquery.pjax.js?v=1.1.0" ></script>
+
+<script src="/js/script.js?v=1.1.0" ></script>
+<script>
+    var img_resize = 'default';
+    function initArticle() {
+        /*渲染对应的表格样式*/
+        
+            $("#post .pjax table").addClass("green_title");
+        
+
+        /*渲染打赏样式*/
+        
+        $("input[name=pay]").on("click", function () {
+            if($("input[name=pay]:checked").val()=="weixin"){
+                $(".shang_box .shang_payimg .pay_img").addClass("weixin_img");
+            } else {
+                $(".shang_box .shang_payimg .pay_img").removeClass("weixin_img");
+            }
+        })
+        
+
+        /*高亮代码块行号*/
+        
+
+        /*访问数量*/
+        
+        $.getScript("//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js");
+        
+
+        /*代码高亮，行号对齐*/
+        $('.pre-numbering').css('line-height',$('.has-numbering').css('line-height'));
+
+        
+        
+    }
+
+    /*打赏页面隐藏与展示*/
+    
+    function dashangToggle() {
+        $(".shang_box").fadeToggle();
+        $(".hide_box").fadeToggle();
+    }
+    
+
+</script>
+
+<!--加入行号的高亮代码块样式-->
+
+<!--自定义样式设置-->
+<style>
+    
+    
+    .nav {
+        width: 542px;
+    }
+    .nav.fullscreen {
+        margin-left: -542px;
+    }
+    .nav-left {
+        width: 120px;
+    }
+    
+    
+    @media screen and (max-width: 1468px) {
+        .nav {
+            width: 492px;
+        }
+        .nav.fullscreen {
+            margin-left: -492px;
+        }
+        .nav-left {
+            width: 100px;
+        }
+    }
+    
+    
+    @media screen and (max-width: 1024px) {
+        .nav {
+            width: 492px;
+            margin-left: -492px
+        }
+        .nav.fullscreen {
+            margin-left: 0;
+        }
+    }
+    
+    @media screen and (max-width: 426px) {
+        .nav {
+            width: 100%;
+        }
+        .nav-left {
+            width: 100%;
+        }
+    }
+    
+    
+    .nav-right .title-list nav a .post-title, .nav-right .title-list #local-search-result a .post-title {
+        color: #383636;
+    }
+    
+    
+    .nav-right .title-list nav a .post-date, .nav-right .title-list #local-search-result a .post-date {
+        color: #5e5e5f;
+    }
+    
+    
+    .nav-right nav a.hover, #local-search-result a.hover{
+        background-color: #e2e0e0;
+    }
+    
+    
+
+    /*列表样式*/
+    
+
+    /* 背景图样式 */
+    
+    
+
+
+    /*引用块样式*/
+    
+
+    /*文章列表背景图*/
+    
+
+    
+</style>
+
+
+
+
+
+
+
+</html>

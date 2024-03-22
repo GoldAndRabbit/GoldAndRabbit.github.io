@@ -1,0 +1,1071 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>cpp_5_3_多态_0_虚函数 Virtual Functions | G&amp;R Blog</title>
+  <meta name="keywords" content="">
+  <meta name="description" content="cpp_5_3_多态_0_虚函数 Virtual Functions | G&amp;R Blog">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="Overview1.hexo installation 安装2.hexo 主题设置: yilia theme3.数学公式支持: mathjax + pandoc4.页面细节定制: 两侧宽度、布局&#x2F;字体&#x2F;颜色: main.0cf68a.css5.各种坑 hexo installation 安装安装 Node.js和npmsudo apt-get update sudo apt i">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Hexo 搭建总结">
+<meta property="og:url" content="http://example.com/bck/Hexo%20%E6%90%AD%E5%BB%BA%E6%80%BB%E7%BB%93.html">
+<meta property="og:site_name" content="G&amp;R Blog">
+<meta property="og:description" content="Overview1.hexo installation 安装2.hexo 主题设置: yilia theme3.数学公式支持: mathjax + pandoc4.页面细节定制: 两侧宽度、布局&#x2F;字体&#x2F;颜色: main.0cf68a.css5.各种坑 hexo installation 安装安装 Node.js和npmsudo apt-get update sudo apt i">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-10-01T12:11:00.000Z">
+<meta property="article:modified_time" content="2024-03-22T04:43:08.789Z">
+<meta property="article:author" content="G &amp; R">
+<meta property="article:tag" content="Recommending System">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="icon" href="/img/avatar.jpg">
+
+<link href="/css/style.css?v=1.1.0" rel="stylesheet">
+
+<link href="/css/hl_theme/atom-light.css?v=1.1.0" rel="stylesheet">
+
+<link href="//cdn.jsdelivr.net/npm/animate.css@4.1.0/animate.min.css" rel="stylesheet">
+
+<script src="//cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+<script src="/js/titleTip.js?v=1.1.0" ></script>
+
+<script src="//cdn.jsdelivr.net/npm/highlightjs@9.16.2/highlight.pack.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+
+<script src="//cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js"></script>
+
+
+
+<script src="//cdn.jsdelivr.net/npm/jquery.cookie@1.4.1/jquery.cookie.min.js" ></script>
+
+<script src="/js/iconfont.js?v=1.1.0" ></script>
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+<div style="display: none">
+  <input class="theme_disqus_on" value="false">
+  <input class="theme_preload_comment" value="">
+  <input class="theme_blog_path" value="">
+  <input id="theme_shortcut" value="true" />
+  <input id="theme_highlight_on" value="true" />
+  <input id="theme_code_copy" value="true" />
+</div>
+
+
+
+<body>
+<aside class="nav">
+    <div class="nav-left">
+        <a href="/"
+   class="avatar_target">
+    <img class="avatar"
+         src="/img/avatar.jpg"/>
+</a>
+<div class="author">
+    <span>G &amp; R</span>
+</div>
+
+<div class="icon">
+    
+        
+            <a title="rss"
+               href="/atom.xml"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-rss"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+            <a title="github"
+               href="https://github.com/goldandrabbit"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-github"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+            <a title="neteasemusic"
+               href="https://music.163.com/#/user/home?id=88151013"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-neteasemusic"></use>
+                    </svg>
+                
+            </a>
+        
+    
+</div>
+
+
+
+
+
+<ul>
+    <li>
+        <div class="all active" data-rel="All">All
+            
+                <small>(23)</small>
+            
+        </div>
+    </li>
+    
+        
+            
+                
+    <li>
+        <div data-rel="Coding">
+            
+            Coding
+            <small>(23)</small>
+        </div>
+        
+    </li>
+
+            
+        
+    
+</ul>
+<div class="left-bottom">
+    <div class="menus">
+        
+            
+            
+            
+    </div>
+    <div>
+        
+            <a class="about  hasFriend  site_url"
+               
+               href="/about">About</a>
+        
+        <a style="width: 50%"
+                
+                                           class="friends">Friends</a>
+        
+    </div>
+</div>
+<input type="hidden" id="yelog_site_posts_number" value="23">
+
+<div style="display: none">
+    <span id="busuanzi_value_site_uv"></span>
+    <span id="busuanzi_value_site_pv"></span>
+</div>
+
+    </div>
+    <div class="nav-right">
+        <div class="friends-area">
+    <div class="friends-title">
+        Links
+        <i class="iconfont icon-left"></i>
+    </div>
+    <div class="friends-content">
+        <ul>
+            
+            <li><a target="_blank" href="http://yelog.org/">叶落阁</a></li>
+            
+        </ul>
+    </div>
+</div>
+        <div class="title-list">
+    <div class="right-top">
+        <div id="default-panel">
+            <i class="iconfont icon-search" data-title="搜索 快捷键 i"></i>
+            <div class="right-title">All</div>
+            <i class="iconfont icon-file-tree" data-title="切换到大纲视图 快捷键 w"></i>
+        </div>
+        <div id="search-panel">
+            <i class="iconfont icon-left" data-title="返回"></i>
+            <input id="local-search-input" autocomplete="off"/>
+            <label class="border-line" for="input"></label>
+            <i class="iconfont icon-case-sensitive" data-title="大小写敏感"></i>
+            <i class="iconfont icon-tag" data-title="标签"></i>
+        </div>
+        <div id="outline-panel" style="display: none">
+            <div class="right-title">大纲</div>
+            <i class="iconfont icon-list" data-title="切换到文章列表"></i>
+        </div>
+    </div>
+
+    <div class="tags-list">
+    <input id="tag-search" />
+    <div class="tag-wrapper">
+        
+    </div>
+
+</div>
+
+    
+    <nav id="title-list-nav">
+        
+        
+        <a  class="All Coding "
+           href="/2099/01/30/G&R%20%E7%9A%84%20Blog%20%E5%8F%91%E5%B8%83%E8%A7%84%E8%8C%83/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="G&amp;R 的 Blog 发布规范">G&amp;R 的 Blog 发布规范</span>
+            <span class="post-date" title="2099-01-30 20:00:00">2099/01/30</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/09/10/cpp_0_0_%E5%B1%9E%E4%BA%8E%20cpp%20%E7%9A%84%E8%AE%BE%E8%AE%A1%E5%93%B2%E5%AD%A6/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cpp_0_1_cpp设计哲学">cpp_0_1_cpp设计哲学</span>
+            <span class="post-date" title="2020-09-10 08:00:00">2020/09/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/09/10/cpp_0_1_vscode%20%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cpp_0_1_vscode 环境配置">cpp_0_1_vscode 环境配置</span>
+            <span class="post-date" title="2020-09-10 08:00:00">2020/09/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/09/10/cpp_0_2_%E5%A4%B4%E6%96%87%E4%BB%B6%20header%20file/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cpp_0_2_头文件 headerfile">cpp_0_2_头文件 headerfile</span>
+            <span class="post-date" title="2020-09-10 08:00:00">2020/09/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/09/10/cpp_0_3_%E8%B0%B7%E6%AD%8C%20C++%20%E7%BC%96%E7%A8%8B%E9%A3%8E%E6%A0%BC/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cpp_0_3_谷歌 C++ 编程风格">cpp_0_3_谷歌 C++ 编程风格</span>
+            <span class="post-date" title="2020-09-10 08:00:00">2020/09/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/09/10/cpp_1_1_%E5%B7%A6%E5%80%BC%E5%92%8C%E5%8F%B3%E5%80%BC%20Lvalue%20and%20Rvalue/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cpp_2_1_左值和右值 Lvalue and Rvalue">cpp_2_1_左值和右值 Lvalue and Rvalue</span>
+            <span class="post-date" title="2020-09-10 08:00:00">2020/09/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/09/10/cpp_1_2_%E5%B7%A6%E5%80%BC%E5%BC%95%E7%94%A8%20Lvalue%20reference/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cpp_1_2_左值引用 Lvalue reference">cpp_1_2_左值引用 Lvalue reference</span>
+            <span class="post-date" title="2020-09-10 08:00:00">2020/09/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/09/10/cpp_1_3_%E5%8F%B3%E5%80%BC%E5%BC%95%E7%94%A8%20Rvalue%20reference/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cpp_1_3_右值引用 Rvalue reference">cpp_1_3_右值引用 Rvalue reference</span>
+            <span class="post-date" title="2020-09-10 08:00:00">2020/09/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/09/10/cpp_2_2_%E6%8C%87%E9%92%88%20Pointer_2_%E7%A9%BA%E6%8C%87%E9%92%88/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cpp_2_2_指针 Pointer_2_空指针">cpp_2_2_指针 Pointer_2_空指针</span>
+            <span class="post-date" title="2020-09-10 08:00:00">2020/09/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/09/10/cpp_2_1_%E6%8C%87%E9%92%88%20Pointer_1_%E5%9C%B0%E5%9D%80%E5%92%8C%E6%8C%87%E9%92%88/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cpp_2_1_指针 Pointer_1_地址和指针">cpp_2_1_指针 Pointer_1_地址和指针</span>
+            <span class="post-date" title="2020-09-10 08:00:00">2020/09/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/09/10/cpp_2_3_%E6%8C%87%E9%92%88%20Pointer_4_%E4%BC%A0%E5%9C%B0%E5%9D%80%20Pass%20by%20address/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cpp_2_3_指针 Pointer_4_传地址 Pass by address">cpp_2_3_指针 Pointer_4_传地址 Pass by address</span>
+            <span class="post-date" title="2020-09-10 08:00:00">2020/09/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/09/10/cpp_2_3_%E6%8C%87%E9%92%88%20Pointer_3_const%E4%B8%8E%E6%8C%87%E9%92%88/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cpp_2_3_指针 Pointer_3_const与指针">cpp_2_3_指针 Pointer_3_const与指针</span>
+            <span class="post-date" title="2020-09-10 08:00:00">2020/09/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/09/10/cpp_2_4_%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88_0_%E8%AE%BE%E8%AE%A1%E6%80%9D%E6%83%B3/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cpp_2_4_智能指针_0_设计思想">cpp_2_4_智能指针_0_设计思想</span>
+            <span class="post-date" title="2020-09-10 08:00:00">2020/09/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/09/10/cpp_2_6_%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88_2_unique_ptr/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cpp_2_6_智能指针_2_unique_ptr">cpp_2_6_智能指针_2_unique_ptr</span>
+            <span class="post-date" title="2020-09-10 08:00:00">2020/09/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/09/10/cpp_2_5_%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88_1_shared_ptr/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cpp_2_5_智能指针_1_shared_ptr">cpp_2_5_智能指针_1_shared_ptr</span>
+            <span class="post-date" title="2020-09-10 08:00:00">2020/09/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/09/10/cpp_3_0_constexpr%20%E5%85%B3%E9%94%AE%E5%AD%97/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cpp_3_0_constexpr关键字">cpp_3_0_constexpr关键字</span>
+            <span class="post-date" title="2020-09-10 08:00:00">2020/09/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/09/10/cpp_3_1_const%20%E5%85%B3%E9%94%AE%E5%AD%97/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cpp_3_1_const 关键字">cpp_3_1_const 关键字</span>
+            <span class="post-date" title="2020-09-10 08:00:00">2020/09/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/09/10/cpp_3_2_Lambda%20%E8%A1%A8%E8%BE%BE%E5%BC%8F/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cpp_3_2_Lambda 表达式">cpp_3_2_Lambda 表达式</span>
+            <span class="post-date" title="2020-09-10 08:00:00">2020/09/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/09/10/cpp_5_1_%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1_0_overview/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cpp_5_1_面向对象_0_overview">cpp_5_1_面向对象_0_overview</span>
+            <span class="post-date" title="2020-09-10 08:00:00">2020/09/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/09/10/cpp_5_2_%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1_1_%E7%B1%BB%E5%92%8C%E6%88%90%E5%91%98%E5%87%BD%E6%95%B0/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cpp_5_2_面向对象_1_类和成员函数">cpp_5_2_面向对象_1_类和成员函数</span>
+            <span class="post-date" title="2020-09-10 08:00:00">2020/09/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/09/10/cpp_6_0_%E6%A8%A1%E6%9D%BF%20template/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cpp_6_0_模板 template">cpp_6_0_模板 template</span>
+            <span class="post-date" title="2020-09-10 08:00:00">2020/09/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/09/10/cpp_5_3_%E5%A4%9A%E6%80%81_0_%E8%99%9A%E5%87%BD%E6%95%B0%20Virtual%20Functions/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cpp_5_3_多态_0_虚函数 Virtual Functions">cpp_5_3_多态_0_虚函数 Virtual Functions</span>
+            <span class="post-date" title="2020-09-10 08:00:00">2020/09/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2018/04/05/Git%20%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Git 使用指南">Git 使用指南</span>
+            <span class="post-date" title="2018-04-05 22:56:00">2018/04/05</span>
+        </a>
+        
+        <div id="no-item-tips">
+
+        </div>
+    </nav>
+    <div id="outline-list">
+    </div>
+</div>
+
+    </div>
+    <div class="hide-list">
+        <div class="semicircle" data-title="切换全屏 快捷键 s">
+            <div class="brackets first"><</div>
+            <div class="brackets">&gt;</div>
+        </div>
+    </div>
+</aside>
+<div id="post">
+    <div class="pjax">
+        <article id="post-cpp_5_3_多态_0_虚函数 Virtual Functions" class="article article-type-post" itemscope itemprop="blogPost">
+    
+        <h1 class="article-title">cpp_5_3_多态_0_虚函数 Virtual Functions</h1>
+    
+    <div class="article-meta">
+        
+        
+        
+        <span class="book">
+            <i class="iconfont icon-category"></i>
+            
+            
+            <a  data-rel="Coding">Coding</a>
+            
+        </span>
+        
+        
+    </div>
+    <div class="article-meta">
+        
+            Created At : <time class="date" title='Updated At: 2024-03-22 13:00:10'>2020-09-10 08:00</time>
+        
+    </div>
+    <div class="article-meta">
+        
+        
+        <span id="busuanzi_container_page_pv">
+            Views 👀 :<span id="busuanzi_value_page_pv">
+                <span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </span>
+        </span>
+        
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Oviewview"><span class="toc-text">Oviewview</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Pointers-and-references-to-the-base-class-of-derived-objects-%E6%8C%87%E5%90%91%E6%B4%BE%E7%94%9F%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%9F%BA%E7%B1%BB%E7%9A%84%E6%8C%87%E9%92%88-%E5%BC%95%E7%94%A8"><span class="toc-text">Pointers and references to the base class of derived objects 指向派生对象的基类的指针&#x2F;引用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Virtual-Function-%E8%99%9A%E5%87%BD%E6%95%B0"><span class="toc-text">Virtual Function 虚函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Polymorphism-%E5%A4%9A%E6%80%81"><span class="toc-text">Polymorphism 多态</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Reference"><span class="toc-text">Reference</span></a></li></ol>
+    
+<style>
+    .left-col .switch-btn,
+    .left-col .switch-area {
+        display: none;
+    }
+    .toc-level-3 i,
+    .toc-level-3 ol {
+        display: none !important;
+    }
+</style>
+</div>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Oviewview"><a href="#Oviewview" class="headerlink" title="Oviewview"></a>Oviewview</h2><p>1.Pointers and references to the base class of derived objects 指向派生对象的基类的指针&#x2F;引用<br>2.Virtual Function 虚函数<br>3.Polymorphism 多态  </p>
+<h2 id="Pointers-and-references-to-the-base-class-of-derived-objects-指向派生对象的基类的指针-引用"><a href="#Pointers-and-references-to-the-base-class-of-derived-objects-指向派生对象的基类的指针-引用" class="headerlink" title="Pointers and references to the base class of derived objects 指向派生对象的基类的指针&#x2F;引用"></a>Pointers and references to the base class of derived objects 指向派生对象的基类的指针&#x2F;引用</h2><p>1.当我们构造一个派生对象的时候, 其实包括了一个基类的部分 (优先通过调用基类的构造函数), 和一个派生类的部分 (然后调用派生类的构造函数完成构造)<br>2.我们构建一个基础类和派生类, 然后分别用一个派生类的 rDerived引用 和一个指针 pDerived 指向派生类的对象  </p>
+<pre><code class="cpp">#include &lt;iostream&gt;
+#include &lt;cstring&gt;
+
+class Base &#123;
+ protected:
+  int m_value&#123;&#125;;
+ public:
+  Base(int value): m_value&#123;value&#125; &#123;
+  &#125;
+  std::string getName() const &#123;
+    return &quot;Base&quot;;
+  &#125;
+  int getValue() const &#123;
+    return m_value;
+  &#125;
+&#125;;
+
+class Derived : public Base &#123;
+ public:
+  Derived(int value): Base&#123;value&#125; &#123;
+  &#125;
+  std::string getName() const &#123;
+    return &quot;Derived&quot;;
+  &#125;
+  int getValueDoubled() const &#123;
+    return m_value * 2;
+  &#125;
+&#125;;
+
+int main() &#123;
+  Derived derived&#123;5&#125;;
+  std::cout &lt;&lt; &quot;derived is a &quot; &lt;&lt; derived.getName() &lt;&lt; &quot; and has value &quot; &lt;&lt; derived.getValue() &lt;&lt; &#39;\n&#39;;
+
+  Derived&amp; rDerived&#123;derived&#125;;
+  std::cout &lt;&lt; &quot;rDerived is a &quot; &lt;&lt; rDerived.getName() &lt;&lt; &quot; and has value &quot; &lt;&lt; rDerived.getValue() &lt;&lt; &#39;\n&#39;;
+
+  Derived* pDerived&#123;&amp;derived&#125;;
+  std::cout &lt;&lt; &quot;pDerived is a &quot; &lt;&lt; pDerived-&gt;getName() &lt;&lt; &quot; and has value &quot; &lt;&lt; pDerived-&gt;getValue() &lt;&lt; &#39;\n&#39;;
+  return 0;
+&#125;
+</code></pre>
+<p>输出结果为</p>
+<pre><code class="sh">derived is a Derived and has value 5
+rDerived is a Derived and has value 5
+pDerived is a Derived and has value 5
+</code></pre>
+<p>和上述在派生类构建引用&#x2F;指针不同, 这里我们构建一个基类的引用 (rBase) &#x2F; 指针(pBase), 指向同一个派生类的对象;</p>
+<pre><code class="cpp">#include &lt;iostream&gt;
+
+int main() &#123;
+  Derived derived&#123;5&#125;;
+
+  Base&amp; rBase&#123;derived&#125;;
+  Base* pBase&#123;&amp;derived&#125;;
+
+  std::cout &lt;&lt; &quot;derived is a &quot; &lt;&lt; derived.getName() &lt;&lt; &quot; and has value &quot; &lt;&lt; derived.getValue() &lt;&lt; &#39;\n&#39;;
+  std::cout &lt;&lt; &quot;rBase is a &quot;   &lt;&lt; rBase.getName() &lt;&lt; &quot; and has value &quot; &lt;&lt; rBase.getValue() &lt;&lt; &#39;\n&#39;;
+  std::cout &lt;&lt; &quot;pBase is a &quot;   &lt;&lt; pBase-&gt;getName() &lt;&lt; &quot; and has value &quot; &lt;&lt; pBase-&gt;getValue() &lt;&lt; &#39;\n&#39;;
+  return 0;
+&#125;
+</code></pre>
+<p>输出结果如下, 想想为什么是这个输出结果?   </p>
+<pre><code class="sh">derived is a Derived and has value 5
+rBase is a Base and has value 5
+pBase is a Base and has value 5
+</code></pre>
+<p>原因分析:<br>1.因为 rBase 和 pBase 是 Base 的引用和指针, 所以它们只能看到 Base 的成员; 因此, 即使 Derived::getName() 遮盖 (隐藏) Derived 对象的 Base::getName(), Base指针&#x2F;引用也看不到 Derived::getName(), 因此他们嗲用的是Base::getName(); 因此这就是为什么结果输出的是 Base 而不是 Derived.</p>
+<p>我们再看一个稍微复杂一点的例子, 体会一下这种指向派生对象基类的的指针和引用: Animal作为基类, cat 和 dog 分别继承 Animal 类, 然后构建 Animal 的引用和指针指向 cat 和 dog 对象;</p>
+<pre><code class="cpp">#include &lt;iostream&gt;
+#include &lt;string&gt;
+#include &lt;cstring&gt;
+
+class Animal &#123;
+ protected:
+  std::string m_name;
+  Animal(std::string name): m_name&#123;name&#125; &#123;&#125;
+  Animal(const Animal&amp;) = default;
+  Animal&amp; operator=(const Animal&amp;) = default;
+ public:
+  std::string getName() const &#123;
+    return m_name;
+  &#125;
+  std::string speak() const &#123;
+    return &quot;???&quot;;
+  &#125;
+&#125;;
+
+class Cat : public Animal &#123;
+ public:
+  Cat(std::string name): Animal&#123;name&#125; &#123;&#125;
+  std::string speak() const &#123;
+    return &quot;Meow&quot;;
+  &#125;
+&#125;;
+
+class Dog : public Animal &#123;
+ public:
+  Dog(std::string name): Animal&#123;name&#125;&#123;&#125;
+  std::string speak() const &#123;
+    return &quot;Woof&quot;;
+  &#125;
+&#125;;
+
+int main() &#123;
+  const Cat cat&#123;&quot;Fred&quot;&#125;;
+  std::cout &lt;&lt; &quot;cat is named &quot; &lt;&lt; cat.getName() &lt;&lt; &quot;, and it says &quot; &lt;&lt; cat.speak() &lt;&lt; &#39;\n&#39;;
+  const Dog dog&#123;&quot;Garbo&quot;&#125;;
+  std::cout &lt;&lt; &quot;dog is named &quot; &lt;&lt; dog.getName() &lt;&lt; &quot;, and it says &quot; &lt;&lt; dog.speak() &lt;&lt; &#39;\n&#39;;
+  const Animal* pAnimal&#123;&amp;cat&#125;;
+  std::cout &lt;&lt; &quot;pAnimal is named &quot; &lt;&lt; pAnimal-&gt;getName() &lt;&lt; &quot;, and it says &quot; &lt;&lt; pAnimal-&gt;speak() &lt;&lt; &#39;\n&#39;;
+  pAnimal = &amp;dog;
+  std::cout &lt;&lt; &quot;pAnimal is named &quot; &lt;&lt; pAnimal-&gt;getName() &lt;&lt; &quot;, and it says &quot; &lt;&lt; pAnimal-&gt;speak() &lt;&lt; &#39;\n&#39;;
+  return 0;
+&#125;
+</code></pre>
+<p>输出的结果如下, 我们想想这种基类指向派生类对象的指针的设定有什么问题 ? 先分析下结果, pAnimal 是一个基类的指针, 基类的指针只能看到 Animal类这部分的内容, 当我们调用 pAnimal -&gt; speark() 的时候, 调用的是 Animal()-&gt;speark() 而不是 Dog::Speak() 也不是 Cat::Speark() 这样的;</p>
+<pre><code class="sh">cat is named Fred, and it says Meow
+dog is named Garbo, and it says Woof
+pAnimal is named Fred, and it says ???
+pAnimal is named Garbo, and it says ???
+</code></pre>
+<p>这里停一下回到我们本能的问题, 为什么我们非要用基类指针&#x2F;引用指向子类的对象呢 ? 有两点原因<br>(i). 如果我们希望在上面的例子上写一个函数, 实现打印猫和狗的 name 和 speak(), 那么就需要增加 2 个函数</p>
+<pre><code class="cpp">void report(const Cat&amp; cat) &#123;
+  std::cout &lt;&lt; cat.getName() &lt;&lt; &quot; says &quot; &lt;&lt; cat.speak() &lt;&lt; &#39;\n&#39;;
+&#125;
+void report(const Dog&amp; dog) &#123;
+  std::cout &lt;&lt; dog.getName() &lt;&lt; &quot; says &quot; &lt;&lt; dog.speak() &lt;&lt; &#39;\n&#39;;
+&#125;
+</code></pre>
+<p>如果我们在此基础上想增加30个动物呢 ? 那么我们需要增加 30 个函数, 显然增加的 30个动物这个函数写在基类不是很好吗? 所以这个函数一定是建立在基类之上的一个函数, 比如说如下的函数;</p>
+<pre><code class="cpp">void report(const Animal&amp; rAnimal) &#123;
+  std::cout &lt;&lt; rAnimal.getName() &lt;&lt; &quot; says &quot; &lt;&lt; rAnimal.speak() &lt;&lt; &#39;\n&#39;;
+&#125;
+</code></pre>
+<p>修改一下代码</p>
+<pre><code class="cpp">#include &lt;iostream&gt;
+#include &lt;string&gt;
+#include &lt;cstring&gt;
+
+class Animal &#123;
+ protected:
+  std::string m_name;
+  Animal(std::string name): m_name&#123;name&#125; &#123;&#125;
+  Animal(const Animal&amp;) = default;
+  Animal&amp; operator=(const Animal&amp;) = default;
+ public:
+  std::string getName() const &#123;
+    return m_name;
+  &#125;
+  std::string speak() const &#123;
+    return &quot;???&quot;;
+  &#125;
+&#125;;
+
+class Cat : public Animal &#123;
+ public:
+  Cat(std::string name): Animal&#123;name&#125; &#123;&#125;
+  std::string speak() const &#123;
+    return &quot;Meow&quot;;
+  &#125;
+&#125;;
+
+class Dog : public Animal &#123;
+ public:
+  Dog(std::string name): Animal&#123;name&#125;&#123;&#125;
+  std::string speak() const &#123;
+    return &quot;Woof&quot;;
+  &#125;
+&#125;;
+
+void report(const Animal&amp; animal) &#123;
+  std::cout &lt;&lt; animal.getName() &lt;&lt; &quot; says &quot; &lt;&lt; animal.speak() &lt;&lt; &#39;\n&#39;;
+&#125;
+
+int main() &#123;
+  Cat cat&#123;&quot;Fred&quot;&#125;;
+  Dog dog&#123;&quot;Garbo&quot;&#125;;
+
+  report(cat);
+  report(dog);
+  return 0;
+&#125;
+</code></pre>
+<p>输出结果如下, 显然这个不能满足我们的需求, 这时候就要引入一种新的机制 virtual function;</p>
+<pre><code class="sh">Fred says ???
+Garbo says ???
+</code></pre>
+<h2 id="Virtual-Function-虚函数"><a href="#Virtual-Function-虚函数" class="headerlink" title="Virtual Function 虚函数"></a>Virtual Function 虚函数</h2><blockquote>
+<p>A virtual function is a special type of member function that, when called, resolves to the most-derived version of the function for the actual type of the object being referenced or pointed to.</p>
+</blockquote>
+<blockquote>
+<p>A derived function is considered a match if it has the same signature (name, parameter types, and whether it is const) and return type as the base version of the function. Such functions are called overrides.</p>
+</blockquote>
+<blockquote>
+<p>To make a function virtual, simply place the “virtual” keyword before the function declaration.</p>
+</blockquote>
+<p>intuitively,<br>1.虚函数是一种特殊的成员函数, 在函数调用时, 它会解析为引用或指向的对象的函数的”最派生的版本”, 也就是”最子类的版本”, 可以理解为一种运行期间的动态的函数重写<br>2.派生函数根据基类函数在有着相同的函数签名 (函数名称, 参数类型, 是否const) 的条件下进行匹配, 然后调用一个覆盖基的函数版本<br>3.cpp中, 如果想声明一个函数虚函数, 只需要在函数前面增加 virtual 关键字  </p>
+<pre><code class="cpp">#include &lt;iostream&gt;
+#include &lt;string_view&gt;
+
+class Base &#123;
+ public:
+  virtual std::string_view getName() const &#123; 
+    return &quot;Base&quot;;
+  &#125;
+&#125;;
+
+class Derived : public Base &#123;
+ public:
+  std::string_view getName() const &#123;
+    return &quot;Derived&quot;;
+  &#125;
+&#125;;
+
+int main() &#123;
+  Derived derived&#123;&#125;;
+  Base&amp; rBase&#123;derived&#125;;
+  std::cout &lt;&lt; &quot;rBase is a &quot; &lt;&lt; rBase.getName() &lt;&lt; &#39;\n&#39;;
+  return 0;
+&#125;
+</code></pre>
+<p>再看一个比较复杂的例子</p>
+<pre><code class="cpp">#include &lt;iostream&gt;
+#include &lt;cstring&gt;
+
+class A &#123;
+ public:
+  virtual std::string getName() const &#123; 
+    return &quot;A&quot;;
+  &#125;
+&#125;;
+
+class B : public A &#123;
+ public:
+  virtual std::string getName() const &#123;
+    return &quot;B&quot;;
+  &#125;
+&#125;;
+
+class C : public B &#123;
+ public:
+  virtual std::string getName() const &#123; 
+    return &quot;C&quot;;
+  &#125;
+&#125;;
+
+class D : public C &#123;
+ public:
+  virtual std::string getName() const &#123;
+    return &quot;D&quot;;
+  &#125;
+&#125;;
+
+int main() &#123;
+  C c&#123;&#125;;
+  A&amp; rBase&#123;c&#125;;
+  std::cout &lt;&lt; &quot;rBase is a &quot; &lt;&lt; rBase.getName() &lt;&lt; &#39;\n&#39;;
+  return 0;
+&#125;
+</code></pre>
+<p>输出结果为</p>
+<pre><code class="sh">rBase is a C
+</code></pre>
+<p>原因分析:<br>(i). 首先我们实例化一个 C 类对象.<br>(ii). 声明 rBase , 它是一个 A 引用, 我们将其设置为引用 C 对象的 A 部分.<br>(iii). 最后, 我们调用 rBase.getName(). rBase.getName() 计算结果为 A::getName(). 然而, A::getName() 是虚拟的, 因此编译器将调用 A 和 C 之间”最派生”的匹配. 在本例中, 即 C::getName().<br>(iv). 注意, 它不会调用 D::getName(), 因为我们的原始对象是 C, 而不是 D, 因此只考虑 A 和 C 之间的函数  </p>
+<h2 id="Polymorphism-多态"><a href="#Polymorphism-多态" class="headerlink" title="Polymorphism 多态"></a>Polymorphism 多态</h2><blockquote>
+<p>Polymorphism refers to the ability of an entity to have multiple forms (the term “polymorphism” literally means “many forms”).</p>
+</blockquote>
+<blockquote>
+<p>Polimorphsim Definition from wiki: In programming language theory and type theory, polymorphism is the provision of a single interface to entities of different types or the use of a single symbol to represent multiple different types. The concept is borrowed from a principle in biology where an organism or species can have many different forms or stages.</p>
+</blockquote>
+<blockquote>
+<p>Compile-time polymorphism refers to forms of polymorphism that are resolved by the compiler. These include function overload resolution, as well as template resolution.</p>
+</blockquote>
+<blockquote>
+<p>Runtime polymorphism refers to forms of polymorphism that are resolved at runtime. This includes virtual function resolution.</p>
+</blockquote>
+<p>intuitively<br>1.多态指的是实体具备多种形态； Polimorphsim 来自 wiki 的定义：在编程语言理论和类型理论中，多态性是为不同类型的实体提供单一接口或使用单一符号来表示多个不同类型. 这个概念借用了生物学的原理，有机体或物种可以有许多不同的形式或阶段.<br>2.多态分为两种, 一种是编译器的多态, 一种是运行期的多态;<br>3.编译期的多态: 通过编译器解析的一种多态, 其中典型的例子是函数重载的解析和模板的解析;<br>4.运行期的多态: 运行时解析的一种多态, 虚函数就是一种典型的运行期多态;</p>
+<p>我们理解了多态的含义, 再看下之前猫狗继承动物调用 speak() 的这个例子, 理解如何使用多态去更灵活地组织代码:</p>
+<pre><code class="cpp">#include &lt;iostream&gt;
+#include &lt;string&gt;
+#include &lt;cstring&gt;
+
+class Animal &#123;
+ protected:
+  std::string m_name;
+  Animal(std::string name): m_name&#123;name&#125; &#123;&#125;
+  Animal(const Animal&amp;) = default;
+  Animal&amp; operator=(const Animal&amp;) = default;
+ public:
+  std::string getName() const &#123;
+    return m_name;
+  &#125;
+  // 这里将 speak() 声明成了虚函数
+  virtual std::string speak() const &#123;
+    return &quot;???&quot;;
+  &#125;
+&#125;;
+
+class Cat : public Animal &#123;
+ public:
+  Cat(std::string name): Animal&#123;name&#125; &#123;&#125;
+  std::string speak() const &#123;
+    return &quot;Meow&quot;;
+  &#125;
+&#125;;
+
+class Dog : public Animal &#123;
+ public:
+  Dog(std::string name): Animal&#123;name&#125;&#123;&#125;
+  std::string speak() const &#123;
+    return &quot;Woof&quot;;
+  &#125;
+&#125;;
+
+void report(const Animal&amp; animal) &#123;
+  std::cout &lt;&lt; animal.getName() &lt;&lt; &quot; says &quot; &lt;&lt; animal.speak() &lt;&lt; &#39;\n&#39;;
+&#125;
+
+int main() &#123;
+  Cat cat&#123;&quot;Fred&quot;&#125;;
+  Dog dog&#123;&quot;Garbo&quot;&#125;;
+
+  report(cat);
+  report(dog);
+  return 0;
+&#125;
+</code></pre>
+<p>输出结果如下, 多态性的存在帮我们更好地组织了代码;</p>
+<pre><code class="sh">Fred says Meow
+Garbo says Woof
+</code></pre>
+<p>我们再看一个利用多态计算图形面积的的例子, 一个基类是 shape , 子类是 rectangle 和 triangle , 基类的指针可以在运行期间动态地绑定各种子类的对象, 然后输出 shape 指针的当前的面积值;</p>
+<pre><code class="cpp">#include &lt;iostream&gt;
+
+class Shape &#123;
+ protected:
+  int width;
+  int height;
+ public:
+  Shape(int a, int b): width(a), height(b) &#123;&#125;
+  // 声明成虚函数
+  virtual int area() &#123;
+    std::cout &lt;&lt; &quot;Shape width:&quot; &lt;&lt; width &lt;&lt; &quot;, height:&quot; &lt;&lt; height &lt;&lt; std::endl;
+    return 0;
+  &#125;
+  // 定义成纯虚函数
+  // virtual int area() = 0;
+&#125;;
+
+class Rectangle : public Shape &#123;
+ public:
+  Rectangle(int a, int b): Shape(a, b) &#123;&#125;
+  int area() &#123;
+    std::cout &lt;&lt; &quot;Rectangle area: &quot; &lt;&lt; (width * height) &lt;&lt; std::endl;
+    return (width * height);
+  &#125;
+&#125;;
+
+class Triangle : public Shape &#123;
+ public:
+  Triangle(int a, int b): Shape(a, b) &#123;&#125;
+  int area() &#123;
+    std::cout &lt;&lt; &quot;triangle area: &quot; &lt;&lt; (width * height / 2) &lt;&lt; std::endl;
+    return (width * height / 2);
+  &#125;
+&#125;;
+
+int main() &#123;
+  Shape* shape;
+  Rectangle rec(10, 8);
+  Triangle tri(10, 4);
+
+  shape = &amp;rec;
+  shape-&gt;area();
+
+  shape = &amp;tri;
+  shape-&gt;area();
+  return 0;
+&#125;
+</code></pre>
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ol>
+<li><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Polymorphism_(computer_science)">https://en.wikipedia.org/wiki/Polymorphism_(computer_science)</a></li>
+</ol>
+
+      
+       <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 jaytp@qq.com </span>
+    </div>
+</article>
+
+
+<p>
+    <a  class="dashang" onclick="dashangToggle()">💰</a>
+</p>
+
+
+
+
+
+
+    
+
+
+
+
+    </div>
+    <div class="copyright">
+        <p class="footer-entry">
+    ©2016-2020 Yelog
+</p>
+<p class="footer-entry">Built with <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/yelog/hexo-theme-3-hexo" target="_blank">3-hexo</a> theme</p>
+
+    </div>
+    <div class="full-toc">
+        <button class="full" data-title="切换全屏 快捷键 s"><span class="min "></span></button>
+<a class="" id="rocket" ></a>
+
+    </div>
+</div>
+
+<div class="hide_box" onclick="dashangToggle()"></div>
+<div class="shang_box">
+    <a class="shang_close"  onclick="dashangToggle()">×</a>
+    <div class="shang_tit">
+        <p>Help us with donation</p>
+    </div>
+    <div class="shang_payimg">
+        <div class="pay_img">
+            <img src="/img/alipay.jpg" class="alipay" title="扫码支持">
+            <img src="/img/weixin.jpg" class="weixin" title="扫码支持">
+        </div>
+    </div>
+    <div class="shang_payselect">
+        <span><label><input type="radio" name="pay" checked value="alipay">alipay</label></span><span><label><input type="radio" name="pay" value="weixin">weixin</label></span>
+    </div>
+</div>
+
+
+</body>
+<script src="/js/jquery.pjax.js?v=1.1.0" ></script>
+
+<script src="/js/script.js?v=1.1.0" ></script>
+<script>
+    var img_resize = 'default';
+    function initArticle() {
+        /*渲染对应的表格样式*/
+        
+            $("#post .pjax table").addClass("green_title");
+        
+
+        /*渲染打赏样式*/
+        
+        $("input[name=pay]").on("click", function () {
+            if($("input[name=pay]:checked").val()=="weixin"){
+                $(".shang_box .shang_payimg .pay_img").addClass("weixin_img");
+            } else {
+                $(".shang_box .shang_payimg .pay_img").removeClass("weixin_img");
+            }
+        })
+        
+
+        /*高亮代码块行号*/
+        
+
+        /*访问数量*/
+        
+        $.getScript("//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js");
+        
+
+        /*代码高亮，行号对齐*/
+        $('.pre-numbering').css('line-height',$('.has-numbering').css('line-height'));
+
+        
+        
+    }
+
+    /*打赏页面隐藏与展示*/
+    
+    function dashangToggle() {
+        $(".shang_box").fadeToggle();
+        $(".hide_box").fadeToggle();
+    }
+    
+
+</script>
+
+<!--加入行号的高亮代码块样式-->
+
+<!--自定义样式设置-->
+<style>
+    
+    
+    .nav {
+        width: 542px;
+    }
+    .nav.fullscreen {
+        margin-left: -542px;
+    }
+    .nav-left {
+        width: 120px;
+    }
+    
+    
+    @media screen and (max-width: 1468px) {
+        .nav {
+            width: 492px;
+        }
+        .nav.fullscreen {
+            margin-left: -492px;
+        }
+        .nav-left {
+            width: 100px;
+        }
+    }
+    
+    
+    @media screen and (max-width: 1024px) {
+        .nav {
+            width: 492px;
+            margin-left: -492px
+        }
+        .nav.fullscreen {
+            margin-left: 0;
+        }
+    }
+    
+    @media screen and (max-width: 426px) {
+        .nav {
+            width: 100%;
+        }
+        .nav-left {
+            width: 100%;
+        }
+    }
+    
+    
+    .nav-right .title-list nav a .post-title, .nav-right .title-list #local-search-result a .post-title {
+        color: #383636;
+    }
+    
+    
+    .nav-right .title-list nav a .post-date, .nav-right .title-list #local-search-result a .post-date {
+        color: #5e5e5f;
+    }
+    
+    
+    .nav-right nav a.hover, #local-search-result a.hover{
+        background-color: #e2e0e0;
+    }
+    
+    
+
+    /*列表样式*/
+    
+
+    /* 背景图样式 */
+    
+    
+
+
+    /*引用块样式*/
+    
+
+    /*文章列表背景图*/
+    
+
+    
+</style>
+
+
+
+
+
+
+
+</html>

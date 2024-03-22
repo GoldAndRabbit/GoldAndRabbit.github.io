@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Hexo 搭建总结 | G&amp;R Blog</title>
+  <meta name="keywords" content="">
+  <meta name="description" content="Hexo 搭建总结 | G&amp;R Blog">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="Overview1.hexo installation 安装2.hexo 主题设置: yilia theme3.数学公式支持: mathjax + pandoc4.页面细节定制: 两侧宽度、布局&#x2F;字体&#x2F;颜色: main.0cf68a.css5.各种坑 hexo installation 安装安装 Node.js和npmsudo apt-get update sudo apt i">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Hexo 搭建总结">
+<meta property="og:url" content="http://example.com/bck/Hexo%20%E6%90%AD%E5%BB%BA%E6%80%BB%E7%BB%93.html">
+<meta property="og:site_name" content="G&amp;R Blog">
+<meta property="og:description" content="Overview1.hexo installation 安装2.hexo 主题设置: yilia theme3.数学公式支持: mathjax + pandoc4.页面细节定制: 两侧宽度、布局&#x2F;字体&#x2F;颜色: main.0cf68a.css5.各种坑 hexo installation 安装安装 Node.js和npmsudo apt-get update sudo apt i">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-10-01T12:11:00.000Z">
+<meta property="article:modified_time" content="2024-03-22T04:43:08.789Z">
+<meta property="article:author" content="G &amp; R">
+<meta property="article:tag" content="Recommending System">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="icon" href="/img/avatar.jpg">
+
+<link href="/css/style.css?v=1.1.0" rel="stylesheet">
+
+<link href="/css/hl_theme/atom-light.css?v=1.1.0" rel="stylesheet">
+
+<link href="//cdn.jsdelivr.net/npm/animate.css@4.1.0/animate.min.css" rel="stylesheet">
+
+<script src="//cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+<script src="/js/titleTip.js?v=1.1.0" ></script>
+
+<script src="//cdn.jsdelivr.net/npm/highlightjs@9.16.2/highlight.pack.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+
+<script src="//cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js"></script>
+
+
+
+<script src="//cdn.jsdelivr.net/npm/jquery.cookie@1.4.1/jquery.cookie.min.js" ></script>
+
+<script src="/js/iconfont.js?v=1.1.0" ></script>
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+<div style="display: none">
+  <input class="theme_disqus_on" value="false">
+  <input class="theme_preload_comment" value="">
+  <input class="theme_blog_path" value="">
+  <input id="theme_shortcut" value="true" />
+  <input id="theme_highlight_on" value="true" />
+  <input id="theme_code_copy" value="true" />
+</div>
+
+
+
+<body>
+<aside class="nav">
+    <div class="nav-left">
+        <a href="/"
+   class="avatar_target">
+    <img class="avatar"
+         src="/img/avatar.jpg"/>
+</a>
+<div class="author">
+    <span>G &amp; R</span>
+</div>
+
+<div class="icon">
+    
+        
+            <a title="rss"
+               href="/atom.xml"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-rss"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+            <a title="github"
+               href="https://github.com/goldandrabbit"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-github"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+            <a title="neteasemusic"
+               href="https://music.163.com/#/user/home?id=88151013"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-neteasemusic"></use>
+                    </svg>
+                
+            </a>
+        
+    
+</div>
+
+
+
+
+
+<ul>
+    <li>
+        <div class="all active" data-rel="All">All
+            
+                <small>(23)</small>
+            
+        </div>
+    </li>
+    
+        
+            
+                
+    <li>
+        <div data-rel="Coding">
+            
+            Coding
+            <small>(23)</small>
+        </div>
+        
+    </li>
+
+            
+        
+    
+</ul>
+<div class="left-bottom">
+    <div class="menus">
+        
+            
+            
+            
+    </div>
+    <div>
+        
+            <a class="about  hasFriend  site_url"
+               
+               href="/about">About</a>
+        
+        <a style="width: 50%"
+                
+                                           class="friends">Friends</a>
+        
+    </div>
+</div>
+<input type="hidden" id="yelog_site_posts_number" value="23">
+
+<div style="display: none">
+    <span id="busuanzi_value_site_uv"></span>
+    <span id="busuanzi_value_site_pv"></span>
+</div>
+
+    </div>
+    <div class="nav-right">
+        <div class="friends-area">
+    <div class="friends-title">
+        Links
+        <i class="iconfont icon-left"></i>
+    </div>
+    <div class="friends-content">
+        <ul>
+            
+            <li><a target="_blank" href="http://yelog.org/">叶落阁</a></li>
+            
+        </ul>
+    </div>
+</div>
+        <div class="title-list">
+    <div class="right-top">
+        <div id="default-panel">
+            <i class="iconfont icon-search" data-title="搜索 快捷键 i"></i>
+            <div class="right-title">All</div>
+            <i class="iconfont icon-file-tree" data-title="切换到大纲视图 快捷键 w"></i>
+        </div>
+        <div id="search-panel">
+            <i class="iconfont icon-left" data-title="返回"></i>
+            <input id="local-search-input" autocomplete="off"/>
+            <label class="border-line" for="input"></label>
+            <i class="iconfont icon-case-sensitive" data-title="大小写敏感"></i>
+            <i class="iconfont icon-tag" data-title="标签"></i>
+        </div>
+        <div id="outline-panel" style="display: none">
+            <div class="right-title">大纲</div>
+            <i class="iconfont icon-list" data-title="切换到文章列表"></i>
+        </div>
+    </div>
+
+    <div class="tags-list">
+    <input id="tag-search" />
+    <div class="tag-wrapper">
+        
+    </div>
+
+</div>
+
+    
+    <nav id="title-list-nav">
+        
+        
+        <a  class="All Coding "
+           href="/2099/01/30/G&R%20%E7%9A%84%20Blog%20%E5%8F%91%E5%B8%83%E8%A7%84%E8%8C%83/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="G&amp;R 的 Blog 发布规范">G&amp;R 的 Blog 发布规范</span>
+            <span class="post-date" title="2099-01-30 20:00:00">2099/01/30</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/09/10/cpp_0_0_%E5%B1%9E%E4%BA%8E%20cpp%20%E7%9A%84%E8%AE%BE%E8%AE%A1%E5%93%B2%E5%AD%A6/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cpp_0_1_cpp设计哲学">cpp_0_1_cpp设计哲学</span>
+            <span class="post-date" title="2020-09-10 08:00:00">2020/09/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/09/10/cpp_0_1_vscode%20%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cpp_0_1_vscode 环境配置">cpp_0_1_vscode 环境配置</span>
+            <span class="post-date" title="2020-09-10 08:00:00">2020/09/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/09/10/cpp_0_2_%E5%A4%B4%E6%96%87%E4%BB%B6%20header%20file/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cpp_0_2_头文件 headerfile">cpp_0_2_头文件 headerfile</span>
+            <span class="post-date" title="2020-09-10 08:00:00">2020/09/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/09/10/cpp_0_3_%E8%B0%B7%E6%AD%8C%20C++%20%E7%BC%96%E7%A8%8B%E9%A3%8E%E6%A0%BC/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cpp_0_3_谷歌 C++ 编程风格">cpp_0_3_谷歌 C++ 编程风格</span>
+            <span class="post-date" title="2020-09-10 08:00:00">2020/09/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/09/10/cpp_1_1_%E5%B7%A6%E5%80%BC%E5%92%8C%E5%8F%B3%E5%80%BC%20Lvalue%20and%20Rvalue/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cpp_2_1_左值和右值 Lvalue and Rvalue">cpp_2_1_左值和右值 Lvalue and Rvalue</span>
+            <span class="post-date" title="2020-09-10 08:00:00">2020/09/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/09/10/cpp_1_2_%E5%B7%A6%E5%80%BC%E5%BC%95%E7%94%A8%20Lvalue%20reference/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cpp_1_2_左值引用 Lvalue reference">cpp_1_2_左值引用 Lvalue reference</span>
+            <span class="post-date" title="2020-09-10 08:00:00">2020/09/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/09/10/cpp_1_3_%E5%8F%B3%E5%80%BC%E5%BC%95%E7%94%A8%20Rvalue%20reference/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cpp_1_3_右值引用 Rvalue reference">cpp_1_3_右值引用 Rvalue reference</span>
+            <span class="post-date" title="2020-09-10 08:00:00">2020/09/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/09/10/cpp_2_2_%E6%8C%87%E9%92%88%20Pointer_2_%E7%A9%BA%E6%8C%87%E9%92%88/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cpp_2_2_指针 Pointer_2_空指针">cpp_2_2_指针 Pointer_2_空指针</span>
+            <span class="post-date" title="2020-09-10 08:00:00">2020/09/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/09/10/cpp_2_1_%E6%8C%87%E9%92%88%20Pointer_1_%E5%9C%B0%E5%9D%80%E5%92%8C%E6%8C%87%E9%92%88/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cpp_2_1_指针 Pointer_1_地址和指针">cpp_2_1_指针 Pointer_1_地址和指针</span>
+            <span class="post-date" title="2020-09-10 08:00:00">2020/09/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/09/10/cpp_2_3_%E6%8C%87%E9%92%88%20Pointer_4_%E4%BC%A0%E5%9C%B0%E5%9D%80%20Pass%20by%20address/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cpp_2_3_指针 Pointer_4_传地址 Pass by address">cpp_2_3_指针 Pointer_4_传地址 Pass by address</span>
+            <span class="post-date" title="2020-09-10 08:00:00">2020/09/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/09/10/cpp_2_3_%E6%8C%87%E9%92%88%20Pointer_3_const%E4%B8%8E%E6%8C%87%E9%92%88/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cpp_2_3_指针 Pointer_3_const与指针">cpp_2_3_指针 Pointer_3_const与指针</span>
+            <span class="post-date" title="2020-09-10 08:00:00">2020/09/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/09/10/cpp_2_4_%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88_0_%E8%AE%BE%E8%AE%A1%E6%80%9D%E6%83%B3/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cpp_2_4_智能指针_0_设计思想">cpp_2_4_智能指针_0_设计思想</span>
+            <span class="post-date" title="2020-09-10 08:00:00">2020/09/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/09/10/cpp_2_6_%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88_2_unique_ptr/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cpp_2_6_智能指针_2_unique_ptr">cpp_2_6_智能指针_2_unique_ptr</span>
+            <span class="post-date" title="2020-09-10 08:00:00">2020/09/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/09/10/cpp_2_5_%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88_1_shared_ptr/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cpp_2_5_智能指针_1_shared_ptr">cpp_2_5_智能指针_1_shared_ptr</span>
+            <span class="post-date" title="2020-09-10 08:00:00">2020/09/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/09/10/cpp_3_0_constexpr%20%E5%85%B3%E9%94%AE%E5%AD%97/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cpp_3_0_constexpr关键字">cpp_3_0_constexpr关键字</span>
+            <span class="post-date" title="2020-09-10 08:00:00">2020/09/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/09/10/cpp_3_1_const%20%E5%85%B3%E9%94%AE%E5%AD%97/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cpp_3_1_const 关键字">cpp_3_1_const 关键字</span>
+            <span class="post-date" title="2020-09-10 08:00:00">2020/09/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/09/10/cpp_3_2_Lambda%20%E8%A1%A8%E8%BE%BE%E5%BC%8F/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cpp_3_2_Lambda 表达式">cpp_3_2_Lambda 表达式</span>
+            <span class="post-date" title="2020-09-10 08:00:00">2020/09/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/09/10/cpp_5_1_%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1_0_overview/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cpp_5_1_面向对象_0_overview">cpp_5_1_面向对象_0_overview</span>
+            <span class="post-date" title="2020-09-10 08:00:00">2020/09/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/09/10/cpp_5_2_%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1_1_%E7%B1%BB%E5%92%8C%E6%88%90%E5%91%98%E5%87%BD%E6%95%B0/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cpp_5_2_面向对象_1_类和成员函数">cpp_5_2_面向对象_1_类和成员函数</span>
+            <span class="post-date" title="2020-09-10 08:00:00">2020/09/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/09/10/cpp_6_0_%E6%A8%A1%E6%9D%BF%20template/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cpp_6_0_模板 template">cpp_6_0_模板 template</span>
+            <span class="post-date" title="2020-09-10 08:00:00">2020/09/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/09/10/cpp_5_3_%E5%A4%9A%E6%80%81_0_%E8%99%9A%E5%87%BD%E6%95%B0%20Virtual%20Functions/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cpp_5_3_多态_0_虚函数 Virtual Functions">cpp_5_3_多态_0_虚函数 Virtual Functions</span>
+            <span class="post-date" title="2020-09-10 08:00:00">2020/09/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2018/04/05/Git%20%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Git 使用指南">Git 使用指南</span>
+            <span class="post-date" title="2018-04-05 22:56:00">2018/04/05</span>
+        </a>
+        
+        <div id="no-item-tips">
+
+        </div>
+    </nav>
+    <div id="outline-list">
+    </div>
+</div>
+
+    </div>
+    <div class="hide-list">
+        <div class="semicircle" data-title="切换全屏 快捷键 s">
+            <div class="brackets first"><</div>
+            <div class="brackets">&gt;</div>
+        </div>
+    </div>
+</aside>
+<div id="post">
+    <div class="pjax">
+        <article id="page-" class="article article-type-page" itemscope itemprop="blogPost">
+    
+        <h1 class="article-title">Hexo 搭建总结</h1>
+    
+    <div class="article-meta">
+        
+        
+        
+        <span class="book">
+            <i class="iconfont icon-category"></i>
+            
+            
+            <a  data-rel=""></a>
+            
+        </span>
+        
+        
+    </div>
+    <div class="article-meta">
+        
+            Created At : <time class="date" title='Updated At: 2024-03-22 12:43:08'>2020-10-01 20:11</time>
+        
+    </div>
+    <div class="article-meta">
+        
+        
+        <span id="busuanzi_container_page_pv">
+            Views 👀 :<span id="busuanzi_value_page_pv">
+                <span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </span>
+        </span>
+        
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Overview"><span class="toc-text">Overview</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#hexo-installation-%E5%AE%89%E8%A3%85"><span class="toc-text">hexo installation 安装</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85-Node-js%E5%92%8Cnpm"><span class="toc-text">安装 Node.js和npm</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85Hexo"><span class="toc-text">安装Hexo</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AB%99%E7%82%B9%E4%BF%A1%E6%81%AF%E8%AE%BE%E7%BD%AE"><span class="toc-text">站点信息设置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%83%A8%E7%BD%B2"><span class="toc-text">部署</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Hexo%E5%91%BD%E4%BB%A4"><span class="toc-text">Hexo命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%8A%E4%BC%A0"><span class="toc-text">上传</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E4%B8%AA%E5%9D%91"><span class="toc-text">一个坑</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95"><span class="toc-text">解决方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%BB%E9%A2%98%E9%80%89%E6%8B%A9"><span class="toc-text">主题选择</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F%E6%94%AF%E6%8C%81-mathjax-pandoc%E9%85%8D%E7%BD%AE"><span class="toc-text">数学公式支持: mathjax + pandoc配置</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%87%E7%AB%A0%E9%87%8C%E9%9D%A2%E6%8C%89%E7%85%A7%E8%BF%99%E4%B8%AA%E5%86%99"><span class="toc-text">文章里面按照这个写</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#title-%E6%B5%8B%E8%AF%95%E5%85%AC%E5%BC%8F%E6%98%BE%E7%A4%BA%E6%95%88%E6%9E%9Cdate-2018-02-08-20-00-00mathjax-truecategories-Coding"><span class="toc-text">title: 测试公式显示效果date: 2018-02-08 20:00:00mathjax: truecategories:- Coding </span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%87%E7%AB%A0%E7%BC%A9%E6%94%BE%E6%98%BE%E7%A4%BA"><span class="toc-text">文章缩放显示</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9A%E5%88%B6%E4%B8%A4%E4%BE%A7%E5%AE%BD%E5%BA%A6"><span class="toc-text">定制两侧宽度</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%87%E9%A2%98%E9%87%8C%E9%9D%A2%E7%89%B9%E6%AE%8A%E7%AC%A6%E5%8F%B7"><span class="toc-text">标题里面特殊符号</span></a></li></ol>
+    
+<style>
+    .left-col .switch-btn,
+    .left-col .switch-area {
+        display: none;
+    }
+    .toc-level-3 i,
+    .toc-level-3 ol {
+        display: none !important;
+    }
+</style>
+</div>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><p>1.hexo installation 安装<br>2.hexo 主题设置: yilia theme<br>3.数学公式支持: mathjax + pandoc<br>4.页面细节定制: 两侧宽度、布局&#x2F;字体&#x2F;颜色: main.0cf68a.css<br>5.各种坑</p>
+<h2 id="hexo-installation-安装"><a href="#hexo-installation-安装" class="headerlink" title="hexo installation 安装"></a>hexo installation 安装</h2><h3 id="安装-Node-js和npm"><a href="#安装-Node-js和npm" class="headerlink" title="安装 Node.js和npm"></a>安装 Node.js和npm</h3><pre><code class="sh">sudo apt-get update
+sudo apt install nodejs -y
+sudo apt install npm -y
+# 升级npm为最新版
+sudo npm install npm@latest -g
+# 安装用于管理node的模块n
+sudo npm install -g n
+# 使用n模块来安装node版本
+sudo n latest # 最新版本
+sudo n stable # 最新稳定版本
+# 查看安装好的版本
+node -v
+v12.4.0
+npm -v
+6.9.0
+</code></pre>
+<h3 id="安装Hexo"><a href="#安装Hexo" class="headerlink" title="安装Hexo"></a>安装Hexo</h3><pre><code class="sh">mkdir hexo &amp; cd hexo
+sudo npm install -g hexo-cli
+hexo init
+</code></pre>
+<p>若报错执行代码,不报错忽略</p>
+<pre><code class="sh">sudo npm config set user 0
+sudo npm config set unsafe-perm true
+sudo npm install -g hexo-cli
+</code></pre>
+<p>安装插件</p>
+<pre><code class="sh">npm install hexo-generator-index --save
+npm install hexo-generator-archive --save
+npm install hexo-generator-category --save
+npm install hexo-generator-tag --save
+npm install hexo-server --save
+npm install hexo-deployer-git --save
+npm install hexo-deployer-heroku --save
+npm install hexo-deployer-rsync --save
+npm install hexo-deployer-openshift --save
+npm install hexo-renderer-marked --save
+npm install hexo-renderer-stylus --save
+npm install hexo-generator-feed --save
+npm install hexo-generator-sitemap --save
+</code></pre>
+<p>测试安装成功</p>
+<pre><code class="sh">hexo server
+</code></pre>
+<p>得到成功提示, 浏览器输入 <a target="_blank" rel="noopener" href="http://0.0.0.0:4000/">http://0.0.0.0:4000</a> 访问首页</p>
+<h2 id="站点信息设置"><a href="#站点信息设置" class="headerlink" title="站点信息设置"></a>站点信息设置</h2><p>初步修改Hexo配置文件hexo&#x2F;_config.yml, 后续会换用主题, 这里暂时不设置也可以  </p>
+<pre><code class="sh">title: Gold and Rabbit&#39;s Blog 
+subtitle: &#39;Always ambitious&#39;
+description: &#39;having fun coding&#39;
+keywords: Recommending System
+author: Gold and Rabbit 
+language: en
+# language: zh-CN
+timezone: &#39;&#39;
+</code></pre>
+<h2 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h2><p>修改Hexo配置文件hexo&#x2F;_config.yml, github创建一个新项目，项目名称为 yourname.github.io  </p>
+<pre><code class="sh">deploy:
+  type: git
+  repo: git@github.com:GoldAndRabbit/GoldAndRabbit.github.io.git
+  branch: master
+</code></pre>
+<h2 id="Hexo命令"><a href="#Hexo命令" class="headerlink" title="Hexo命令"></a>Hexo命令</h2><pre><code class="sh"># 新建文章(会在 hexo/source/_post 下生成对应.md 文件)
+hexo n “文章名称”
+# 生成静态文件(位于 hexo/public 目录)
+hexo g
+# 启动 Hexo 预览
+hexo s
+# 提交部署(需要相关配置)
+hexo d
+</code></pre>
+<h2 id="上传"><a href="#上传" class="headerlink" title="上传"></a>上传</h2><pre><code class="python">hexo g
+hexo d
+</code></pre>
+<pre><code class="sh">访问 yourname.github.io
+</code></pre>
+<h2 id="一个坑"><a href="#一个坑" class="headerlink" title="一个坑"></a>一个坑</h2><p>表现提示如下</p>
+<pre><code class="sh">extends includes/layout.pug block content #recent-posts.recent-posts include includes/recent-posts.pug include includes/pagination.pug 
+</code></pre>
+<h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2><p>参考<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/137946156">https://zhuanlan.zhihu.com/p/137946156</a>  </p>
+<h2 id="主题选择"><a href="#主题选择" class="headerlink" title="主题选择"></a>主题选择</h2><p>折腾半天还是最终选择了 next 这个比较通用的主题, 优势在于是最成熟的主题没有之一, 第三方开发的虽然酷炫, 但是都有点小问题需要折腾,<br>next官方教程是最强大的, 对于小问题基本上都有相应的解法, <a target="_blank" rel="noopener" href="https://theme-next.js.org/docs/getting-started/">https://theme-next.js.org/docs/getting-started/</a></p>
+<h3 id="数学公式支持-mathjax-pandoc配置"><a href="#数学公式支持-mathjax-pandoc配置" class="headerlink" title="数学公式支持: mathjax + pandoc配置"></a>数学公式支持: mathjax + pandoc配置</h3><p>对于渲染引擎主要是 pandoc, 如果不支持就把 kramed 也装上, 遇到报错解决报错;</p>
+<p><a target="_blank" rel="noopener" href="https://theme-next.js.org/docs/getting-started/">https://theme-next.js.org/docs/getting-started/</a></p>
+<h2 id="文章里面按照这个写"><a href="#文章里面按照这个写" class="headerlink" title="文章里面按照这个写"></a>文章里面按照这个写</h2><h2 id="title-测试公式显示效果date-2018-02-08-20-00-00mathjax-truecategories-Coding"><a href="#title-测试公式显示效果date-2018-02-08-20-00-00mathjax-truecategories-Coding" class="headerlink" title="title: 测试公式显示效果date: 2018-02-08 20:00:00mathjax: truecategories:- Coding "></a>title: 测试公式显示效果<br>date: 2018-02-08 20:00:00<br>mathjax: true<br>categories:<br>- Coding </h2><h2 id="文章缩放显示"><a href="#文章缩放显示" class="headerlink" title="文章缩放显示"></a>文章缩放显示</h2><p>采用  </p>
+<pre><code class="shell">
+</code></pre>
+<h3 id="定制两侧宽度"><a href="#定制两侧宽度" class="headerlink" title="定制两侧宽度"></a>定制两侧宽度</h3><p>修改yilia目录下main.0cf68a.css 文件中mid-col 部分修改两侧的宽度  </p>
+<h2 id="标题里面特殊符号"><a href="#标题里面特殊符号" class="headerlink" title="标题里面特殊符号"></a>标题里面特殊符号</h2><p>只能打中文的：, 打英文的会报错, 例如如下标题<br>TabTransformer：Tabular Data Modeling Using Contextual Embeddings</p>
+
+      
+       <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 jaytp@qq.com </span>
+    </div>
+</article>
+
+
+<p>
+    <a  class="dashang" onclick="dashangToggle()">💰</a>
+</p>
+
+
+
+
+
+
+    
+
+
+
+
+    </div>
+    <div class="copyright">
+        <p class="footer-entry">
+    ©2016-2020 Yelog
+</p>
+<p class="footer-entry">Built with <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/yelog/hexo-theme-3-hexo" target="_blank">3-hexo</a> theme</p>
+
+    </div>
+    <div class="full-toc">
+        <button class="full" data-title="切换全屏 快捷键 s"><span class="min "></span></button>
+<a class="" id="rocket" ></a>
+
+    </div>
+</div>
+
+<div class="hide_box" onclick="dashangToggle()"></div>
+<div class="shang_box">
+    <a class="shang_close"  onclick="dashangToggle()">×</a>
+    <div class="shang_tit">
+        <p>Help us with donation</p>
+    </div>
+    <div class="shang_payimg">
+        <div class="pay_img">
+            <img src="/img/alipay.jpg" class="alipay" title="扫码支持">
+            <img src="/img/weixin.jpg" class="weixin" title="扫码支持">
+        </div>
+    </div>
+    <div class="shang_payselect">
+        <span><label><input type="radio" name="pay" checked value="alipay">alipay</label></span><span><label><input type="radio" name="pay" value="weixin">weixin</label></span>
+    </div>
+</div>
+
+
+</body>
+<script src="/js/jquery.pjax.js?v=1.1.0" ></script>
+
+<script src="/js/script.js?v=1.1.0" ></script>
+<script>
+    var img_resize = 'default';
+    function initArticle() {
+        /*渲染对应的表格样式*/
+        
+            $("#post .pjax table").addClass("green_title");
+        
+
+        /*渲染打赏样式*/
+        
+        $("input[name=pay]").on("click", function () {
+            if($("input[name=pay]:checked").val()=="weixin"){
+                $(".shang_box .shang_payimg .pay_img").addClass("weixin_img");
+            } else {
+                $(".shang_box .shang_payimg .pay_img").removeClass("weixin_img");
+            }
+        })
+        
+
+        /*高亮代码块行号*/
+        
+
+        /*访问数量*/
+        
+        $.getScript("//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js");
+        
+
+        /*代码高亮，行号对齐*/
+        $('.pre-numbering').css('line-height',$('.has-numbering').css('line-height'));
+
+        
+        
+    }
+
+    /*打赏页面隐藏与展示*/
+    
+    function dashangToggle() {
+        $(".shang_box").fadeToggle();
+        $(".hide_box").fadeToggle();
+    }
+    
+
+</script>
+
+<!--加入行号的高亮代码块样式-->
+
+<!--自定义样式设置-->
+<style>
+    
+    
+    .nav {
+        width: 542px;
+    }
+    .nav.fullscreen {
+        margin-left: -542px;
+    }
+    .nav-left {
+        width: 120px;
+    }
+    
+    
+    @media screen and (max-width: 1468px) {
+        .nav {
+            width: 492px;
+        }
+        .nav.fullscreen {
+            margin-left: -492px;
+        }
+        .nav-left {
+            width: 100px;
+        }
+    }
+    
+    
+    @media screen and (max-width: 1024px) {
+        .nav {
+            width: 492px;
+            margin-left: -492px
+        }
+        .nav.fullscreen {
+            margin-left: 0;
+        }
+    }
+    
+    @media screen and (max-width: 426px) {
+        .nav {
+            width: 100%;
+        }
+        .nav-left {
+            width: 100%;
+        }
+    }
+    
+    
+    .nav-right .title-list nav a .post-title, .nav-right .title-list #local-search-result a .post-title {
+        color: #383636;
+    }
+    
+    
+    .nav-right .title-list nav a .post-date, .nav-right .title-list #local-search-result a .post-date {
+        color: #5e5e5f;
+    }
+    
+    
+    .nav-right nav a.hover, #local-search-result a.hover{
+        background-color: #e2e0e0;
+    }
+    
+    
+
+    /*列表样式*/
+    
+
+    /* 背景图样式 */
+    
+    
+
+
+    /*引用块样式*/
+    
+
+    /*文章列表背景图*/
+    
+
+    
+</style>
+
+
+
+
+
+
+
+</html>

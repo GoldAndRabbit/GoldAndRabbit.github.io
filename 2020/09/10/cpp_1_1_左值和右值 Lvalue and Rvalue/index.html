@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>cpp_2_1_左值和右值 Lvalue and Rvalue | G&amp;R Blog</title>
+  <meta name="keywords" content="">
+  <meta name="description" content="cpp_2_1_左值和右值 Lvalue and Rvalue | G&amp;R Blog">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="Overview1.hexo installation 安装2.hexo 主题设置: yilia theme3.数学公式支持: mathjax + pandoc4.页面细节定制: 两侧宽度、布局&#x2F;字体&#x2F;颜色: main.0cf68a.css5.各种坑 hexo installation 安装安装 Node.js和npmsudo apt-get update sudo apt i">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Hexo 搭建总结">
+<meta property="og:url" content="http://example.com/bck/Hexo%20%E6%90%AD%E5%BB%BA%E6%80%BB%E7%BB%93.html">
+<meta property="og:site_name" content="G&amp;R Blog">
+<meta property="og:description" content="Overview1.hexo installation 安装2.hexo 主题设置: yilia theme3.数学公式支持: mathjax + pandoc4.页面细节定制: 两侧宽度、布局&#x2F;字体&#x2F;颜色: main.0cf68a.css5.各种坑 hexo installation 安装安装 Node.js和npmsudo apt-get update sudo apt i">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-10-01T12:11:00.000Z">
+<meta property="article:modified_time" content="2024-03-22T04:43:08.789Z">
+<meta property="article:author" content="G &amp; R">
+<meta property="article:tag" content="Recommending System">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="icon" href="/img/avatar.jpg">
+
+<link href="/css/style.css?v=1.1.0" rel="stylesheet">
+
+<link href="/css/hl_theme/atom-light.css?v=1.1.0" rel="stylesheet">
+
+<link href="//cdn.jsdelivr.net/npm/animate.css@4.1.0/animate.min.css" rel="stylesheet">
+
+<script src="//cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+<script src="/js/titleTip.js?v=1.1.0" ></script>
+
+<script src="//cdn.jsdelivr.net/npm/highlightjs@9.16.2/highlight.pack.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+
+<script src="//cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js"></script>
+
+
+
+<script src="//cdn.jsdelivr.net/npm/jquery.cookie@1.4.1/jquery.cookie.min.js" ></script>
+
+<script src="/js/iconfont.js?v=1.1.0" ></script>
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+<div style="display: none">
+  <input class="theme_disqus_on" value="false">
+  <input class="theme_preload_comment" value="">
+  <input class="theme_blog_path" value="">
+  <input id="theme_shortcut" value="true" />
+  <input id="theme_highlight_on" value="true" />
+  <input id="theme_code_copy" value="true" />
+</div>
+
+
+
+<body>
+<aside class="nav">
+    <div class="nav-left">
+        <a href="/"
+   class="avatar_target">
+    <img class="avatar"
+         src="/img/avatar.jpg"/>
+</a>
+<div class="author">
+    <span>G &amp; R</span>
+</div>
+
+<div class="icon">
+    
+        
+            <a title="rss"
+               href="/atom.xml"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-rss"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+            <a title="github"
+               href="https://github.com/goldandrabbit"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-github"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+            <a title="neteasemusic"
+               href="https://music.163.com/#/user/home?id=88151013"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-neteasemusic"></use>
+                    </svg>
+                
+            </a>
+        
+    
+</div>
+
+
+
+
+
+<ul>
+    <li>
+        <div class="all active" data-rel="All">All
+            
+                <small>(23)</small>
+            
+        </div>
+    </li>
+    
+        
+            
+                
+    <li>
+        <div data-rel="Coding">
+            
+            Coding
+            <small>(23)</small>
+        </div>
+        
+    </li>
+
+            
+        
+    
+</ul>
+<div class="left-bottom">
+    <div class="menus">
+        
+            
+            
+            
+    </div>
+    <div>
+        
+            <a class="about  hasFriend  site_url"
+               
+               href="/about">About</a>
+        
+        <a style="width: 50%"
+                
+                                           class="friends">Friends</a>
+        
+    </div>
+</div>
+<input type="hidden" id="yelog_site_posts_number" value="23">
+
+<div style="display: none">
+    <span id="busuanzi_value_site_uv"></span>
+    <span id="busuanzi_value_site_pv"></span>
+</div>
+
+    </div>
+    <div class="nav-right">
+        <div class="friends-area">
+    <div class="friends-title">
+        Links
+        <i class="iconfont icon-left"></i>
+    </div>
+    <div class="friends-content">
+        <ul>
+            
+            <li><a target="_blank" href="http://yelog.org/">叶落阁</a></li>
+            
+        </ul>
+    </div>
+</div>
+        <div class="title-list">
+    <div class="right-top">
+        <div id="default-panel">
+            <i class="iconfont icon-search" data-title="搜索 快捷键 i"></i>
+            <div class="right-title">All</div>
+            <i class="iconfont icon-file-tree" data-title="切换到大纲视图 快捷键 w"></i>
+        </div>
+        <div id="search-panel">
+            <i class="iconfont icon-left" data-title="返回"></i>
+            <input id="local-search-input" autocomplete="off"/>
+            <label class="border-line" for="input"></label>
+            <i class="iconfont icon-case-sensitive" data-title="大小写敏感"></i>
+            <i class="iconfont icon-tag" data-title="标签"></i>
+        </div>
+        <div id="outline-panel" style="display: none">
+            <div class="right-title">大纲</div>
+            <i class="iconfont icon-list" data-title="切换到文章列表"></i>
+        </div>
+    </div>
+
+    <div class="tags-list">
+    <input id="tag-search" />
+    <div class="tag-wrapper">
+        
+    </div>
+
+</div>
+
+    
+    <nav id="title-list-nav">
+        
+        
+        <a  class="All Coding "
+           href="/2099/01/30/G&R%20%E7%9A%84%20Blog%20%E5%8F%91%E5%B8%83%E8%A7%84%E8%8C%83/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="G&amp;R 的 Blog 发布规范">G&amp;R 的 Blog 发布规范</span>
+            <span class="post-date" title="2099-01-30 20:00:00">2099/01/30</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/09/10/cpp_0_0_%E5%B1%9E%E4%BA%8E%20cpp%20%E7%9A%84%E8%AE%BE%E8%AE%A1%E5%93%B2%E5%AD%A6/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cpp_0_1_cpp设计哲学">cpp_0_1_cpp设计哲学</span>
+            <span class="post-date" title="2020-09-10 08:00:00">2020/09/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/09/10/cpp_0_1_vscode%20%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cpp_0_1_vscode 环境配置">cpp_0_1_vscode 环境配置</span>
+            <span class="post-date" title="2020-09-10 08:00:00">2020/09/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/09/10/cpp_0_2_%E5%A4%B4%E6%96%87%E4%BB%B6%20header%20file/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cpp_0_2_头文件 headerfile">cpp_0_2_头文件 headerfile</span>
+            <span class="post-date" title="2020-09-10 08:00:00">2020/09/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/09/10/cpp_0_3_%E8%B0%B7%E6%AD%8C%20C++%20%E7%BC%96%E7%A8%8B%E9%A3%8E%E6%A0%BC/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cpp_0_3_谷歌 C++ 编程风格">cpp_0_3_谷歌 C++ 编程风格</span>
+            <span class="post-date" title="2020-09-10 08:00:00">2020/09/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/09/10/cpp_1_1_%E5%B7%A6%E5%80%BC%E5%92%8C%E5%8F%B3%E5%80%BC%20Lvalue%20and%20Rvalue/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cpp_2_1_左值和右值 Lvalue and Rvalue">cpp_2_1_左值和右值 Lvalue and Rvalue</span>
+            <span class="post-date" title="2020-09-10 08:00:00">2020/09/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/09/10/cpp_1_2_%E5%B7%A6%E5%80%BC%E5%BC%95%E7%94%A8%20Lvalue%20reference/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cpp_1_2_左值引用 Lvalue reference">cpp_1_2_左值引用 Lvalue reference</span>
+            <span class="post-date" title="2020-09-10 08:00:00">2020/09/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/09/10/cpp_1_3_%E5%8F%B3%E5%80%BC%E5%BC%95%E7%94%A8%20Rvalue%20reference/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cpp_1_3_右值引用 Rvalue reference">cpp_1_3_右值引用 Rvalue reference</span>
+            <span class="post-date" title="2020-09-10 08:00:00">2020/09/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/09/10/cpp_2_2_%E6%8C%87%E9%92%88%20Pointer_2_%E7%A9%BA%E6%8C%87%E9%92%88/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cpp_2_2_指针 Pointer_2_空指针">cpp_2_2_指针 Pointer_2_空指针</span>
+            <span class="post-date" title="2020-09-10 08:00:00">2020/09/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/09/10/cpp_2_1_%E6%8C%87%E9%92%88%20Pointer_1_%E5%9C%B0%E5%9D%80%E5%92%8C%E6%8C%87%E9%92%88/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cpp_2_1_指针 Pointer_1_地址和指针">cpp_2_1_指针 Pointer_1_地址和指针</span>
+            <span class="post-date" title="2020-09-10 08:00:00">2020/09/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/09/10/cpp_2_3_%E6%8C%87%E9%92%88%20Pointer_4_%E4%BC%A0%E5%9C%B0%E5%9D%80%20Pass%20by%20address/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cpp_2_3_指针 Pointer_4_传地址 Pass by address">cpp_2_3_指针 Pointer_4_传地址 Pass by address</span>
+            <span class="post-date" title="2020-09-10 08:00:00">2020/09/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/09/10/cpp_2_3_%E6%8C%87%E9%92%88%20Pointer_3_const%E4%B8%8E%E6%8C%87%E9%92%88/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cpp_2_3_指针 Pointer_3_const与指针">cpp_2_3_指针 Pointer_3_const与指针</span>
+            <span class="post-date" title="2020-09-10 08:00:00">2020/09/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/09/10/cpp_2_4_%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88_0_%E8%AE%BE%E8%AE%A1%E6%80%9D%E6%83%B3/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cpp_2_4_智能指针_0_设计思想">cpp_2_4_智能指针_0_设计思想</span>
+            <span class="post-date" title="2020-09-10 08:00:00">2020/09/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/09/10/cpp_2_6_%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88_2_unique_ptr/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cpp_2_6_智能指针_2_unique_ptr">cpp_2_6_智能指针_2_unique_ptr</span>
+            <span class="post-date" title="2020-09-10 08:00:00">2020/09/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/09/10/cpp_2_5_%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88_1_shared_ptr/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cpp_2_5_智能指针_1_shared_ptr">cpp_2_5_智能指针_1_shared_ptr</span>
+            <span class="post-date" title="2020-09-10 08:00:00">2020/09/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/09/10/cpp_3_0_constexpr%20%E5%85%B3%E9%94%AE%E5%AD%97/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cpp_3_0_constexpr关键字">cpp_3_0_constexpr关键字</span>
+            <span class="post-date" title="2020-09-10 08:00:00">2020/09/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/09/10/cpp_3_1_const%20%E5%85%B3%E9%94%AE%E5%AD%97/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cpp_3_1_const 关键字">cpp_3_1_const 关键字</span>
+            <span class="post-date" title="2020-09-10 08:00:00">2020/09/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/09/10/cpp_3_2_Lambda%20%E8%A1%A8%E8%BE%BE%E5%BC%8F/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cpp_3_2_Lambda 表达式">cpp_3_2_Lambda 表达式</span>
+            <span class="post-date" title="2020-09-10 08:00:00">2020/09/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/09/10/cpp_5_1_%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1_0_overview/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cpp_5_1_面向对象_0_overview">cpp_5_1_面向对象_0_overview</span>
+            <span class="post-date" title="2020-09-10 08:00:00">2020/09/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/09/10/cpp_5_2_%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1_1_%E7%B1%BB%E5%92%8C%E6%88%90%E5%91%98%E5%87%BD%E6%95%B0/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cpp_5_2_面向对象_1_类和成员函数">cpp_5_2_面向对象_1_类和成员函数</span>
+            <span class="post-date" title="2020-09-10 08:00:00">2020/09/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/09/10/cpp_6_0_%E6%A8%A1%E6%9D%BF%20template/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cpp_6_0_模板 template">cpp_6_0_模板 template</span>
+            <span class="post-date" title="2020-09-10 08:00:00">2020/09/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/09/10/cpp_5_3_%E5%A4%9A%E6%80%81_0_%E8%99%9A%E5%87%BD%E6%95%B0%20Virtual%20Functions/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cpp_5_3_多态_0_虚函数 Virtual Functions">cpp_5_3_多态_0_虚函数 Virtual Functions</span>
+            <span class="post-date" title="2020-09-10 08:00:00">2020/09/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2018/04/05/Git%20%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Git 使用指南">Git 使用指南</span>
+            <span class="post-date" title="2018-04-05 22:56:00">2018/04/05</span>
+        </a>
+        
+        <div id="no-item-tips">
+
+        </div>
+    </nav>
+    <div id="outline-list">
+    </div>
+</div>
+
+    </div>
+    <div class="hide-list">
+        <div class="semicircle" data-title="切换全屏 快捷键 s">
+            <div class="brackets first"><</div>
+            <div class="brackets">&gt;</div>
+        </div>
+    </div>
+</aside>
+<div id="post">
+    <div class="pjax">
+        <article id="post-cpp_1_1_左值和右值 Lvalue and Rvalue" class="article article-type-post" itemscope itemprop="blogPost">
+    
+        <h1 class="article-title">cpp_2_1_左值和右值 Lvalue and Rvalue</h1>
+    
+    <div class="article-meta">
+        
+        
+        
+        <span class="book">
+            <i class="iconfont icon-category"></i>
+            
+            
+            <a  data-rel="Coding">Coding</a>
+            
+        </span>
+        
+        
+    </div>
+    <div class="article-meta">
+        
+            Created At : <time class="date" title='Updated At: 2024-03-22 13:00:09'>2020-09-10 08:00</time>
+        
+    </div>
+    <div class="article-meta">
+        
+        
+        <span id="busuanzi_container_page_pv">
+            Views 👀 :<span id="busuanzi_value_page_pv">
+                <span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </span>
+        </span>
+        
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Overview"><span class="toc-text">Overview</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#The-value-category-of-an-expression-%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%9A%84%E5%80%BC%E7%9A%84%E7%B1%BB%E5%88%AB"><span class="toc-text">The value category of an expression 表达式的值的类别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#lvalue-and-rvalue-%E5%B7%A6%E5%80%BC%E5%92%8C%E5%8F%B3%E5%80%BC"><span class="toc-text">lvalue and rvalue 左值和右值</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E5%88%A4%E6%96%AD%E8%A1%A8%E8%BE%BE%E5%BC%8F%E6%98%AF%E5%B7%A6%E5%80%BC%E8%BF%98%E6%98%AF%E5%8F%B3%E5%80%BC-%E5%8F%96%E5%9C%B0%E5%9D%80"><span class="toc-text">如何判断表达式是左值还是右值 ? 取地址</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#literal-%E5%AD%97%E9%9D%A2%E9%87%8F-%E6%98%AF%E5%B7%A6%E5%80%BC%E8%BF%98%E6%98%AF%E5%8F%B3%E5%80%BC"><span class="toc-text">literal (字面量) 是左值还是右值?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Reference"><span class="toc-text">Reference</span></a></li></ol>
+    
+<style>
+    .left-col .switch-btn,
+    .left-col .switch-area {
+        display: none;
+    }
+    .toc-level-3 i,
+    .toc-level-3 ol {
+        display: none !important;
+    }
+</style>
+</div>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><p>1.The value category of an expression 表达式的值的类别<br>2.lvalue and rvalue 左值和右值<br>3.如何判断表达式是左值还是右值 ? 取地址<br>4.literal (字面量) 是左值还是右值 ?</p>
+<h2 id="The-value-category-of-an-expression-表达式的值的类别"><a href="#The-value-category-of-an-expression-表达式的值的类别" class="headerlink" title="The value category of an expression 表达式的值的类别"></a>The value category of an expression 表达式的值的类别</h2><p>回顾一下 expression (表达式是什么) ?</p>
+<blockquote>
+<p>expression: a combination of literals, variables, operators, and function calls that can be executed to produce a singular value”.<br>我们将表达式定义为”可以执行以产生单值的文字、变量、运算符和函数调用的组合”。</p>
+</blockquote>
+<p>表达式有两个属性, type (表达式的类型) 和value category (表达式的值的类别), 表达式的类型容易理解, 通过 type inference (类型推断) 可以得到; 表达式的类型必须在编译时确定, 但是表达式的值可以在编译时或者运行时确定  </p>
+<pre><code class="cpp">#include &lt;iostream&gt;
+int main() &#123;
+  auto v1 = 12 / 4;   // int / int    =&gt; 编译器推断表达式的类型是int, 所以v1的类型是int
+  auto v2 = 12.0 / 4; // double / int =&gt; 编译器表达式的类型是double, 所以v2的类型是double
+  return 0;
+&#125;
+</code></pre>
+<p>但是只有类型推断还不够, 还有个表达式在&#x3D;左边或者在&#x3D;右边的合法性问题</p>
+<pre><code class="cpp">int main() &#123;
+  int x&#123;&#125;;
+  x = 5; // 有效assigment, 我们可以将5赋值给x 
+  5 = x; // 无效assigment, 将x赋值给5的意义是什么?
+  return 0;
+&#125;
+</code></pre>
+<p>那么问题来了, 编译器如何知道哪些表达式可以合法地出现在&#x3D;的左右两侧呢?</p>
+<blockquote>
+<p>The answer lies in the second property of expressions: the value category. The value category of an expression (or subexpression) indicates whether an expression resolves to a value, a function, or an object of some kind.</p>
+</blockquote>
+<p>所以表达式有第二个属性: the value category, 表达式的value category指示出表达式是否解析为值&#x2F;函数&#x2F;某类对象</p>
+<h2 id="lvalue-and-rvalue-左值和右值"><a href="#lvalue-and-rvalue-左值和右值" class="headerlink" title="lvalue and rvalue 左值和右值"></a>lvalue and rvalue 左值和右值</h2><p>在 cpp 11 之前, 表达式只有 lvalue (左值), rvalue (右值) 这两种value category; 在c++11中, 新增添加了三个value categotires: glvalue, prvalue, xvalue, 用来支持一个新特性 move sematics (移动语义)</p>
+<p>Lvalue and rvalue expressions</p>
+<blockquote>
+<p>An lvalue is an expression that evaluates to an identifiable object or function (or bit-field).</p>
+</blockquote>
+<blockquote>
+<p>The term “identity” is used by the C++ standard, but is not well-defined. An entity (such as an object or function) that has an identity can be differentiated from other similar entities (typically by comparing the addresses of the entity).</p>
+</blockquote>
+<blockquote>
+<p>An rvalue is an expression that is not an l-value. Commonly seen rvalues include literals (except C-style string literals, which are lvalues) and the return value of functions and operators. Rvalues aren’t identifiable (meaning they have to be used immediately), and only exist within the scope of the expression in which they are used.</p>
+</blockquote>
+<blockquote>
+<p>Lvalue expressions are those that evaluate to variables or other identifiable objects that persist beyond the end of the expression.</p>
+</blockquote>
+<blockquote>
+<p>Rvalue expressions are those that evaluate to literals or values returned by functions&#x2F;operators that are discarded at the end of the expression.</p>
+</blockquote>
+<p>intuitively,<br>1.根据左值和右值的字面意思理解, 表达式等号左边就是左值, 右边是右值; 然而只根据左值和右值的字面意思, 有些情况无法准确区分左值和右值<br>2.左值: 指向一个特定内存的具有名称的值 (具名对象), 它有一个相对稳定的内存地址, 并且有一段较长的生命周期<br>3.右值: 不指向稳定内存的匿名值 (不具名对象), 它的生命周期很短, 通常是暂时性的<br>4.判断左值和还是右值的方法: 利用取地址符 &amp; 来判断左值还是右值, 能取到内存地址的值为左值, 否则都是右值<br>5.反过来想取地址符 &amp; 只能取左值, 而不能取右值, 如果我们用取地址符取右值, 那么就会报错<br>6.左值在表达式结束之后持续存在; 右值在表达式结束之后直接被遗弃  </p>
+<p>举一个不容易区分左值还是右值的例子</p>
+<pre><code class="cpp">int x = 1;      // x是左值, 1是右值
+int y = 3;      // y是左值, 3是右值
+int z = x + y;  // z是左值, x+y结果是右值
+int a = 1;      // a是左值
+int b = a;      // b是左值, a还是左值
+</code></pre>
+<h2 id="如何判断表达式是左值还是右值-取地址"><a href="#如何判断表达式是左值还是右值-取地址" class="headerlink" title="如何判断表达式是左值还是右值 ? 取地址"></a>如何判断表达式是左值还是右值 ? 取地址</h2><p>获取左值和右值的方法: 采用取地址符, 来拿到地址</p>
+<pre><code class="cpp">#include &lt;iostream&gt;
+using namespace std;
+
+int main() &#123;
+  int a = 1;            // a是左值
+  int b = a;            // b是左值, a还是左值
+  cout &lt;&lt; &amp;a &lt;&lt; endl;   // 输出结果为 0x16fdff098
+  cout &lt;&lt; &amp;b &lt;&lt; endl;   // 输出结果为 0x16fdff094
+  cout &lt;&lt; &amp;1 &lt;&lt; endl;   // 编译不通过, 提示错: 表达式必须为左值或函数提示符 C/C++158
+
+  int c, d;
+  int *p;
+  p = &amp;(c + 2);         // 编译不通过, 提示错: 表达式必须为左值或函数提示符 C/C++158
+
+  int c, d;
+  int *p;
+  d = c + 2;
+  p = &amp;d;               // 改成左值就可以取地址了
+  return 0;
+&#125;
+</code></pre>
+<p>上面的代码左右值判断比较简单, 但是并非所有的情况都简单, 有些时候左值和右值的判断都是反直觉的: 比如想一下下面的 x++ 和 ++x, 先猜测一下哪个感觉更像左值, 哪个感觉更像右值? 感觉似乎 ++x 像左值, 因为返回的是加完之后的值; x++感觉像右值, 因为返回的时临时的 x;</p>
+<pre><code class="cpp">int x = 1;
+int get_val() &#123;
+  return x;
+&#125;
+
+void set_val(int val) &#123;
+  x = val;
+&#125;
+
+int main() &#123;
+  x++;
+  ++x;
+  int y = get_val();
+  set_val(6);
+&#125;
+</code></pre>
+<p>分析一下上面这段代码<br>1.x++ 和 ++x虽然都是自增操作, 但是左右值不同<br>2.为了检验真相, 采用取地址符看编译结果  </p>
+<pre><code class="cpp">int x = 3;
+int *p = &amp;x++;    // 编译失败 x++为右值
+int *q = &amp;++x;    // 编译成功 ++x为左值
+return 0;
+</code></pre>
+<p>3.x++ 是右值, 执行 x++ 时, 编译器会生成一份 x 值的临时复制, 也就是一个临时变量, 最后返回这个临时变量<br>4.++x 是左值, 执行 ++x 时, 直接对 x 执行 +1 操作后马上返回其自身, 所以 ++x 是左值<br>5.上面的两类情况, 记忆它们区别的关键是”找临时变量”, 哪里产生临时变量, 哪里就是右值, 不难想到 x++ 这种操作返回的是临时变量 x 的 copy, 因此 x++ 是右值  </p>
+<pre><code class="cpp">int x = 1;
+int get_val() &#123;
+  return x;
+&#125;
+
+int main() &#123;
+  cout &lt;&lt; &amp;x;           // x是一个左值, 编译没问题
+  int *p = &amp;get_val();  // x变成一个右值, 这行编译失败, 原因是get_val() 返回的是x的临时复制, 此时x是个右值; 道理类似于x++;
+  return 0;
+&#125;
+</code></pre>
+<p>再看另一个例子</p>
+<pre><code class="cpp">int x = 1;
+int get_val() &#123;
+  return x;
+&#125;
+
+void set_val(int val) &#123;
+  int *p = &amp;val;  // 这里为什么编译能通过? 实参6是一个右值, 但是进入函数之后形参val变成了一个左值
+                  // 所以这里编译没有任何问题
+  x = val;
+&#125;
+
+int main() &#123;
+  int y = get_val();
+  set_val(6); // 6是一个右值
+  return 0;
+&#125;
+</code></pre>
+<h2 id="literal-字面量-是左值还是右值"><a href="#literal-字面量-是左值还是右值" class="headerlink" title="literal (字面量) 是左值还是右值?"></a>literal (字面量) 是左值还是右值?</h2><p>值得注意的是, 通常字面量 (literal) 都是右值, 但”字符串”这种字面量是个左值<br>什么是字面量 (literal) ? 字面量用于表达源代码中一个固定值的表示法, 整数, 浮点数和字符串都是字面量  </p>
+<pre><code class="cpp">int *x = &amp;6;          // 编译不通过, 6 是个右值
+double *y = &amp;3.14;    // 编译不通过, 3.14 是个右值
+float *z = &amp;1.99f;    // 编译不通过, 1.99 是个右值
+auto p = &amp;&quot;hello&quot;;    // 编译通过, &quot;hello&quot; 是个左值
+</code></pre>
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><p>1.现代 C++ 教程：高速上手 C++11&#x2F;14&#x2F;17&#x2F;20<br>2.<a target="_blank" rel="noopener" href="https://en.cppreference.com/w/cpp/language/value_category">https://en.cppreference.com/w/cpp/language/value_category</a>  </p>
+
+      
+       <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 jaytp@qq.com </span>
+    </div>
+</article>
+
+
+<p>
+    <a  class="dashang" onclick="dashangToggle()">💰</a>
+</p>
+
+
+
+
+
+
+    
+
+
+
+
+    </div>
+    <div class="copyright">
+        <p class="footer-entry">
+    ©2016-2020 Yelog
+</p>
+<p class="footer-entry">Built with <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/yelog/hexo-theme-3-hexo" target="_blank">3-hexo</a> theme</p>
+
+    </div>
+    <div class="full-toc">
+        <button class="full" data-title="切换全屏 快捷键 s"><span class="min "></span></button>
+<a class="" id="rocket" ></a>
+
+    </div>
+</div>
+
+<div class="hide_box" onclick="dashangToggle()"></div>
+<div class="shang_box">
+    <a class="shang_close"  onclick="dashangToggle()">×</a>
+    <div class="shang_tit">
+        <p>Help us with donation</p>
+    </div>
+    <div class="shang_payimg">
+        <div class="pay_img">
+            <img src="/img/alipay.jpg" class="alipay" title="扫码支持">
+            <img src="/img/weixin.jpg" class="weixin" title="扫码支持">
+        </div>
+    </div>
+    <div class="shang_payselect">
+        <span><label><input type="radio" name="pay" checked value="alipay">alipay</label></span><span><label><input type="radio" name="pay" value="weixin">weixin</label></span>
+    </div>
+</div>
+
+
+</body>
+<script src="/js/jquery.pjax.js?v=1.1.0" ></script>
+
+<script src="/js/script.js?v=1.1.0" ></script>
+<script>
+    var img_resize = 'default';
+    function initArticle() {
+        /*渲染对应的表格样式*/
+        
+            $("#post .pjax table").addClass("green_title");
+        
+
+        /*渲染打赏样式*/
+        
+        $("input[name=pay]").on("click", function () {
+            if($("input[name=pay]:checked").val()=="weixin"){
+                $(".shang_box .shang_payimg .pay_img").addClass("weixin_img");
+            } else {
+                $(".shang_box .shang_payimg .pay_img").removeClass("weixin_img");
+            }
+        })
+        
+
+        /*高亮代码块行号*/
+        
+
+        /*访问数量*/
+        
+        $.getScript("//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js");
+        
+
+        /*代码高亮，行号对齐*/
+        $('.pre-numbering').css('line-height',$('.has-numbering').css('line-height'));
+
+        
+        
+    }
+
+    /*打赏页面隐藏与展示*/
+    
+    function dashangToggle() {
+        $(".shang_box").fadeToggle();
+        $(".hide_box").fadeToggle();
+    }
+    
+
+</script>
+
+<!--加入行号的高亮代码块样式-->
+
+<!--自定义样式设置-->
+<style>
+    
+    
+    .nav {
+        width: 542px;
+    }
+    .nav.fullscreen {
+        margin-left: -542px;
+    }
+    .nav-left {
+        width: 120px;
+    }
+    
+    
+    @media screen and (max-width: 1468px) {
+        .nav {
+            width: 492px;
+        }
+        .nav.fullscreen {
+            margin-left: -492px;
+        }
+        .nav-left {
+            width: 100px;
+        }
+    }
+    
+    
+    @media screen and (max-width: 1024px) {
+        .nav {
+            width: 492px;
+            margin-left: -492px
+        }
+        .nav.fullscreen {
+            margin-left: 0;
+        }
+    }
+    
+    @media screen and (max-width: 426px) {
+        .nav {
+            width: 100%;
+        }
+        .nav-left {
+            width: 100%;
+        }
+    }
+    
+    
+    .nav-right .title-list nav a .post-title, .nav-right .title-list #local-search-result a .post-title {
+        color: #383636;
+    }
+    
+    
+    .nav-right .title-list nav a .post-date, .nav-right .title-list #local-search-result a .post-date {
+        color: #5e5e5f;
+    }
+    
+    
+    .nav-right nav a.hover, #local-search-result a.hover{
+        background-color: #e2e0e0;
+    }
+    
+    
+
+    /*列表样式*/
+    
+
+    /* 背景图样式 */
+    
+    
+
+
+    /*引用块样式*/
+    
+
+    /*文章列表背景图*/
+    
+
+    
+</style>
+
+
+
+
+
+
+
+</html>

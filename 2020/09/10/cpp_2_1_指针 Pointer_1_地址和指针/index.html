@@ -1,0 +1,877 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>cpp_2_1_指针 Pointer_1_地址和指针 | G&amp;R Blog</title>
+  <meta name="keywords" content="">
+  <meta name="description" content="cpp_2_1_指针 Pointer_1_地址和指针 | G&amp;R Blog">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="Overview1.hexo installation 安装2.hexo 主题设置: yilia theme3.数学公式支持: mathjax + pandoc4.页面细节定制: 两侧宽度、布局&#x2F;字体&#x2F;颜色: main.0cf68a.css5.各种坑 hexo installation 安装安装 Node.js和npmsudo apt-get update sudo apt i">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Hexo 搭建总结">
+<meta property="og:url" content="http://example.com/bck/Hexo%20%E6%90%AD%E5%BB%BA%E6%80%BB%E7%BB%93.html">
+<meta property="og:site_name" content="G&amp;R Blog">
+<meta property="og:description" content="Overview1.hexo installation 安装2.hexo 主题设置: yilia theme3.数学公式支持: mathjax + pandoc4.页面细节定制: 两侧宽度、布局&#x2F;字体&#x2F;颜色: main.0cf68a.css5.各种坑 hexo installation 安装安装 Node.js和npmsudo apt-get update sudo apt i">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-10-01T12:11:00.000Z">
+<meta property="article:modified_time" content="2024-03-22T04:43:08.789Z">
+<meta property="article:author" content="G &amp; R">
+<meta property="article:tag" content="Recommending System">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="icon" href="/img/avatar.jpg">
+
+<link href="/css/style.css?v=1.1.0" rel="stylesheet">
+
+<link href="/css/hl_theme/atom-light.css?v=1.1.0" rel="stylesheet">
+
+<link href="//cdn.jsdelivr.net/npm/animate.css@4.1.0/animate.min.css" rel="stylesheet">
+
+<script src="//cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+<script src="/js/titleTip.js?v=1.1.0" ></script>
+
+<script src="//cdn.jsdelivr.net/npm/highlightjs@9.16.2/highlight.pack.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+
+<script src="//cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js"></script>
+
+
+
+<script src="//cdn.jsdelivr.net/npm/jquery.cookie@1.4.1/jquery.cookie.min.js" ></script>
+
+<script src="/js/iconfont.js?v=1.1.0" ></script>
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+<div style="display: none">
+  <input class="theme_disqus_on" value="false">
+  <input class="theme_preload_comment" value="">
+  <input class="theme_blog_path" value="">
+  <input id="theme_shortcut" value="true" />
+  <input id="theme_highlight_on" value="true" />
+  <input id="theme_code_copy" value="true" />
+</div>
+
+
+
+<body>
+<aside class="nav">
+    <div class="nav-left">
+        <a href="/"
+   class="avatar_target">
+    <img class="avatar"
+         src="/img/avatar.jpg"/>
+</a>
+<div class="author">
+    <span>G &amp; R</span>
+</div>
+
+<div class="icon">
+    
+        
+            <a title="rss"
+               href="/atom.xml"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-rss"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+            <a title="github"
+               href="https://github.com/goldandrabbit"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-github"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+            <a title="neteasemusic"
+               href="https://music.163.com/#/user/home?id=88151013"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-neteasemusic"></use>
+                    </svg>
+                
+            </a>
+        
+    
+</div>
+
+
+
+
+
+<ul>
+    <li>
+        <div class="all active" data-rel="All">All
+            
+                <small>(23)</small>
+            
+        </div>
+    </li>
+    
+        
+            
+                
+    <li>
+        <div data-rel="Coding">
+            
+            Coding
+            <small>(23)</small>
+        </div>
+        
+    </li>
+
+            
+        
+    
+</ul>
+<div class="left-bottom">
+    <div class="menus">
+        
+            
+            
+            
+    </div>
+    <div>
+        
+            <a class="about  hasFriend  site_url"
+               
+               href="/about">About</a>
+        
+        <a style="width: 50%"
+                
+                                           class="friends">Friends</a>
+        
+    </div>
+</div>
+<input type="hidden" id="yelog_site_posts_number" value="23">
+
+<div style="display: none">
+    <span id="busuanzi_value_site_uv"></span>
+    <span id="busuanzi_value_site_pv"></span>
+</div>
+
+    </div>
+    <div class="nav-right">
+        <div class="friends-area">
+    <div class="friends-title">
+        Links
+        <i class="iconfont icon-left"></i>
+    </div>
+    <div class="friends-content">
+        <ul>
+            
+            <li><a target="_blank" href="http://yelog.org/">叶落阁</a></li>
+            
+        </ul>
+    </div>
+</div>
+        <div class="title-list">
+    <div class="right-top">
+        <div id="default-panel">
+            <i class="iconfont icon-search" data-title="搜索 快捷键 i"></i>
+            <div class="right-title">All</div>
+            <i class="iconfont icon-file-tree" data-title="切换到大纲视图 快捷键 w"></i>
+        </div>
+        <div id="search-panel">
+            <i class="iconfont icon-left" data-title="返回"></i>
+            <input id="local-search-input" autocomplete="off"/>
+            <label class="border-line" for="input"></label>
+            <i class="iconfont icon-case-sensitive" data-title="大小写敏感"></i>
+            <i class="iconfont icon-tag" data-title="标签"></i>
+        </div>
+        <div id="outline-panel" style="display: none">
+            <div class="right-title">大纲</div>
+            <i class="iconfont icon-list" data-title="切换到文章列表"></i>
+        </div>
+    </div>
+
+    <div class="tags-list">
+    <input id="tag-search" />
+    <div class="tag-wrapper">
+        
+    </div>
+
+</div>
+
+    
+    <nav id="title-list-nav">
+        
+        
+        <a  class="All Coding "
+           href="/2099/01/30/G&R%20%E7%9A%84%20Blog%20%E5%8F%91%E5%B8%83%E8%A7%84%E8%8C%83/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="G&amp;R 的 Blog 发布规范">G&amp;R 的 Blog 发布规范</span>
+            <span class="post-date" title="2099-01-30 20:00:00">2099/01/30</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/09/10/cpp_0_0_%E5%B1%9E%E4%BA%8E%20cpp%20%E7%9A%84%E8%AE%BE%E8%AE%A1%E5%93%B2%E5%AD%A6/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cpp_0_1_cpp设计哲学">cpp_0_1_cpp设计哲学</span>
+            <span class="post-date" title="2020-09-10 08:00:00">2020/09/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/09/10/cpp_0_1_vscode%20%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cpp_0_1_vscode 环境配置">cpp_0_1_vscode 环境配置</span>
+            <span class="post-date" title="2020-09-10 08:00:00">2020/09/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/09/10/cpp_0_2_%E5%A4%B4%E6%96%87%E4%BB%B6%20header%20file/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cpp_0_2_头文件 headerfile">cpp_0_2_头文件 headerfile</span>
+            <span class="post-date" title="2020-09-10 08:00:00">2020/09/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/09/10/cpp_0_3_%E8%B0%B7%E6%AD%8C%20C++%20%E7%BC%96%E7%A8%8B%E9%A3%8E%E6%A0%BC/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cpp_0_3_谷歌 C++ 编程风格">cpp_0_3_谷歌 C++ 编程风格</span>
+            <span class="post-date" title="2020-09-10 08:00:00">2020/09/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/09/10/cpp_1_1_%E5%B7%A6%E5%80%BC%E5%92%8C%E5%8F%B3%E5%80%BC%20Lvalue%20and%20Rvalue/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cpp_2_1_左值和右值 Lvalue and Rvalue">cpp_2_1_左值和右值 Lvalue and Rvalue</span>
+            <span class="post-date" title="2020-09-10 08:00:00">2020/09/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/09/10/cpp_1_2_%E5%B7%A6%E5%80%BC%E5%BC%95%E7%94%A8%20Lvalue%20reference/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cpp_1_2_左值引用 Lvalue reference">cpp_1_2_左值引用 Lvalue reference</span>
+            <span class="post-date" title="2020-09-10 08:00:00">2020/09/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/09/10/cpp_1_3_%E5%8F%B3%E5%80%BC%E5%BC%95%E7%94%A8%20Rvalue%20reference/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cpp_1_3_右值引用 Rvalue reference">cpp_1_3_右值引用 Rvalue reference</span>
+            <span class="post-date" title="2020-09-10 08:00:00">2020/09/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/09/10/cpp_2_2_%E6%8C%87%E9%92%88%20Pointer_2_%E7%A9%BA%E6%8C%87%E9%92%88/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cpp_2_2_指针 Pointer_2_空指针">cpp_2_2_指针 Pointer_2_空指针</span>
+            <span class="post-date" title="2020-09-10 08:00:00">2020/09/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/09/10/cpp_2_1_%E6%8C%87%E9%92%88%20Pointer_1_%E5%9C%B0%E5%9D%80%E5%92%8C%E6%8C%87%E9%92%88/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cpp_2_1_指针 Pointer_1_地址和指针">cpp_2_1_指针 Pointer_1_地址和指针</span>
+            <span class="post-date" title="2020-09-10 08:00:00">2020/09/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/09/10/cpp_2_3_%E6%8C%87%E9%92%88%20Pointer_4_%E4%BC%A0%E5%9C%B0%E5%9D%80%20Pass%20by%20address/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cpp_2_3_指针 Pointer_4_传地址 Pass by address">cpp_2_3_指针 Pointer_4_传地址 Pass by address</span>
+            <span class="post-date" title="2020-09-10 08:00:00">2020/09/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/09/10/cpp_2_3_%E6%8C%87%E9%92%88%20Pointer_3_const%E4%B8%8E%E6%8C%87%E9%92%88/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cpp_2_3_指针 Pointer_3_const与指针">cpp_2_3_指针 Pointer_3_const与指针</span>
+            <span class="post-date" title="2020-09-10 08:00:00">2020/09/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/09/10/cpp_2_4_%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88_0_%E8%AE%BE%E8%AE%A1%E6%80%9D%E6%83%B3/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cpp_2_4_智能指针_0_设计思想">cpp_2_4_智能指针_0_设计思想</span>
+            <span class="post-date" title="2020-09-10 08:00:00">2020/09/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/09/10/cpp_2_6_%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88_2_unique_ptr/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cpp_2_6_智能指针_2_unique_ptr">cpp_2_6_智能指针_2_unique_ptr</span>
+            <span class="post-date" title="2020-09-10 08:00:00">2020/09/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/09/10/cpp_2_5_%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88_1_shared_ptr/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cpp_2_5_智能指针_1_shared_ptr">cpp_2_5_智能指针_1_shared_ptr</span>
+            <span class="post-date" title="2020-09-10 08:00:00">2020/09/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/09/10/cpp_3_0_constexpr%20%E5%85%B3%E9%94%AE%E5%AD%97/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cpp_3_0_constexpr关键字">cpp_3_0_constexpr关键字</span>
+            <span class="post-date" title="2020-09-10 08:00:00">2020/09/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/09/10/cpp_3_1_const%20%E5%85%B3%E9%94%AE%E5%AD%97/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cpp_3_1_const 关键字">cpp_3_1_const 关键字</span>
+            <span class="post-date" title="2020-09-10 08:00:00">2020/09/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/09/10/cpp_3_2_Lambda%20%E8%A1%A8%E8%BE%BE%E5%BC%8F/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cpp_3_2_Lambda 表达式">cpp_3_2_Lambda 表达式</span>
+            <span class="post-date" title="2020-09-10 08:00:00">2020/09/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/09/10/cpp_5_1_%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1_0_overview/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cpp_5_1_面向对象_0_overview">cpp_5_1_面向对象_0_overview</span>
+            <span class="post-date" title="2020-09-10 08:00:00">2020/09/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/09/10/cpp_5_2_%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1_1_%E7%B1%BB%E5%92%8C%E6%88%90%E5%91%98%E5%87%BD%E6%95%B0/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cpp_5_2_面向对象_1_类和成员函数">cpp_5_2_面向对象_1_类和成员函数</span>
+            <span class="post-date" title="2020-09-10 08:00:00">2020/09/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/09/10/cpp_6_0_%E6%A8%A1%E6%9D%BF%20template/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cpp_6_0_模板 template">cpp_6_0_模板 template</span>
+            <span class="post-date" title="2020-09-10 08:00:00">2020/09/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/09/10/cpp_5_3_%E5%A4%9A%E6%80%81_0_%E8%99%9A%E5%87%BD%E6%95%B0%20Virtual%20Functions/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cpp_5_3_多态_0_虚函数 Virtual Functions">cpp_5_3_多态_0_虚函数 Virtual Functions</span>
+            <span class="post-date" title="2020-09-10 08:00:00">2020/09/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2018/04/05/Git%20%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Git 使用指南">Git 使用指南</span>
+            <span class="post-date" title="2018-04-05 22:56:00">2018/04/05</span>
+        </a>
+        
+        <div id="no-item-tips">
+
+        </div>
+    </nav>
+    <div id="outline-list">
+    </div>
+</div>
+
+    </div>
+    <div class="hide-list">
+        <div class="semicircle" data-title="切换全屏 快捷键 s">
+            <div class="brackets first"><</div>
+            <div class="brackets">&gt;</div>
+        </div>
+    </div>
+</aside>
+<div id="post">
+    <div class="pjax">
+        <article id="post-cpp_2_1_指针 Pointer_1_地址和指针" class="article article-type-post" itemscope itemprop="blogPost">
+    
+        <h1 class="article-title">cpp_2_1_指针 Pointer_1_地址和指针</h1>
+    
+    <div class="article-meta">
+        
+        
+        
+        <span class="book">
+            <i class="iconfont icon-category"></i>
+            
+            
+            <a  data-rel="Coding">Coding</a>
+            
+        </span>
+        
+        
+    </div>
+    <div class="article-meta">
+        
+            Created At : <time class="date" title='Updated At: 2024-03-22 13:00:09'>2020-09-10 08:00</time>
+        
+    </div>
+    <div class="article-meta">
+        
+        
+        <span id="busuanzi_container_page_pv">
+            Views 👀 :<span id="busuanzi_value_page_pv">
+                <span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </span>
+        </span>
+        
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Overview"><span class="toc-text">Overview</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#addressing-%E5%8F%98%E9%87%8F%E7%9A%84%E5%AF%BB%E5%9D%80"><span class="toc-text">addressing 变量的寻址</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#The-address-of-operator-%E5%8F%96%E5%9C%B0%E5%9D%80%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="toc-text">The address-of operator (&amp;) 取地址运算符(&amp;)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#The-dereference-operator-%E8%A7%A3%E5%BC%95%E7%94%A8%E6%93%8D%E4%BD%9C%E7%AC%A6"><span class="toc-text">The dereference operator (*) 解引用操作符</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Pointers-%E6%8C%87%E9%92%88"><span class="toc-text">Pointers 指针</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Pointer-initialization-%E6%8C%87%E9%92%88%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="toc-text">Pointer initialization 指针初始化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Pointers-and-assignment-%E6%8C%87%E9%92%88%E7%9B%B8%E5%85%B3%E7%9A%84%E8%B5%8B%E5%80%BC%E6%93%8D%E4%BD%9C"><span class="toc-text">Pointers and assignment 指针相关的赋值操作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Pointers-v-s-lvalue-references-%E6%8C%87%E9%92%88%E5%92%8C%E5%BC%95%E7%94%A8%E7%9A%84%E5%AF%B9%E6%AF%94"><span class="toc-text">Pointers v.s. lvalue references 指针和引用的对比</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#The-size-of-pointers-%E6%8C%87%E9%92%88%E7%9A%84%E5%A4%A7%E5%B0%8F"><span class="toc-text">The size of pointers 指针的大小</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Dangling-pointers-%E6%82%AC%E7%A9%BA%E6%8C%87%E9%92%88"><span class="toc-text">Dangling pointers 悬空指针</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Reference"><span class="toc-text">Reference</span></a></li></ol>
+    
+<style>
+    .left-col .switch-btn,
+    .left-col .switch-area {
+        display: none;
+    }
+    .toc-level-3 i,
+    .toc-level-3 ol {
+        display: none !important;
+    }
+</style>
+</div>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><p>1.addressing 变量的寻址<br>2.The address-of operator (&amp;) 取地址运算符 (&amp;)<br>3.The dereference operator (*) 解引用运算符 (*)<br>4.Pointer initialization 指针初始化<br>5.Pointers and assignment 指针相关的赋值操作<br>6.Pointers v.s. lvalue references 指针和左值引用的对比  </p>
+<h2 id="addressing-变量的寻址"><a href="#addressing-变量的寻址" class="headerlink" title="addressing 变量的寻址"></a>addressing 变量的寻址</h2><p>1.对于一个 char 类型的变量 x, 使用了 1 个 bytes 的内存; 例如当执行如下的变量定义的时候, RAM 里面的一小片内存被分配给了x object; 假设 x 被分配的内存地址是 140, 当我们用到 x 的时候, 程序会去到地址 140 来获取在 140 存储的值;<br>2.对于变量, 我们通常不需要知道每个变量被具体分配到了内存的地址是什么, 用了多少个bytes去存存储它; 我们只是通过它的名字在使用它, 并且我们知道”它是有个确定的地址”的, 本质上是编译器完成了从”变量的标识符”到”内存的具体地址”之间的”翻译”, 这个映射地址的过程 (addressing, 寻址), 完全被编译器托管  </p>
+<pre><code class="cpp">char x&#123;&#125;;
+</code></pre>
+<p>3.我们之前谈到的左值引用, 是完全同样的道理, 声明一个引用变量 ref, 本质上就是绑定 140 这个地址, 当我们使用引用变量 ref 的时候, 去获取140地址上储存value  </p>
+<pre><code class="cpp">int main() &#123;
+  char x&#123;&#125;;     // assume this is assigned memory address 140
+  char&amp; ref&#123;x&#125;; // ref is an lvalue reference to x (when used with a type, &amp; means lvalue reference)
+  return 0;
+&#125;
+</code></pre>
+<h2 id="The-address-of-operator-取地址运算符"><a href="#The-address-of-operator-取地址运算符" class="headerlink" title="The address-of operator (&amp;) 取地址运算符(&amp;)"></a>The address-of operator (&amp;) 取地址运算符(&amp;)</h2><p>虽然通常变量的内存地址不显示的暴露出来, 当时我们如果我们非要去地址, 可以用取地址符  </p>
+<pre><code class="cpp">#include &lt;iostream&gt;
+int main() &#123;
+  int x&#123;5&#125;;
+  std::cout &lt;&lt; x &lt;&lt; &#39;\n&#39;;  // print the value of variable x
+  std::cout &lt;&lt; &amp;x &lt;&lt; &#39;\n&#39;; // print the memory address of variable x
+  return 0;
+&#125;
+</code></pre>
+<p>输出的结果是</p>
+<pre><code class="cpp">5
+0027FEA0  // 是个十六进制的地址
+</code></pre>
+<h2 id="The-dereference-operator-解引用操作符"><a href="#The-dereference-operator-解引用操作符" class="headerlink" title="The dereference operator (*) 解引用操作符"></a>The dereference operator (*) 解引用操作符</h2><p>1.对一个变量来说, 获取变量的地址本身没有什么用处, 关于地址上我们能做的最有用事还是还是获取存储在地址上的变量; 我们可以有了变量的地址的时候, 用 dereference operator (解引用运算符) 存储在某个地址上的值<br>2.取地址运算符 “&amp;” 和 解引用运算符”*” 这两个关于地址的运算符, 类似一种逆运算一样, 对于一个变量来说, 一个可以拿到x的地址, 一个可以拿到x地址下的值  </p>
+<pre><code class="cpp">#include &lt;iostream&gt;
+int main() &#123;
+  int x&#123;5&#125;;
+  std::cout &lt;&lt; x &lt;&lt; &#39;\n&#39;;     // print the value of variable x
+  std::cout &lt;&lt; &amp;x &lt;&lt; &#39;\n&#39;;    // print the memory address of variable x
+  std::cout &lt;&lt; *(&amp;x) &lt;&lt; &#39;\n&#39;; // print the value at the memory address of variable x (parentheses not required, but make it easier to read)
+  return 0;
+&#125;
+</code></pre>
+<h2 id="Pointers-指针"><a href="#Pointers-指针" class="headerlink" title="Pointers 指针"></a>Pointers 指针</h2><blockquote>
+<p>A pointer is an object that holds a memory address (typically of another variable) as its value. This allows us to store the address of some other object to use later.</p>
+</blockquote>
+<blockquote>
+<p>In modern C++, the pointers we are talking about here are sometimes called “raw pointers” or “dumb pointers”, to help differentiate them from “smart pointers”. </p>
+</blockquote>
+<p>intuitively,<br>1.Pointer (指针) 是一个 object, 这个 object 的值保存的是一个其他变量的内存地址; 这里可以对比下 reference 引用, 引用不是一个 object<br>2.现代 cpp 里面, 我们通常谈到的指针通常叫做 “raw pointers” 或者 “dumb pointers” , 主要是区别于智能指针 “smart pointers”<br>3.指针类型的声明和指针的dereference, 用的是相同的符号 *, 比如int *; 这里其实是为什么指针有时候让人迷惑的第一个原因, 有时候 * 作为一种 dereference 作用去声明, 有时候作为一种类型定义的符号出现, 所以在理解这个概念的时候, 要明确分清楚代表的不同的具体的含义<br>4.在同一行代码中声明2个指针类型的变量的时候, 需要将类型定义必须分开, 否则第二个变量会声明成int类型; 或者只要定义指针, 就每个指针变量单独写一行避免其他的问题  </p>
+<pre><code class="cpp">int;                // a normal int
+int&amp;;               // an lvalue reference to an int value
+int*;               // a pointer to an int value (holds the address of an integer value)
+int* ptr1, ptr2;    // incorrect: ptr1 is a pointer to an int, but ptr2 is just a plain int!
+int* ptr3, * ptr4;  // correct: ptr3 and ptr4 are both pointers to an int
+</code></pre>
+<h2 id="Pointer-initialization-指针初始化"><a href="#Pointer-initialization-指针初始化" class="headerlink" title="Pointer initialization 指针初始化"></a>Pointer initialization 指针初始化</h2><p>intuitively,<br>1.相比一般的变量 (或者引用) , 指针的初始化需要非常小心地去理解和使用<br>2.和一般变量类似, 指针可以默认不被初始化的, 但是不初始化指针可能会带来相应的风险<br>3.一个没有被初始化的指针叫做 wild pointer (野指针), wild pointer 包含一个 garbage address (垃圾地址), 对一个 wild pointer 进行 dereference 操作会导致 undefined behavior (未定义的行为)<br>4.因为 wild pointer 的操作可能引起未定义的行为, 所以我们在使用的时候 always initialize pointers. 不管编译器允不允许定义野指针, 我们必须初始化指针<br>5.指针为什么叫”指针”? 比如指针变量 ptr 保存的是变量 x 的地址, 我们说 ptr “指向了” x<br>6.我们通常一种说法叫做 “int指针” “char指针” 等 “xx指针” 其中 xx 是一种类型, 这种说法是 “pointer to an x” 的一种缩写  </p>
+<pre><code class="cpp">int main() &#123;
+  int x&#123;5&#125;;
+  int* ptr;                   // 声明一个未初始化的指针, 但是不指向任何变量
+  int* ptr2&#123;&#125;;                // 一个null pointer
+  int* ptr3&#123;&amp;x&#125;;              // 指向x的指针, 用x的地址进行指针的初始化
+  std::cout &lt;&lt; *ptr3 &lt;&lt; &#39;\n&#39;; // 用deference符号去获取ptr指向的值
+  return 0;
+&#125;
+</code></pre>
+<p>ptr3 执行的原理如下图<br><img src="/pointers_00.png" alt="Alt text"></p>
+<p>7.指针和引用有个相似点: 指针指向的变量类型和指针的类型必须要匹配上 (同理引用变量类型和被引用的类型)  </p>
+<pre><code class="cpp">int main() &#123;
+  int i&#123;5&#125;;
+  double d&#123;7.0&#125;;
+  int* iPtr&#123;&amp;i&#125;;      // ok: a pointer to an int can point to an int object
+  int* iPtr2&#123;&amp;d&#125;;     // not okay: a pointer to an int can&#39;t point to a double object
+  double* dPtr&#123;&amp;d&#125;;   // ok: a pointer to a double can point to a double object
+  double* dPtr2&#123;&amp;i&#125;;  // not okay: a pointer to a double can&#39;t point to an int object
+  return 0;
+&#125;
+</code></pre>
+<h2 id="Pointers-and-assignment-指针相关的赋值操作"><a href="#Pointers-and-assignment-指针相关的赋值操作" class="headerlink" title="Pointers and assignment 指针相关的赋值操作"></a>Pointers and assignment 指针相关的赋值操作</h2><p>有了指针之后, 我们的赋值操作从此多了一种方法: 利用指针进行赋值, 具体而言, 我们利用指针进行赋值两种赋值的方法<br>1.改变的指针指向的地址, 也就是维指针分配新地址; 这种情况我们的操作是  </p>
+<pre><code class="cpp">int x&#123;3&#125;;
+int y&#123;5&#125;;
+int* ptr; 
+ptr = &amp;x;
+ptr = &amp;y;
+</code></pre>
+<p>2.改变的是被指向的值, 也就是分配给指针指向的值一个新的值; 这种情况我们采用的是 dereference 运算符直接赋值 *ptr &#x3D; 5  </p>
+<pre><code class="cpp">int x&#123;3&#125;;
+int* ptr; 
+*ptr = &amp;x;
+*ptr = 5;
+</code></pre>
+<p>第 1 种情况下, 我们是修改了指针的地址  </p>
+<pre><code class="cpp">#include &lt;iostream&gt;
+int main() &#123;
+  int x&#123;5&#125;;
+  int* ptr&#123;&amp;x&#125;;               // ptr一开始指向了x
+  std::cout &lt;&lt; *ptr &lt;&lt; &#39;\n&#39;;  // print the value at the address being pointed to (x&#39;s address)
+  int y&#123;6&#125;;
+  ptr = &amp;y;                   // ptr重新指向了y 
+  std::cout &lt;&lt; *ptr &lt;&lt; &#39;\n&#39;;  // print the value at the address being pointed to (y&#39;s address)
+  return 0;
+&#125;
+</code></pre>
+<p>打印出来的结果是</p>
+<pre><code class="sh">5
+6
+</code></pre>
+<p>第 2 种情况下, 我们直接指针的地址上的值  </p>
+<pre><code class="cpp">#include &lt;iostream&gt;
+int main() &#123;
+  int x&#123;5&#125;;
+  int* ptr&#123;&amp;x&#125;;               // initialize ptr with address of variable x
+  std::cout &lt;&lt; x &lt;&lt; &#39;\n&#39;;     // print x&#39;s value
+  std::cout &lt;&lt; *ptr &lt;&lt; &#39;\n&#39;;  // print the value at the address that ptr is holding (x&#39;s address)
+  *ptr = 6;                   // The object at the address held by ptr (x) assigned value 6 (note that ptr is dereferenced here)
+  std::cout &lt;&lt; x &lt;&lt; &#39;\n&#39;;
+  std::cout &lt;&lt; *ptr &lt;&lt; &#39;\n&#39;;  // print the value at the address that ptr is holding (x&#39;s address)
+  return 0;
+&#125;
+</code></pre>
+<p>打印出来的结果是  </p>
+<pre><code class="sh">5
+5
+6
+6
+</code></pre>
+<h2 id="Pointers-v-s-lvalue-references-指针和引用的对比"><a href="#Pointers-v-s-lvalue-references-指针和引用的对比" class="headerlink" title="Pointers v.s. lvalue references 指针和引用的对比"></a>Pointers v.s. lvalue references 指针和引用的对比</h2><p>指针和引用的相似点:<br>1.指针和引用在很多情况下使用的时候是非常类似的, 本质都是通过绑定变量实现<br>2.指针和引用在对同一个变量混用的时候, 实现的赋值操作是等效的, 可以通过下面的case理解  </p>
+<p>指针和引用的不同点:<br>1.寻址和defererence操作的显式还是隐式, 指针在使用的时候我们显示地 (explicitly) 获取了指向地址, 同时显示地 (explicitly) 通过 dereference 指针操作去获取值; 而引用的”寻址”和 deference 操作是隐式 (implicitly) 的<br>2.引用必须被初始化, 指针默认不被初始化 (但是作为developer应该以初始化作为必要原则)<br>3.引用不是 objects, 但是指针是 objects<br>4.引用不能修改, 指针可以任意修改指向的对象, 因此指针比引用更加灵活, 从另一个角度来说也更容易出错<br>5.引用永远需要绑定在一个 objects 上面, 但是指针可以指向 nothing<br>6.引用在使用上的通常安全性更强, 指针很灵活, 但是容易各种出问题  </p>
+<pre><code class="cpp">#include &lt;iostream&gt;
+int main() &#123;
+  int x&#123;5&#125;;
+  int&amp; ref &#123;x&#125;;  // ref绑定了x
+  int* ptr &#123;&amp;x&#125;; // ptr指向了x
+
+  std::cout &lt;&lt; x;
+  std::cout &lt;&lt; ref;          // 直接使用ref来打印变量x
+  std::cout &lt;&lt; *ptr &lt;&lt; &#39;\n&#39;; // 直接使用*ptr打印变量;
+
+  ref = 6;                   // use the reference to change the value of x
+  std::cout &lt;&lt; x;
+  std::cout &lt;&lt; ref;          // use the reference to print x&#39;s value (6)
+  std::cout &lt;&lt; *ptr &lt;&lt; &#39;\n&#39;; // use the pointer to print x&#39;s value (6)
+
+  *ptr = 7;                   // use the pointer to change the value of x
+  std::cout &lt;&lt; x;
+  std::cout &lt;&lt; ref;           // use the reference to print x&#39;s value (7)
+  std::cout &lt;&lt; *ptr &lt;&lt; &#39;\n&#39;;  // use the pointer to print x&#39;s value (7)
+  return 0;
+&#125;
+</code></pre>
+<p>打印的结果为</p>
+<pre><code class="sh">555
+666
+777
+</code></pre>
+<h2 id="The-size-of-pointers-指针的大小"><a href="#The-size-of-pointers-指针的大小" class="headerlink" title="The size of pointers 指针的大小"></a>The size of pointers 指针的大小</h2><p>1.指针的 size 取决于架构, 同时无视指向的类型, 不管是是什么类型, 大小总是相同的, 因为只是内存地址, 地址所需要保存的bits数量是一个固定值  </p>
+<pre><code class="cpp">#include &lt;iostream&gt;
+int main() &#123;
+  char* chPtr&#123;&#125;;        // chars are 1 byte
+  int* iPtr&#123;&#125;;          // ints are usually 4 bytes
+  long double* ldPtr&#123;&#125;; // long doubles are usually 8 or 12 bytes
+
+  std::cout &lt;&lt; sizeof(chPtr) &lt;&lt; &#39;\n&#39;; // prints 8 
+  std::cout &lt;&lt; sizeof(iPtr) &lt;&lt; &#39;\n&#39;;  // prints 8
+  std::cout &lt;&lt; sizeof(ldPtr) &lt;&lt; &#39;\n&#39;; // prints 8
+  return 0;
+&#125;
+</code></pre>
+<h2 id="Dangling-pointers-悬空指针"><a href="#Dangling-pointers-悬空指针" class="headerlink" title="Dangling pointers 悬空指针"></a>Dangling pointers 悬空指针</h2><blockquote>
+<p>a dangling pointer is a pointer that is holding the address of an object that is no longer valid (e.g. because it has been destroyd)</p>
+</blockquote>
+<blockquote>
+<p>Dereferencing a dangling pointer (e.g. in order to print the value being pointed at) will lead to undefined behavior, as you are trying to access an object that is no longer valid.</p>
+</blockquote>
+<blockquote>
+<p>Perhaps surprisingly, the standard says “Any other use of an invalid pointer value has implementation-defined behavior”. This means that you can assign an invalid pointer a new value, such as nullptr (because this doesn’t use the invalid pointer’s value). However, any other operations that use the invalid pointer’s value (such as copying or incrementing an invalid pointer) will yield implementation-defined behavior.</p>
+</blockquote>
+<p>intuitively,<br>1.dangling pointer (悬空指针) 就是说一个指针代表的地址上的 object 已经销毁了&amp;无效了, 所以这个指针好比悬空的挂起来一样<br>2.对于一个悬空的指针, 会导致 undefined behavoir (未定义行为); 对一个 dangling pointer 采用 dereference 操作就是未定义行为<br>3.cpp 标准表示”无效指针值的任何其他使用都具有实现定义的行为”. 这意味着可以为无效指针分配一个新值, 例如 nullptr (因为这不使用无效指针的值)。 但是，使用无效指针值的任何其他操作（例如复制或递增无效指针）将产生实现定义的行为  </p>
+<pre><code class="cpp">#include &lt;iostream&gt;
+
+int main() &#123;
+  int x&#123;5&#125;;
+  int* ptr&#123;&amp;x&#125;;
+  std::cout &lt;&lt; *ptr &lt;&lt; std::endl; // valid
+  &#123;
+    int y&#123;6&#125;;
+    ptr = &amp;y;
+    std::cout &lt;&lt; *ptr &lt;&lt; std::endl; // valid
+  &#125; // y goes out of scope, and ptr is now dangling
+
+  std::cout &lt;&lt; *ptr &lt;&lt; std::endl; // undefined behavior from dereferencing a dangling pointer
+  return 0;
+&#125;
+</code></pre>
+<p>我的输出是</p>
+<pre><code class="sh">5
+6
+6
+</code></pre>
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><p>1.<a target="_blank" rel="noopener" href="https://www.learncpp.com/cpp-tutorial/introduction-to-pointers/">https://www.learncpp.com/cpp-tutorial/introduction-to-pointers/</a>.</p>
+
+      
+       <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 jaytp@qq.com </span>
+    </div>
+</article>
+
+
+<p>
+    <a  class="dashang" onclick="dashangToggle()">💰</a>
+</p>
+
+
+
+
+
+
+    
+
+
+
+
+    </div>
+    <div class="copyright">
+        <p class="footer-entry">
+    ©2016-2020 Yelog
+</p>
+<p class="footer-entry">Built with <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/yelog/hexo-theme-3-hexo" target="_blank">3-hexo</a> theme</p>
+
+    </div>
+    <div class="full-toc">
+        <button class="full" data-title="切换全屏 快捷键 s"><span class="min "></span></button>
+<a class="" id="rocket" ></a>
+
+    </div>
+</div>
+
+<div class="hide_box" onclick="dashangToggle()"></div>
+<div class="shang_box">
+    <a class="shang_close"  onclick="dashangToggle()">×</a>
+    <div class="shang_tit">
+        <p>Help us with donation</p>
+    </div>
+    <div class="shang_payimg">
+        <div class="pay_img">
+            <img src="/img/alipay.jpg" class="alipay" title="扫码支持">
+            <img src="/img/weixin.jpg" class="weixin" title="扫码支持">
+        </div>
+    </div>
+    <div class="shang_payselect">
+        <span><label><input type="radio" name="pay" checked value="alipay">alipay</label></span><span><label><input type="radio" name="pay" value="weixin">weixin</label></span>
+    </div>
+</div>
+
+
+</body>
+<script src="/js/jquery.pjax.js?v=1.1.0" ></script>
+
+<script src="/js/script.js?v=1.1.0" ></script>
+<script>
+    var img_resize = 'default';
+    function initArticle() {
+        /*渲染对应的表格样式*/
+        
+            $("#post .pjax table").addClass("green_title");
+        
+
+        /*渲染打赏样式*/
+        
+        $("input[name=pay]").on("click", function () {
+            if($("input[name=pay]:checked").val()=="weixin"){
+                $(".shang_box .shang_payimg .pay_img").addClass("weixin_img");
+            } else {
+                $(".shang_box .shang_payimg .pay_img").removeClass("weixin_img");
+            }
+        })
+        
+
+        /*高亮代码块行号*/
+        
+
+        /*访问数量*/
+        
+        $.getScript("//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js");
+        
+
+        /*代码高亮，行号对齐*/
+        $('.pre-numbering').css('line-height',$('.has-numbering').css('line-height'));
+
+        
+        
+    }
+
+    /*打赏页面隐藏与展示*/
+    
+    function dashangToggle() {
+        $(".shang_box").fadeToggle();
+        $(".hide_box").fadeToggle();
+    }
+    
+
+</script>
+
+<!--加入行号的高亮代码块样式-->
+
+<!--自定义样式设置-->
+<style>
+    
+    
+    .nav {
+        width: 542px;
+    }
+    .nav.fullscreen {
+        margin-left: -542px;
+    }
+    .nav-left {
+        width: 120px;
+    }
+    
+    
+    @media screen and (max-width: 1468px) {
+        .nav {
+            width: 492px;
+        }
+        .nav.fullscreen {
+            margin-left: -492px;
+        }
+        .nav-left {
+            width: 100px;
+        }
+    }
+    
+    
+    @media screen and (max-width: 1024px) {
+        .nav {
+            width: 492px;
+            margin-left: -492px
+        }
+        .nav.fullscreen {
+            margin-left: 0;
+        }
+    }
+    
+    @media screen and (max-width: 426px) {
+        .nav {
+            width: 100%;
+        }
+        .nav-left {
+            width: 100%;
+        }
+    }
+    
+    
+    .nav-right .title-list nav a .post-title, .nav-right .title-list #local-search-result a .post-title {
+        color: #383636;
+    }
+    
+    
+    .nav-right .title-list nav a .post-date, .nav-right .title-list #local-search-result a .post-date {
+        color: #5e5e5f;
+    }
+    
+    
+    .nav-right nav a.hover, #local-search-result a.hover{
+        background-color: #e2e0e0;
+    }
+    
+    
+
+    /*列表样式*/
+    
+
+    /* 背景图样式 */
+    
+    
+
+
+    /*引用块样式*/
+    
+
+    /*文章列表背景图*/
+    
+
+    
+</style>
+
+
+
+
+
+
+
+</html>
