@@ -32,7 +32,7 @@
 
 <link href="/css/style.css?v=1.1.0" rel="stylesheet">
 
-<link href="/css/hl_theme/github.css?v=1.1.0" rel="stylesheet">
+<link href="/css/hl_theme/atom-dark.css?v=1.1.0" rel="stylesheet">
 
 <link href="//cdn.jsdelivr.net/npm/animate.css@4.1.0/animate.min.css" rel="stylesheet">
 
@@ -187,13 +187,6 @@
     </div>
     <div>
         
-            <a class="about  hasFriend  site_url"
-               
-               href="/about">About</a>
-        
-        <a style="width: 50%"
-                
-                                           class="friends">Friends</a>
         
     </div>
 </div>
@@ -257,6 +250,15 @@
            data-author="" >
             <span class="post-title" title="G&amp;R 的 Blog 发布规范">G&amp;R 的 Blog 发布规范</span>
             <span class="post-date" title="2099-01-30 20:00:00">2099/01/30</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2024/03/22/Ubuntu%2022.04%20%E9%85%8D%E7%BD%AE/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Ubuntu 22.04 配置">Ubuntu 22.04 配置</span>
+            <span class="post-date" title="2024-03-22 10:11:00">2024/03/22</span>
         </a>
         
         
@@ -495,19 +497,19 @@
         
         
         <a  class="All Coding "
-           href="/2020/09/10/cpp_2_6_%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88_2_unique_ptr/"
+           href="/2020/09/10/cpp_2_5_%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88_1_shared_ptr/"
            data-tag=""
            data-author="" >
-            <span class="post-title" title="cpp_2_6_智能指针_2_unique_ptr">cpp_2_6_智能指针_2_unique_ptr</span>
+            <span class="post-title" title="cpp_2_5_智能指针_1_shared_ptr">cpp_2_5_智能指针_1_shared_ptr</span>
             <span class="post-date" title="2020-09-10 08:00:00">2020/09/10</span>
         </a>
         
         
         <a  class="All Coding "
-           href="/2020/09/10/cpp_2_5_%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88_1_shared_ptr/"
+           href="/2020/09/10/cpp_2_6_%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88_2_unique_ptr/"
            data-tag=""
            data-author="" >
-            <span class="post-title" title="cpp_2_5_智能指针_1_shared_ptr">cpp_2_5_智能指针_1_shared_ptr</span>
+            <span class="post-title" title="cpp_2_6_智能指针_2_unique_ptr">cpp_2_6_智能指针_2_unique_ptr</span>
             <span class="post-date" title="2020-09-10 08:00:00">2020/09/10</span>
         </a>
         
@@ -675,15 +677,6 @@
         
         
         <a  class="All Coding "
-           href="/2019/12/12/Ubuntu%20%E7%B3%BB%E7%BB%9F%E8%AE%BE%E7%BD%AE/"
-           data-tag=""
-           data-author="" >
-            <span class="post-title" title="Ubuntu 系统设置">Ubuntu 系统设置</span>
-            <span class="post-date" title="2019-12-12 20:11:00">2019/12/12</span>
-        </a>
-        
-        
-        <a  class="All Coding "
            href="/2019/12/11/Data%20Analysis%20Tutorial:(Part%20I)/"
            data-tag=""
            data-author="" >
@@ -771,17 +764,6 @@
     <div class="article-meta">
         
         
-        <span id="busuanzi_container_page_pv">
-            Views 👀 :<span id="busuanzi_value_page_pv">
-                <span class="count-comment">
-                    <span class="spinner">
-                      <div class="cube1"></div>
-                      <div class="cube2"></div>
-                    </span>
-                </span>
-            </span>
-        </span>
-        
         
     </div>
     
@@ -803,46 +785,46 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><p>1.配置 git<br>2.基本操作: clone&#x2F;push&#x2F;pull<br>3.分支合并:  merge v.s. rebase<br>4.远程仓库被重命名  </p>
+        <h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><p>1.配置 git<br>2.基本操作: clone/push/pull<br>3.分支合并:  merge v.s. rebase<br>4.远程仓库被重命名  </p>
 <h2 id="配置-git"><a href="#配置-git" class="headerlink" title="配置 git"></a>配置 git</h2><p>执行  </p>
-<pre><code class="shell">ssh-keygen -t rsa -C &quot;github的邮箱地址&quot;
+<pre><code class="lang-shell">ssh-keygen -t rsa -C &quot;github的邮箱地址&quot;
 </code></pre>
-<p>一路enter<br>（通过ls查看～&#x2F;.ssh下面的所有内容查看）  </p>
-<p>将刚刚创建的ssh keys添加到github中<br>1.利用gedit&#x2F;cat命令，查看id_rsa.pub的内容  </p>
+<p>一路enter<br>（通过ls查看～/.ssh下面的所有内容查看）  </p>
+<p>将刚刚创建的ssh keys添加到github中<br>1.利用gedit/cat命令，查看id_rsa.pub的内容  </p>
 <p>2.在GitHub中，依次点击Settings -&gt; SSH Keys -&gt; Add SSH Key，将id_rsa.pub文件中的字符串复制进去，注意字符串中没有换行和空格.  </p>
-<p>再次检查SSH连接情况(在～&#x2F;.ssh目录下):<br>输入如下命令  </p>
-<pre><code class="python">ssh -T git@github.com
+<p>再次检查SSH连接情况(在～/.ssh目录下):<br>输入如下命令  </p>
+<pre><code class="lang-python">ssh -T git@github.com
 </code></pre>
 <p>看到如下所示，则表示添加成功  </p>
-<pre><code class="python">Hi 你的用户名! You’ve successfully authenticated, but GitHub does not provide shell access.
+<pre><code class="lang-python">Hi 你的用户名! You’ve successfully authenticated, but GitHub does not provide shell access.
 </code></pre>
 <p>即利用自己的用户名和email地址配置git  </p>
-<pre><code class="python">git config --global user.name &quot;你的github用户名&quot;
+<pre><code class="lang-python">git config --global user.name &quot;你的github用户名&quot;
 git config --global user.email &quot;你的github邮箱地址&quot;
 </code></pre>
 <p>ps: 为什么配置好了提交代码到远程分之还是要输入密码? clone的时候选择http  </p>
 <h2 id="基本操作-clone-pull-push"><a href="#基本操作-clone-pull-push" class="headerlink" title="基本操作: clone, pull, push"></a>基本操作: clone, pull, push</h2><p>clone: 克隆远程分支到本地   </p>
-<pre><code class="python">git clone -b my_branch &lt;远程仓库地址&gt;
+<pre><code class="lang-python">git clone -b my_branch &lt;远程仓库地址&gt;
 </code></pre>
 <p>pull: 将远程代码pull[拉取]到本地   </p>
-<pre><code class="python">git pull origin branch_name
+<pre><code class="lang-python">git pull origin branch_name
 </code></pre>
 <p>push: 将本地代码push[推送]到远程  </p>
-<pre><code class="python">git add yourfilename
+<pre><code class="lang-python">git add yourfilename
 git ci -m &quot;说明修改内容, 常见格式: fix xx bug/add xx function/remove xx file&quot;
 git push origin branch_name
 </code></pre>
 <h2 id="分支合并-merge-v-s-rebase"><a href="#分支合并-merge-v-s-rebase" class="headerlink" title="分支合并:  merge v.s. rebase"></a>分支合并:  merge v.s. rebase</h2><p>将分支my_branch合并到master分支  </p>
-<pre><code class="python">git checkout master
+<pre><code class="lang-python">git checkout master
 git merge my_branch
 git push origin master
 </code></pre>
 <h2 id="远程仓库被重命名"><a href="#远程仓库被重命名" class="headerlink" title="远程仓库被重命名"></a>远程仓库被重命名</h2><p>远程仓库被重命名  </p>
 <p>Terminal</p>
-<pre><code class="sh">$ git push origin master
+<pre><code class="lang-sh">$ git push origin master
 </code></pre>
 <p>显示  </p>
-<pre><code class="sh">Counting objects: 3, done.
+<pre><code class="lang-sh">Counting objects: 3, done.
 Delta compression using up to 4 threads.
 Compressing objects: 100% (3/3), done.
 Writing objects: 100% (3/3), 294 bytes | 294.00 KiB/s, done.
@@ -854,20 +836,20 @@ To https://github.com/tetsu-upstr/blog.git
    7468063..962d5cd  master -&gt; master
 </code></pre>
 <p>输入  </p>
-<pre><code class="sh">$ git remote -v
+<pre><code class="lang-sh">$ git remote -v
 </code></pre>
 <p>显示  </p>
-<pre><code class="sh">origin  https://github.com/tetsu-upstr/blog.git (fetch)
+<pre><code class="lang-sh">origin  https://github.com/tetsu-upstr/blog.git (fetch)
 origin  https://github.com/tetsu-upstr/blog.git (push)
 </code></pre>
 <p>Terminal set-url  </p>
-<pre><code class="shell">$ git remote set-url origin https://github.com/tetsu-upstr/JSblog.git
+<pre><code class="lang-shell">$ git remote set-url origin https://github.com/tetsu-upstr/JSblog.git
 </code></pre>
 <p>检查更改  </p>
-<pre><code class="shell">$ git remote -v
+<pre><code class="lang-shell">$ git remote -v
 </code></pre>
 <p>显示  </p>
-<pre><code class="shell">origin  https://github.com/tetsu-upstr/JSblog.git (fetch)
+<pre><code class="lang-shell">origin  https://github.com/tetsu-upstr/JSblog.git (fetch)
 origin  https://github.com/tetsu-upstr/JSblog.git (push)
 </code></pre>
 
@@ -952,8 +934,6 @@ origin  https://github.com/tetsu-upstr/JSblog.git (push)
 
         /*访问数量*/
         
-        $.getScript("//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js");
-        
 
         /*代码高亮，行号对齐*/
         $('.pre-numbering').css('line-height',$('.has-numbering').css('line-height'));
@@ -979,13 +959,13 @@ origin  https://github.com/tetsu-upstr/JSblog.git (push)
     
     
     .nav {
-        width: 542px;
+        width: 572px;
     }
     .nav.fullscreen {
-        margin-left: -542px;
+        margin-left: -572px;
     }
     .nav-left {
-        width: 120px;
+        width: 150px;
     }
     
     
@@ -1023,19 +1003,23 @@ origin  https://github.com/tetsu-upstr/JSblog.git (push)
     
     
     .nav-right .title-list nav a .post-title, .nav-right .title-list #local-search-result a .post-title {
-        color: #383636;
+        color: #000000;
     }
     
     
     .nav-right .title-list nav a .post-date, .nav-right .title-list #local-search-result a .post-date {
-        color: #5e5e5f;
+        color: #87CEFA;
     }
     
     
     .nav-right nav a.hover, #local-search-result a.hover{
-        background-color: #e2e0e0;
+        background-color: #ffffff;
     }
     
+    
+    .nav-right nav a.hover > span{
+        color: #DC143C !important;
+    }
     
 
     /*列表样式*/

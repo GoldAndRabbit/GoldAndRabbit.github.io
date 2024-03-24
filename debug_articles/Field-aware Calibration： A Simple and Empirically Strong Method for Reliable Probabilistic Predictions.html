@@ -32,7 +32,7 @@
 
 <link href="/css/style.css?v=1.1.0" rel="stylesheet">
 
-<link href="/css/hl_theme/github.css?v=1.1.0" rel="stylesheet">
+<link href="/css/hl_theme/atom-dark.css?v=1.1.0" rel="stylesheet">
 
 <link href="//cdn.jsdelivr.net/npm/animate.css@4.1.0/animate.min.css" rel="stylesheet">
 
@@ -187,13 +187,6 @@
     </div>
     <div>
         
-            <a class="about  hasFriend  site_url"
-               
-               href="/about">About</a>
-        
-        <a style="width: 50%"
-                
-                                           class="friends">Friends</a>
         
     </div>
 </div>
@@ -257,6 +250,15 @@
            data-author="" >
             <span class="post-title" title="G&amp;R 的 Blog 发布规范">G&amp;R 的 Blog 发布规范</span>
             <span class="post-date" title="2099-01-30 20:00:00">2099/01/30</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2024/03/22/Ubuntu%2022.04%20%E9%85%8D%E7%BD%AE/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Ubuntu 22.04 配置">Ubuntu 22.04 配置</span>
+            <span class="post-date" title="2024-03-22 10:11:00">2024/03/22</span>
         </a>
         
         
@@ -495,19 +497,19 @@
         
         
         <a  class="All Coding "
-           href="/2020/09/10/cpp_2_6_%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88_2_unique_ptr/"
+           href="/2020/09/10/cpp_2_5_%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88_1_shared_ptr/"
            data-tag=""
            data-author="" >
-            <span class="post-title" title="cpp_2_6_智能指针_2_unique_ptr">cpp_2_6_智能指针_2_unique_ptr</span>
+            <span class="post-title" title="cpp_2_5_智能指针_1_shared_ptr">cpp_2_5_智能指针_1_shared_ptr</span>
             <span class="post-date" title="2020-09-10 08:00:00">2020/09/10</span>
         </a>
         
         
         <a  class="All Coding "
-           href="/2020/09/10/cpp_2_5_%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88_1_shared_ptr/"
+           href="/2020/09/10/cpp_2_6_%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88_2_unique_ptr/"
            data-tag=""
            data-author="" >
-            <span class="post-title" title="cpp_2_5_智能指针_1_shared_ptr">cpp_2_5_智能指针_1_shared_ptr</span>
+            <span class="post-title" title="cpp_2_6_智能指针_2_unique_ptr">cpp_2_6_智能指针_2_unique_ptr</span>
             <span class="post-date" title="2020-09-10 08:00:00">2020/09/10</span>
         </a>
         
@@ -675,15 +677,6 @@
         
         
         <a  class="All Coding "
-           href="/2019/12/12/Ubuntu%20%E7%B3%BB%E7%BB%9F%E8%AE%BE%E7%BD%AE/"
-           data-tag=""
-           data-author="" >
-            <span class="post-title" title="Ubuntu 系统设置">Ubuntu 系统设置</span>
-            <span class="post-date" title="2019-12-12 20:11:00">2019/12/12</span>
-        </a>
-        
-        
-        <a  class="All Coding "
            href="/2019/12/11/Data%20Analysis%20Tutorial:(Part%20I)/"
            data-tag=""
            data-author="" >
@@ -771,17 +764,6 @@
     <div class="article-meta">
         
         
-        <span id="busuanzi_container_page_pv">
-            Views 👀 :<span id="busuanzi_value_page_pv">
-                <span class="count-comment">
-                    <span class="spinner">
-                      <div class="cube1"></div>
-                      <div class="cube2"></div>
-                    </span>
-                </span>
-            </span>
-        </span>
-        
         
     </div>
     
@@ -809,19 +791,28 @@
 
 <h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><p>1.Why User Response Prediction Calibration? 为什么需要校准?<br>2.Calibration Metrics  校准指标<br>3.Calibration Solutions 校准方案<br>4.Neural Calibration 一种拟合残差的的校准网络   </p>
 <h2 id="User-Response-Prediction-Calibration"><a href="#User-Response-Prediction-Calibration" class="headerlink" title="User Response Prediction Calibration"></a>User Response Prediction Calibration</h2><h3 id="AUC无法反映模型预估值的绝对值准确性"><a href="#AUC无法反映模型预估值的绝对值准确性" class="headerlink" title="AUC无法反映模型预估值的绝对值准确性"></a>AUC无法反映模型预估值的<strong>绝对值准确性</strong></h3><p>AUC score does not require a threshold and is more of a measure for the order of predictions. if we reduce all predictions by 10%, the AUC score stays the same.  <strong>User Response Prediction常用评估指标AUC更多地评估预测预估结果的序，但是只考虑[序]的评估是不全面的，无法评估预估值的[绝对值准确性], 若所有预估点击率都减去10%, AUC保持不变</strong>  </p>
-<p>如何理解预估值的<strong>大小准确性</strong>? 假设有某广告pctr&#x3D;0.01, 意味着10000次曝光有100次被真实点击, 真实点击高于100次则意味着模型存在”高估”, 反之低于100次则存在”低估”, 也就是实际业务中的常常谈到的<strong>高低估问题</strong>;  </p>
-<p>那么如何设计一种指标去衡量且优化预估值的<strong>大小准确性</strong>呢? 校准指标设计回答了这个问题, 并且经历了PCOC &#x3D;&gt; Cal-N &#x3D;&gt; GC-N 的演进，详情参考Calibration Metrics一节.  </p>
+<p>如何理解预估值的<strong>大小准确性</strong>? 假设有某广告pctr=0.01, 意味着10000次曝光有100次被真实点击, 真实点击高于100次则意味着模型存在”高估”, 反之低于100次则存在”低估”, 也就是实际业务中的常常谈到的<strong>高低估问题</strong>;  </p>
+<p>那么如何设计一种指标去衡量且优化预估值的<strong>大小准确性</strong>呢? 校准指标设计回答了这个问题, 并且经历了PCOC =&gt; Cal-N =&gt; GC-N 的演进，详情参考Calibration Metrics一节.  </p>
 <h2 id="业务中产生预估误差的原因"><a href="#业务中产生预估误差的原因" class="headerlink" title="业务中产生预估误差的原因"></a>业务中产生预估误差的原因</h2><p>以广告系统为例, 实际业务中存在预估高低估问题<br>1.广告系统链路发生延迟<br>2.用户习惯和兴趣漂移<br>3.广告主行为变化  </p>
 <h2 id="Calibration-Metrics-校准指标"><a href="#Calibration-Metrics-校准指标" class="headerlink" title="Calibration Metrics 校准指标"></a>Calibration Metrics 校准指标</h2><h3 id="PCOC-Predict-click-over-click"><a href="#PCOC-Predict-click-over-click" class="headerlink" title="PCOC: Predict click over click"></a>PCOC: Predict click over click</h3><p>PCOC is calculated as the ratio of the average calibrated probability and the posterior probability. <strong>PCOC: 校准后平均点击率和后验点击率的比值</strong>   </p>
-<p>$$<br>PCOC&#x3D; \frac{avg_calibrated_probability}{posterior_probability}<br>$$</p>
-<p>The less PCOC deviates from 1, the better the calibration is. if PCOC &lt; 1: the posterior probability is underestimated. if PCOC &gt; 1: the posterior probability is overestimated. <strong>PCOC越接近于于1说明校准效果越好</strong>  </p>
+<script type="math/tex; mode=display">
+PCOC= \frac{avg\_calibrated\_probability}{posterior\_probability}</script><p>The less PCOC deviates from 1, the better the calibration is. if PCOC &lt; 1: the posterior probability is underestimated. if PCOC &gt; 1: the posterior probability is overestimated. <strong>PCOC越接近于于1说明校准效果越好</strong>  </p>
 <h3 id="Cal-N-calibration-N"><a href="#Cal-N-calibration-N" class="headerlink" title="Cal-N: calibration-N"></a>Cal-N: calibration-N</h3><p>PCOC does not consider the distribution of calibrated probabilities. PCOC指标缺少考虑校准分布情况, 下述举例反映了PCOC指标存在的主要问题  </p>
-<p>假设有2w个样本, 其中1w预估概率是0.2, 后验概率是0.4, PCOC&#x3D;0.2&#x2F;0.4&#x3D;0.5存在显著低估; 另1w样本, PCOC&#x3D;0.8&#x2F;0.6&#x3D;1.3存在显著高估; 但是两部分样本融合来看, 校准概率是(0.2+0.8)&#x2F;2&#x3D;0.5, 后验概率为(0.4+0.6)&#x2F;0.2&#x3D;0.5, 算得PCOC&#x3D;1.0  </p>
+<p>假设有2w个样本, 其中1w预估概率是0.2, 后验概率是0.4, PCOC=0.2/0.4=0.5存在显著低估; 另1w样本, PCOC=0.8/0.6=1.3存在显著高估; 但是两部分样本融合来看, 校准概率是(0.2+0.8)/2=0.5, 后验概率为(0.4+0.6)/0.2=0.5, 算得PCOC=1.0  </p>
 <p>Cal-N: 采用distribution approximation的思想，aggreate samples with similar calibrated probabilities;  </p>
-<p>$$<br>\begin{gather*}<br>    CalN &#x3D; \sqrt{\frac{\sum_{i&#x3D;1}^{N} error_i^2}{N}} &amp;\<br>    error_i&#x3D;<br>    \left{<br>        \begin{aligned}<br>        PCOC_i-1, PCOC_i\geq 1 \<br>        \frac{1}{PCOC_i}-1, PCOC_i &lt; 1<br>        \end{aligned}<br>    \right.<br>\end{gather*}<br>$$</p>
-<h3 id="GC-N-Grouped-Calibaration-N"><a href="#GC-N-Grouped-Calibaration-N" class="headerlink" title="GC-N: Grouped Calibaration-N"></a>GC-N: Grouped Calibaration-N</h3><p>对于广告业务来说，通常考察到campaign作为最小的营销单元, 因此将Cal-N推广为Grouped Calibation-N, 即对m个campaigns校准结果进行加权平均. 例如$w_j$可以设置为第$j$个campaign包含的样本数  </p>
-<p>$$<br>GC-N&#x3D;\frac{\sum_{j&#x3D;1}^{m}w_{j}Cal-N_j}{\sum_{j&#x3D;1}^{m}w_j}<br>$$</p>
-<h2 id="校准方法分类"><a href="#校准方法分类" class="headerlink" title="校准方法分类"></a>校准方法分类</h2><p>可分为如下两类范式<br>1.传统后验校准<br>2.Field-aware calibration  </p>
+<script type="math/tex; mode=display">
+\begin{gather*}
+    CalN = \sqrt{\frac{\sum_{i=1}^{N} error_i^2}{N}} &\\
+    error_i=
+    \left\{
+        \begin{aligned}
+        PCOC_i-1, PCOC_i\geq 1 \\
+        \frac{1}{PCOC_i}-1, PCOC_i < 1
+        \end{aligned}
+    \right.
+\end{gather*}</script><h3 id="GC-N-Grouped-Calibaration-N"><a href="#GC-N-Grouped-Calibaration-N" class="headerlink" title="GC-N: Grouped Calibaration-N"></a>GC-N: Grouped Calibaration-N</h3><p>对于广告业务来说，通常考察到campaign作为最小的营销单元, 因此将Cal-N推广为Grouped Calibation-N, 即对m个campaigns校准结果进行加权平均. 例如$w_j$可以设置为第$j$个campaign包含的样本数  </p>
+<script type="math/tex; mode=display">
+GC-N=\frac{\sum_{j=1}^{m}w_{j}Cal-N_j}{\sum_{j=1}^{m}w_j}</script><h2 id="校准方法分类"><a href="#校准方法分类" class="headerlink" title="校准方法分类"></a>校准方法分类</h2><p>可分为如下两类范式<br>1.传统后验校准<br>2.Field-aware calibration  </p>
 <div align="center">
 <img src="https://s4.ax1x.com/2022/02/13/HrwqC4.png" width="80%"/>
 </div>
@@ -834,7 +825,7 @@
 <h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ul>
 <li><a target="_blank" rel="noopener" href="https://github.com/huangsg0/uncertainty-calibration">Uncertainty Calibration</a>. SiGuang Huang et al. </li>
 <li><a target="_blank" rel="noopener" href="https://arxiv.org/pdf/1905.10713v3.pdf">Field-aware Calibration: A Simple and Empirically Strong Method for Reliable Probabilistic Predictions</a>. Feiyang Pan et al. </li>
-<li><a target="_blank" rel="noopener" href="https://www.semanticscholar.org/paper/Calibrating-User-Response-Predictions-in-Online-Deng-Wang/678d93dba3003dc30fcfa2e29c93b009834dcd0a">Calibrating User Response Predictions in Online Advertising</a>. Chao Deng et al.</li>
+<li><a target="_blank" rel="noopener" href="https://www.semanticscholar.org/paper/Calibrating-User-Response-Predictions-in-Online-Deng-Wang/678d93dba3003dc30fcfa2e29c93b009834dcd0a">Calibrating User Response Predictions in Online Advertising</a>. Chao Deng et al. </li>
 </ul>
 
       
@@ -918,8 +909,6 @@
 
         /*访问数量*/
         
-        $.getScript("//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js");
-        
 
         /*代码高亮，行号对齐*/
         $('.pre-numbering').css('line-height',$('.has-numbering').css('line-height'));
@@ -945,13 +934,13 @@
     
     
     .nav {
-        width: 542px;
+        width: 572px;
     }
     .nav.fullscreen {
-        margin-left: -542px;
+        margin-left: -572px;
     }
     .nav-left {
-        width: 120px;
+        width: 150px;
     }
     
     
@@ -989,19 +978,23 @@
     
     
     .nav-right .title-list nav a .post-title, .nav-right .title-list #local-search-result a .post-title {
-        color: #383636;
+        color: #000000;
     }
     
     
     .nav-right .title-list nav a .post-date, .nav-right .title-list #local-search-result a .post-date {
-        color: #5e5e5f;
+        color: #87CEFA;
     }
     
     
     .nav-right nav a.hover, #local-search-result a.hover{
-        background-color: #e2e0e0;
+        background-color: #ffffff;
     }
     
+    
+    .nav-right nav a.hover > span{
+        color: #DC143C !important;
+    }
     
 
     /*列表样式*/

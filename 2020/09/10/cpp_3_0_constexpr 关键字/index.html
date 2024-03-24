@@ -32,7 +32,7 @@
 
 <link href="/css/style.css?v=1.1.0" rel="stylesheet">
 
-<link href="/css/hl_theme/github.css?v=1.1.0" rel="stylesheet">
+<link href="/css/hl_theme/atom-dark.css?v=1.1.0" rel="stylesheet">
 
 <link href="//cdn.jsdelivr.net/npm/animate.css@4.1.0/animate.min.css" rel="stylesheet">
 
@@ -187,13 +187,6 @@
     </div>
     <div>
         
-            <a class="about  hasFriend  site_url"
-               
-               href="/about">About</a>
-        
-        <a style="width: 50%"
-                
-                                           class="friends">Friends</a>
         
     </div>
 </div>
@@ -257,6 +250,15 @@
            data-author="" >
             <span class="post-title" title="G&amp;R 的 Blog 发布规范">G&amp;R 的 Blog 发布规范</span>
             <span class="post-date" title="2099-01-30 20:00:00">2099/01/30</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2024/03/22/Ubuntu%2022.04%20%E9%85%8D%E7%BD%AE/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Ubuntu 22.04 配置">Ubuntu 22.04 配置</span>
+            <span class="post-date" title="2024-03-22 10:11:00">2024/03/22</span>
         </a>
         
         
@@ -495,19 +497,19 @@
         
         
         <a  class="All Coding "
-           href="/2020/09/10/cpp_2_6_%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88_2_unique_ptr/"
+           href="/2020/09/10/cpp_2_5_%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88_1_shared_ptr/"
            data-tag=""
            data-author="" >
-            <span class="post-title" title="cpp_2_6_智能指针_2_unique_ptr">cpp_2_6_智能指针_2_unique_ptr</span>
+            <span class="post-title" title="cpp_2_5_智能指针_1_shared_ptr">cpp_2_5_智能指针_1_shared_ptr</span>
             <span class="post-date" title="2020-09-10 08:00:00">2020/09/10</span>
         </a>
         
         
         <a  class="All Coding "
-           href="/2020/09/10/cpp_2_5_%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88_1_shared_ptr/"
+           href="/2020/09/10/cpp_2_6_%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88_2_unique_ptr/"
            data-tag=""
            data-author="" >
-            <span class="post-title" title="cpp_2_5_智能指针_1_shared_ptr">cpp_2_5_智能指针_1_shared_ptr</span>
+            <span class="post-title" title="cpp_2_6_智能指针_2_unique_ptr">cpp_2_6_智能指针_2_unique_ptr</span>
             <span class="post-date" title="2020-09-10 08:00:00">2020/09/10</span>
         </a>
         
@@ -675,15 +677,6 @@
         
         
         <a  class="All Coding "
-           href="/2019/12/12/Ubuntu%20%E7%B3%BB%E7%BB%9F%E8%AE%BE%E7%BD%AE/"
-           data-tag=""
-           data-author="" >
-            <span class="post-title" title="Ubuntu 系统设置">Ubuntu 系统设置</span>
-            <span class="post-date" title="2019-12-12 20:11:00">2019/12/12</span>
-        </a>
-        
-        
-        <a  class="All Coding "
            href="/2019/12/11/Data%20Analysis%20Tutorial:(Part%20I)/"
            data-tag=""
            data-author="" >
@@ -771,17 +764,6 @@
     <div class="article-meta">
         
         
-        <span id="busuanzi_container_page_pv">
-            Views 👀 :<span id="busuanzi_value_page_pv">
-                <span class="count-comment">
-                    <span class="spinner">
-                      <div class="cube1"></div>
-                      <div class="cube2"></div>
-                    </span>
-                </span>
-            </span>
-        </span>
-        
         
     </div>
     
@@ -804,8 +786,8 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><p>1.Constant expressions 常量表达式的性能优化空间<br>2.Compile-time constants v.s. Runtime constants 编译期常量 v.s. 运行时的常量<br>3.The constexpr keyword constexpr 关键字  </p>
-<h2 id="Constant-expressions-常量表达式的性能优化空间"><a href="#Constant-expressions-常量表达式的性能优化空间" class="headerlink" title="Constant expressions 常量表达式的性能优化空间"></a>Constant expressions 常量表达式的性能优化空间</h2><p>1.我们先回顾一个最基础的常量表达式, 比如 x &#x3D; 3 + 4; 这个常量表达式有什么值得关注的呢 ? cpp 关注点是永远关注性能, 哪怕是最不起眼的表达式, 这里面其实隐藏了一个可能的性能优化点<br>2.代码在编译的时候, 编译器会生成计算 3+4 的可执行的逻辑; 程序在执行的时候, 3+4 这个运算会执行一次 (也就是之前生成的可执行的逻辑这时候执行一次); 如果我们这个程序要执行1亿次, 那么 3+4 将会被执行1亿次 (也就是1次 * 1B), 然后x&#x3D;7这个赋值执行1亿次; 其实我们想想这个计算的过程是永远不会变的, 算 1 次其实就够了;  </p>
-<pre><code class="cpp">#include&lt;iostream&gt;
+<h2 id="Constant-expressions-常量表达式的性能优化空间"><a href="#Constant-expressions-常量表达式的性能优化空间" class="headerlink" title="Constant expressions 常量表达式的性能优化空间"></a>Constant expressions 常量表达式的性能优化空间</h2><p>1.我们先回顾一个最基础的常量表达式, 比如 x = 3 + 4; 这个常量表达式有什么值得关注的呢 ? cpp 关注点是永远关注性能, 哪怕是最不起眼的表达式, 这里面其实隐藏了一个可能的性能优化点<br>2.代码在编译的时候, 编译器会生成计算 3+4 的可执行的逻辑; 程序在执行的时候, 3+4 这个运算会执行一次 (也就是之前生成的可执行的逻辑这时候执行一次); 如果我们这个程序要执行1亿次, 那么 3+4 将会被执行1亿次 (也就是1次 * 1B), 然后x=7这个赋值执行1亿次; 其实我们想想这个计算的过程是永远不会变的, 算 1 次其实就够了;  </p>
+<pre><code class="lang-cpp">#include&lt;iostream&gt;
 
 int main() &#123;
   int x = 3 + 4;
@@ -815,25 +797,17 @@ int main() &#123;
 </code></pre>
 <blockquote>
 <p>A constant expression is an expression that can be evaluated by the compiler at compile-time. To be a constant expression, all the values in the expression must be known at compile-time (and all of the operators and functions called must support compile-time evaluation).</p>
-</blockquote>
-<blockquote>
 <p>When the compiler encounters a constant expression, it may evaluate the expression at compile-time, and then replace the constant expression with the result of the evaluation.</p>
-</blockquote>
-<blockquote>
 <p>Evaluating constant expressions at compile-time makes our compilation take longer (because the compiler has to do more work), but such expressions only need to be evaluated once (rather than every time the program is run). The resulting executables are faster and use less memory.</p>
 </blockquote>
 <p>intuitively,<br>1.常量表达式在编译时就可以做完计算的表达式, 注意这里不是在执行期执行计算逻辑, 而是编译器对一部分逻辑放在编译期就算完了;<br>2.在编译器算完之后, 就会产出一个结果比如上述例子算出来7, 然后再执行期用算出来的结果来替换常量表达式, 也就是将3+4这个直接换成7; 在这个case上, 我们每一次执行都不需要执行任何的+的运算, 因为在编译期间都算完了, 相当于读取一个常数;<br>3.这种常量表达式的存在, 使得我们的编译事件会更长, 这很容易理解, 是因为编译期多干了一些事情; 但从整体来看计算1次总比计算1B次要大量省时间, 生成的可执行文件速度更快并且内存使用更少;  </p>
 <h2 id="Compile-time-constants-v-s-Runtime-constants-编译期常量-v-s-运行时的常量"><a href="#Compile-time-constants-v-s-Runtime-constants-编译期常量-v-s-运行时的常量" class="headerlink" title="Compile-time constants v.s. Runtime constants 编译期常量 v.s. 运行时的常量"></a>Compile-time constants v.s. Runtime constants 编译期常量 v.s. 运行时的常量</h2><blockquote>
 <p>A Compile-time constant is a constant whose value is known at compile-time. Literals (e.g. ‘1’, ‘2.3’, and “Hello, world!”) are one type of compile-time constant.</p>
-</blockquote>
-<blockquote>
 <p>what about const variables? Const variables may or may not be compile-time constants.</p>
-</blockquote>
-<blockquote>
 <p>Runtime constants are constants whose initialization values aren’t known until runtime.</p>
 </blockquote>
 <p>intuitively,<br>1.编译期常量是在编译期内固定下来的常量; 其实, 我们想我们熟悉的一些字面量, 比如 1, 2, 3, 2.4, “hello”, 这些都是在编译期常量<br>2.这里我们再思考一种特殊的变量, 想一下 const 的变量是编译期常量吗? 直觉上是的, 因为 const 的值是不变的东西, 这不是很适合在编译器直接搞好吗? 事实上, const 变量可能是编译期常量, 也可能不是编译期常量<br>3.如果 const 变量在初始化的时候是一个 constant 表达式, 那么 const 变量就是一个编译期常量  </p>
-<pre><code class="cpp">#include &lt;iostream&gt;
+<pre><code class="lang-cpp">#include &lt;iostream&gt;
 int main() &#123;
   const int x = 3;             // x 是一个编译期常量
   const int y = 4;             // y 是一个编译期常量
@@ -844,7 +818,7 @@ int main() &#123;
 &#125;
 </code></pre>
 <p>intuitively,<br>1.和编译器常量不同, 运行时的常量就是初始化这个常量的时候, 这个常量还是未知的, 非要直到运行时才能确定下来该常量的值; 什么时候初始化过程中还未知呢? 一个典型例子就是调用函数 cin &gt;&gt; y; 这种</p>
-<pre><code class="cpp">#include &lt;iostream&gt;
+<pre><code class="lang-cpp">#include &lt;iostream&gt;
 int getNumber() &#123;
   std::cout &lt;&lt; &quot;Enter a number: &quot;;
   int y&#123;&#125;;
@@ -861,24 +835,18 @@ int main() &#123;
 </code></pre>
 <h2 id="The-constexpr-keyword-constexpr-关键字"><a href="#The-constexpr-keyword-constexpr-关键字" class="headerlink" title="The constexpr keyword constexpr 关键字"></a>The constexpr keyword constexpr 关键字</h2><blockquote>
 <p>When you declare a const variable, the compiler will implicitly keep track of whether it’s a runtime or compile-time constant. In most cases, this doesn’t matter for anything other than optimization purposes, but there are a few cases where C++ requires a constant expression (we’ll cover these cases later as we introduce those topics). And only compile-time constant variables can be used in a constant expression.</p>
-</blockquote>
-<blockquote>
 <p>Because compile-time constants also allow for better optimization (and have little downside), we typically want to use compile-time constants wherever possible.</p>
-</blockquote>
-<blockquote>
 <p>When using const, our variables could end up as either a compile-time const or a runtime const, depending on whether the initializer is a compile-time expression or not. In some cases, it can be hard to tell whether a const variable is a compile-time const (and usable in a constant expression) or a runtime const (and not usable in a constant expression).</p>
-</blockquote>
-<blockquote>
 <p>we can enlist the compiler’s help to ensure we get a compile-time const where we desire one. To do so, we use the constexpr keyword instead of const in a variable’s declaration. A constexpr (which is short for “constant expression”) variable can only be a compile-time constant. If the initialization value of a constexpr variable is not a constant expression, the compiler will error.</p>
 </blockquote>
-<p>intuitively,<br>1.声明一个常量的时候, 编译器会隐式地决定是一个运行期的还是编译器的常量; 在大多数情况下, 我们也不用关心是哪种常量;<br>2.但这里我们核心的研究对象其实是常量表达式, 更具体来说, 我们关心的内容是&#x3D;&#x3D;常量表达式里面的常量是编译器常量还是运行期常量&#x3D;&#x3D;; 在实际开发中用常量表达式的情形下, 常量表达式里面只能用编译期的常量, 而不能用运行期的常量;<br>3.因为之前x&#x3D;3+4的例子告诉我们, 编译期的常量还有一定的优化空间, 所以我们通常会为了性能尽可能地使用编译器常量;<br>4.虽然我们想多利用编译期的常量, 但有时候很难去辨别一个 const varaible 是编译器常量还是运行期常量; 如果是一个编译期的常量, 那就能将这个常量用在常量表达式里面, 反之如果是一个运行期的常量, 我们就不能用在常量表达式中 (会报错) ; 比如下面的例子中, w的定义取决于 getValue() 函数的定义;</p>
-<pre><code class="cpp">int x&#123;5&#125;;                 // not const at all
+<p>intuitively,<br>1.声明一个常量的时候, 编译器会隐式地决定是一个运行期的还是编译器的常量; 在大多数情况下, 我们也不用关心是哪种常量;<br>2.但这里我们核心的研究对象其实是常量表达式, 更具体来说, 我们关心的内容是==常量表达式里面的常量是编译器常量还是运行期常量==; 在实际开发中用常量表达式的情形下, 常量表达式里面只能用编译期的常量, 而不能用运行期的常量;<br>3.因为之前x=3+4的例子告诉我们, 编译期的常量还有一定的优化空间, 所以我们通常会为了性能尽可能地使用编译器常量;<br>4.虽然我们想多利用编译期的常量, 但有时候很难去辨别一个 const varaible 是编译器常量还是运行期常量; 如果是一个编译期的常量, 那就能将这个常量用在常量表达式里面, 反之如果是一个运行期的常量, 我们就不能用在常量表达式中 (会报错) ; 比如下面的例子中, w的定义取决于 getValue() 函数的定义;</p>
+<pre><code class="lang-cpp">int x&#123;5&#125;;                 // not const at all
 const int y&#123;x&#125;;           // obviously a runtime const (since initializer is non-const)
 const int z&#123;5&#125;;           // obviously a compile-time const (since initializer is a constant expression)
 const int w&#123;getValue()&#125;;  // not obvious whether this is a runtime or compile-time const
 </code></pre>
 <p>5.我们期望让编译器去确保我们能得到”确定性”的[编译时常量], 为了达到这个目的, 我们采用的是 constexpr 关键字修饰, 而不是用 const 关键字修饰; 用 constexpr 修饰的 variable 只能是编译期的常量, 如果用 constexpr 修饰的 variable 不是一个常量表达式, 那么编译器会报错;</p>
-<pre><code class="cpp">#include &lt;iostream&gt;
+<pre><code class="lang-cpp">#include &lt;iostream&gt;
 int five() &#123;
   return 5;
 &#125;
@@ -901,11 +869,9 @@ int main() &#123;
 <h2 id="constexpr-v-s-const"><a href="#constexpr-v-s-const" class="headerlink" title="constexpr v.s. const"></a>constexpr v.s. const</h2><p>这里我们对比下constexpr 和 const关键词怎么使用</p>
 <blockquote>
 <p>Any variable that should not be modifiable after initialization and whose initializer is known at compile-time should be declared as constexpr.</p>
-</blockquote>
-<blockquote>
 <p>Any variable that should not be modifiable after initialization and whose initializer is not known at compile-time should be declared as const.</p>
 </blockquote>
-<p>intuitively,<br>1.首先这两个都是要满足定义初始化后不能修改的需求, 都是const<br>2.在初始化常量时, 二者初始化的要求不同, constexpr 初始化在编译期已知, 而 const 初始化在编译期时未知<br>3.其实说白了就是: 当我们要一个常量属性的 x &#x3D; 某个表达式, 这里”某个表达式”如果在写代码的时候, 代码逻辑都是唯一确定的, 那就用 constexpr 声明, 如果代码逻辑中有任何一点确定不下来的地方 (比方说调用了函数或者cin&gt;&gt;输入这种) , 那么只能声明称const  </p>
+<p>intuitively,<br>1.首先这两个都是要满足定义初始化后不能修改的需求, 都是const<br>2.在初始化常量时, 二者初始化的要求不同, constexpr 初始化在编译期已知, 而 const 初始化在编译期时未知<br>3.其实说白了就是: 当我们要一个常量属性的 x = 某个表达式, 这里”某个表达式”如果在写代码的时候, 代码逻辑都是唯一确定的, 那就用 constexpr 声明, 如果代码逻辑中有任何一点确定不下来的地方 (比方说调用了函数或者cin&gt;&gt;输入这种) , 那么只能声明称const  </p>
 <h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><p>1.<a target="_blank" rel="noopener" href="https://www.learncpp.com/cpp-tutorial/compile-time-constants-constant-expressions-and-constexpr/">https://www.learncpp.com/cpp-tutorial/compile-time-constants-constant-expressions-and-constexpr/</a></p>
 
       
@@ -989,8 +955,6 @@ int main() &#123;
 
         /*访问数量*/
         
-        $.getScript("//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js");
-        
 
         /*代码高亮，行号对齐*/
         $('.pre-numbering').css('line-height',$('.has-numbering').css('line-height'));
@@ -1016,13 +980,13 @@ int main() &#123;
     
     
     .nav {
-        width: 542px;
+        width: 572px;
     }
     .nav.fullscreen {
-        margin-left: -542px;
+        margin-left: -572px;
     }
     .nav-left {
-        width: 120px;
+        width: 150px;
     }
     
     
@@ -1060,19 +1024,23 @@ int main() &#123;
     
     
     .nav-right .title-list nav a .post-title, .nav-right .title-list #local-search-result a .post-title {
-        color: #383636;
+        color: #000000;
     }
     
     
     .nav-right .title-list nav a .post-date, .nav-right .title-list #local-search-result a .post-date {
-        color: #5e5e5f;
+        color: #87CEFA;
     }
     
     
     .nav-right nav a.hover, #local-search-result a.hover{
-        background-color: #e2e0e0;
+        background-color: #ffffff;
     }
     
+    
+    .nav-right nav a.hover > span{
+        color: #DC143C !important;
+    }
     
 
     /*列表样式*/

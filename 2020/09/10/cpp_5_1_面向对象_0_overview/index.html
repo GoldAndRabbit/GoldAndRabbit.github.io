@@ -32,7 +32,7 @@
 
 <link href="/css/style.css?v=1.1.0" rel="stylesheet">
 
-<link href="/css/hl_theme/github.css?v=1.1.0" rel="stylesheet">
+<link href="/css/hl_theme/atom-dark.css?v=1.1.0" rel="stylesheet">
 
 <link href="//cdn.jsdelivr.net/npm/animate.css@4.1.0/animate.min.css" rel="stylesheet">
 
@@ -187,13 +187,6 @@
     </div>
     <div>
         
-            <a class="about  hasFriend  site_url"
-               
-               href="/about">About</a>
-        
-        <a style="width: 50%"
-                
-                                           class="friends">Friends</a>
         
     </div>
 </div>
@@ -257,6 +250,15 @@
            data-author="" >
             <span class="post-title" title="G&amp;R 的 Blog 发布规范">G&amp;R 的 Blog 发布规范</span>
             <span class="post-date" title="2099-01-30 20:00:00">2099/01/30</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2024/03/22/Ubuntu%2022.04%20%E9%85%8D%E7%BD%AE/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Ubuntu 22.04 配置">Ubuntu 22.04 配置</span>
+            <span class="post-date" title="2024-03-22 10:11:00">2024/03/22</span>
         </a>
         
         
@@ -495,19 +497,19 @@
         
         
         <a  class="All Coding "
-           href="/2020/09/10/cpp_2_6_%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88_2_unique_ptr/"
+           href="/2020/09/10/cpp_2_5_%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88_1_shared_ptr/"
            data-tag=""
            data-author="" >
-            <span class="post-title" title="cpp_2_6_智能指针_2_unique_ptr">cpp_2_6_智能指针_2_unique_ptr</span>
+            <span class="post-title" title="cpp_2_5_智能指针_1_shared_ptr">cpp_2_5_智能指针_1_shared_ptr</span>
             <span class="post-date" title="2020-09-10 08:00:00">2020/09/10</span>
         </a>
         
         
         <a  class="All Coding "
-           href="/2020/09/10/cpp_2_5_%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88_1_shared_ptr/"
+           href="/2020/09/10/cpp_2_6_%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88_2_unique_ptr/"
            data-tag=""
            data-author="" >
-            <span class="post-title" title="cpp_2_5_智能指针_1_shared_ptr">cpp_2_5_智能指针_1_shared_ptr</span>
+            <span class="post-title" title="cpp_2_6_智能指针_2_unique_ptr">cpp_2_6_智能指针_2_unique_ptr</span>
             <span class="post-date" title="2020-09-10 08:00:00">2020/09/10</span>
         </a>
         
@@ -675,15 +677,6 @@
         
         
         <a  class="All Coding "
-           href="/2019/12/12/Ubuntu%20%E7%B3%BB%E7%BB%9F%E8%AE%BE%E7%BD%AE/"
-           data-tag=""
-           data-author="" >
-            <span class="post-title" title="Ubuntu 系统设置">Ubuntu 系统设置</span>
-            <span class="post-date" title="2019-12-12 20:11:00">2019/12/12</span>
-        </a>
-        
-        
-        <a  class="All Coding "
            href="/2019/12/11/Data%20Analysis%20Tutorial:(Part%20I)/"
            data-tag=""
            data-author="" >
@@ -771,17 +764,6 @@
     <div class="article-meta">
         
         
-        <span id="busuanzi_container_page_pv">
-            Views 👀 :<span id="busuanzi_value_page_pv">
-                <span class="count-comment">
-                    <span class="spinner">
-                      <div class="cube1"></div>
-                      <div class="cube2"></div>
-                    </span>
-                </span>
-            </span>
-        </span>
-        
         
     </div>
     
@@ -806,35 +788,27 @@
         <h2 id="面向对象的核心要点"><a href="#面向对象的核心要点" class="headerlink" title="面向对象的核心要点"></a>面向对象的核心要点</h2><p>1.Introduction to object-oriented programming 面向对象编程<br>2.Introduction to classes<br>3.Member functions 成员函数<br>4.Const class object and const member functions<br>5.Public and private mmbers and access specifiers<br>6.Accesss functions<br>7.Member functions returning references to data members<br>8.The benefits of data hiding<br>9.Introduction to constructors<br>10.Constructor member initializer lists<br>11.Default constructors<br>12.Delegating constructors and default arguments<br>13.Temporary class objects<br>14.Introduction to the copy constructor<br>15.Class initialization and copy elision<br>16.Converting constructors and the explicit keyword  </p>
 <h2 id="Procedural-programming-过程式编程"><a href="#Procedural-programming-过程式编程" class="headerlink" title="Procedural programming 过程式编程"></a>Procedural programming 过程式编程</h2><blockquote>
 <p>an object: a piece of memory that can be used to store values. An object with a name is called a variable.</p>
-</blockquote>
-<blockquote>
 <p>C++ programs have consisted of sequential lists of instructions to the computer that define data (via objects) and operations performed on that data (via functions containing statements and expressions).</p>
-</blockquote>
-<blockquote>
 <p>In procedural programming, the focus is on creating “procedures” (which in C++ are called functions) that implement our program logic. We pass data objects to these functions, those functions perform operations on the data, and then potentially return a result to be used by the caller.</p>
-</blockquote>
-<blockquote>
 <p>In procedural programming, the functions and the data those functions operate on are separate entities. The programmer is responsible for combining the functions and the data together to produce the desired result. This leads to code that looks like this:</p>
 </blockquote>
-<pre><code class="cpp">eat(you, apple);
+<pre><code class="lang-cpp">eat(you, apple);
 </code></pre>
 <p>intuitively,<br>1.回顾下 object 和 variable 的定义: 一个 object 我们定义为一小段可以储存值的内存. 一个有名字的 object 我们称之为变量. 一切的代码和程序执行都是围绕着各种 object 进行操作<br>2.cpp 程序将一系列指令送入到计算机, 这些指令本质都是我们定义的 [数据] 和 [运算], 在cpp里面, 数据都是通过 object 定义的, 运算是通过 function 定义的 (函数里面包括了各种声明和表达式).<br>3.在 procedural programming (过程式编程) 里面, 我们聚焦在构造 “procedures” (其实就是函数) 来实现我们要的程序逻辑: 我们将数据 objects 传入到这些 function 里面, 然后这些函数对这些数据进行各种操作, 最终 (可能) 返回函数调用的结果<br>4.在这种 procedural programming 这种范式下, 函数和被函数操纵的数据是相互分离的. 程序员需要将二者组合起来才会产生我们要的结果, 简单来说, 调用的函数的形式都是  </p>
-<pre><code class="cpp">函数(调用函数的主体, 数据)
+<pre><code class="lang-cpp">函数(调用函数的主体, 数据)
 </code></pre>
 <h2 id="What-is-object-oriented-programming-什么是面向对象编程"><a href="#What-is-object-oriented-programming-什么是面向对象编程" class="headerlink" title="What is object-oriented programming? 什么是面向对象编程"></a>What is object-oriented programming? 什么是面向对象编程</h2><blockquote>
 <p>In object-oriented programming (often abbreviated as OOP), the focus is on creating program-defined data types that contain both properties and a set of well-defined behaviors. The term “object” in OOP refers to the objects that we can instantiate from such types. This leads to code that looks more like this:</p>
 </blockquote>
-<pre><code class="cpp">you.eat(apple);
+<pre><code class="lang-cpp">you.eat(apple);
 </code></pre>
 <blockquote>
 <p>This makes it clearer who the subject is (you), what behavior is being invoked (eat()), and what objects are accessories to that behavior (apple).</p>
-</blockquote>
-<blockquote>
 <p>Because the properties and behaviors are no longer separate, objects are easier to modularize, which makes our programs easier to write and understand, and also provides a higher degree of code reusability. These objects also provide a more intuitive way to work with our data by allowing us to define how we interact with the objects, and how they interact with other objects.</p>
 </blockquote>
-<p>intuitively,<br>1.在 oop (面向对象) 编程的范式下, 我们目的是要构造一种数据类型 (data types), (这里的 data types 其实指的是 struct&#x2F;class), 数据类型包含[属性 (proberties) ] 和 [一系列定义好的行为(well-defined behaviors)]. “object” 在 oop 里面指的是我们从数据类型中执行实例化, 也就是”对象”, 然后调用函数就变成了类似于 xx.function(xx) 的形式<br>2.相比于面向过程的范式, oop 范式能够更清楚地明确出来谁是调用函数的主体, 谁是主体的行为<br>3.在 oop 范式下, [属性] 和 [行为] 不再相互分离, 而是绑定在一起; objects 实现了更好的模块化的效果, 使得代码更容易被理解, 且达到了更高层次的代码复用性<br>4.objects (对象) 提供了一个更直观的数据操作的抽象, 我们可以去定义对象, 并且去定义多个对象之间的交互  </p>
+<p>intuitively,<br>1.在 oop (面向对象) 编程的范式下, 我们目的是要构造一种数据类型 (data types), (这里的 data types 其实指的是 struct/class), 数据类型包含[属性 (proberties) ] 和 [一系列定义好的行为(well-defined behaviors)]. “object” 在 oop 里面指的是我们从数据类型中执行实例化, 也就是”对象”, 然后调用函数就变成了类似于 xx.function(xx) 的形式<br>2.相比于面向过程的范式, oop 范式能够更清楚地明确出来谁是调用函数的主体, 谁是主体的行为<br>3.在 oop 范式下, [属性] 和 [行为] 不再相互分离, 而是绑定在一起; objects 实现了更好的模块化的效果, 使得代码更容易被理解, 且达到了更高层次的代码复用性<br>4.objects (对象) 提供了一个更直观的数据操作的抽象, 我们可以去定义对象, 并且去定义多个对象之间的交互  </p>
 <h2 id="A-procedural-v-s-OOP-like-example-一个面向过程和面向对象的例子的对比"><a href="#A-procedural-v-s-OOP-like-example-一个面向过程和面向对象的例子的对比" class="headerlink" title="A procedural v.s. OOP-like example 一个面向过程和面向对象的例子的对比"></a>A procedural v.s. OOP-like example 一个面向过程和面向对象的例子的对比</h2><p>下面我们通过一个例子去对比面向过程和面向对象对于对于数据操纵的不同, 假设我们有三种动物的类型, 动物有返回动物的名称以及动物的腿的个数两个函数, 按照 procedural 范式来写代码如下  </p>
-<pre><code class="cpp">#include &lt;iostream&gt;
+<pre><code class="lang-cpp">#include &lt;iostream&gt;
 #include &lt;cstring&gt;
 
 enum AnimalType &#123;
@@ -868,7 +842,7 @@ int main() &#123;
 &#125;
 </code></pre>
 <p>这个代码看起来是可以执行的, 但是加上我们现在要新加一个动物, 比如 snake, 为了增加这个新的动物, 我们需要修改 AnimalType, numLegs(), animalName(); 但是其实我们想一下, 不管新增多少个动物, 我们都只是要确定他的名字和腿的数量; 同时, 不管有多少个动物, 他们本质都是一类东西, 都是动物 (这种data type); 因此我们改成 oop 的写法:</p>
-<pre><code class="cpp">#include &lt;iostream&gt;
+<pre><code class="lang-cpp">#include &lt;iostream&gt;
 #include &lt;cstring&gt;
 
 struct Animal &#123;
@@ -896,11 +870,7 @@ int main() &#123;
 <p>在这种oop的写法之下, 比我们只需要对单独的 struct 进行操作</p>
 <h2 id="OOP-brings-other-benefits-to-table-面向对象编程带来了其他优势"><a href="#OOP-brings-other-benefits-to-table-面向对象编程带来了其他优势" class="headerlink" title="OOP brings other benefits to table 面向对象编程带来了其他优势"></a>OOP brings other benefits to table 面向对象编程带来了其他优势</h2><blockquote>
 <p>In school, when you submit your programming assignments, your work is essentially done. Your professor or teacher’s assistant will run your code to see if it produces the correct result. It either does or doesn’t, and you are graded accordingly. Your code is likely discarded at that point.</p>
-</blockquote>
-<blockquote>
 <p>when you submit your code into a repository that is used by other developers, or into an application that’s used by real users, it’s an entirely different ballgame. Some new OS or software release will break your code. Users will find some logic error you made. A business partner will demand some new capability. Other developers will need to extend your code without breaking it. Your code needs to be able to evolve, perhaps significantly, and it needs to be able to do so with minimal time investment, minimal headaches, and minimal breakage.</p>
-</blockquote>
-<blockquote>
 <p>The best way to address these is by keeping your code as modular (and non-redundant) as possible. To assist with this, OOP also brings a number of other useful concepts to the table: inheritance, encapsulation, abstraction, and polymorphism.</p>
 </blockquote>
 <p>intuitively,<br>1.在学校学习 cs 课程的时候, 当我们提交了代码作业 (学习任务实质上也就做完了). 老师会跑一下代码检查下结果是否正确然后打个分数. 在学校交作业这种模式下, 代码跑完然后打完分之后其实也被丢弃了;<br>2.去到公司里面干活时候, 我们提交代码到仓库, 会有其他的同事使用我们开发的代码继续开发, 这种情况和在学校就截然不同了. 比如:<br>(i). 某些新的操作系统或者软件版本发布会破坏你的代码, 例如你用的是python2.7写的一些逻辑, 现在要升级到python3.5<br>(ii). 用户也会发现你搞出来的错误<br>(iii). 老板也总需要你增加一些新的功能<br>(iv). 其他同时可能需要在你的代码上继续开发  </p>
@@ -991,8 +961,6 @@ int main() &#123;
 
         /*访问数量*/
         
-        $.getScript("//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js");
-        
 
         /*代码高亮，行号对齐*/
         $('.pre-numbering').css('line-height',$('.has-numbering').css('line-height'));
@@ -1018,13 +986,13 @@ int main() &#123;
     
     
     .nav {
-        width: 542px;
+        width: 572px;
     }
     .nav.fullscreen {
-        margin-left: -542px;
+        margin-left: -572px;
     }
     .nav-left {
-        width: 120px;
+        width: 150px;
     }
     
     
@@ -1062,19 +1030,23 @@ int main() &#123;
     
     
     .nav-right .title-list nav a .post-title, .nav-right .title-list #local-search-result a .post-title {
-        color: #383636;
+        color: #000000;
     }
     
     
     .nav-right .title-list nav a .post-date, .nav-right .title-list #local-search-result a .post-date {
-        color: #5e5e5f;
+        color: #87CEFA;
     }
     
     
     .nav-right nav a.hover, #local-search-result a.hover{
-        background-color: #e2e0e0;
+        background-color: #ffffff;
     }
     
+    
+    .nav-right nav a.hover > span{
+        color: #DC143C !important;
+    }
     
 
     /*列表样式*/

@@ -32,7 +32,7 @@
 
 <link href="/css/style.css?v=1.1.0" rel="stylesheet">
 
-<link href="/css/hl_theme/github.css?v=1.1.0" rel="stylesheet">
+<link href="/css/hl_theme/atom-dark.css?v=1.1.0" rel="stylesheet">
 
 <link href="//cdn.jsdelivr.net/npm/animate.css@4.1.0/animate.min.css" rel="stylesheet">
 
@@ -187,13 +187,6 @@
     </div>
     <div>
         
-            <a class="about  hasFriend  site_url"
-               
-               href="/about">About</a>
-        
-        <a style="width: 50%"
-                
-                                           class="friends">Friends</a>
         
     </div>
 </div>
@@ -257,6 +250,15 @@
            data-author="" >
             <span class="post-title" title="G&amp;R 的 Blog 发布规范">G&amp;R 的 Blog 发布规范</span>
             <span class="post-date" title="2099-01-30 20:00:00">2099/01/30</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2024/03/22/Ubuntu%2022.04%20%E9%85%8D%E7%BD%AE/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Ubuntu 22.04 配置">Ubuntu 22.04 配置</span>
+            <span class="post-date" title="2024-03-22 10:11:00">2024/03/22</span>
         </a>
         
         
@@ -495,19 +497,19 @@
         
         
         <a  class="All Coding "
-           href="/2020/09/10/cpp_2_6_%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88_2_unique_ptr/"
+           href="/2020/09/10/cpp_2_5_%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88_1_shared_ptr/"
            data-tag=""
            data-author="" >
-            <span class="post-title" title="cpp_2_6_智能指针_2_unique_ptr">cpp_2_6_智能指针_2_unique_ptr</span>
+            <span class="post-title" title="cpp_2_5_智能指针_1_shared_ptr">cpp_2_5_智能指针_1_shared_ptr</span>
             <span class="post-date" title="2020-09-10 08:00:00">2020/09/10</span>
         </a>
         
         
         <a  class="All Coding "
-           href="/2020/09/10/cpp_2_5_%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88_1_shared_ptr/"
+           href="/2020/09/10/cpp_2_6_%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88_2_unique_ptr/"
            data-tag=""
            data-author="" >
-            <span class="post-title" title="cpp_2_5_智能指针_1_shared_ptr">cpp_2_5_智能指针_1_shared_ptr</span>
+            <span class="post-title" title="cpp_2_6_智能指针_2_unique_ptr">cpp_2_6_智能指针_2_unique_ptr</span>
             <span class="post-date" title="2020-09-10 08:00:00">2020/09/10</span>
         </a>
         
@@ -675,15 +677,6 @@
         
         
         <a  class="All Coding "
-           href="/2019/12/12/Ubuntu%20%E7%B3%BB%E7%BB%9F%E8%AE%BE%E7%BD%AE/"
-           data-tag=""
-           data-author="" >
-            <span class="post-title" title="Ubuntu 系统设置">Ubuntu 系统设置</span>
-            <span class="post-date" title="2019-12-12 20:11:00">2019/12/12</span>
-        </a>
-        
-        
-        <a  class="All Coding "
            href="/2019/12/11/Data%20Analysis%20Tutorial:(Part%20I)/"
            data-tag=""
            data-author="" >
@@ -771,17 +764,6 @@
     <div class="article-meta">
         
         
-        <span id="busuanzi_container_page_pv">
-            Views 👀 :<span id="busuanzi_value_page_pv">
-                <span class="count-comment">
-                    <span class="spinner">
-                      <div class="cube1"></div>
-                      <div class="cube2"></div>
-                    </span>
-                </span>
-            </span>
-        </span>
-        
         
     </div>
     
@@ -806,26 +788,20 @@
         <h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><p>1.Lvalue reference 左值引用<br>2.Lvalue reference variables 左值引用变量<br>3.Lvalue reference to const const值的左值引用<br>4.initializing an lvalue reference to const with a rvalue 用右值完成 const 引用初始化<br>5.Pass by value v.s. Pass by lvalue reference 传值 v.s. 传引用<br>6.Pass by const lvalue reference 传递 const 左值引用  </p>
 <h2 id="Lvalue-reference-左值引用"><a href="#Lvalue-reference-左值引用" class="headerlink" title="Lvalue reference 左值引用"></a>Lvalue reference 左值引用</h2><blockquote>
 <p>a reference is an alias for an existing object. Once a reference has been defined, any operation on the reference is applied to the object being referenced.</p>
-</blockquote>
-<blockquote>
 <p>An lvalue reference (commonly just called a reference since prior to C++11 there was only one type of reference) acts as an alias for an existing lvalue (such as a variable).</p>
 </blockquote>
-<p>intuitively,<br>1.引用就是对一个已有的对象起一个”别名”, 我们一旦对一个对象建立了引用, 任何在引用上的操作, 都会施加到被引用的对象上; 这好比每个阿里员工进入阿里之前都用自己的真名字, 进入阿里之后会产生一个”花名”, 老板和同事之间都会叫新的花名而不会叫真名, 同事老板宣布最佳新人奖或者双11优秀员工的时候会用花名来提名, 并且略微多给一点年终奖或者不给, 这些影响都会施加在绑定在具体个人的花名之上进行操作;<br>2.左值引用, 通常简称为引用 (因为c11之前只有一种类型的引用), 充当现有左值 (例如变量) 的别名;<br>3.&#x3D;&#x3D;引用的本质是建立一种变量的绑定关系&#x3D;&#x3D;, 如果能理解引用是建立绑定关系, 那么其实很多问题凭借朴素的直觉也能想明白为什么有些操作编译器不让做或者可允许;</p>
-<pre><code class="cpp">int       // 正常的int类型
+<p>intuitively,<br>1.引用就是对一个已有的对象起一个”别名”, 我们一旦对一个对象建立了引用, 任何在引用上的操作, 都会施加到被引用的对象上; 这好比每个阿里员工进入阿里之前都用自己的真名字, 进入阿里之后会产生一个”花名”, 老板和同事之间都会叫新的花名而不会叫真名, 同事老板宣布最佳新人奖或者双11优秀员工的时候会用花名来提名, 并且略微多给一点年终奖或者不给, 这些影响都会施加在绑定在具体个人的花名之上进行操作;<br>2.左值引用, 通常简称为引用 (因为c11之前只有一种类型的引用), 充当现有左值 (例如变量) 的别名;<br>3.==引用的本质是建立一种变量的绑定关系==, 如果能理解引用是建立绑定关系, 那么其实很多问题凭借朴素的直觉也能想明白为什么有些操作编译器不让做或者可允许;</p>
+<pre><code class="lang-cpp">int       // 正常的int类型
 int&amp;      // 一个int类型ojbect的左值引用
 double&amp;   // 一个double类型object的左值引用
 </code></pre>
 <h2 id="Lvalue-reference-variables-左值引用变量"><a href="#Lvalue-reference-variables-左值引用变量" class="headerlink" title="Lvalue reference variables 左值引用变量"></a>Lvalue reference variables 左值引用变量</h2><blockquote>
 <p>A reference defines an alternative name for an object. a reference type “refers to” another type. A reference is not an object, a reference is just another name a alias for an exsiting object.</p>
-</blockquote>
-<blockquote>
 <p>When we initialize a variable, the value of the initializer is copied into the object we are creating; when we defined a reference, instaed of copying the initializer’value, we bind the reference to its initializer. Once initialized, a reference remains bound to its initial object. There is no way to rebind a reference to refer to a different object.</p>
-</blockquote>
-<blockquote>
 <p>Because there is no way to rebind a reference, references must be initialized.</p>
 </blockquote>
 <p>intuitively,<br>1.我们可以使用左值引用做的事情就是创建左值引用变量; 左值引用变量本质是给另一个已有的变量起了个”别名”, 引用的核心是建立”绑定”关系, 也就是说定义一个引用类型变量时也就绑定到了原始变量上, 所以左值引用本质就是看绑定在谁身上; 如果一个引用类型的变量修改了值, 那么原来的变量也同时修改了, 因为已经形成了一种绑定关系.<br>2.对编译器来说, 写法1:int&amp; r和写法2:int &amp;ref没有任何区别, 是个代码风格问题; 现代Cpp程序员喜欢把&amp;和类型int写在一起, 而不是把&amp;和名称写在一起, 也就是写成int&amp;, 这种写法更能表示清楚引用是类型信息的一部分. 在这种情况下, &amp;符号本身代表的意思不是”address of xx” (xx的地址) 而是”lvalue reference to xx”(xx的左值引用)<br>3.定义左值引用类型必须初始化, 因为引用是绑定在已有的变量上的;<br>4.左值引用可以用来修改值, 我们通常使用引用就是要更灵活地修改值; 但如果绑定到一个不能更改的变量(const修饰的)怎么办? 如果想绑定的变量不能修改, 那么就没法完成绑定, 编译器会直接报错;<br>5.左值引用无法重新绑定, 也就是一旦一个引用完成了绑定, 无法更改引用另一个对象;<br>6.引用变量和被引用变量具有独立的生命周期, 当引用变量被销毁之后, 被引用的变量不受到同期的影响;  </p>
-<pre><code class="cpp">#include &lt;iostream&gt;
+<pre><code class="lang-cpp">#include &lt;iostream&gt;
 using namespace std;
 
 int main() &#123;
@@ -851,7 +827,7 @@ int main() &#123;
 &#125;
 </code></pre>
 <p>引用无法重新绑定, 也就是无法更改为引用另一个对象; 如果对引用变量发生了赋值, 也只是发生赋值, 绑定关系不会改变; 例如  </p>
-<pre><code class="cpp">#include &lt;iostream&gt;
+<pre><code class="lang-cpp">#include &lt;iostream&gt;
 
 int main() &#123;
   int x = 5;
@@ -873,7 +849,7 @@ int main() &#123;
 &#125;
 </code></pre>
 <p>引用变量和被引用变量具有独立的生命周期, 如果引用变量销毁了, 原有的变量其实还在  </p>
-<pre><code class="cpp">#include &lt;iostream&gt;
+<pre><code class="lang-cpp">#include &lt;iostream&gt;
 
 int main() &#123;
   int x = 5;
@@ -886,7 +862,7 @@ int main() &#123;
 &#125; // x 在这时候销毁
 </code></pre>
 <h2 id="Lvalue-reference-to-const-const值的左值引用"><a href="#Lvalue-reference-to-const-const值的左值引用" class="headerlink" title="Lvalue reference to const const值的左值引用"></a>Lvalue reference to const const值的左值引用</h2><p>因为左值引用只能绑定可修改的变量, 所以如果原始变量是const修饰的不可修改, 那么就没办法通过编译;  </p>
-<pre><code class="cpp">#include &lt;iostream&gt;
+<pre><code class="lang-cpp">#include &lt;iostream&gt;
 
 int main() &#123;
   const int x = 5;
@@ -894,8 +870,8 @@ int main() &#123;
   return 0;
 &#125;
 </code></pre>
-<p>所以我们想对const变量对它创建一个引用变量怎么做? 上述用常规的引用变量是不行的;<br>我们的解决方法是把引用声明称const类型的, 这种叫做lvalue reference to a const value (const值的左值引用), 或者叫做 reference to const (对const值的引用&#x2F;常量引用) 或者叫做 const reference (const引用&#x2F;常引用);<br>声明const引用之后, 引用的值是不能修改了, 因此声明成const引用的话引用就失去了修改值的功能, 但是仍然保留了可以传递引用的功能.  </p>
-<pre><code class="cpp">#include &lt;iostream&gt;
+<p>所以我们想对const变量对它创建一个引用变量怎么做? 上述用常规的引用变量是不行的;<br>我们的解决方法是把引用声明称const类型的, 这种叫做lvalue reference to a const value (const值的左值引用), 或者叫做 reference to const (对const值的引用/常量引用) 或者叫做 const reference (const引用/常引用);<br>声明const引用之后, 引用的值是不能修改了, 因此声明成const引用的话引用就失去了修改值的功能, 但是仍然保留了可以传递引用的功能.  </p>
+<pre><code class="lang-cpp">#include &lt;iostream&gt;
 
 int main() &#123;
   const int x = 5;
@@ -907,7 +883,7 @@ int main() &#123;
 &#125;
 </code></pre>
 <p>除此之外, 常引用可以绑定可修改的左值, 如果常引用绑了个左值, 引用本身不可以修改值, 但是原值还是一个左值, 所以原值还是可以修改的; </p>
-<pre><code class="cpp">#include &lt;iostream&gt;
+<pre><code class="lang-cpp">#include &lt;iostream&gt;
 
 int main() &#123;
   int x = 5;
@@ -921,7 +897,7 @@ int main() &#123;
 </code></pre>
 <p>通常情况下, 我们只考虑使用const值的左值引用, 而不是对非const值声明const的引用, 除非非要修改值;</p>
 <h2 id="initializing-an-lvalue-reference-to-const-with-a-rvalue-用右值完成-const-引用初始化"><a href="#initializing-an-lvalue-reference-to-const-with-a-rvalue-用右值完成-const-引用初始化" class="headerlink" title="initializing an lvalue reference to const with a rvalue 用右值完成 const 引用初始化"></a>initializing an lvalue reference to const with a rvalue 用右值完成 const 引用初始化</h2><p>1.const引用可以用右值来完成初始化, 发生这种情况时候, 会创建一个临时对象 (temporary object, 有时又叫做anonymous object 匿名变量) 并使用右值进行初始化, 并对const的引用绑定到该临时对象;<br>2.temporary 对象 (anonymous对象) 是单个表达式中创建的为了临时使用的对象, 临时用完马上销毁. 临时变量完全没有作用域 (作用域是 identifier 的一种熟悉, 临时变量没有identifier), 临时变量只在创建的那一个时刻使用, 因此不可能在创建之后还引用它.<br>3.const reference 延长了临时对象的生命周期; 临时变量本应该在表达式结束之后就被销毁掉, 但是在下面的例子里面, 右值5创建临时对象, 在初始化ref的表达末尾没有被销毁, 它的生命周期得以延长;  </p>
-<pre><code class="cpp">#include &lt;iostream&gt;
+<pre><code class="lang-cpp">#include &lt;iostream&gt;
 
 int main() &#123;
   const int&amp; ref = 5;   // 正确, const引用可以用右值完成初始化
@@ -930,7 +906,7 @@ int main() &#123;
 &#125;
 </code></pre>
 <h2 id="Pass-by-lvalue-reference-函数参数传递左值引用"><a href="#Pass-by-lvalue-reference-函数参数传递左值引用" class="headerlink" title="Pass by lvalue reference 函数参数传递左值引用"></a>Pass by lvalue reference 函数参数传递左值引用</h2><p>只有上面的介绍, 我们还是没体会到引用的使用场景, 为什么要对一个变量要多创建一个别名呢? 接下来介绍左值引用核心用处: 函数参数传递左值引用;<br>我们回顾下函数传值这件事情, 当我们调用printValue这个函数的时候, 我们首先创建了变量x的一个copy, 把变量x拷贝到参数y里面, 然后在函数printValue对于y进行一通操作, 当函数调用结束之后y会被销毁, 结束变量y的生命周期;  </p>
-<pre><code class="cpp">#include &lt;iostream&gt;
+<pre><code class="lang-cpp">#include &lt;iostream&gt;
 void printValue(int y) &#123;
   std::cout &lt;&lt; y &lt;&lt; &#39;\n&#39;;
 &#125; // y is destroyed here
@@ -941,9 +917,9 @@ int main() &#123;
   return 0;
 &#125;
 </code></pre>
-<p>对所有的函数调用来说, 都会实现创建参数的copy&#x3D;&gt;使用&#x3D;&gt;销毁这么个过程, 对于基础类型比如这种int类型或char类型都没有显著的代价; 但对标注库中的很多类型, 属于class types (典型的常用类就是std::string), 通常copy的代价是非常高的, 因此任何情况下, 我们都要避免这种高开销的copy操作;  </p>
+<p>对所有的函数调用来说, 都会实现创建参数的copy=&gt;使用=&gt;销毁这么个过程, 对于基础类型比如这种int类型或char类型都没有显著的代价; 但对标注库中的很多类型, 属于class types (典型的常用类就是std::string), 通常copy的代价是非常高的, 因此任何情况下, 我们都要避免这种高开销的copy操作;  </p>
 <p>这时候我们修改函数的参数, 用pass by reference 取代 pass by value: 当函数调用的时候, 不再产生任何的参数copy操作;  </p>
-<pre><code class="cpp">#include &lt;iostream&gt;
+<pre><code class="lang-cpp">#include &lt;iostream&gt;
 #include &lt;string&gt;
 
 void printValue(std::string&amp; y) &#123;// type changed to std::string&amp;
@@ -957,7 +933,7 @@ int main() &#123;
 &#125;
 </code></pre>
 <p>当然, 我们如果采用了 pass by reference  的这种函数参数类型, 在函数中修改值会自然而然地修改原有的变量的值, 使用的时候就要小心了;  </p>
-<pre><code class="cpp">#include &lt;iostream&gt;
+<pre><code class="lang-cpp">#include &lt;iostream&gt;
 void addOne(int&amp; y) &#123;// y is bound to the actual object x
   ++y; // this modifies the actual object x
 &#125;
@@ -971,11 +947,11 @@ int main() &#123;
 &#125;
 </code></pre>
 <p>输出结果为</p>
-<pre><code class="sh">value = 5
+<pre><code class="lang-sh">value = 5
 value = 6
 </code></pre>
 <p>同时, 如果函数参数传递的是左值引用, 那我们只能绑定一个可修改的左值; 不能传递一个不可修改的值, 比如 const 值</p>
-<pre><code class="cpp">#include &lt;iostream&gt;
+<pre><code class="lang-cpp">#include &lt;iostream&gt;
 
 void printValue(int&amp; y) &#123; // y only accepts modifiable lvalues
   std::cout &lt;&lt; y &lt;&lt; &#39;\n&#39;;
@@ -992,24 +968,14 @@ int main() &#123;
 </code></pre>
 <h2 id="Pass-by-value-v-s-Pass-by-lvalue-reference-传值-v-s-传引用"><a href="#Pass-by-value-v-s-Pass-by-lvalue-reference-传值-v-s-传引用" class="headerlink" title="Pass by value v.s. Pass by lvalue reference 传值 v.s. 传引用"></a>Pass by value v.s. Pass by lvalue reference 传值 v.s. 传引用</h2><blockquote>
 <p>when we invoke a function, a special area of memory is set up on what is called <u>program stack</u>. Within is special area of memory there is space to hold the value of each function parameter. It is also holds the memory associated with each object defined within the function - we call these <u>local objects</u>.</p>
-</blockquote>
-<blockquote>
 <p>when the function completes, this area of memory is discarded. We say that it is <u>popped from the program stack</u>.</p>
-</blockquote>
-<blockquote>
 <p>by default, when we pass an object to a function, such as vec[i], its value is copied to the local definition of the parameter. This is called <u>pass by value</u> sematics. There is no connection between the objects manipulated with swap() and the objects passed to it within bubble_sort().</p>
-</blockquote>
-<blockquote>
 <p>we must bind the swap() parameters to the actual objects being passed in, this is called <u>pass by reference</u> semantics. This simplest way of doing this is to declare the parameter as references.</p>
-</blockquote>
-<blockquote>
-<p>one reason to declare a parameter as a reference is to &#x3D;&#x3D;allow us to modify directly the actual object being passed to the function&#x3D;&#x3D;. This is important because, as we’ve seen, our program otherwise may behave incorrectly.</p>
-</blockquote>
-<blockquote>
-<p>the second reason to declare a parameter as a reference is to &#x3D;&#x3D;eliminate the overhead of copying a large object&#x3D;&#x3D;. This is a less important reason. Our program is correct; it is simply less efficient</p>
+<p>one reason to declare a parameter as a reference is to ==allow us to modify directly the actual object being passed to the function==. This is important because, as we’ve seen, our program otherwise may behave incorrectly.</p>
+<p>the second reason to declare a parameter as a reference is to ==eliminate the overhead of copying a large object==. This is a less important reason. Our program is correct; it is simply less efficient</p>
 </blockquote>
 <p>intuitively,<br>1.调用函数的时候, 内存会建立一块区域”程序堆栈”, “程序堆栈”提供了函数定义的每个对象的内存空间, 这些对象称为”局部对象”.<br>2.一个函数一旦函数调用完成, 内存就被释放掉, 准确说是从程序堆栈中被pop出来.<br>3.我们通过”传值”的方式, 将参数复制到局部变量里面, 比如下面[bubble_sort()传给swap()的对象]和[swap()内操作的对象]是没有任何关系的两组对象.<br>4.采用引用作为函数参数的优势在于能够减少copy复杂对象的开销, 通常情况下, class类型的copy的代价是非常高昂的, 因此我们尽量不要去避免这种因为copy带来的开销;</p>
-<pre><code class="cpp">#include &lt;iostream&gt;
+<pre><code class="lang-cpp">#include &lt;iostream&gt;
 #include &lt;string&gt;
 #include &lt;vector&gt;
 
@@ -1066,8 +1032,8 @@ int main () &#123;
   return 0;
 &#125;
 </code></pre>
-<h2 id="Pass-by-const-lvalue-reference-传递const左值引用"><a href="#Pass-by-const-lvalue-reference-传递const左值引用" class="headerlink" title="Pass by const lvalue reference 传递const左值引用"></a>Pass by const lvalue reference 传递const左值引用</h2><p>上面我们理解了 pass by value 能产生很强的性能优势, 但是上述 reference to non-const 只能接受左值参数, 比如我们想传递一个参数为5, 函数参数为引用的都不行, 还得必须定义一个左值x &#x3D; 5, 然后再传递x, 也就太尴尬了, 这显然不是我们想要的;  </p>
-<pre><code class="cpp">#include &lt;iostream&gt;
+<h2 id="Pass-by-const-lvalue-reference-传递const左值引用"><a href="#Pass-by-const-lvalue-reference-传递const左值引用" class="headerlink" title="Pass by const lvalue reference 传递const左值引用"></a>Pass by const lvalue reference 传递const左值引用</h2><p>上面我们理解了 pass by value 能产生很强的性能优势, 但是上述 reference to non-const 只能接受左值参数, 比如我们想传递一个参数为5, 函数参数为引用的都不行, 还得必须定义一个左值x = 5, 然后再传递x, 也就太尴尬了, 这显然不是我们想要的;  </p>
+<pre><code class="lang-cpp">#include &lt;iostream&gt;
 #include &lt;string&gt;
 
 void printValue(int&amp; y) &#123; // y 只能接受一个左值引用参数
@@ -1085,7 +1051,7 @@ int main() &#123;
 &#125;
 </code></pre>
 <p>所以我们通常采用 const reference 作为函数的参数, 这样的优势在于:<br>1.避免了因采用传值的方式包含的参数copy的额外开销;<br>2.允许传递实参的时候可以直接用右值;<br>3.能够保证参数值在函数过程中不被修改;  </p>
-<pre><code class="cpp">#include &lt;iostream&gt;
+<pre><code class="lang-cpp">#include &lt;iostream&gt;
 #include &lt;string&gt;
 
 void printValue(const int&amp; y) &#123; // y is now a const reference
@@ -1103,7 +1069,7 @@ int main() &#123;
 &#125;
 </code></pre>
 <p>这里我们会想, 如果我非要想在函数里面修改值而且也不想思考我传入的实参是左值or右值呢? 最简单的方法就是函数输入做成多个不同引用类型的输入参数, 想改值的我们可以 pass by rvalue reference, 不想改值的我们 pass by const rvalue reference  </p>
-<pre><code class="cpp">#include &lt;string&gt;
+<pre><code class="lang-cpp">#include &lt;string&gt;
 void foo(int a, int&amp; b, const std::string&amp; c) &#123;
 &#125;
 
@@ -1197,8 +1163,6 @@ int main() &#123;
 
         /*访问数量*/
         
-        $.getScript("//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js");
-        
 
         /*代码高亮，行号对齐*/
         $('.pre-numbering').css('line-height',$('.has-numbering').css('line-height'));
@@ -1224,13 +1188,13 @@ int main() &#123;
     
     
     .nav {
-        width: 542px;
+        width: 572px;
     }
     .nav.fullscreen {
-        margin-left: -542px;
+        margin-left: -572px;
     }
     .nav-left {
-        width: 120px;
+        width: 150px;
     }
     
     
@@ -1268,19 +1232,23 @@ int main() &#123;
     
     
     .nav-right .title-list nav a .post-title, .nav-right .title-list #local-search-result a .post-title {
-        color: #383636;
+        color: #000000;
     }
     
     
     .nav-right .title-list nav a .post-date, .nav-right .title-list #local-search-result a .post-date {
-        color: #5e5e5f;
+        color: #87CEFA;
     }
     
     
     .nav-right nav a.hover, #local-search-result a.hover{
-        background-color: #e2e0e0;
+        background-color: #ffffff;
     }
     
+    
+    .nav-right nav a.hover > span{
+        color: #DC143C !important;
+    }
     
 
     /*列表样式*/

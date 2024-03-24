@@ -32,7 +32,7 @@
 
 <link href="/css/style.css?v=1.1.0" rel="stylesheet">
 
-<link href="/css/hl_theme/github.css?v=1.1.0" rel="stylesheet">
+<link href="/css/hl_theme/atom-dark.css?v=1.1.0" rel="stylesheet">
 
 <link href="//cdn.jsdelivr.net/npm/animate.css@4.1.0/animate.min.css" rel="stylesheet">
 
@@ -187,13 +187,6 @@
     </div>
     <div>
         
-            <a class="about  hasFriend  site_url"
-               
-               href="/about">About</a>
-        
-        <a style="width: 50%"
-                
-                                           class="friends">Friends</a>
         
     </div>
 </div>
@@ -257,6 +250,15 @@
            data-author="" >
             <span class="post-title" title="G&amp;R 的 Blog 发布规范">G&amp;R 的 Blog 发布规范</span>
             <span class="post-date" title="2099-01-30 20:00:00">2099/01/30</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2024/03/22/Ubuntu%2022.04%20%E9%85%8D%E7%BD%AE/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Ubuntu 22.04 配置">Ubuntu 22.04 配置</span>
+            <span class="post-date" title="2024-03-22 10:11:00">2024/03/22</span>
         </a>
         
         
@@ -495,19 +497,19 @@
         
         
         <a  class="All Coding "
-           href="/2020/09/10/cpp_2_6_%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88_2_unique_ptr/"
+           href="/2020/09/10/cpp_2_5_%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88_1_shared_ptr/"
            data-tag=""
            data-author="" >
-            <span class="post-title" title="cpp_2_6_智能指针_2_unique_ptr">cpp_2_6_智能指针_2_unique_ptr</span>
+            <span class="post-title" title="cpp_2_5_智能指针_1_shared_ptr">cpp_2_5_智能指针_1_shared_ptr</span>
             <span class="post-date" title="2020-09-10 08:00:00">2020/09/10</span>
         </a>
         
         
         <a  class="All Coding "
-           href="/2020/09/10/cpp_2_5_%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88_1_shared_ptr/"
+           href="/2020/09/10/cpp_2_6_%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88_2_unique_ptr/"
            data-tag=""
            data-author="" >
-            <span class="post-title" title="cpp_2_5_智能指针_1_shared_ptr">cpp_2_5_智能指针_1_shared_ptr</span>
+            <span class="post-title" title="cpp_2_6_智能指针_2_unique_ptr">cpp_2_6_智能指针_2_unique_ptr</span>
             <span class="post-date" title="2020-09-10 08:00:00">2020/09/10</span>
         </a>
         
@@ -675,15 +677,6 @@
         
         
         <a  class="All Coding "
-           href="/2019/12/12/Ubuntu%20%E7%B3%BB%E7%BB%9F%E8%AE%BE%E7%BD%AE/"
-           data-tag=""
-           data-author="" >
-            <span class="post-title" title="Ubuntu 系统设置">Ubuntu 系统设置</span>
-            <span class="post-date" title="2019-12-12 20:11:00">2019/12/12</span>
-        </a>
-        
-        
-        <a  class="All Coding "
            href="/2019/12/11/Data%20Analysis%20Tutorial:(Part%20I)/"
            data-tag=""
            data-author="" >
@@ -771,17 +764,6 @@
     <div class="article-meta">
         
         
-        <span id="busuanzi_container_page_pv">
-            Views 👀 :<span id="busuanzi_value_page_pv">
-                <span class="count-comment">
-                    <span class="spinner">
-                      <div class="cube1"></div>
-                      <div class="cube2"></div>
-                    </span>
-                </span>
-            </span>
-        </span>
-        
         
     </div>
     
@@ -809,53 +791,45 @@
 <p>expression: a combination of literals, variables, operators, and function calls that can be executed to produce a singular value”.<br>我们将表达式定义为”可以执行以产生单值的文字、变量、运算符和函数调用的组合”。</p>
 </blockquote>
 <p>表达式有两个属性, type (表达式的类型) 和value category (表达式的值的类别), 表达式的类型容易理解, 通过 type inference (类型推断) 可以得到; 表达式的类型必须在编译时确定, 但是表达式的值可以在编译时或者运行时确定  </p>
-<pre><code class="cpp">#include &lt;iostream&gt;
+<pre><code class="lang-cpp">#include &lt;iostream&gt;
 int main() &#123;
   auto v1 = 12 / 4;   // int / int    =&gt; 编译器推断表达式的类型是int, 所以v1的类型是int
   auto v2 = 12.0 / 4; // double / int =&gt; 编译器表达式的类型是double, 所以v2的类型是double
   return 0;
 &#125;
 </code></pre>
-<p>但是只有类型推断还不够, 还有个表达式在&#x3D;左边或者在&#x3D;右边的合法性问题</p>
-<pre><code class="cpp">int main() &#123;
+<p>但是只有类型推断还不够, 还有个表达式在=左边或者在=右边的合法性问题</p>
+<pre><code class="lang-cpp">int main() &#123;
   int x&#123;&#125;;
   x = 5; // 有效assigment, 我们可以将5赋值给x 
   5 = x; // 无效assigment, 将x赋值给5的意义是什么?
   return 0;
 &#125;
 </code></pre>
-<p>那么问题来了, 编译器如何知道哪些表达式可以合法地出现在&#x3D;的左右两侧呢?</p>
+<p>那么问题来了, 编译器如何知道哪些表达式可以合法地出现在=的左右两侧呢?</p>
 <blockquote>
 <p>The answer lies in the second property of expressions: the value category. The value category of an expression (or subexpression) indicates whether an expression resolves to a value, a function, or an object of some kind.</p>
 </blockquote>
-<p>所以表达式有第二个属性: the value category, 表达式的value category指示出表达式是否解析为值&#x2F;函数&#x2F;某类对象</p>
+<p>所以表达式有第二个属性: the value category, 表达式的value category指示出表达式是否解析为值/函数/某类对象</p>
 <h2 id="lvalue-and-rvalue-左值和右值"><a href="#lvalue-and-rvalue-左值和右值" class="headerlink" title="lvalue and rvalue 左值和右值"></a>lvalue and rvalue 左值和右值</h2><p>在 cpp 11 之前, 表达式只有 lvalue (左值), rvalue (右值) 这两种value category; 在c++11中, 新增添加了三个value categotires: glvalue, prvalue, xvalue, 用来支持一个新特性 move sematics (移动语义)</p>
 <p>Lvalue and rvalue expressions</p>
 <blockquote>
 <p>An lvalue is an expression that evaluates to an identifiable object or function (or bit-field).</p>
-</blockquote>
-<blockquote>
 <p>The term “identity” is used by the C++ standard, but is not well-defined. An entity (such as an object or function) that has an identity can be differentiated from other similar entities (typically by comparing the addresses of the entity).</p>
-</blockquote>
-<blockquote>
 <p>An rvalue is an expression that is not an l-value. Commonly seen rvalues include literals (except C-style string literals, which are lvalues) and the return value of functions and operators. Rvalues aren’t identifiable (meaning they have to be used immediately), and only exist within the scope of the expression in which they are used.</p>
-</blockquote>
-<blockquote>
 <p>Lvalue expressions are those that evaluate to variables or other identifiable objects that persist beyond the end of the expression.</p>
-</blockquote>
-<blockquote>
-<p>Rvalue expressions are those that evaluate to literals or values returned by functions&#x2F;operators that are discarded at the end of the expression.</p>
+<p>Rvalue expressions are those that evaluate to literals or values returned by functions/operators that are discarded at the end of the expression.</p>
 </blockquote>
 <p>intuitively,<br>1.根据左值和右值的字面意思理解, 表达式等号左边就是左值, 右边是右值; 然而只根据左值和右值的字面意思, 有些情况无法准确区分左值和右值<br>2.左值: 指向一个特定内存的具有名称的值 (具名对象), 它有一个相对稳定的内存地址, 并且有一段较长的生命周期<br>3.右值: 不指向稳定内存的匿名值 (不具名对象), 它的生命周期很短, 通常是暂时性的<br>4.判断左值和还是右值的方法: 利用取地址符 &amp; 来判断左值还是右值, 能取到内存地址的值为左值, 否则都是右值<br>5.反过来想取地址符 &amp; 只能取左值, 而不能取右值, 如果我们用取地址符取右值, 那么就会报错<br>6.左值在表达式结束之后持续存在; 右值在表达式结束之后直接被遗弃  </p>
 <p>举一个不容易区分左值还是右值的例子</p>
-<pre><code class="cpp">int x = 1;      // x是左值, 1是右值
+<pre><code class="lang-cpp">int x = 1;      // x是左值, 1是右值
 int y = 3;      // y是左值, 3是右值
 int z = x + y;  // z是左值, x+y结果是右值
 int a = 1;      // a是左值
 int b = a;      // b是左值, a还是左值
 </code></pre>
 <h2 id="如何判断表达式是左值还是右值-取地址"><a href="#如何判断表达式是左值还是右值-取地址" class="headerlink" title="如何判断表达式是左值还是右值 ? 取地址"></a>如何判断表达式是左值还是右值 ? 取地址</h2><p>获取左值和右值的方法: 采用取地址符, 来拿到地址</p>
-<pre><code class="cpp">#include &lt;iostream&gt;
+<pre><code class="lang-cpp">#include &lt;iostream&gt;
 using namespace std;
 
 int main() &#123;
@@ -877,7 +851,7 @@ int main() &#123;
 &#125;
 </code></pre>
 <p>上面的代码左右值判断比较简单, 但是并非所有的情况都简单, 有些时候左值和右值的判断都是反直觉的: 比如想一下下面的 x++ 和 ++x, 先猜测一下哪个感觉更像左值, 哪个感觉更像右值? 感觉似乎 ++x 像左值, 因为返回的是加完之后的值; x++感觉像右值, 因为返回的时临时的 x;</p>
-<pre><code class="cpp">int x = 1;
+<pre><code class="lang-cpp">int x = 1;
 int get_val() &#123;
   return x;
 &#125;
@@ -894,13 +868,13 @@ int main() &#123;
 &#125;
 </code></pre>
 <p>分析一下上面这段代码<br>1.x++ 和 ++x虽然都是自增操作, 但是左右值不同<br>2.为了检验真相, 采用取地址符看编译结果  </p>
-<pre><code class="cpp">int x = 3;
+<pre><code class="lang-cpp">int x = 3;
 int *p = &amp;x++;    // 编译失败 x++为右值
 int *q = &amp;++x;    // 编译成功 ++x为左值
 return 0;
 </code></pre>
 <p>3.x++ 是右值, 执行 x++ 时, 编译器会生成一份 x 值的临时复制, 也就是一个临时变量, 最后返回这个临时变量<br>4.++x 是左值, 执行 ++x 时, 直接对 x 执行 +1 操作后马上返回其自身, 所以 ++x 是左值<br>5.上面的两类情况, 记忆它们区别的关键是”找临时变量”, 哪里产生临时变量, 哪里就是右值, 不难想到 x++ 这种操作返回的是临时变量 x 的 copy, 因此 x++ 是右值  </p>
-<pre><code class="cpp">int x = 1;
+<pre><code class="lang-cpp">int x = 1;
 int get_val() &#123;
   return x;
 &#125;
@@ -912,7 +886,7 @@ int main() &#123;
 &#125;
 </code></pre>
 <p>再看另一个例子</p>
-<pre><code class="cpp">int x = 1;
+<pre><code class="lang-cpp">int x = 1;
 int get_val() &#123;
   return x;
 &#125;
@@ -930,12 +904,12 @@ int main() &#123;
 &#125;
 </code></pre>
 <h2 id="literal-字面量-是左值还是右值"><a href="#literal-字面量-是左值还是右值" class="headerlink" title="literal (字面量) 是左值还是右值?"></a>literal (字面量) 是左值还是右值?</h2><p>值得注意的是, 通常字面量 (literal) 都是右值, 但”字符串”这种字面量是个左值<br>什么是字面量 (literal) ? 字面量用于表达源代码中一个固定值的表示法, 整数, 浮点数和字符串都是字面量  </p>
-<pre><code class="cpp">int *x = &amp;6;          // 编译不通过, 6 是个右值
+<pre><code class="lang-cpp">int *x = &amp;6;          // 编译不通过, 6 是个右值
 double *y = &amp;3.14;    // 编译不通过, 3.14 是个右值
 float *z = &amp;1.99f;    // 编译不通过, 1.99 是个右值
 auto p = &amp;&quot;hello&quot;;    // 编译通过, &quot;hello&quot; 是个左值
 </code></pre>
-<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><p>1.现代 C++ 教程：高速上手 C++11&#x2F;14&#x2F;17&#x2F;20<br>2.<a target="_blank" rel="noopener" href="https://en.cppreference.com/w/cpp/language/value_category">https://en.cppreference.com/w/cpp/language/value_category</a>  </p>
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><p>1.现代 C++ 教程：高速上手 C++11/14/17/20<br>2.<a target="_blank" rel="noopener" href="https://en.cppreference.com/w/cpp/language/value_category">https://en.cppreference.com/w/cpp/language/value_category</a>  </p>
 
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源 </span>
@@ -1018,8 +992,6 @@ auto p = &amp;&quot;hello&quot;;    // 编译通过, &quot;hello&quot; 是个左
 
         /*访问数量*/
         
-        $.getScript("//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js");
-        
 
         /*代码高亮，行号对齐*/
         $('.pre-numbering').css('line-height',$('.has-numbering').css('line-height'));
@@ -1045,13 +1017,13 @@ auto p = &amp;&quot;hello&quot;;    // 编译通过, &quot;hello&quot; 是个左
     
     
     .nav {
-        width: 542px;
+        width: 572px;
     }
     .nav.fullscreen {
-        margin-left: -542px;
+        margin-left: -572px;
     }
     .nav-left {
-        width: 120px;
+        width: 150px;
     }
     
     
@@ -1089,19 +1061,23 @@ auto p = &amp;&quot;hello&quot;;    // 编译通过, &quot;hello&quot; 是个左
     
     
     .nav-right .title-list nav a .post-title, .nav-right .title-list #local-search-result a .post-title {
-        color: #383636;
+        color: #000000;
     }
     
     
     .nav-right .title-list nav a .post-date, .nav-right .title-list #local-search-result a .post-date {
-        color: #5e5e5f;
+        color: #87CEFA;
     }
     
     
     .nav-right nav a.hover, #local-search-result a.hover{
-        background-color: #e2e0e0;
+        background-color: #ffffff;
     }
     
+    
+    .nav-right nav a.hover > span{
+        color: #DC143C !important;
+    }
     
 
     /*列表样式*/

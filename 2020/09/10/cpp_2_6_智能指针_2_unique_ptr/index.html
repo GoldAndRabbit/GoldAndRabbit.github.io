@@ -32,7 +32,7 @@
 
 <link href="/css/style.css?v=1.1.0" rel="stylesheet">
 
-<link href="/css/hl_theme/github.css?v=1.1.0" rel="stylesheet">
+<link href="/css/hl_theme/atom-dark.css?v=1.1.0" rel="stylesheet">
 
 <link href="//cdn.jsdelivr.net/npm/animate.css@4.1.0/animate.min.css" rel="stylesheet">
 
@@ -187,13 +187,6 @@
     </div>
     <div>
         
-            <a class="about  hasFriend  site_url"
-               
-               href="/about">About</a>
-        
-        <a style="width: 50%"
-                
-                                           class="friends">Friends</a>
         
     </div>
 </div>
@@ -257,6 +250,15 @@
            data-author="" >
             <span class="post-title" title="G&amp;R 的 Blog 发布规范">G&amp;R 的 Blog 发布规范</span>
             <span class="post-date" title="2099-01-30 20:00:00">2099/01/30</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2024/03/22/Ubuntu%2022.04%20%E9%85%8D%E7%BD%AE/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Ubuntu 22.04 配置">Ubuntu 22.04 配置</span>
+            <span class="post-date" title="2024-03-22 10:11:00">2024/03/22</span>
         </a>
         
         
@@ -495,19 +497,19 @@
         
         
         <a  class="All Coding "
-           href="/2020/09/10/cpp_2_6_%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88_2_unique_ptr/"
+           href="/2020/09/10/cpp_2_5_%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88_1_shared_ptr/"
            data-tag=""
            data-author="" >
-            <span class="post-title" title="cpp_2_6_智能指针_2_unique_ptr">cpp_2_6_智能指针_2_unique_ptr</span>
+            <span class="post-title" title="cpp_2_5_智能指针_1_shared_ptr">cpp_2_5_智能指针_1_shared_ptr</span>
             <span class="post-date" title="2020-09-10 08:00:00">2020/09/10</span>
         </a>
         
         
         <a  class="All Coding "
-           href="/2020/09/10/cpp_2_5_%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88_1_shared_ptr/"
+           href="/2020/09/10/cpp_2_6_%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88_2_unique_ptr/"
            data-tag=""
            data-author="" >
-            <span class="post-title" title="cpp_2_5_智能指针_1_shared_ptr">cpp_2_5_智能指针_1_shared_ptr</span>
+            <span class="post-title" title="cpp_2_6_智能指针_2_unique_ptr">cpp_2_6_智能指针_2_unique_ptr</span>
             <span class="post-date" title="2020-09-10 08:00:00">2020/09/10</span>
         </a>
         
@@ -675,15 +677,6 @@
         
         
         <a  class="All Coding "
-           href="/2019/12/12/Ubuntu%20%E7%B3%BB%E7%BB%9F%E8%AE%BE%E7%BD%AE/"
-           data-tag=""
-           data-author="" >
-            <span class="post-title" title="Ubuntu 系统设置">Ubuntu 系统设置</span>
-            <span class="post-date" title="2019-12-12 20:11:00">2019/12/12</span>
-        </a>
-        
-        
-        <a  class="All Coding "
            href="/2019/12/11/Data%20Analysis%20Tutorial:(Part%20I)/"
            data-tag=""
            data-author="" >
@@ -771,17 +764,6 @@
     <div class="article-meta">
         
         
-        <span id="busuanzi_container_page_pv">
-            Views 👀 :<span id="busuanzi_value_page_pv">
-                <span class="count-comment">
-                    <span class="spinner">
-                      <div class="cube1"></div>
-                      <div class="cube2"></div>
-                    </span>
-                </span>
-            </span>
-        </span>
-        
         
     </div>
     
@@ -806,12 +788,10 @@
         <h2 id="Motivation"><a href="#Motivation" class="headerlink" title="Motivation"></a>Motivation</h2><p>1.unique_ptr 独享内存资源所有权的指针<br>2.unique_ptr 实现资源所有权转移</p>
 <h2 id="unique-ptr-独享内存资源所有权的指针"><a href="#unique-ptr-独享内存资源所有权的指针" class="headerlink" title="unique_ptr 独享内存资源所有权的指针"></a>unique_ptr 独享内存资源所有权的指针</h2><blockquote>
 <p>When we write unique_ptr<A> ptr1 (new A), memory is allocated on the heap for an instance of datatype A. ptr1 is initialized and points to newly created A object. Here, ptr1 is the only owner of the newly created object A and it manages this object’s lifetime. This means that when ptr1 is reset or goes out of scope, memory is automatically deallocated and A’s object is destroyed.</p>
-</blockquote>
-<blockquote>
 <p>When ownership of resource is required. When we want single or exclusive ownership of a resource, then we should go for unique pointers. Only one unique pointer can point to one resource. So, one unique pointer cannot be copied to another. Also, it facilitates automatic cleanup when dynamically allocated objects go out of scope and helps preventing memory leaks.</p>
 </blockquote>
 <p>intuitively,<br>1.当我们采用 unique_ptr 时, 会在堆上为数据类型 A 的示例分配内存, 并且用 ptr1 指向 object.  ptr1 是 object A 的唯一所有者, 它管理该 object 的生命周期, 如果 ptr1 被重置或者超出 scope 时, 内存自动释放并且 A 被销毁.<br>2.我们想完全唯一化控制内存资源所有权的时候, 我们采用 unique_ptr. 在使用 unique_ptr时, 内存资源所有权只能发生 [移动], 而不能复制或者拷贝. 比如完成转移之后, 原有的指针会变成空指针.  </p>
-<h2 id="unique-ptr-实现资源所有权转移"><a href="#unique-ptr-实现资源所有权转移" class="headerlink" title="unique_ptr 实现资源所有权转移"></a>unique_ptr 实现资源所有权转移</h2><pre><code class="cpp">#include &lt;memory&gt;
+<h2 id="unique-ptr-实现资源所有权转移"><a href="#unique-ptr-实现资源所有权转移" class="headerlink" title="unique_ptr 实现资源所有权转移"></a>unique_ptr 实现资源所有权转移</h2><pre><code class="lang-cpp">#include &lt;memory&gt;
 #include &lt;iostream&gt;
 
 using namespace std;
@@ -917,8 +897,6 @@ int main () &#123;
 
         /*访问数量*/
         
-        $.getScript("//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js");
-        
 
         /*代码高亮，行号对齐*/
         $('.pre-numbering').css('line-height',$('.has-numbering').css('line-height'));
@@ -944,13 +922,13 @@ int main () &#123;
     
     
     .nav {
-        width: 542px;
+        width: 572px;
     }
     .nav.fullscreen {
-        margin-left: -542px;
+        margin-left: -572px;
     }
     .nav-left {
-        width: 120px;
+        width: 150px;
     }
     
     
@@ -988,19 +966,23 @@ int main () &#123;
     
     
     .nav-right .title-list nav a .post-title, .nav-right .title-list #local-search-result a .post-title {
-        color: #383636;
+        color: #000000;
     }
     
     
     .nav-right .title-list nav a .post-date, .nav-right .title-list #local-search-result a .post-date {
-        color: #5e5e5f;
+        color: #87CEFA;
     }
     
     
     .nav-right nav a.hover, #local-search-result a.hover{
-        background-color: #e2e0e0;
+        background-color: #ffffff;
     }
     
+    
+    .nav-right nav a.hover > span{
+        color: #DC143C !important;
+    }
     
 
     /*列表样式*/

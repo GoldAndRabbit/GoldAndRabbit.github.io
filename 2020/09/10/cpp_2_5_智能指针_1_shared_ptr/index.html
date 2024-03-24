@@ -32,7 +32,7 @@
 
 <link href="/css/style.css?v=1.1.0" rel="stylesheet">
 
-<link href="/css/hl_theme/github.css?v=1.1.0" rel="stylesheet">
+<link href="/css/hl_theme/atom-dark.css?v=1.1.0" rel="stylesheet">
 
 <link href="//cdn.jsdelivr.net/npm/animate.css@4.1.0/animate.min.css" rel="stylesheet">
 
@@ -187,13 +187,6 @@
     </div>
     <div>
         
-            <a class="about  hasFriend  site_url"
-               
-               href="/about">About</a>
-        
-        <a style="width: 50%"
-                
-                                           class="friends">Friends</a>
         
     </div>
 </div>
@@ -257,6 +250,15 @@
            data-author="" >
             <span class="post-title" title="G&amp;R 的 Blog 发布规范">G&amp;R 的 Blog 发布规范</span>
             <span class="post-date" title="2099-01-30 20:00:00">2099/01/30</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2024/03/22/Ubuntu%2022.04%20%E9%85%8D%E7%BD%AE/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Ubuntu 22.04 配置">Ubuntu 22.04 配置</span>
+            <span class="post-date" title="2024-03-22 10:11:00">2024/03/22</span>
         </a>
         
         
@@ -495,19 +497,19 @@
         
         
         <a  class="All Coding "
-           href="/2020/09/10/cpp_2_6_%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88_2_unique_ptr/"
+           href="/2020/09/10/cpp_2_5_%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88_1_shared_ptr/"
            data-tag=""
            data-author="" >
-            <span class="post-title" title="cpp_2_6_智能指针_2_unique_ptr">cpp_2_6_智能指针_2_unique_ptr</span>
+            <span class="post-title" title="cpp_2_5_智能指针_1_shared_ptr">cpp_2_5_智能指针_1_shared_ptr</span>
             <span class="post-date" title="2020-09-10 08:00:00">2020/09/10</span>
         </a>
         
         
         <a  class="All Coding "
-           href="/2020/09/10/cpp_2_5_%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88_1_shared_ptr/"
+           href="/2020/09/10/cpp_2_6_%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88_2_unique_ptr/"
            data-tag=""
            data-author="" >
-            <span class="post-title" title="cpp_2_5_智能指针_1_shared_ptr">cpp_2_5_智能指针_1_shared_ptr</span>
+            <span class="post-title" title="cpp_2_6_智能指针_2_unique_ptr">cpp_2_6_智能指针_2_unique_ptr</span>
             <span class="post-date" title="2020-09-10 08:00:00">2020/09/10</span>
         </a>
         
@@ -675,15 +677,6 @@
         
         
         <a  class="All Coding "
-           href="/2019/12/12/Ubuntu%20%E7%B3%BB%E7%BB%9F%E8%AE%BE%E7%BD%AE/"
-           data-tag=""
-           data-author="" >
-            <span class="post-title" title="Ubuntu 系统设置">Ubuntu 系统设置</span>
-            <span class="post-date" title="2019-12-12 20:11:00">2019/12/12</span>
-        </a>
-        
-        
-        <a  class="All Coding "
            href="/2019/12/11/Data%20Analysis%20Tutorial:(Part%20I)/"
            data-tag=""
            data-author="" >
@@ -771,17 +764,6 @@
     <div class="article-meta">
         
         
-        <span id="busuanzi_container_page_pv">
-            Views 👀 :<span id="busuanzi_value_page_pv">
-                <span class="count-comment">
-                    <span class="spinner">
-                      <div class="cube1"></div>
-                      <div class="cube2"></div>
-                    </span>
-                </span>
-            </span>
-        </span>
-        
         
     </div>
     
@@ -804,15 +786,15 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><p>1.shared_ptr 内存共用指针<br>2.shared_ptr 实现自动释放内存  </p>
-<h2 id="shared-ptr-实现内存共用"><a href="#shared-ptr-实现内存共用" class="headerlink" title="shared_ptr 实现内存共用"></a>shared_ptr 实现内存共用</h2><p>1.shared_ptr 就是共享内存的指针, 使得多个 shared_ptr 可以共同使用同一块堆内存; 在实现上, 使用的是引用计数机制, 即: 有 1 个 指向的指针放弃了堆内存的使用权, 发生引用计数-1, 也不会影响其他指向同一块内存的 shared_ptr 指针; 只有引用计数为 0 时, 堆内存才会被自动释放; 例如我们有三个 shared_ptr p1&#x2F;p2&#x2F;p3 指向同一个 Ojbect  </p>
-<pre><code class="sh">shared_ptr p1 -&gt; Ojbect
+<h2 id="shared-ptr-实现内存共用"><a href="#shared-ptr-实现内存共用" class="headerlink" title="shared_ptr 实现内存共用"></a>shared_ptr 实现内存共用</h2><p>1.shared_ptr 就是共享内存的指针, 使得多个 shared_ptr 可以共同使用同一块堆内存; 在实现上, 使用的是引用计数机制, 即: 有 1 个 指向的指针放弃了堆内存的使用权, 发生引用计数-1, 也不会影响其他指向同一块内存的 shared_ptr 指针; 只有引用计数为 0 时, 堆内存才会被自动释放; 例如我们有三个 shared_ptr p1/p2/p3 指向同一个 Ojbect  </p>
+<pre><code class="lang-sh">shared_ptr p1 -&gt; Ojbect
 shared_ptr p2 -&gt; Ojbect
 shared_ptr p3 -&gt; Ojbect
 </code></pre>
 <p>这时候这个 Object 引用计数为 3, 当指向 Object 为 0 的时候, 程序就会自动释放这个 Object, 省去我们手动 delete 的烦恼  </p>
 <p>2.初始化 shared_ptr 有两类方法:<br>(i). 使用 make_shared<T> 来初始化, 推荐使用这种方法去初始化, 因为效率更高且在 C++17 之前也更安全<br>(ii). 使用 new 关键字来初始化  </p>
 <p>初始化完之后, 就能像使用普通指针一样使用指针了;</p>
-<pre><code class="cpp">#include &lt;memory&gt;
+<pre><code class="lang-cpp">#include &lt;memory&gt;
 #include &lt;iostream&gt;
 
 using namespace std;
@@ -834,11 +816,11 @@ int main() &#123;
 &#125;
 </code></pre>
 <h2 id="shared-ptr-实现自动释放内存"><a href="#shared-ptr-实现自动释放内存" class="headerlink" title="shared_ptr 实现自动释放内存"></a>shared_ptr 实现自动释放内存</h2><p>通过一个例子去理解 shared_ptr 如何通过计数自动地创建和释放内存, 这里涉及到调用两个函数  </p>
-<pre><code class="cpp">shared_ptr&lt;int&gt; p = make_shared&lt;int&gt;();
+<pre><code class="lang-cpp">shared_ptr&lt;int&gt; p = make_shared&lt;int&gt;();
 p.use_count();  // 返回当前 shared_ptr 指向相同的所有 shared_ptr 对象的数量;
 p.reset();      // 函数没有实参数时, 该函数会使当前 shared_ptr 所指堆内存的引用计数减 1, 同时将当前对象重置为一个空指针
 </code></pre>
-<pre><code class="cpp">#include &lt;iostream&gt;
+<pre><code class="lang-cpp">#include &lt;iostream&gt;
 #include &lt;memory&gt;
 
 using namespace std;
@@ -864,7 +846,7 @@ int main() &#123;
 &#125;
 </code></pre>
 <p>输出结果</p>
-<pre><code class="sh">p1.use_count()=1
+<pre><code class="lang-sh">p1.use_count()=1
 *p2=10
 p1.use_count()=2
 p1 is nullptr
@@ -873,7 +855,7 @@ p1.use_count()=0
 p2.use_count()=1
 </code></pre>
 <p>再引入一个 oop 的例子感受下 shared_ptr</p>
-<pre><code class="cpp">#include &lt;memory&gt;
+<pre><code class="lang-cpp">#include &lt;memory&gt;
 #include &lt;iostream&gt;
 using namespace std;
 
@@ -907,7 +889,7 @@ int main () &#123;
 &#125;
 </code></pre>
 <p>输出结果</p>
-<pre><code class="sh">A ball appears.
+<pre><code class="lang-sh">A ball appears.
 p.use_count()=1
 p.use_count()=2 p2.use_count()=2
 p.use_count()=3 p2.use_count()=3 p3.use_count()=3
@@ -998,8 +980,6 @@ after p3.reset() p.use_count()=0 p2.use_count()=0 p3.use_count()=0
 
         /*访问数量*/
         
-        $.getScript("//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js");
-        
 
         /*代码高亮，行号对齐*/
         $('.pre-numbering').css('line-height',$('.has-numbering').css('line-height'));
@@ -1025,13 +1005,13 @@ after p3.reset() p.use_count()=0 p2.use_count()=0 p3.use_count()=0
     
     
     .nav {
-        width: 542px;
+        width: 572px;
     }
     .nav.fullscreen {
-        margin-left: -542px;
+        margin-left: -572px;
     }
     .nav-left {
-        width: 120px;
+        width: 150px;
     }
     
     
@@ -1069,19 +1049,23 @@ after p3.reset() p.use_count()=0 p2.use_count()=0 p3.use_count()=0
     
     
     .nav-right .title-list nav a .post-title, .nav-right .title-list #local-search-result a .post-title {
-        color: #383636;
+        color: #000000;
     }
     
     
     .nav-right .title-list nav a .post-date, .nav-right .title-list #local-search-result a .post-date {
-        color: #5e5e5f;
+        color: #87CEFA;
     }
     
     
     .nav-right nav a.hover, #local-search-result a.hover{
-        background-color: #e2e0e0;
+        background-color: #ffffff;
     }
     
+    
+    .nav-right nav a.hover > span{
+        color: #DC143C !important;
+    }
     
 
     /*列表样式*/

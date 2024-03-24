@@ -32,7 +32,7 @@
 
 <link href="/css/style.css?v=1.1.0" rel="stylesheet">
 
-<link href="/css/hl_theme/github.css?v=1.1.0" rel="stylesheet">
+<link href="/css/hl_theme/atom-dark.css?v=1.1.0" rel="stylesheet">
 
 <link href="//cdn.jsdelivr.net/npm/animate.css@4.1.0/animate.min.css" rel="stylesheet">
 
@@ -187,13 +187,6 @@
     </div>
     <div>
         
-            <a class="about  hasFriend  site_url"
-               
-               href="/about">About</a>
-        
-        <a style="width: 50%"
-                
-                                           class="friends">Friends</a>
         
     </div>
 </div>
@@ -257,6 +250,15 @@
            data-author="" >
             <span class="post-title" title="G&amp;R 的 Blog 发布规范">G&amp;R 的 Blog 发布规范</span>
             <span class="post-date" title="2099-01-30 20:00:00">2099/01/30</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2024/03/22/Ubuntu%2022.04%20%E9%85%8D%E7%BD%AE/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Ubuntu 22.04 配置">Ubuntu 22.04 配置</span>
+            <span class="post-date" title="2024-03-22 10:11:00">2024/03/22</span>
         </a>
         
         
@@ -495,19 +497,19 @@
         
         
         <a  class="All Coding "
-           href="/2020/09/10/cpp_2_6_%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88_2_unique_ptr/"
+           href="/2020/09/10/cpp_2_5_%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88_1_shared_ptr/"
            data-tag=""
            data-author="" >
-            <span class="post-title" title="cpp_2_6_智能指针_2_unique_ptr">cpp_2_6_智能指针_2_unique_ptr</span>
+            <span class="post-title" title="cpp_2_5_智能指针_1_shared_ptr">cpp_2_5_智能指针_1_shared_ptr</span>
             <span class="post-date" title="2020-09-10 08:00:00">2020/09/10</span>
         </a>
         
         
         <a  class="All Coding "
-           href="/2020/09/10/cpp_2_5_%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88_1_shared_ptr/"
+           href="/2020/09/10/cpp_2_6_%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88_2_unique_ptr/"
            data-tag=""
            data-author="" >
-            <span class="post-title" title="cpp_2_5_智能指针_1_shared_ptr">cpp_2_5_智能指针_1_shared_ptr</span>
+            <span class="post-title" title="cpp_2_6_智能指针_2_unique_ptr">cpp_2_6_智能指针_2_unique_ptr</span>
             <span class="post-date" title="2020-09-10 08:00:00">2020/09/10</span>
         </a>
         
@@ -675,15 +677,6 @@
         
         
         <a  class="All Coding "
-           href="/2019/12/12/Ubuntu%20%E7%B3%BB%E7%BB%9F%E8%AE%BE%E7%BD%AE/"
-           data-tag=""
-           data-author="" >
-            <span class="post-title" title="Ubuntu 系统设置">Ubuntu 系统设置</span>
-            <span class="post-date" title="2019-12-12 20:11:00">2019/12/12</span>
-        </a>
-        
-        
-        <a  class="All Coding "
            href="/2019/12/11/Data%20Analysis%20Tutorial:(Part%20I)/"
            data-tag=""
            data-author="" >
@@ -771,17 +764,6 @@
     <div class="article-meta">
         
         
-        <span id="busuanzi_container_page_pv">
-            Views 👀 :<span id="busuanzi_value_page_pv">
-                <span class="count-comment">
-                    <span class="spinner">
-                      <div class="cube1"></div>
-                      <div class="cube2"></div>
-                    </span>
-                </span>
-            </span>
-        </span>
-        
         
     </div>
     
@@ -803,9 +785,9 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="Oviewview"><a href="#Oviewview" class="headerlink" title="Oviewview"></a>Oviewview</h2><p>1.Pointers and references to the base class of derived objects 指向派生对象的基类的指针&#x2F;引用<br>2.Virtual Function 虚函数<br>3.Polymorphism 多态  </p>
-<h2 id="Pointers-and-references-to-the-base-class-of-derived-objects-指向派生对象的基类的指针-引用"><a href="#Pointers-and-references-to-the-base-class-of-derived-objects-指向派生对象的基类的指针-引用" class="headerlink" title="Pointers and references to the base class of derived objects 指向派生对象的基类的指针&#x2F;引用"></a>Pointers and references to the base class of derived objects 指向派生对象的基类的指针&#x2F;引用</h2><p>1.当我们构造一个派生对象的时候, 其实包括了一个基类的部分 (优先通过调用基类的构造函数), 和一个派生类的部分 (然后调用派生类的构造函数完成构造)<br>2.我们构建一个基础类和派生类, 然后分别用一个派生类的 rDerived引用 和一个指针 pDerived 指向派生类的对象  </p>
-<pre><code class="cpp">#include &lt;iostream&gt;
+        <h2 id="Oviewview"><a href="#Oviewview" class="headerlink" title="Oviewview"></a>Oviewview</h2><p>1.Pointers and references to the base class of derived objects 指向派生对象的基类的指针/引用<br>2.Virtual Function 虚函数<br>3.Polymorphism 多态  </p>
+<h2 id="Pointers-and-references-to-the-base-class-of-derived-objects-指向派生对象的基类的指针-引用"><a href="#Pointers-and-references-to-the-base-class-of-derived-objects-指向派生对象的基类的指针-引用" class="headerlink" title="Pointers and references to the base class of derived objects 指向派生对象的基类的指针/引用"></a>Pointers and references to the base class of derived objects 指向派生对象的基类的指针/引用</h2><p>1.当我们构造一个派生对象的时候, 其实包括了一个基类的部分 (优先通过调用基类的构造函数), 和一个派生类的部分 (然后调用派生类的构造函数完成构造)<br>2.我们构建一个基础类和派生类, 然后分别用一个派生类的 rDerived引用 和一个指针 pDerived 指向派生类的对象  </p>
+<pre><code class="lang-cpp">#include &lt;iostream&gt;
 #include &lt;cstring&gt;
 
 class Base &#123;
@@ -847,12 +829,12 @@ int main() &#123;
 &#125;
 </code></pre>
 <p>输出结果为</p>
-<pre><code class="sh">derived is a Derived and has value 5
+<pre><code class="lang-sh">derived is a Derived and has value 5
 rDerived is a Derived and has value 5
 pDerived is a Derived and has value 5
 </code></pre>
-<p>和上述在派生类构建引用&#x2F;指针不同, 这里我们构建一个基类的引用 (rBase) &#x2F; 指针(pBase), 指向同一个派生类的对象;</p>
-<pre><code class="cpp">#include &lt;iostream&gt;
+<p>和上述在派生类构建引用/指针不同, 这里我们构建一个基类的引用 (rBase) / 指针(pBase), 指向同一个派生类的对象;</p>
+<pre><code class="lang-cpp">#include &lt;iostream&gt;
 
 int main() &#123;
   Derived derived&#123;5&#125;;
@@ -867,13 +849,13 @@ int main() &#123;
 &#125;
 </code></pre>
 <p>输出结果如下, 想想为什么是这个输出结果?   </p>
-<pre><code class="sh">derived is a Derived and has value 5
+<pre><code class="lang-sh">derived is a Derived and has value 5
 rBase is a Base and has value 5
 pBase is a Base and has value 5
 </code></pre>
-<p>原因分析:<br>1.因为 rBase 和 pBase 是 Base 的引用和指针, 所以它们只能看到 Base 的成员; 因此, 即使 Derived::getName() 遮盖 (隐藏) Derived 对象的 Base::getName(), Base指针&#x2F;引用也看不到 Derived::getName(), 因此他们嗲用的是Base::getName(); 因此这就是为什么结果输出的是 Base 而不是 Derived.</p>
+<p>原因分析:<br>1.因为 rBase 和 pBase 是 Base 的引用和指针, 所以它们只能看到 Base 的成员; 因此, 即使 Derived::getName() 遮盖 (隐藏) Derived 对象的 Base::getName(), Base指针/引用也看不到 Derived::getName(), 因此他们嗲用的是Base::getName(); 因此这就是为什么结果输出的是 Base 而不是 Derived.</p>
 <p>我们再看一个稍微复杂一点的例子, 体会一下这种指向派生对象基类的的指针和引用: Animal作为基类, cat 和 dog 分别继承 Animal 类, 然后构建 Animal 的引用和指针指向 cat 和 dog 对象;</p>
-<pre><code class="cpp">#include &lt;iostream&gt;
+<pre><code class="lang-cpp">#include &lt;iostream&gt;
 #include &lt;string&gt;
 #include &lt;cstring&gt;
 
@@ -921,13 +903,13 @@ int main() &#123;
 &#125;
 </code></pre>
 <p>输出的结果如下, 我们想想这种基类指向派生类对象的指针的设定有什么问题 ? 先分析下结果, pAnimal 是一个基类的指针, 基类的指针只能看到 Animal类这部分的内容, 当我们调用 pAnimal -&gt; speark() 的时候, 调用的是 Animal()-&gt;speark() 而不是 Dog::Speak() 也不是 Cat::Speark() 这样的;</p>
-<pre><code class="sh">cat is named Fred, and it says Meow
+<pre><code class="lang-sh">cat is named Fred, and it says Meow
 dog is named Garbo, and it says Woof
 pAnimal is named Fred, and it says ???
 pAnimal is named Garbo, and it says ???
 </code></pre>
-<p>这里停一下回到我们本能的问题, 为什么我们非要用基类指针&#x2F;引用指向子类的对象呢 ? 有两点原因<br>(i). 如果我们希望在上面的例子上写一个函数, 实现打印猫和狗的 name 和 speak(), 那么就需要增加 2 个函数</p>
-<pre><code class="cpp">void report(const Cat&amp; cat) &#123;
+<p>这里停一下回到我们本能的问题, 为什么我们非要用基类指针/引用指向子类的对象呢 ? 有两点原因<br>(i). 如果我们希望在上面的例子上写一个函数, 实现打印猫和狗的 name 和 speak(), 那么就需要增加 2 个函数</p>
+<pre><code class="lang-cpp">void report(const Cat&amp; cat) &#123;
   std::cout &lt;&lt; cat.getName() &lt;&lt; &quot; says &quot; &lt;&lt; cat.speak() &lt;&lt; &#39;\n&#39;;
 &#125;
 void report(const Dog&amp; dog) &#123;
@@ -935,12 +917,12 @@ void report(const Dog&amp; dog) &#123;
 &#125;
 </code></pre>
 <p>如果我们在此基础上想增加30个动物呢 ? 那么我们需要增加 30 个函数, 显然增加的 30个动物这个函数写在基类不是很好吗? 所以这个函数一定是建立在基类之上的一个函数, 比如说如下的函数;</p>
-<pre><code class="cpp">void report(const Animal&amp; rAnimal) &#123;
+<pre><code class="lang-cpp">void report(const Animal&amp; rAnimal) &#123;
   std::cout &lt;&lt; rAnimal.getName() &lt;&lt; &quot; says &quot; &lt;&lt; rAnimal.speak() &lt;&lt; &#39;\n&#39;;
 &#125;
 </code></pre>
 <p>修改一下代码</p>
-<pre><code class="cpp">#include &lt;iostream&gt;
+<pre><code class="lang-cpp">#include &lt;iostream&gt;
 #include &lt;string&gt;
 #include &lt;cstring&gt;
 
@@ -989,20 +971,16 @@ int main() &#123;
 &#125;
 </code></pre>
 <p>输出结果如下, 显然这个不能满足我们的需求, 这时候就要引入一种新的机制 virtual function;</p>
-<pre><code class="sh">Fred says ???
+<pre><code class="lang-sh">Fred says ???
 Garbo says ???
 </code></pre>
 <h2 id="Virtual-Function-虚函数"><a href="#Virtual-Function-虚函数" class="headerlink" title="Virtual Function 虚函数"></a>Virtual Function 虚函数</h2><blockquote>
 <p>A virtual function is a special type of member function that, when called, resolves to the most-derived version of the function for the actual type of the object being referenced or pointed to.</p>
-</blockquote>
-<blockquote>
 <p>A derived function is considered a match if it has the same signature (name, parameter types, and whether it is const) and return type as the base version of the function. Such functions are called overrides.</p>
-</blockquote>
-<blockquote>
 <p>To make a function virtual, simply place the “virtual” keyword before the function declaration.</p>
 </blockquote>
 <p>intuitively,<br>1.虚函数是一种特殊的成员函数, 在函数调用时, 它会解析为引用或指向的对象的函数的”最派生的版本”, 也就是”最子类的版本”, 可以理解为一种运行期间的动态的函数重写<br>2.派生函数根据基类函数在有着相同的函数签名 (函数名称, 参数类型, 是否const) 的条件下进行匹配, 然后调用一个覆盖基的函数版本<br>3.cpp中, 如果想声明一个函数虚函数, 只需要在函数前面增加 virtual 关键字  </p>
-<pre><code class="cpp">#include &lt;iostream&gt;
+<pre><code class="lang-cpp">#include &lt;iostream&gt;
 #include &lt;string_view&gt;
 
 class Base &#123;
@@ -1027,7 +1005,7 @@ int main() &#123;
 &#125;
 </code></pre>
 <p>再看一个比较复杂的例子</p>
-<pre><code class="cpp">#include &lt;iostream&gt;
+<pre><code class="lang-cpp">#include &lt;iostream&gt;
 #include &lt;cstring&gt;
 
 class A &#123;
@@ -1066,24 +1044,18 @@ int main() &#123;
 &#125;
 </code></pre>
 <p>输出结果为</p>
-<pre><code class="sh">rBase is a C
+<pre><code class="lang-sh">rBase is a C
 </code></pre>
 <p>原因分析:<br>(i). 首先我们实例化一个 C 类对象.<br>(ii). 声明 rBase , 它是一个 A 引用, 我们将其设置为引用 C 对象的 A 部分.<br>(iii). 最后, 我们调用 rBase.getName(). rBase.getName() 计算结果为 A::getName(). 然而, A::getName() 是虚拟的, 因此编译器将调用 A 和 C 之间”最派生”的匹配. 在本例中, 即 C::getName().<br>(iv). 注意, 它不会调用 D::getName(), 因为我们的原始对象是 C, 而不是 D, 因此只考虑 A 和 C 之间的函数  </p>
 <h2 id="Polymorphism-多态"><a href="#Polymorphism-多态" class="headerlink" title="Polymorphism 多态"></a>Polymorphism 多态</h2><blockquote>
 <p>Polymorphism refers to the ability of an entity to have multiple forms (the term “polymorphism” literally means “many forms”).</p>
-</blockquote>
-<blockquote>
 <p>Polimorphsim Definition from wiki: In programming language theory and type theory, polymorphism is the provision of a single interface to entities of different types or the use of a single symbol to represent multiple different types. The concept is borrowed from a principle in biology where an organism or species can have many different forms or stages.</p>
-</blockquote>
-<blockquote>
 <p>Compile-time polymorphism refers to forms of polymorphism that are resolved by the compiler. These include function overload resolution, as well as template resolution.</p>
-</blockquote>
-<blockquote>
 <p>Runtime polymorphism refers to forms of polymorphism that are resolved at runtime. This includes virtual function resolution.</p>
 </blockquote>
 <p>intuitively<br>1.多态指的是实体具备多种形态； Polimorphsim 来自 wiki 的定义：在编程语言理论和类型理论中，多态性是为不同类型的实体提供单一接口或使用单一符号来表示多个不同类型. 这个概念借用了生物学的原理，有机体或物种可以有许多不同的形式或阶段.<br>2.多态分为两种, 一种是编译器的多态, 一种是运行期的多态;<br>3.编译期的多态: 通过编译器解析的一种多态, 其中典型的例子是函数重载的解析和模板的解析;<br>4.运行期的多态: 运行时解析的一种多态, 虚函数就是一种典型的运行期多态;</p>
 <p>我们理解了多态的含义, 再看下之前猫狗继承动物调用 speak() 的这个例子, 理解如何使用多态去更灵活地组织代码:</p>
-<pre><code class="cpp">#include &lt;iostream&gt;
+<pre><code class="lang-cpp">#include &lt;iostream&gt;
 #include &lt;string&gt;
 #include &lt;cstring&gt;
 
@@ -1133,11 +1105,11 @@ int main() &#123;
 &#125;
 </code></pre>
 <p>输出结果如下, 多态性的存在帮我们更好地组织了代码;</p>
-<pre><code class="sh">Fred says Meow
+<pre><code class="lang-sh">Fred says Meow
 Garbo says Woof
 </code></pre>
 <p>我们再看一个利用多态计算图形面积的的例子, 一个基类是 shape , 子类是 rectangle 和 triangle , 基类的指针可以在运行期间动态地绑定各种子类的对象, 然后输出 shape 指针的当前的面积值;</p>
-<pre><code class="cpp">#include &lt;iostream&gt;
+<pre><code class="lang-cpp">#include &lt;iostream&gt;
 
 class Shape &#123;
  protected:
@@ -1186,7 +1158,7 @@ int main() &#123;
 &#125;
 </code></pre>
 <h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ol>
-<li><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Polymorphism_(computer_science)">https://en.wikipedia.org/wiki/Polymorphism_(computer_science)</a></li>
+<li><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Polymorphism_(computer_science">https://en.wikipedia.org/wiki/Polymorphism_(computer_science</a>)</li>
 </ol>
 
       
@@ -1270,8 +1242,6 @@ int main() &#123;
 
         /*访问数量*/
         
-        $.getScript("//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js");
-        
 
         /*代码高亮，行号对齐*/
         $('.pre-numbering').css('line-height',$('.has-numbering').css('line-height'));
@@ -1297,13 +1267,13 @@ int main() &#123;
     
     
     .nav {
-        width: 542px;
+        width: 572px;
     }
     .nav.fullscreen {
-        margin-left: -542px;
+        margin-left: -572px;
     }
     .nav-left {
-        width: 120px;
+        width: 150px;
     }
     
     
@@ -1341,19 +1311,23 @@ int main() &#123;
     
     
     .nav-right .title-list nav a .post-title, .nav-right .title-list #local-search-result a .post-title {
-        color: #383636;
+        color: #000000;
     }
     
     
     .nav-right .title-list nav a .post-date, .nav-right .title-list #local-search-result a .post-date {
-        color: #5e5e5f;
+        color: #87CEFA;
     }
     
     
     .nav-right nav a.hover, #local-search-result a.hover{
-        background-color: #e2e0e0;
+        background-color: #ffffff;
     }
     
+    
+    .nav-right nav a.hover > span{
+        color: #DC143C !important;
+    }
     
 
     /*列表样式*/

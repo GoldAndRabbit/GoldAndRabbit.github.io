@@ -32,7 +32,7 @@
 
 <link href="/css/style.css?v=1.1.0" rel="stylesheet">
 
-<link href="/css/hl_theme/github.css?v=1.1.0" rel="stylesheet">
+<link href="/css/hl_theme/atom-dark.css?v=1.1.0" rel="stylesheet">
 
 <link href="//cdn.jsdelivr.net/npm/animate.css@4.1.0/animate.min.css" rel="stylesheet">
 
@@ -187,13 +187,6 @@
     </div>
     <div>
         
-            <a class="about  hasFriend  site_url"
-               
-               href="/about">About</a>
-        
-        <a style="width: 50%"
-                
-                                           class="friends">Friends</a>
         
     </div>
 </div>
@@ -257,6 +250,15 @@
            data-author="" >
             <span class="post-title" title="G&amp;R 的 Blog 发布规范">G&amp;R 的 Blog 发布规范</span>
             <span class="post-date" title="2099-01-30 20:00:00">2099/01/30</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2024/03/22/Ubuntu%2022.04%20%E9%85%8D%E7%BD%AE/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Ubuntu 22.04 配置">Ubuntu 22.04 配置</span>
+            <span class="post-date" title="2024-03-22 10:11:00">2024/03/22</span>
         </a>
         
         
@@ -495,19 +497,19 @@
         
         
         <a  class="All Coding "
-           href="/2020/09/10/cpp_2_6_%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88_2_unique_ptr/"
+           href="/2020/09/10/cpp_2_5_%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88_1_shared_ptr/"
            data-tag=""
            data-author="" >
-            <span class="post-title" title="cpp_2_6_智能指针_2_unique_ptr">cpp_2_6_智能指针_2_unique_ptr</span>
+            <span class="post-title" title="cpp_2_5_智能指针_1_shared_ptr">cpp_2_5_智能指针_1_shared_ptr</span>
             <span class="post-date" title="2020-09-10 08:00:00">2020/09/10</span>
         </a>
         
         
         <a  class="All Coding "
-           href="/2020/09/10/cpp_2_5_%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88_1_shared_ptr/"
+           href="/2020/09/10/cpp_2_6_%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88_2_unique_ptr/"
            data-tag=""
            data-author="" >
-            <span class="post-title" title="cpp_2_5_智能指针_1_shared_ptr">cpp_2_5_智能指针_1_shared_ptr</span>
+            <span class="post-title" title="cpp_2_6_智能指针_2_unique_ptr">cpp_2_6_智能指针_2_unique_ptr</span>
             <span class="post-date" title="2020-09-10 08:00:00">2020/09/10</span>
         </a>
         
@@ -675,15 +677,6 @@
         
         
         <a  class="All Coding "
-           href="/2019/12/12/Ubuntu%20%E7%B3%BB%E7%BB%9F%E8%AE%BE%E7%BD%AE/"
-           data-tag=""
-           data-author="" >
-            <span class="post-title" title="Ubuntu 系统设置">Ubuntu 系统设置</span>
-            <span class="post-date" title="2019-12-12 20:11:00">2019/12/12</span>
-        </a>
-        
-        
-        <a  class="All Coding "
            href="/2019/12/11/Data%20Analysis%20Tutorial:(Part%20I)/"
            data-tag=""
            data-author="" >
@@ -771,17 +764,6 @@
     <div class="article-meta">
         
         
-        <span id="busuanzi_container_page_pv">
-            Views 👀 :<span id="busuanzi_value_page_pv">
-                <span class="count-comment">
-                    <span class="spinner">
-                      <div class="cube1"></div>
-                      <div class="cube2"></div>
-                    </span>
-                </span>
-            </span>
-        </span>
-        
         
     </div>
     
@@ -810,24 +792,24 @@
 <ul>
 <li>无需重新安装, 添加命令</li>
 </ul>
-<pre><code class="sh">export LD_PRELOAD=/&lt;option your path&gt;/anaconda2/lib/libmkl_rt.so
+<pre><code class="lang-sh">export LD_PRELOAD=/&lt;option your path&gt;/anaconda2/lib/libmkl_rt.so
 </code></pre>
-<p>到~&#x2F;.bashrc中</p>
+<p>到~/.bashrc中</p>
 <ul>
 <li>问题: 是因为环境配置过程中mkl库与其他库的依赖关系出现混乱导致的, 即mkl动态库对应有多处路径</li>
 <li>LD_PRELOAD是个环境变量, 用于动态库的加载, 动态库加载的优先级最高, 一般情况下, 其加载顺序为</li>
 </ul>
-<pre><code class="sh">LD_PRELOAD &gt; LD_LIBRARY_PATH &gt; /etc/ld.so.cache&gt; /lib &gt; /usr/lib 
+<pre><code class="lang-sh">LD_PRELOAD &gt; LD_LIBRARY_PATH &gt; /etc/ld.so.cache&gt; /lib &gt; /usr/lib
 </code></pre>
-<p>因此使用最高级别的直接指定, 由于是anaconda中的python内部报错, 所以指定anaconda&#x2F;lib</p>
+<p>因此使用最高级别的直接指定, 由于是anaconda中的python内部报错, 所以指定anaconda/lib</p>
 <p>报错如下</p>
-<pre><code class="python">OverflowError: cannot serialize a bytes object larger than 4 GiB
+<pre><code class="lang-python">OverflowError: cannot serialize a bytes object larger than 4 GiB
 解决方法
 </code></pre>
-<h2 id="pickle-dump-OverflowError"><a href="#pickle-dump-OverflowError" class="headerlink" title="pickle dump OverflowError"></a>pickle dump OverflowError</h2><pre><code class="python">pickle.dump(d, open(&quot;file&quot;, &#39;w&#39;), protocol=4)
+<h2 id="pickle-dump-OverflowError"><a href="#pickle-dump-OverflowError" class="headerlink" title="pickle dump OverflowError"></a>pickle dump OverflowError</h2><pre><code class="lang-python">pickle.dump(d, open(&quot;file&quot;, &#39;w&#39;), protocol=4)
 </code></pre>
 <p>官方文档</p>
-<pre><code class="python">Protocol version 0 is the original “human-readable” protocol and is backwards compatible with earlier versions of Python.
+<pre><code class="lang-python">Protocol version 0 is the original “human-readable” protocol and is backwards compatible with earlier versions of Python.
 Protocol version 1 is an old binary format which is also compatible with earlier versions of Python.
 Protocol version 2 was introduced in Python 2.3. It provides much more efficient pickling of new-style classes. Refer to PEP 307 for information about improvements brought by protocol 2.
 Protocol version 3 was added in Python 3.0. It has explicit support for bytes objects and cannot be unpickled by Python 2.x. This is the default protocol, and the recommended protocol when compatibility with other Python 3 versions is required.
@@ -918,8 +900,6 @@ Protocol version 4 was added in Python 3.4. It adds support for very large objec
 
         /*访问数量*/
         
-        $.getScript("//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js");
-        
 
         /*代码高亮，行号对齐*/
         $('.pre-numbering').css('line-height',$('.has-numbering').css('line-height'));
@@ -945,13 +925,13 @@ Protocol version 4 was added in Python 3.4. It adds support for very large objec
     
     
     .nav {
-        width: 542px;
+        width: 572px;
     }
     .nav.fullscreen {
-        margin-left: -542px;
+        margin-left: -572px;
     }
     .nav-left {
-        width: 120px;
+        width: 150px;
     }
     
     
@@ -989,19 +969,23 @@ Protocol version 4 was added in Python 3.4. It adds support for very large objec
     
     
     .nav-right .title-list nav a .post-title, .nav-right .title-list #local-search-result a .post-title {
-        color: #383636;
+        color: #000000;
     }
     
     
     .nav-right .title-list nav a .post-date, .nav-right .title-list #local-search-result a .post-date {
-        color: #5e5e5f;
+        color: #87CEFA;
     }
     
     
     .nav-right nav a.hover, #local-search-result a.hover{
-        background-color: #e2e0e0;
+        background-color: #ffffff;
     }
     
+    
+    .nav-right nav a.hover > span{
+        color: #DC143C !important;
+    }
     
 
     /*列表样式*/

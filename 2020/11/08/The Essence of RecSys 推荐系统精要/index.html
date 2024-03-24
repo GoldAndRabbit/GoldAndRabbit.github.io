@@ -32,7 +32,7 @@
 
 <link href="/css/style.css?v=1.1.0" rel="stylesheet">
 
-<link href="/css/hl_theme/github.css?v=1.1.0" rel="stylesheet">
+<link href="/css/hl_theme/atom-dark.css?v=1.1.0" rel="stylesheet">
 
 <link href="//cdn.jsdelivr.net/npm/animate.css@4.1.0/animate.min.css" rel="stylesheet">
 
@@ -187,13 +187,6 @@
     </div>
     <div>
         
-            <a class="about  hasFriend  site_url"
-               
-               href="/about">About</a>
-        
-        <a style="width: 50%"
-                
-                                           class="friends">Friends</a>
         
     </div>
 </div>
@@ -257,6 +250,15 @@
            data-author="" >
             <span class="post-title" title="G&amp;R 的 Blog 发布规范">G&amp;R 的 Blog 发布规范</span>
             <span class="post-date" title="2099-01-30 20:00:00">2099/01/30</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2024/03/22/Ubuntu%2022.04%20%E9%85%8D%E7%BD%AE/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Ubuntu 22.04 配置">Ubuntu 22.04 配置</span>
+            <span class="post-date" title="2024-03-22 10:11:00">2024/03/22</span>
         </a>
         
         
@@ -495,19 +497,19 @@
         
         
         <a  class="All Coding "
-           href="/2020/09/10/cpp_2_6_%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88_2_unique_ptr/"
+           href="/2020/09/10/cpp_2_5_%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88_1_shared_ptr/"
            data-tag=""
            data-author="" >
-            <span class="post-title" title="cpp_2_6_智能指针_2_unique_ptr">cpp_2_6_智能指针_2_unique_ptr</span>
+            <span class="post-title" title="cpp_2_5_智能指针_1_shared_ptr">cpp_2_5_智能指针_1_shared_ptr</span>
             <span class="post-date" title="2020-09-10 08:00:00">2020/09/10</span>
         </a>
         
         
         <a  class="All Coding "
-           href="/2020/09/10/cpp_2_5_%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88_1_shared_ptr/"
+           href="/2020/09/10/cpp_2_6_%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88_2_unique_ptr/"
            data-tag=""
            data-author="" >
-            <span class="post-title" title="cpp_2_5_智能指针_1_shared_ptr">cpp_2_5_智能指针_1_shared_ptr</span>
+            <span class="post-title" title="cpp_2_6_智能指针_2_unique_ptr">cpp_2_6_智能指针_2_unique_ptr</span>
             <span class="post-date" title="2020-09-10 08:00:00">2020/09/10</span>
         </a>
         
@@ -675,15 +677,6 @@
         
         
         <a  class="All Coding "
-           href="/2019/12/12/Ubuntu%20%E7%B3%BB%E7%BB%9F%E8%AE%BE%E7%BD%AE/"
-           data-tag=""
-           data-author="" >
-            <span class="post-title" title="Ubuntu 系统设置">Ubuntu 系统设置</span>
-            <span class="post-date" title="2019-12-12 20:11:00">2019/12/12</span>
-        </a>
-        
-        
-        <a  class="All Coding "
            href="/2019/12/11/Data%20Analysis%20Tutorial:(Part%20I)/"
            data-tag=""
            data-author="" >
@@ -771,17 +764,6 @@
     <div class="article-meta">
         
         
-        <span id="busuanzi_container_page_pv">
-            Views 👀 :<span id="busuanzi_value_page_pv">
-                <span class="count-comment">
-                    <span class="spinner">
-                      <div class="cube1"></div>
-                      <div class="cube2"></div>
-                    </span>
-                </span>
-            </span>
-        </span>
-        
         
     </div>
     
@@ -819,10 +801,10 @@
 <h2 id="召回-Match"><a href="#召回-Match" class="headerlink" title="召回 Match"></a>召回 Match</h2><p>召回决定了推荐系统效果的天花板, 召回的目标是丰富且有效, 召回环节质量过低则排序无从谈起; 值得注意的是, 召回的结果是丰富和有效之间的一种trade off.  </p>
 <p>丰富: 丰富有两个层面的目标<br>  1.召回宽度, 算法”见世面”的能力.<br>  2.召回深度, 算法”以点带面”的能力.  </p>
 <p>有效: 在保证丰富性的情况下, 相关性不能太低  </p>
-<p>召回的层次与融合: 召回结果的相关性和发现性是另一对需要被平衡的trade off.<br>  相关性：      U2I         &gt;&#x3D; U2I2I &gt;&#x3D; U2X2I&#x2F;other  </p>
-<p>  新颖性&#x2F;发现性: U2X2I&#x2F;other &gt;&#x3D; U2I2I &gt;&#x3D; U2I  </p>
+<p>召回的层次与融合: 召回结果的相关性和发现性是另一对需要被平衡的trade off.<br>  相关性：      U2I         &gt;= U2I2I &gt;= U2X2I/other  </p>
+<p>  新颖性/发现性: U2X2I/other &gt;= U2I2I &gt;= U2I  </p>
 <h3 id="item-based-CF的四宗罪和不放弃它的原因"><a href="#item-based-CF的四宗罪和不放弃它的原因" class="headerlink" title="item-based CF的四宗罪和不放弃它的原因"></a>item-based CF的四宗罪和不放弃它的原因</h3><p>原始的item-based CF存在以下问题<br>1.聚集性: 哈利波特天天见, 建模物品相关关系时, 向热门商品或者具有高频行为的用户聚集, 故需要显示地进行热门物品或者热门用户的打压.  </p>
-<p>2.无向性: 从你到我 !&#x3D; 从我到你. co-currence建模不具备方向性, 因此对任意关系统计, 两个item之间的作用相等，但在实际业务中往往物品体系之间存在一定逻辑结构. 例如存在推荐结果: trigger: “iphone12” &#x3D;&gt; rec_result: “iphone12手机壳”  </p>
+<p>2.无向性: 从你到我 != 从我到你. co-currence建模不具备方向性, 因此对任意关系统计, 两个item之间的作用相等，但在实际业务中往往物品体系之间存在一定逻辑结构. 例如存在推荐结果: trigger: “iphone12” =&gt; rec_result: “iphone12手机壳”  </p>
 <p>3.有偏性: 存在即合理，不存在就不合理? 实际业务中存在较多的  </p>
 <p>4.失准性: 脑洞  </p>
 <p>不放弃 item-CF 的原因  </p>
@@ -845,11 +827,12 @@
 <img src="https://s3.ax1x.com/2020/12/13/rm3aDg.png" style="display: inline-block;" width="400"/>
 </div>
 
-<h2 id="多任务-多目标学习-Multi-Task-Multi-Objective"><a href="#多任务-多目标学习-Multi-Task-Multi-Objective" class="headerlink" title="多任务&#x2F;多目标学习 Multi-Task&#x2F;Multi-Objective"></a>多任务&#x2F;多目标学习 Multi-Task&#x2F;Multi-Objective</h2><p>相关性</p>
+<h2 id="多任务-多目标学习-Multi-Task-Multi-Objective"><a href="#多任务-多目标学习-Multi-Task-Multi-Objective" class="headerlink" title="多任务/多目标学习 Multi-Task/Multi-Objective"></a>多任务/多目标学习 Multi-Task/Multi-Objective</h2><p>相关性</p>
 <h2 id="冷启动-Cold-Start"><a href="#冷启动-Cold-Start" class="headerlink" title="冷启动 Cold Start"></a>冷启动 Cold Start</h2><h2 id="质量保证-Quality"><a href="#质量保证-Quality" class="headerlink" title="质量保证 Quality"></a>质量保证 Quality</h2><h3 id="核心项目必须指定唯一PM"><a href="#核心项目必须指定唯一PM" class="headerlink" title="核心项目必须指定唯一PM"></a>核心项目必须指定唯一PM</h3><p>唯一PM对所有线上问题负责，必须熟悉项目背景和方案实现细节, 时刻把控项目迭代过程中的维护CheckList;  </p>
 <h3 id="CheckList维护"><a href="#CheckList维护" class="headerlink" title="CheckList维护"></a>CheckList维护</h3><p>为什么CheckList? 质量保证的作用在于: 去除软件系统对于“工程师对于质量的细心程度和对于系统的熟悉程度”依赖, 换句话说: 通过检查机制实现项目质量, 永远不依赖工程师的”意识”、”责任感”、”经验”或者”细心习惯”检查问题；  </p>
 <p>CheckList 的迭代过程: 从需求文档开始构建v1.0版本CheckList, 测试开始之前进行更新，直到上线前持续更新;  </p>
 <p>CheckList 样例模板(更新中…)</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -860,28 +843,31 @@
 <th>latest check time</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>1</td>
 <td>过滤虚拟类目商品</td>
 <td>张三</td>
-<td>1.投放禁用虚拟类目配置id:9527  2.实时召回过滤逻辑,code:<a target="_blank" rel="noopener" href="http://git@gitlab.com/">http://git@gitlab.com</a></td>
+<td>1.投放禁用虚拟类目配置id:9527  2.实时召回过滤逻辑,code:<a href="&#x6d;&#x61;&#105;&#x6c;&#116;&#x6f;&#58;&#x68;&#116;&#116;&#x70;&#x3a;&#47;&#x2f;&#103;&#105;&#116;&#64;&#x67;&#x69;&#x74;&#108;&#x61;&#98;&#x2e;&#x63;&#111;&#x6d;">&#x68;&#116;&#116;&#x70;&#x3a;&#47;&#x2f;&#103;&#105;&#116;&#64;&#x67;&#x69;&#x74;&#108;&#x61;&#98;&#x2e;&#x63;&#111;&#x6d;</a></td>
 <td>2020-10-10-15:30</td>
 </tr>
 <tr>
 <td>2</td>
 <td>过滤预售商品</td>
 <td>李四</td>
-<td>1.投放禁用预售配置id:9528  2.实时召回过滤逻辑,code:<a target="_blank" rel="noopener" href="http://git@gitlab.com/">http://git@gitlab.com</a></td>
+<td>1.投放禁用预售配置id:9528  2.实时召回过滤逻辑,code:<a href="&#109;&#97;&#x69;&#108;&#116;&#x6f;&#x3a;&#104;&#x74;&#x74;&#112;&#58;&#47;&#47;&#x67;&#x69;&#116;&#64;&#103;&#x69;&#116;&#108;&#x61;&#98;&#x2e;&#x63;&#x6f;&#109;">&#104;&#x74;&#x74;&#112;&#58;&#47;&#47;&#x67;&#x69;&#116;&#64;&#103;&#x69;&#116;&#108;&#x61;&#98;&#x2e;&#x63;&#x6f;&#109;</a></td>
 <td>2020-10-10-16:30</td>
 </tr>
 <tr>
 <td>3</td>
 <td>过滤黑名单商品</td>
 <td>李四</td>
-<td>1.投放禁用黑名单配置id:9529  2.实时召回过滤逻辑,code:<a target="_blank" rel="noopener" href="http://git@gitlab.com/">http://git@gitlab.com</a></td>
+<td>1.投放禁用黑名单配置id:9529  2.实时召回过滤逻辑,code:<a href="&#x6d;&#x61;&#x69;&#x6c;&#116;&#x6f;&#x3a;&#x68;&#x74;&#116;&#112;&#58;&#47;&#x2f;&#103;&#x69;&#116;&#64;&#x67;&#105;&#116;&#108;&#97;&#x62;&#46;&#99;&#111;&#x6d;">&#x68;&#x74;&#116;&#112;&#58;&#47;&#x2f;&#103;&#x69;&#116;&#64;&#x67;&#105;&#116;&#108;&#97;&#x62;&#46;&#99;&#111;&#x6d;</a></td>
 <td>2020-10-10-16:50</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <h3 id="足够及时的Review"><a href="#足够及时的Review" class="headerlink" title="足够及时的Review"></a>足够及时的Review</h3><p>Review 的进行间不能超过3天，一般为线上问题发生当天之后第二天最合适。当天或当天后一天需要专注于处理线上问题保证问题第一时间得到解决，及时当天问题得到解决，也需要给工程师一个缓冲的时间冷静下来思考为什么会产生这样的原因。 </p>
 <p>Review先要对问题进行分类，是在哪个环节出了问题？在测试过程中哪个环节没有测试到？  </p>
 
@@ -966,8 +952,6 @@
 
         /*访问数量*/
         
-        $.getScript("//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js");
-        
 
         /*代码高亮，行号对齐*/
         $('.pre-numbering').css('line-height',$('.has-numbering').css('line-height'));
@@ -993,13 +977,13 @@
     
     
     .nav {
-        width: 542px;
+        width: 572px;
     }
     .nav.fullscreen {
-        margin-left: -542px;
+        margin-left: -572px;
     }
     .nav-left {
-        width: 120px;
+        width: 150px;
     }
     
     
@@ -1037,19 +1021,23 @@
     
     
     .nav-right .title-list nav a .post-title, .nav-right .title-list #local-search-result a .post-title {
-        color: #383636;
+        color: #000000;
     }
     
     
     .nav-right .title-list nav a .post-date, .nav-right .title-list #local-search-result a .post-date {
-        color: #5e5e5f;
+        color: #87CEFA;
     }
     
     
     .nav-right nav a.hover, #local-search-result a.hover{
-        background-color: #e2e0e0;
+        background-color: #ffffff;
     }
     
+    
+    .nav-right nav a.hover > span{
+        color: #DC143C !important;
+    }
     
 
     /*列表样式*/

@@ -32,7 +32,7 @@
 
 <link href="/css/style.css?v=1.1.0" rel="stylesheet">
 
-<link href="/css/hl_theme/github.css?v=1.1.0" rel="stylesheet">
+<link href="/css/hl_theme/atom-dark.css?v=1.1.0" rel="stylesheet">
 
 <link href="//cdn.jsdelivr.net/npm/animate.css@4.1.0/animate.min.css" rel="stylesheet">
 
@@ -187,13 +187,6 @@
     </div>
     <div>
         
-            <a class="about  hasFriend  site_url"
-               
-               href="/about">About</a>
-        
-        <a style="width: 50%"
-                
-                                           class="friends">Friends</a>
         
     </div>
 </div>
@@ -257,6 +250,15 @@
            data-author="" >
             <span class="post-title" title="G&amp;R 的 Blog 发布规范">G&amp;R 的 Blog 发布规范</span>
             <span class="post-date" title="2099-01-30 20:00:00">2099/01/30</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2024/03/22/Ubuntu%2022.04%20%E9%85%8D%E7%BD%AE/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Ubuntu 22.04 配置">Ubuntu 22.04 配置</span>
+            <span class="post-date" title="2024-03-22 10:11:00">2024/03/22</span>
         </a>
         
         
@@ -495,19 +497,19 @@
         
         
         <a  class="All Coding "
-           href="/2020/09/10/cpp_2_6_%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88_2_unique_ptr/"
+           href="/2020/09/10/cpp_2_5_%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88_1_shared_ptr/"
            data-tag=""
            data-author="" >
-            <span class="post-title" title="cpp_2_6_智能指针_2_unique_ptr">cpp_2_6_智能指针_2_unique_ptr</span>
+            <span class="post-title" title="cpp_2_5_智能指针_1_shared_ptr">cpp_2_5_智能指针_1_shared_ptr</span>
             <span class="post-date" title="2020-09-10 08:00:00">2020/09/10</span>
         </a>
         
         
         <a  class="All Coding "
-           href="/2020/09/10/cpp_2_5_%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88_1_shared_ptr/"
+           href="/2020/09/10/cpp_2_6_%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88_2_unique_ptr/"
            data-tag=""
            data-author="" >
-            <span class="post-title" title="cpp_2_5_智能指针_1_shared_ptr">cpp_2_5_智能指针_1_shared_ptr</span>
+            <span class="post-title" title="cpp_2_6_智能指针_2_unique_ptr">cpp_2_6_智能指针_2_unique_ptr</span>
             <span class="post-date" title="2020-09-10 08:00:00">2020/09/10</span>
         </a>
         
@@ -675,15 +677,6 @@
         
         
         <a  class="All Coding "
-           href="/2019/12/12/Ubuntu%20%E7%B3%BB%E7%BB%9F%E8%AE%BE%E7%BD%AE/"
-           data-tag=""
-           data-author="" >
-            <span class="post-title" title="Ubuntu 系统设置">Ubuntu 系统设置</span>
-            <span class="post-date" title="2019-12-12 20:11:00">2019/12/12</span>
-        </a>
-        
-        
-        <a  class="All Coding "
            href="/2019/12/11/Data%20Analysis%20Tutorial:(Part%20I)/"
            data-tag=""
            data-author="" >
@@ -771,17 +764,6 @@
     <div class="article-meta">
         
         
-        <span id="busuanzi_container_page_pv">
-            Views 👀 :<span id="busuanzi_value_page_pv">
-                <span class="count-comment">
-                    <span class="spinner">
-                      <div class="cube1"></div>
-                      <div class="cube2"></div>
-                    </span>
-                </span>
-            </span>
-        </span>
-        
         
     </div>
     
@@ -805,15 +787,15 @@
       
         <h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><p>1.vscode cpp 配置<br>2.配置 launch.json<br>3.配置 tasks.json<br>4.配置 settings.json<br>5.配置 c_cpp_proterties.json</p>
 <h2 id="vscode-配置"><a href="#vscode-配置" class="headerlink" title="vscode 配置"></a>vscode 配置</h2><p>1.准备一个 .cpp 文件  </p>
-<pre><code class="cpp">#include &lt;iostream&gt;
+<pre><code class="lang-cpp">#include &lt;iostream&gt;
 using namespace std;
 int main () &#123;
   cout &lt;&lt; &quot;hello world&quot; &lt;&lt; endl;
   return 0;
 &#125;
 </code></pre>
-<p>2.左侧栏进入 Run and Debug, 选择 C++(GDB&#x2F;LLDB), 选择 g++ 生成和调试活动文件, 也就是编译器: &#x2F;usr&#x2F;bing&#x2F;g++, 参考下面 launch.json&#x2F;task.json去直接配置<br>3.shift+cmd+p edit configurations (JSON), 参考配置文件见下方 </p>
-<h2 id="配置-launch-json"><a href="#配置-launch-json" class="headerlink" title="配置 launch.json"></a>配置 launch.json</h2><pre><code class="json">&#123;
+<p>2.左侧栏进入 Run and Debug, 选择 C++(GDB/LLDB), 选择 g++ 生成和调试活动文件, 也就是编译器: /usr/bing/g++, 参考下面 launch.json/task.json去直接配置<br>3.shift+cmd+p edit configurations (JSON), 参考配置文件见下方 </p>
+<h2 id="配置-launch-json"><a href="#配置-launch-json" class="headerlink" title="配置 launch.json"></a>配置 launch.json</h2><pre><code class="lang-json">&#123;
   &quot;version&quot;: &quot;0.2.0&quot;,
   &quot;configurations&quot;: [
     &#123;
@@ -844,11 +826,11 @@ int main () &#123;
 <h2 id="配置-tasks-json"><a href="#配置-tasks-json" class="headerlink" title="配置 tasks.json"></a>配置 tasks.json</h2><p>for OSX, 在args里面设置了执行参数</p>
 <ul>
 <li>不想生成.DYSM文件, 需要删除args里面”-g”参数</li>
-<li>换用 cpp 11: 设置args里面”-std&#x3D;c++11”</li>
-<li>设置生成的二进制文件放在.bin下面设置args里面”${fileDirname}&#x2F;.bin&#x2F;${fileBasenameNoExtension}”参数</li>
+<li>换用 cpp 11: 设置args里面”-std=c++11”</li>
+<li>设置生成的二进制文件放在.bin下面设置args里面”${fileDirname}/.bin/${fileBasenameNoExtension}”参数</li>
 </ul>
 <p>完整的 task.json 文件, 如果只想编译一个文件</p>
-<pre><code class="json">&#123;
+<pre><code class="lang-json">&#123;
   &quot;tasks&quot;: [
     &#123;
       &quot;type&quot;: &quot;cppbuild&quot;,
@@ -879,7 +861,7 @@ int main () &#123;
   &quot;version&quot;: &quot;2.0.0&quot;
 &#125;
 </code></pre>
-<h2 id="配置-settings-json"><a href="#配置-settings-json" class="headerlink" title="配置 settings.json"></a>配置 settings.json</h2><pre><code class="json">&#123;
+<h2 id="配置-settings-json"><a href="#配置-settings-json" class="headerlink" title="配置 settings.json"></a>配置 settings.json</h2><pre><code class="lang-json">&#123;
   &quot;files.associations&quot;: &#123;
     &quot;ostream&quot;: &quot;cpp&quot;,
     &quot;__bit_reference&quot;: &quot;cpp&quot;,
@@ -948,7 +930,7 @@ int main () &#123;
 &#125;
 </code></pre>
 <h2 id="配置-c-cpp-proterties-json"><a href="#配置-c-cpp-proterties-json" class="headerlink" title="配置 c_cpp_proterties.json"></a>配置 c_cpp_proterties.json</h2><p>使用 shift+cmd+p , 选择 Edit Configuration (JSON)</p>
-<pre><code class="json">&#123;
+<pre><code class="lang-json">&#123;
   &quot;configurations&quot;: [
     &#123;
       &quot;name&quot;: &quot;Mac&quot;,
@@ -956,7 +938,7 @@ int main () &#123;
         &quot;$&#123;workspaceFolder&#125;/**&quot;
       ],
       &quot;defines&quot;: [
-        
+
       ],
       &quot;macFrameworkPath&quot;: [
         &quot;/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks&quot;
@@ -1055,8 +1037,6 @@ int main () &#123;
 
         /*访问数量*/
         
-        $.getScript("//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js");
-        
 
         /*代码高亮，行号对齐*/
         $('.pre-numbering').css('line-height',$('.has-numbering').css('line-height'));
@@ -1082,13 +1062,13 @@ int main () &#123;
     
     
     .nav {
-        width: 542px;
+        width: 572px;
     }
     .nav.fullscreen {
-        margin-left: -542px;
+        margin-left: -572px;
     }
     .nav-left {
-        width: 120px;
+        width: 150px;
     }
     
     
@@ -1126,19 +1106,23 @@ int main () &#123;
     
     
     .nav-right .title-list nav a .post-title, .nav-right .title-list #local-search-result a .post-title {
-        color: #383636;
+        color: #000000;
     }
     
     
     .nav-right .title-list nav a .post-date, .nav-right .title-list #local-search-result a .post-date {
-        color: #5e5e5f;
+        color: #87CEFA;
     }
     
     
     .nav-right nav a.hover, #local-search-result a.hover{
-        background-color: #e2e0e0;
+        background-color: #ffffff;
     }
     
+    
+    .nav-right nav a.hover > span{
+        color: #DC143C !important;
+    }
     
 
     /*列表样式*/

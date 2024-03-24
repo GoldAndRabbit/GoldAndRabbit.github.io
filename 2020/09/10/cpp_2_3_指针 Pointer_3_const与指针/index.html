@@ -32,7 +32,7 @@
 
 <link href="/css/style.css?v=1.1.0" rel="stylesheet">
 
-<link href="/css/hl_theme/github.css?v=1.1.0" rel="stylesheet">
+<link href="/css/hl_theme/atom-dark.css?v=1.1.0" rel="stylesheet">
 
 <link href="//cdn.jsdelivr.net/npm/animate.css@4.1.0/animate.min.css" rel="stylesheet">
 
@@ -187,13 +187,6 @@
     </div>
     <div>
         
-            <a class="about  hasFriend  site_url"
-               
-               href="/about">About</a>
-        
-        <a style="width: 50%"
-                
-                                           class="friends">Friends</a>
         
     </div>
 </div>
@@ -257,6 +250,15 @@
            data-author="" >
             <span class="post-title" title="G&amp;R 的 Blog 发布规范">G&amp;R 的 Blog 发布规范</span>
             <span class="post-date" title="2099-01-30 20:00:00">2099/01/30</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2024/03/22/Ubuntu%2022.04%20%E9%85%8D%E7%BD%AE/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Ubuntu 22.04 配置">Ubuntu 22.04 配置</span>
+            <span class="post-date" title="2024-03-22 10:11:00">2024/03/22</span>
         </a>
         
         
@@ -495,19 +497,19 @@
         
         
         <a  class="All Coding "
-           href="/2020/09/10/cpp_2_6_%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88_2_unique_ptr/"
+           href="/2020/09/10/cpp_2_5_%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88_1_shared_ptr/"
            data-tag=""
            data-author="" >
-            <span class="post-title" title="cpp_2_6_智能指针_2_unique_ptr">cpp_2_6_智能指针_2_unique_ptr</span>
+            <span class="post-title" title="cpp_2_5_智能指针_1_shared_ptr">cpp_2_5_智能指针_1_shared_ptr</span>
             <span class="post-date" title="2020-09-10 08:00:00">2020/09/10</span>
         </a>
         
         
         <a  class="All Coding "
-           href="/2020/09/10/cpp_2_5_%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88_1_shared_ptr/"
+           href="/2020/09/10/cpp_2_6_%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88_2_unique_ptr/"
            data-tag=""
            data-author="" >
-            <span class="post-title" title="cpp_2_5_智能指针_1_shared_ptr">cpp_2_5_智能指针_1_shared_ptr</span>
+            <span class="post-title" title="cpp_2_6_智能指针_2_unique_ptr">cpp_2_6_智能指针_2_unique_ptr</span>
             <span class="post-date" title="2020-09-10 08:00:00">2020/09/10</span>
         </a>
         
@@ -675,15 +677,6 @@
         
         
         <a  class="All Coding "
-           href="/2019/12/12/Ubuntu%20%E7%B3%BB%E7%BB%9F%E8%AE%BE%E7%BD%AE/"
-           data-tag=""
-           data-author="" >
-            <span class="post-title" title="Ubuntu 系统设置">Ubuntu 系统设置</span>
-            <span class="post-date" title="2019-12-12 20:11:00">2019/12/12</span>
-        </a>
-        
-        
-        <a  class="All Coding "
            href="/2019/12/11/Data%20Analysis%20Tutorial:(Part%20I)/"
            data-tag=""
            data-author="" >
@@ -771,17 +764,6 @@
     <div class="article-meta">
         
         
-        <span id="busuanzi_container_page_pv">
-            Views 👀 :<span id="busuanzi_value_page_pv">
-                <span class="count-comment">
-                    <span class="spinner">
-                      <div class="cube1"></div>
-                      <div class="cube2"></div>
-                    </span>
-                </span>
-            </span>
-        </span>
-        
         
     </div>
     
@@ -805,7 +787,7 @@
       
         <h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><p>1.普通指针和 const 之间的天然冲突<br>2.Pointer to const value 指向const值的指针<br>3.Const pointers const指针<br>4.指针相关的 const 修饰总结</p>
 <h2 id="普通指针和-const-之间的天然冲突"><a href="#普通指针和-const-之间的天然冲突" class="headerlink" title="普通指针和 const 之间的天然冲突"></a>普通指针和 const 之间的天然冲突</h2><p>1.对于一个普通的指针, 我们可以修改指针指向的地址或者修改指针指向的值  </p>
-<pre><code class="cpp">int main() &#123;
+<pre><code class="lang-cpp">int main() &#123;
   int x&#123;5&#125;;
   int* ptr&#123;&amp;x&#125;; // ptr is a normal (non-const) pointer
 
@@ -815,19 +797,19 @@
   return 0;
 &#125;
 </code></pre>
-<p>2.但是我们想一个指针指向一个 const 值的时候, 普通的 (非const) 指针就无效了; 仔细思考下这种设定是 make sense 的, 因为 const 的值就是不能修改的. 如果直接一个指针能直接指向, 那么就能通过 *p &#x3D; 4 这种类似的操作修改这个值了, 违反了原有变量本身 const 的设定  </p>
-<pre><code class="cpp">int main() &#123;
+<p>2.但是我们想一个指针指向一个 const 值的时候, 普通的 (非const) 指针就无效了; 仔细思考下这种设定是 make sense 的, 因为 const 的值就是不能修改的. 如果直接一个指针能直接指向, 那么就能通过 *p = 4 这种类似的操作修改这个值了, 违反了原有变量本身 const 的设定  </p>
+<pre><code class="lang-cpp">int main() &#123;
   const int x&#123;5&#125;;   // x 是一个 const 值
   int* ptr&#123;&amp;x&#125;;     // 编译报错: &quot;const int *&quot; 类型的值不能用于初始化 &quot;int *&quot; 类型的实体C/C++(144)
   return 0;
 &#125;
 </code></pre>
-<h2 id="Pointer-to-const-value-指向-const-值的指针"><a href="#Pointer-to-const-value-指向-const-值的指针" class="headerlink" title="Pointer to const value 指向 const 值的指针"></a>Pointer to const value 指向 const 值的指针</h2><p>1.这里我们的研究是 const value 的相关操作, 具体来说是要在研究的是指向 const value 的指针应该如何被正确定义<br>2.这种指向 const value 的指针称之为 pointer to const value, 指向 const value 的指针<br>3.定义pointer to const value的方式是在 int* 类型前面增加 const, 定义为 const int* ptr<br>4.我们唯一要理解的概念是 const 这里是作为一个修饰符出现, 给这种指针赋予了一个新的属性, 这个新属性就是也就是这个指针指向的 value 再也不能被修改, 无论修饰的是 const value 还是非const value  </p>
-<pre><code class="cpp">const int x = 5;
+<h2 id="Pointer-to-const-value-指向-const-值的指针"><a href="#Pointer-to-const-value-指向-const-值的指针" class="headerlink" title="Pointer to const value 指向 const 值的指针"></a>Pointer to const value 指向 const 值的指针</h2><p>1.这里我们的研究是 const value 的相关操作, 具体来说是要在研究的是指向 const value 的指针应该如何被正确定义<br>2.这种指向 const value 的指针称之为 pointer to const value, 指向 const value 的指针<br>3.定义pointer to const value的方式是在 int<em> 类型前面增加 const, 定义为 const int</em> ptr<br>4.我们唯一要理解的概念是 const 这里是作为一个修饰符出现, 给这种指针赋予了一个新的属性, 这个新属性就是也就是这个指针指向的 value 再也不能被修改, 无论修饰的是 const value 还是非const value  </p>
+<pre><code class="lang-cpp">const int x = 5;
 const int* p = &amp;x;
 </code></pre>
-<p>5.pointer to const value 的存在, 解决了非 const 的指针直接指向 const 值的造成的语义不合理没法编译通过的问题, 使得我们可以很合法地对 const value 进行指针使用<br>6.这里需要声明的是: const 放在int* 的左边是修饰的是被指向的 const value, 因此对这个指针指向的值的赋值操作将不再合法<br>7.这里需要声明的是: const 放在int* 的左边是修饰的是被指向的 const value, 但是这个指针可以重新指向新的 const 的值  </p>
-<pre><code class="cpp">int main() &#123;
+<p>5.pointer to const value 的存在, 解决了非 const 的指针直接指向 const 值的造成的语义不合理没法编译通过的问题, 使得我们可以很合法地对 const value 进行指针使用<br>6.这里需要声明的是: const 放在int<em> 的左边是修饰的是被指向的 const value, 因此对这个指针指向的值的赋值操作将不再合法<br>7.这里需要声明的是: const 放在int</em> 的左边是修饰的是被指向的 const value, 但是这个指针可以重新指向新的 const 的值  </p>
+<pre><code class="lang-cpp">int main() &#123;
   const int x&#123;5&#125;;
   const int* ptr&#123;&amp;x&#125;; // int* 前面增加 const修饰, 这样就声明一个指向 const 的指针, 这样ptr就是一个指向 const int的 (且合法编译可通过的) 指针;
   *ptr = 6;           // 不允许的操作: 因为是指向 const 值的指针, 所以不能仅仅通过 *ptr = 6 的操作而进行赋值操作;
@@ -837,8 +819,8 @@ const int* p = &amp;x;
   return 0;
 &#125;
 </code></pre>
-<p>8.这时候我们想想 const int* ptr 指向一个非const的变量 x, 会发生什么?<br>我们定义了 const int* ptr, 这里const修饰的主体没有发生变化, 仍然是指向一个不可修改值的指针, 无论修饰的是const value 还是 non-const value, 都是一样不可修改的  </p>
-<pre><code class="cpp">int main() &#123;
+<p>8.这时候我们想想 const int<em> ptr 指向一个非const的变量 x, 会发生什么?<br>我们定义了 const int</em> ptr, 这里const修饰的主体没有发生变化, 仍然是指向一个不可修改值的指针, 无论修饰的是const value 还是 non-const value, 都是一样不可修改的  </p>
+<pre><code class="lang-cpp">int main() &#123;
   int x&#123;5&#125;;             // non-const
   const int* ptr&#123;&amp;x&#125;;   // ptr points to a &quot;const int&quot;
 
@@ -847,11 +829,11 @@ const int* p = &amp;x;
   return 0;
 &#125;
 </code></pre>
-<h2 id="Const-pointers-const指针"><a href="#Const-pointers-const指针" class="headerlink" title="Const pointers const指针"></a>Const pointers const指针</h2><p>1.与 pointer to const value 不同, 还有一种情况是我们需要让指针 (也就是保存的地址) 变得不可变, const pointer 就是这样的一种 pointer, 这种指针的const是修饰在指针保存的地址本身, 指针一旦初始化了保存的地址, 那么这个指针不再能变<br>2.如果要设定指针保存的地址不能变, 我们要加在 int* 的后面加一个 const, 也就是说 const 修饰符出现在 * 的右侧  </p>
-<pre><code class="cpp">int* const ptr;
+<h2 id="Const-pointers-const指针"><a href="#Const-pointers-const指针" class="headerlink" title="Const pointers const指针"></a>Const pointers const指针</h2><p>1.与 pointer to const value 不同, 还有一种情况是我们需要让指针 (也就是保存的地址) 变得不可变, const pointer 就是这样的一种 pointer, 这种指针的const是修饰在指针保存的地址本身, 指针一旦初始化了保存的地址, 那么这个指针不再能变<br>2.如果要设定指针保存的地址不能变, 我们要加在 int<em> 的后面加一个 const, 也就是说 const 修饰符出现在 </em> 的右侧  </p>
+<pre><code class="lang-cpp">int* const ptr;
 </code></pre>
 <p>3.const 指针因为一旦初始化就不能改变了, 所以它的初始化其实就是它的唯一化  </p>
-<pre><code class="cpp">int main() &#123;
+<pre><code class="lang-cpp">int main() &#123;
   int x&#123;5&#125;;
   int y&#123;6&#125;;
   int* const ptr&#123;&amp;x&#125;; // const指针可以初始化为ptr
@@ -861,7 +843,7 @@ const int* p = &amp;x;
 &#125;
 </code></pre>
 <p>4.const 可以修饰指针保存的地址, const 也可以修饰地址保存的内容, 那么可以双剑合璧一下, 让指针保存的地址和指针地址指向的内容都不可修改, 也就是 const 指针指向 const value; 在这种情况下, 这种指针通过 dereference 值也不能改, 指向的地址也不能改  </p>
-<pre><code class="cpp">int main() &#123;
+<pre><code class="lang-cpp">int main() &#123;
   int value = 5;
   // 想清楚这2个const分别起到什么作用
   // int* 左边的 const 是修饰 const 的值不能变, 值无法通过 dereference 
@@ -873,14 +855,8 @@ const int* p = &amp;x;
 <h2 id="指针相关的-const-修饰总结"><a href="#指针相关的-const-修饰总结" class="headerlink" title="指针相关的 const 修饰总结"></a>指针相关的 const 修饰总结</h2><p>指向相关的操作, 其实只有 4 个规则, 现在总结如下:  </p>
 <blockquote>
 <p>A non-const pointer can be assigned another address to change what it is pointing at.</p>
-</blockquote>
-<blockquote>
 <p>A const pointer always points to the same address, and this address can not be changed.</p>
-</blockquote>
-<blockquote>
 <p>A pointer to a non-const value can change the value it is pointing to. These can not point to a const value.</p>
-</blockquote>
-<blockquote>
 <p>A pointer to a const value treats the value as const when accessed through the pointer, and thus can not change the value it is pointing to. These can be pointed to const or non-const l-values (but not r-values, which don’t have an address).</p>
 </blockquote>
 <p>intuitively,<br>1.const 指针这玩意讲出来感觉有点绕口令的感觉, 但其实每一种有确定的逻辑且没有任何的歧义, 只需要抓住, const 是修饰谁的就能确定应该是怎样的, 指针无非是一个地址和一个值, const 要么修饰地址, 要么修饰值, 要么就是二者都修饰<br>2.一个 (只要) 非 const 的指针, 可以随意重新分配另一个地址, 也就是指针任意指向谁都行<br>3.一个 const 指针, (区别于 pointer to const value), 只能指向一个固定的地址, 一旦固定了地址, 再也不能指向其他的地址<br>4.一个指向 非 const value 的指针. 指针指向的值随意修改, 因为指向的是非 const<br>5.一个指向 const value 的指针. 这种指针被固定下来的身份是指向 const valued  </p>
@@ -967,8 +943,6 @@ const int* p = &amp;x;
 
         /*访问数量*/
         
-        $.getScript("//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js");
-        
 
         /*代码高亮，行号对齐*/
         $('.pre-numbering').css('line-height',$('.has-numbering').css('line-height'));
@@ -994,13 +968,13 @@ const int* p = &amp;x;
     
     
     .nav {
-        width: 542px;
+        width: 572px;
     }
     .nav.fullscreen {
-        margin-left: -542px;
+        margin-left: -572px;
     }
     .nav-left {
-        width: 120px;
+        width: 150px;
     }
     
     
@@ -1038,19 +1012,23 @@ const int* p = &amp;x;
     
     
     .nav-right .title-list nav a .post-title, .nav-right .title-list #local-search-result a .post-title {
-        color: #383636;
+        color: #000000;
     }
     
     
     .nav-right .title-list nav a .post-date, .nav-right .title-list #local-search-result a .post-date {
-        color: #5e5e5f;
+        color: #87CEFA;
     }
     
     
     .nav-right nav a.hover, #local-search-result a.hover{
-        background-color: #e2e0e0;
+        background-color: #ffffff;
     }
     
+    
+    .nav-right nav a.hover > span{
+        color: #DC143C !important;
+    }
     
 
     /*列表样式*/

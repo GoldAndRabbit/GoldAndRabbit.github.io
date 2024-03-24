@@ -32,7 +32,7 @@
 
 <link href="/css/style.css?v=1.1.0" rel="stylesheet">
 
-<link href="/css/hl_theme/github.css?v=1.1.0" rel="stylesheet">
+<link href="/css/hl_theme/atom-dark.css?v=1.1.0" rel="stylesheet">
 
 <link href="//cdn.jsdelivr.net/npm/animate.css@4.1.0/animate.min.css" rel="stylesheet">
 
@@ -187,13 +187,6 @@
     </div>
     <div>
         
-            <a class="about  hasFriend  site_url"
-               
-               href="/about">About</a>
-        
-        <a style="width: 50%"
-                
-                                           class="friends">Friends</a>
         
     </div>
 </div>
@@ -257,6 +250,15 @@
            data-author="" >
             <span class="post-title" title="G&amp;R 的 Blog 发布规范">G&amp;R 的 Blog 发布规范</span>
             <span class="post-date" title="2099-01-30 20:00:00">2099/01/30</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2024/03/22/Ubuntu%2022.04%20%E9%85%8D%E7%BD%AE/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Ubuntu 22.04 配置">Ubuntu 22.04 配置</span>
+            <span class="post-date" title="2024-03-22 10:11:00">2024/03/22</span>
         </a>
         
         
@@ -495,19 +497,19 @@
         
         
         <a  class="All Coding "
-           href="/2020/09/10/cpp_2_6_%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88_2_unique_ptr/"
+           href="/2020/09/10/cpp_2_5_%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88_1_shared_ptr/"
            data-tag=""
            data-author="" >
-            <span class="post-title" title="cpp_2_6_智能指针_2_unique_ptr">cpp_2_6_智能指针_2_unique_ptr</span>
+            <span class="post-title" title="cpp_2_5_智能指针_1_shared_ptr">cpp_2_5_智能指针_1_shared_ptr</span>
             <span class="post-date" title="2020-09-10 08:00:00">2020/09/10</span>
         </a>
         
         
         <a  class="All Coding "
-           href="/2020/09/10/cpp_2_5_%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88_1_shared_ptr/"
+           href="/2020/09/10/cpp_2_6_%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88_2_unique_ptr/"
            data-tag=""
            data-author="" >
-            <span class="post-title" title="cpp_2_5_智能指针_1_shared_ptr">cpp_2_5_智能指针_1_shared_ptr</span>
+            <span class="post-title" title="cpp_2_6_智能指针_2_unique_ptr">cpp_2_6_智能指针_2_unique_ptr</span>
             <span class="post-date" title="2020-09-10 08:00:00">2020/09/10</span>
         </a>
         
@@ -675,15 +677,6 @@
         
         
         <a  class="All Coding "
-           href="/2019/12/12/Ubuntu%20%E7%B3%BB%E7%BB%9F%E8%AE%BE%E7%BD%AE/"
-           data-tag=""
-           data-author="" >
-            <span class="post-title" title="Ubuntu 系统设置">Ubuntu 系统设置</span>
-            <span class="post-date" title="2019-12-12 20:11:00">2019/12/12</span>
-        </a>
-        
-        
-        <a  class="All Coding "
            href="/2019/12/11/Data%20Analysis%20Tutorial:(Part%20I)/"
            data-tag=""
            data-author="" >
@@ -771,17 +764,6 @@
     <div class="article-meta">
         
         
-        <span id="busuanzi_container_page_pv">
-            Views 👀 :<span id="busuanzi_value_page_pv">
-                <span class="count-comment">
-                    <span class="spinner">
-                      <div class="cube1"></div>
-                      <div class="cube2"></div>
-                    </span>
-                </span>
-            </span>
-        </span>
-        
         
     </div>
     
@@ -805,7 +787,7 @@
       
         <h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><p>1.Pass by address 传地址<br>2.Null checking 空指针检查<br>3.Prefer pass by (const) reference 仍然选择传递 (const) 引用  </p>
 <h2 id="Pass-by-address-传地址"><a href="#Pass-by-address-传地址" class="headerlink" title="Pass by address 传地址"></a>Pass by address 传地址</h2><p>1.我们之前学习函数参数传递左值引用, 可以避免额外的 copy 开销; 回顾下引用本质上是一种绑定关系, 没有产生新的东西<br>2.除了 pass by value, pass by reference, cpp还有一种 pass by address 的方法可以实现参数传递<br>3.pass by address 仍然也是不传递 object 参数, 而是通过指针来传递 object address, 所以参数传递效率很高  </p>
-<pre><code class="cpp">#include&lt;iostream&gt;
+<pre><code class="lang-cpp">#include&lt;iostream&gt;
 #include&lt;string&gt;
 
 void printByValue(std::string val) &#123;
@@ -829,7 +811,7 @@ int main() &#123;
 &#125;
 </code></pre>
 <p>我们可以使用传递地址的方式传递参数, 并且通过 dereference 的方式修改值  </p>
-<pre><code class="cpp">#include &lt;iostream&gt;
+<pre><code class="lang-cpp">#include &lt;iostream&gt;
 void changeValue(int* ptr) &#123;
   *ptr = 6;
 &#125;
@@ -848,11 +830,11 @@ int main() &#123;
 &#125;
 </code></pre>
 <p>结果</p>
-<pre><code class="sh">x = 5
+<pre><code class="lang-sh">x = 5
 x = 6
 </code></pre>
 <h2 id="Null-checking-空指针检查"><a href="#Null-checking-空指针检查" class="headerlink" title="Null checking 空指针检查"></a>Null checking 空指针检查</h2><p>1.我们在函数参数中采用了指针类型参数, 但是指针有指向为空的问题, 我们看下下面的例子, 会导致 crash  </p>
-<pre><code class="cpp">#include &lt;iostream&gt;
+<pre><code class="lang-cpp">#include &lt;iostream&gt;
 void print(int* ptr) &#123;
   std::cout &lt;&lt; *ptr &lt;&lt; &#39;\n&#39;;
 &#125;
@@ -867,7 +849,7 @@ int main() &#123;
 &#125;
 </code></pre>
 <p>经过指针的检查, 在 dereference 之前我们确认是一个非空指针  </p>
-<pre><code class="cpp">#include &lt;iostream&gt;
+<pre><code class="lang-cpp">#include &lt;iostream&gt;
 
 void print(int* ptr) &#123;
   if (ptr) &#123;
@@ -887,15 +869,11 @@ int main() &#123;
 </code></pre>
 <h2 id="Prefer-pass-by-const-reference-仍然选择传递-const-引用"><a href="#Prefer-pass-by-const-reference-仍然选择传递-const-引用" class="headerlink" title="Prefer pass by (const) reference 仍然选择传递 (const) 引用"></a>Prefer pass by (const) reference 仍然选择传递 (const) 引用</h2><blockquote>
 <p>In modern C++, most things that can be done with pass by address are better accomplished through other methods. Follow this common maxim: “Pass by reference when you can, pass by address when you must”.</p>
-</blockquote>
-<blockquote>
 <p>First, because an object being passed by address must have an address, only lvalues can be passed by address (as rvalues don’t have addresses). Pass by const reference is more flexible, as it can accept lvalues and rvalues:</p>
-</blockquote>
-<blockquote>
 <p>Second, the syntax for pass by reference is natural, as we can just pass in literals or objects. With pass by address, our code ends up littered with ampersands (&amp;) and asterisks (*).</p>
 </blockquote>
 <p>intuitively,<br>1.一种最佳实践: 只要能传递引用解决问题, 那么就传递引用; 传递地址, 只允许发生在非要用传递地址解决的情形下, 因为传递引用比传递地址犯错的可能性更小<br>2.为什么传递引用比传递地址犯错的可能性更小? 有 2 点原因如下:<br>(i). 通过地址传递的object, 必须是有个地址的, 左值以传递地址, 右值不传递任何地址; 如果是传递的是 const 引用 那就更灵活了, 能处理左值也能接受右值<br>(ii). 传递引用的语法更加的自然  </p>
-<pre><code class="cpp">#include &lt;iostream&gt;
+<pre><code class="lang-cpp">#include &lt;iostream&gt;
 void printByValue(int val) &#123;
   std::cout &lt;&lt; val &lt;&lt; &#39;\n&#39;;
 &#125;
@@ -994,8 +972,6 @@ int main() &#123;
 
         /*访问数量*/
         
-        $.getScript("//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js");
-        
 
         /*代码高亮，行号对齐*/
         $('.pre-numbering').css('line-height',$('.has-numbering').css('line-height'));
@@ -1021,13 +997,13 @@ int main() &#123;
     
     
     .nav {
-        width: 542px;
+        width: 572px;
     }
     .nav.fullscreen {
-        margin-left: -542px;
+        margin-left: -572px;
     }
     .nav-left {
-        width: 120px;
+        width: 150px;
     }
     
     
@@ -1065,19 +1041,23 @@ int main() &#123;
     
     
     .nav-right .title-list nav a .post-title, .nav-right .title-list #local-search-result a .post-title {
-        color: #383636;
+        color: #000000;
     }
     
     
     .nav-right .title-list nav a .post-date, .nav-right .title-list #local-search-result a .post-date {
-        color: #5e5e5f;
+        color: #87CEFA;
     }
     
     
     .nav-right nav a.hover, #local-search-result a.hover{
-        background-color: #e2e0e0;
+        background-color: #ffffff;
     }
     
+    
+    .nav-right nav a.hover > span{
+        color: #DC143C !important;
+    }
     
 
     /*列表样式*/

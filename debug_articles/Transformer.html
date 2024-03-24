@@ -32,7 +32,7 @@
 
 <link href="/css/style.css?v=1.1.0" rel="stylesheet">
 
-<link href="/css/hl_theme/github.css?v=1.1.0" rel="stylesheet">
+<link href="/css/hl_theme/atom-dark.css?v=1.1.0" rel="stylesheet">
 
 <link href="//cdn.jsdelivr.net/npm/animate.css@4.1.0/animate.min.css" rel="stylesheet">
 
@@ -187,13 +187,6 @@
     </div>
     <div>
         
-            <a class="about  hasFriend  site_url"
-               
-               href="/about">About</a>
-        
-        <a style="width: 50%"
-                
-                                           class="friends">Friends</a>
         
     </div>
 </div>
@@ -257,6 +250,15 @@
            data-author="" >
             <span class="post-title" title="G&amp;R 的 Blog 发布规范">G&amp;R 的 Blog 发布规范</span>
             <span class="post-date" title="2099-01-30 20:00:00">2099/01/30</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2024/03/22/Ubuntu%2022.04%20%E9%85%8D%E7%BD%AE/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Ubuntu 22.04 配置">Ubuntu 22.04 配置</span>
+            <span class="post-date" title="2024-03-22 10:11:00">2024/03/22</span>
         </a>
         
         
@@ -495,19 +497,19 @@
         
         
         <a  class="All Coding "
-           href="/2020/09/10/cpp_2_6_%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88_2_unique_ptr/"
+           href="/2020/09/10/cpp_2_5_%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88_1_shared_ptr/"
            data-tag=""
            data-author="" >
-            <span class="post-title" title="cpp_2_6_智能指针_2_unique_ptr">cpp_2_6_智能指针_2_unique_ptr</span>
+            <span class="post-title" title="cpp_2_5_智能指针_1_shared_ptr">cpp_2_5_智能指针_1_shared_ptr</span>
             <span class="post-date" title="2020-09-10 08:00:00">2020/09/10</span>
         </a>
         
         
         <a  class="All Coding "
-           href="/2020/09/10/cpp_2_5_%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88_1_shared_ptr/"
+           href="/2020/09/10/cpp_2_6_%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88_2_unique_ptr/"
            data-tag=""
            data-author="" >
-            <span class="post-title" title="cpp_2_5_智能指针_1_shared_ptr">cpp_2_5_智能指针_1_shared_ptr</span>
+            <span class="post-title" title="cpp_2_6_智能指针_2_unique_ptr">cpp_2_6_智能指针_2_unique_ptr</span>
             <span class="post-date" title="2020-09-10 08:00:00">2020/09/10</span>
         </a>
         
@@ -675,15 +677,6 @@
         
         
         <a  class="All Coding "
-           href="/2019/12/12/Ubuntu%20%E7%B3%BB%E7%BB%9F%E8%AE%BE%E7%BD%AE/"
-           data-tag=""
-           data-author="" >
-            <span class="post-title" title="Ubuntu 系统设置">Ubuntu 系统设置</span>
-            <span class="post-date" title="2019-12-12 20:11:00">2019/12/12</span>
-        </a>
-        
-        
-        <a  class="All Coding "
            href="/2019/12/11/Data%20Analysis%20Tutorial:(Part%20I)/"
            data-tag=""
            data-author="" >
@@ -771,17 +764,6 @@
     <div class="article-meta">
         
         
-        <span id="busuanzi_container_page_pv">
-            Views 👀 :<span id="busuanzi_value_page_pv">
-                <span class="count-comment">
-                    <span class="spinner">
-                      <div class="cube1"></div>
-                      <div class="cube2"></div>
-                    </span>
-                </span>
-            </span>
-        </span>
-        
         
     </div>
     
@@ -828,7 +810,7 @@
 <img src="https://s1.ax1x.com/2022/04/10/Lkglxe.png" border="1"/>
 </div>
 
-<p>得到 $\rm Q, K, V$ 后, Self-Attention过程可以分解成以下几步:<br>1.输入单词embedding的query根据key点乘进行打分得到Score<br>2.根据维度 $d$ 对Score进行归一化, 即Score &#x2F;&#x3D; $\sqrt{d_k}$<br>3.对归一化Score进行Softmax之后得到weight<br>4.对value乘以weight, 得到单个单词的value<br>5.对句子上所有的value (已经经过weight加权) 求和得到$Z$  </p>
+<p>得到 $\rm Q, K, V$ 后, Self-Attention过程可以分解成以下几步:<br>1.输入单词embedding的query根据key点乘进行打分得到Score<br>2.根据维度 $d$ 对Score进行归一化, 即Score /= $\sqrt{d_k}$<br>3.对归一化Score进行Softmax之后得到weight<br>4.对value乘以weight, 得到单个单词的value<br>5.对句子上所有的value (已经经过weight加权) 求和得到$Z$  </p>
 <div align="center">
 <img src="https://s1.ax1x.com/2022/04/10/Lkc2ge.png" border="1"/>
 </div>
@@ -838,7 +820,7 @@
 <img src="https://s1.ax1x.com/2022/04/10/Lkcc9O.png" border="1"/>
 </div>
 
-<h3 id="Multi-head-Self-Attention"><a href="#Multi-head-Self-Attention" class="headerlink" title="Multi-head Self-Attention"></a>Multi-head Self-Attention</h3><p>上述过程实现了单个head的self-attention的过程, 实际上可以设置多个head进行Self-Attention, 再将多个head学习到的表示 $z$ 进行concatenate, 最后将这个concat后的表示乘以一个weight矩阵, 得到最终表示$Z$ ; 例如h&#x3D;8, Multi-head Attention输出步骤分为3步:<br>1.将数据 $X$ 分别输入到如下图所示的8个self-attention中得到8个加权后的特征矩阵<br>2.将8个 $Z_i$ 按列拼成一个大的特征矩阵<br>3.特征矩阵经过一层全连接后得到输出 $Z_i$  </p>
+<h3 id="Multi-head-Self-Attention"><a href="#Multi-head-Self-Attention" class="headerlink" title="Multi-head Self-Attention"></a>Multi-head Self-Attention</h3><p>上述过程实现了单个head的self-attention的过程, 实际上可以设置多个head进行Self-Attention, 再将多个head学习到的表示 $z$ 进行concatenate, 最后将这个concat后的表示乘以一个weight矩阵, 得到最终表示$Z$ ; 例如h=8, Multi-head Attention输出步骤分为3步:<br>1.将数据 $X$ 分别输入到如下图所示的8个self-attention中得到8个加权后的特征矩阵<br>2.将8个 $Z_i$ 按列拼成一个大的特征矩阵<br>3.特征矩阵经过一层全连接后得到输出 $Z_i$  </p>
 <div align="center">
 <img src="https://s1.ax1x.com/2022/04/10/Lkcy4K.png" border="1"/>
 </div>
@@ -853,14 +835,14 @@
 <img src="https://s1.ax1x.com/2022/04/10/LkgLi6.png" border="1" />
 </div>
 
-<h2 id="Transformer-Pros-and-Cons"><a href="#Transformer-Pros-and-Cons" class="headerlink" title="Transformer: Pros and Cons"></a>Transformer: Pros and Cons</h2><p><strong>Advantages</strong><br>1.It makes no assumptions about the temporal&#x2F;spatial relationships across the data. This is ideal for processing a set of objects (for example, StarCraft units).<br>2.Layer outputs can be calculated in parallel, instead of a series like an RNN.<br>3.Distant items can affect each other’s output without passing through many RNN-steps, or convolution layers (see Scene Memory Transformer for example).<br>4.It can learn long-range dependencies. This is a challenge in many sequence tasks.   </p>
-<p><strong>Downsides</strong><br>1.For a time-series, the output for a time-step is calculated from the entire history instead of only the inputs and current hidden-state. This may be less efficient.<br>2.If the input does have a temporal&#x2F;spatial relationship, like text, some positional encoding must be added or the model will effectively see a bag of words.     </p>
+<h2 id="Transformer-Pros-and-Cons"><a href="#Transformer-Pros-and-Cons" class="headerlink" title="Transformer: Pros and Cons"></a>Transformer: Pros and Cons</h2><p><strong>Advantages</strong><br>1.It makes no assumptions about the temporal/spatial relationships across the data. This is ideal for processing a set of objects (for example, StarCraft units).<br>2.Layer outputs can be calculated in parallel, instead of a series like an RNN.<br>3.Distant items can affect each other’s output without passing through many RNN-steps, or convolution layers (see Scene Memory Transformer for example).<br>4.It can learn long-range dependencies. This is a challenge in many sequence tasks.   </p>
+<p><strong>Downsides</strong><br>1.For a time-series, the output for a time-step is calculated from the entire history instead of only the inputs and current hidden-state. This may be less efficient.<br>2.If the input does have a temporal/spatial relationship, like text, some positional encoding must be added or the model will effectively see a bag of words.     </p>
 <h2 id="How-to-modulize-Transformer"><a href="#How-to-modulize-Transformer" class="headerlink" title="How to modulize Transformer"></a>How to modulize Transformer</h2><p>1.封装Transformer Block: 将每个Block拆分为scale_dot_product_attention部分和position_embedding部分.<br>2.Switch transformer实现: 将fnn部分也单独封装一个subclass, 优势在于可以更好地支持并行化.    </p>
-<pre><code class="python">import tensorflow     as tf
+<pre><code class="lang-python">import tensorflow     as tf
 from tensorflow       import keras
 from tensorflow.keras import layers
 </code></pre>
-<h3 id="TransformerBlock"><a href="#TransformerBlock" class="headerlink" title="TransformerBlock"></a>TransformerBlock</h3><pre><code class="python">class TransformerBlock(layers.Layer):
+<h3 id="TransformerBlock"><a href="#TransformerBlock" class="headerlink" title="TransformerBlock"></a>TransformerBlock</h3><pre><code class="lang-python">class TransformerBlock(layers.Layer):
     def __init__(self, embed_dim, num_heads, ff_dim, rate=-1.1):
         super(TransformerBlock, self).__init__()
         # code test: try to open below line for comparing output to confirm logic correctness
@@ -886,7 +868,7 @@ from tensorflow.keras import layers
         ffn_output      = self.dropout1(ffn_output, training=training)
         return self.layernorm1(out1 + ffn_output)
 </code></pre>
-<h3 id="Scaled-dot-product-attention"><a href="#Scaled-dot-product-attention" class="headerlink" title="Scaled dot product attention"></a>Scaled dot product attention</h3><pre><code class="python">def scaled_dot_product_attention(q, k, v, mask):
+<h3 id="Scaled-dot-product-attention"><a href="#Scaled-dot-product-attention" class="headerlink" title="Scaled dot product attention"></a>Scaled dot product attention</h3><pre><code class="lang-python">def scaled_dot_product_attention(q, k, v, mask):
     &quot;&quot;&quot;
     Calculate the attention weights.
     q, k, v must have matching leading dimensions. k, v must have matching penultimate dimension, i.e.: seq_len_k = seq_len_v. The mask has different shapes depending on its type(padding or look ahead)
@@ -916,7 +898,7 @@ from tensorflow.keras import layers
     output = tf.matmul(attention_weights, v)  # (..., seq_len_q, depth_v)
     return output, attention_weights
 </code></pre>
-<h3 id="CustomedMultiHeadAttention"><a href="#CustomedMultiHeadAttention" class="headerlink" title="CustomedMultiHeadAttention"></a>CustomedMultiHeadAttention</h3><pre><code class="python">class CustomedMultiHeadAttention(layers.Layer):
+<h3 id="CustomedMultiHeadAttention"><a href="#CustomedMultiHeadAttention" class="headerlink" title="CustomedMultiHeadAttention"></a>CustomedMultiHeadAttention</h3><pre><code class="lang-python">class CustomedMultiHeadAttention(layers.Layer):
     def __init__(self, d_model, num_heads):
         super(CustomedMultiHeadAttention, self).__init__()
         self.num_heads = num_heads
@@ -963,7 +945,7 @@ from tensorflow.keras import layers
 
         return output, attention_weights
 </code></pre>
-<h3 id="Position-Embedding"><a href="#Position-Embedding" class="headerlink" title="Position Embedding"></a>Position Embedding</h3><pre><code class="python">class TokenAndPositionEmbedding(layers.Layer):
+<h3 id="Position-Embedding"><a href="#Position-Embedding" class="headerlink" title="Position Embedding"></a>Position Embedding</h3><pre><code class="lang-python">class TokenAndPositionEmbedding(layers.Layer):
     def __init__(self, maxlen, vocab_size, embed_dim):
         super(TokenAndPositionEmbedding, self).__init__()
         self.token_emb = layers.Embedding(input_dim=vocab_size, output_dim=embed_dim)
@@ -976,7 +958,7 @@ from tensorflow.keras import layers
         x = self.token_emb(x)
         return x + positions
 </code></pre>
-<h3 id="Run-test"><a href="#Run-test" class="headerlink" title="Run test"></a>Run test</h3><pre><code class="python">vocab_size  = 19999  # Only consider the top 20k words
+<h3 id="Run-test"><a href="#Run-test" class="headerlink" title="Run test"></a>Run test</h3><pre><code class="lang-python">vocab_size  = 19999  # Only consider the top 20k words
 maxlen      = 199    # Only consider the first 200 words of each movie review
 (x_train, y_train), (x_val, y_val) = keras.datasets.imdb.load_data(num_words=vocab_size)
 print(len(x_train), &quot;Training sequences&quot;)
@@ -1087,8 +1069,6 @@ history = model.fit(x_train, y_train, batch_size=31, epochs=2, validation_data=(
 
         /*访问数量*/
         
-        $.getScript("//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js");
-        
 
         /*代码高亮，行号对齐*/
         $('.pre-numbering').css('line-height',$('.has-numbering').css('line-height'));
@@ -1114,13 +1094,13 @@ history = model.fit(x_train, y_train, batch_size=31, epochs=2, validation_data=(
     
     
     .nav {
-        width: 542px;
+        width: 572px;
     }
     .nav.fullscreen {
-        margin-left: -542px;
+        margin-left: -572px;
     }
     .nav-left {
-        width: 120px;
+        width: 150px;
     }
     
     
@@ -1158,19 +1138,23 @@ history = model.fit(x_train, y_train, batch_size=31, epochs=2, validation_data=(
     
     
     .nav-right .title-list nav a .post-title, .nav-right .title-list #local-search-result a .post-title {
-        color: #383636;
+        color: #000000;
     }
     
     
     .nav-right .title-list nav a .post-date, .nav-right .title-list #local-search-result a .post-date {
-        color: #5e5e5f;
+        color: #87CEFA;
     }
     
     
     .nav-right nav a.hover, #local-search-result a.hover{
-        background-color: #e2e0e0;
+        background-color: #ffffff;
     }
     
+    
+    .nav-right nav a.hover > span{
+        color: #DC143C !important;
+    }
     
 
     /*列表样式*/

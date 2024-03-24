@@ -32,7 +32,7 @@
 
 <link href="/css/style.css?v=1.1.0" rel="stylesheet">
 
-<link href="/css/hl_theme/github.css?v=1.1.0" rel="stylesheet">
+<link href="/css/hl_theme/atom-dark.css?v=1.1.0" rel="stylesheet">
 
 <link href="//cdn.jsdelivr.net/npm/animate.css@4.1.0/animate.min.css" rel="stylesheet">
 
@@ -187,13 +187,6 @@
     </div>
     <div>
         
-            <a class="about  hasFriend  site_url"
-               
-               href="/about">About</a>
-        
-        <a style="width: 50%"
-                
-                                           class="friends">Friends</a>
         
     </div>
 </div>
@@ -257,6 +250,15 @@
            data-author="" >
             <span class="post-title" title="G&amp;R 的 Blog 发布规范">G&amp;R 的 Blog 发布规范</span>
             <span class="post-date" title="2099-01-30 20:00:00">2099/01/30</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2024/03/22/Ubuntu%2022.04%20%E9%85%8D%E7%BD%AE/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Ubuntu 22.04 配置">Ubuntu 22.04 配置</span>
+            <span class="post-date" title="2024-03-22 10:11:00">2024/03/22</span>
         </a>
         
         
@@ -495,19 +497,19 @@
         
         
         <a  class="All Coding "
-           href="/2020/09/10/cpp_2_6_%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88_2_unique_ptr/"
+           href="/2020/09/10/cpp_2_5_%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88_1_shared_ptr/"
            data-tag=""
            data-author="" >
-            <span class="post-title" title="cpp_2_6_智能指针_2_unique_ptr">cpp_2_6_智能指针_2_unique_ptr</span>
+            <span class="post-title" title="cpp_2_5_智能指针_1_shared_ptr">cpp_2_5_智能指针_1_shared_ptr</span>
             <span class="post-date" title="2020-09-10 08:00:00">2020/09/10</span>
         </a>
         
         
         <a  class="All Coding "
-           href="/2020/09/10/cpp_2_5_%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88_1_shared_ptr/"
+           href="/2020/09/10/cpp_2_6_%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88_2_unique_ptr/"
            data-tag=""
            data-author="" >
-            <span class="post-title" title="cpp_2_5_智能指针_1_shared_ptr">cpp_2_5_智能指针_1_shared_ptr</span>
+            <span class="post-title" title="cpp_2_6_智能指针_2_unique_ptr">cpp_2_6_智能指针_2_unique_ptr</span>
             <span class="post-date" title="2020-09-10 08:00:00">2020/09/10</span>
         </a>
         
@@ -675,15 +677,6 @@
         
         
         <a  class="All Coding "
-           href="/2019/12/12/Ubuntu%20%E7%B3%BB%E7%BB%9F%E8%AE%BE%E7%BD%AE/"
-           data-tag=""
-           data-author="" >
-            <span class="post-title" title="Ubuntu 系统设置">Ubuntu 系统设置</span>
-            <span class="post-date" title="2019-12-12 20:11:00">2019/12/12</span>
-        </a>
-        
-        
-        <a  class="All Coding "
            href="/2019/12/11/Data%20Analysis%20Tutorial:(Part%20I)/"
            data-tag=""
            data-author="" >
@@ -771,17 +764,6 @@
     <div class="article-meta">
         
         
-        <span id="busuanzi_container_page_pv">
-            Views 👀 :<span id="busuanzi_value_page_pv">
-                <span class="count-comment">
-                    <span class="spinner">
-                      <div class="cube1"></div>
-                      <div class="cube2"></div>
-                    </span>
-                </span>
-            </span>
-        </span>
-        
         
     </div>
     
@@ -805,12 +787,12 @@
       
         <h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><p>1.Why Templates? 为什么要引入Template模板?<br>2.Function Template 函数模板<br>3.Class Template 类模板<br>4.Generic Programming 泛型编程  </p>
 <h2 id="Why-Templates-为什么要引入-Template-模板"><a href="#Why-Templates-为什么要引入-Template-模板" class="headerlink" title="Why Templates? 为什么要引入 Template 模板?"></a>Why Templates? 为什么要引入 Template 模板?</h2><p>假设我们有一个函数 max(int x, int y), 比较两个 int 类型的 x, y 的值  </p>
-<pre><code class="cpp">int max(int x, int y) &#123;
+<pre><code class="lang-cpp">int max(int x, int y) &#123;
   return x &gt; y ? x : y;
 &#125;
 </code></pre>
 <p>但是有时候我们需要用 max 函数的功能, 去返回两个 double 类型的 x 和 y 的值</p>
-<pre><code class="cpp">double max(double x, double y) &#123;
+<pre><code class="lang-cpp">double max(double x, double y) &#123;
   return x &gt; y ? x : y;
 &#125;
 </code></pre>
@@ -821,8 +803,8 @@
 </blockquote>
 <p><a target="_blank" rel="noopener" href="https://imgse.com/i/pClWnj1"><img src="https://s1.ax1x.com/2023/06/18/pClWnj1.jpg" alt="pClWnj1.jpg"></a></p>
 <p>6.C++ 标准库里面使用了大量的模板, 典型的例子是 standard template library (STL, 标准模板库)  </p>
-<h2 id="Function-Template-函数模板"><a href="#Function-Template-函数模板" class="headerlink" title="Function Template 函数模板"></a>Function Template 函数模板</h2><p>1.函数模板是一种作用在函数上的通用定义, 函数模板用于生成一个或者多个重载函数, 每个函数具有一组不同的实际类型.<br>2.当我们创建函数模板的时候, 我们用 placehoder type (又叫做 template parameters 或者informally template types ) 来表示任何参数类型, 表示返回类型, 或者表示希望稍后指定的函数体中使用的类型; 其实可以理解为相比int类型&#x2F;double类型等各种类型, 新定义了一种特殊的类型, 叫做”模板参数”类型  </p>
-<pre><code class="cpp">// 用于比较两个数的大小的函数模板
+<h2 id="Function-Template-函数模板"><a href="#Function-Template-函数模板" class="headerlink" title="Function Template 函数模板"></a>Function Template 函数模板</h2><p>1.函数模板是一种作用在函数上的通用定义, 函数模板用于生成一个或者多个重载函数, 每个函数具有一组不同的实际类型.<br>2.当我们创建函数模板的时候, 我们用 placehoder type (又叫做 template parameters 或者informally template types ) 来表示任何参数类型, 表示返回类型, 或者表示希望稍后指定的函数体中使用的类型; 其实可以理解为相比int类型/double类型等各种类型, 新定义了一种特殊的类型, 叫做”模板参数”类型  </p>
+<pre><code class="lang-cpp">// 用于比较两个数的大小的函数模板
 template &lt;typename T&gt;  // 模板参数
 T max(T x, T y) &#123;
   return (x &lt; y) ? y : x;
@@ -830,17 +812,17 @@ T max(T x, T y) &#123;
 </code></pre>
 <p>3.函数模板实例化 (function template instantiation)</p>
 <p>当编译器遇到函数  </p>
-<pre><code class="cpp">max&lt;int&gt;(1, 2)
+<pre><code class="lang-cpp">max&lt;int&gt;(1, 2)
 </code></pre>
 <p>的时候, 编译器发现函数定义  </p>
-<pre><code class="cpp">max&lt;int&gt;(int, int)
+<pre><code class="lang-cpp">max&lt;int&gt;(int, int)
 </code></pre>
 <p>并不存在, 因此编译器要使用我们的函数模板  </p>
-<pre><code class="cpp">max&lt;T&gt;
+<pre><code class="lang-cpp">max&lt;T&gt;
 </code></pre>
 <p>去实例化一个函数, 这个过程叫做函数模板实例化 function template instantiation, 被实例化出来的函数叫做函数实例 function instance; 这种因为函数调用而触发的过程叫做 implicit instantiation  </p>
 <p>4.当第一次实例化完成后, 后续继续调用不需要同类型的函数实例  </p>
-<pre><code class="cpp">#include &lt;iostream&gt;
+<pre><code class="lang-cpp">#include &lt;iostream&gt;
 
 template &lt;typename T&gt;
 T max(T x, T y) &#123;
@@ -855,13 +837,13 @@ int main () &#123;
 &#125;
 </code></pre>
 <p>4.模板参数推导 template argument deduction<br>当我们想用 int 类型的 max 函数, 通过指定<int>去告诉编译器实例化出来<int>类型的函数; 另外, 我们利用模板函数推导 template argument deduction 去让编译器去推导出来类型  </p>
-<pre><code class="cpp">std::cout &lt;&lt; max&lt;int&gt;(1, 2) &lt;&lt; endl; // 指定我们想要调用max&lt;int&gt;
+<pre><code class="lang-cpp">std::cout &lt;&lt; max&lt;int&gt;(1, 2) &lt;&lt; endl; // 指定我们想要调用max&lt;int&gt;
 </code></pre>
 <p>我们让编译器去帮忙推导类型</p>
-<pre><code class="cpp">std::cout &lt;&lt; max&lt;&gt;(1, 2) &lt;&lt; endl; //  the compiler will only consider max&lt;int&gt; template function overloads when determining which overloaded function to call.
+<pre><code class="lang-cpp">std::cout &lt;&lt; max&lt;&gt;(1, 2) &lt;&lt; endl; //  the compiler will only consider max&lt;int&gt; template function overloads when determining which overloaded function to call.
 std::cout &lt;&lt; max(1, 2) &lt;&lt; endl; // the compiler will consider both max&lt;int&gt; template function overloads and max non-template function overloads.
 </code></pre>
-<pre><code class="cpp">#include &lt;iostream&gt;
+<pre><code class="lang-cpp">#include &lt;iostream&gt;
 
 template &lt;typename T&gt;
 T max(T x, T y) &#123;
@@ -882,7 +864,7 @@ int main() &#123;
 &#125;
 </code></pre>
 <p>输出结果  </p>
-<pre><code class="sh">called max&lt;int&gt;(int, int)
+<pre><code class="lang-sh">called max&lt;int&gt;(int, int)
 2
 called max&lt;int&gt;(int, int)
 2
@@ -890,13 +872,13 @@ called max(int, int)
 2
 </code></pre>
 <p>5.带有非模板参数的函数模板 function templates with non-template parameters<br>函数模板可以同时有模板参数类型, 也可以有非模板参数类型, 两个可以混着用  </p>
-<pre><code class="cpp">template &lt;typename T&gt;
+<pre><code class="lang-cpp">template &lt;typename T&gt;
 int func(T x, double y) &#123;
   return 5;
 &#125;
 </code></pre>
 <p>5.实例化的函数不一定被正确编译<br>比如string类和int类是没办法完成加法的操作的  </p>
-<pre><code class="cpp">#include &lt;iostream&gt;
+<pre><code class="lang-cpp">#include &lt;iostream&gt;
 #include &lt;string&gt;
 
 template &lt;typename T&gt;
@@ -911,7 +893,7 @@ int main() &#123;
 &#125;
 </code></pre>
 <p>6.在多个文件中使用模板 using function templates in multiple files<br>将所有的模板代码都放在.h文件中, 而不放在.cc文件中; 任何需要访问模板的文件都可以#include 相关的头文件，模板定义将由预处理器复制到源文件中, 然后编译器将能够实例化任何需要的函数<br>add.h</p>
-<pre><code class="cpp">#ifndef ADD_H
+<pre><code class="lang-cpp">#ifndef ADD_H
 #define ADD_H
 
 template &lt;typename T&gt;
@@ -922,7 +904,7 @@ T addOne(T x) &#123;// function template definition
 #endif
 </code></pre>
 <p>main.cpp</p>
-<pre><code class="cpp">#include &quot;add.h&quot; // import the function template definition
+<pre><code class="lang-cpp">#include &quot;add.h&quot; // import the function template definition
 #include &lt;iostream&gt;
 
 int main() &#123;
@@ -932,7 +914,7 @@ int main() &#123;
 &#125;
 </code></pre>
 <p>7.带有多个模板类型的函数模板<br>函数模板中, 我们需要用到不止一种类型, 比如同时需要 doule 和 int, 所以可以定义两个模板类型参数; 这种情况下, 参数返回值的类型就需要格外注意了, 因为用到了不止一种类型; c++14 里面一种比较简单的方法是用 auto 类型做返回类型  </p>
-<pre><code class="cpp">#include &lt;iostream&gt;
+<pre><code class="lang-cpp">#include &lt;iostream&gt;
 
 template &lt;typename T, typename U&gt;
 T max(T x, U y) &#123;
@@ -945,7 +927,7 @@ int main() &#123;
 &#125;
 </code></pre>
 <h2 id="Class-Template-类模板"><a href="#Class-Template-类模板" class="headerlink" title="Class Template 类模板"></a>Class Template 类模板</h2><p>我们可以定义类的模板, 其实就是函数模板推广到 oop 的  </p>
-<pre><code class="cpp">#include &lt;iostream&gt;
+<pre><code class="lang-cpp">#include &lt;iostream&gt;
 #include &lt;vector&gt;
 
 template &lt;class T&gt;
@@ -1052,8 +1034,6 @@ void Stack::push(T const&amp; elem) &#123;
 
         /*访问数量*/
         
-        $.getScript("//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js");
-        
 
         /*代码高亮，行号对齐*/
         $('.pre-numbering').css('line-height',$('.has-numbering').css('line-height'));
@@ -1079,13 +1059,13 @@ void Stack::push(T const&amp; elem) &#123;
     
     
     .nav {
-        width: 542px;
+        width: 572px;
     }
     .nav.fullscreen {
-        margin-left: -542px;
+        margin-left: -572px;
     }
     .nav-left {
-        width: 120px;
+        width: 150px;
     }
     
     
@@ -1123,19 +1103,23 @@ void Stack::push(T const&amp; elem) &#123;
     
     
     .nav-right .title-list nav a .post-title, .nav-right .title-list #local-search-result a .post-title {
-        color: #383636;
+        color: #000000;
     }
     
     
     .nav-right .title-list nav a .post-date, .nav-right .title-list #local-search-result a .post-date {
-        color: #5e5e5f;
+        color: #87CEFA;
     }
     
     
     .nav-right nav a.hover, #local-search-result a.hover{
-        background-color: #e2e0e0;
+        background-color: #ffffff;
     }
     
+    
+    .nav-right nav a.hover > span{
+        color: #DC143C !important;
+    }
     
 
     /*列表样式*/

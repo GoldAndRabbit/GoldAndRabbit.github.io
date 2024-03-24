@@ -32,7 +32,7 @@
 
 <link href="/css/style.css?v=1.1.0" rel="stylesheet">
 
-<link href="/css/hl_theme/github.css?v=1.1.0" rel="stylesheet">
+<link href="/css/hl_theme/atom-dark.css?v=1.1.0" rel="stylesheet">
 
 <link href="//cdn.jsdelivr.net/npm/animate.css@4.1.0/animate.min.css" rel="stylesheet">
 
@@ -187,13 +187,6 @@
     </div>
     <div>
         
-            <a class="about  hasFriend  site_url"
-               
-               href="/about">About</a>
-        
-        <a style="width: 50%"
-                
-                                           class="friends">Friends</a>
         
     </div>
 </div>
@@ -257,6 +250,15 @@
            data-author="" >
             <span class="post-title" title="G&amp;R 的 Blog 发布规范">G&amp;R 的 Blog 发布规范</span>
             <span class="post-date" title="2099-01-30 20:00:00">2099/01/30</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2024/03/22/Ubuntu%2022.04%20%E9%85%8D%E7%BD%AE/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Ubuntu 22.04 配置">Ubuntu 22.04 配置</span>
+            <span class="post-date" title="2024-03-22 10:11:00">2024/03/22</span>
         </a>
         
         
@@ -495,19 +497,19 @@
         
         
         <a  class="All Coding "
-           href="/2020/09/10/cpp_2_6_%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88_2_unique_ptr/"
+           href="/2020/09/10/cpp_2_5_%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88_1_shared_ptr/"
            data-tag=""
            data-author="" >
-            <span class="post-title" title="cpp_2_6_智能指针_2_unique_ptr">cpp_2_6_智能指针_2_unique_ptr</span>
+            <span class="post-title" title="cpp_2_5_智能指针_1_shared_ptr">cpp_2_5_智能指针_1_shared_ptr</span>
             <span class="post-date" title="2020-09-10 08:00:00">2020/09/10</span>
         </a>
         
         
         <a  class="All Coding "
-           href="/2020/09/10/cpp_2_5_%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88_1_shared_ptr/"
+           href="/2020/09/10/cpp_2_6_%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88_2_unique_ptr/"
            data-tag=""
            data-author="" >
-            <span class="post-title" title="cpp_2_5_智能指针_1_shared_ptr">cpp_2_5_智能指针_1_shared_ptr</span>
+            <span class="post-title" title="cpp_2_6_智能指针_2_unique_ptr">cpp_2_6_智能指针_2_unique_ptr</span>
             <span class="post-date" title="2020-09-10 08:00:00">2020/09/10</span>
         </a>
         
@@ -675,15 +677,6 @@
         
         
         <a  class="All Coding "
-           href="/2019/12/12/Ubuntu%20%E7%B3%BB%E7%BB%9F%E8%AE%BE%E7%BD%AE/"
-           data-tag=""
-           data-author="" >
-            <span class="post-title" title="Ubuntu 系统设置">Ubuntu 系统设置</span>
-            <span class="post-date" title="2019-12-12 20:11:00">2019/12/12</span>
-        </a>
-        
-        
-        <a  class="All Coding "
            href="/2019/12/11/Data%20Analysis%20Tutorial:(Part%20I)/"
            data-tag=""
            data-author="" >
@@ -771,17 +764,6 @@
     <div class="article-meta">
         
         
-        <span id="busuanzi_container_page_pv">
-            Views 👀 :<span id="busuanzi_value_page_pv">
-                <span class="count-comment">
-                    <span class="spinner">
-                      <div class="cube1"></div>
-                      <div class="cube2"></div>
-                    </span>
-                </span>
-            </span>
-        </span>
-        
         
     </div>
     
@@ -809,14 +791,14 @@
 
 <h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><p>推荐系统中bias的综述, 对bias的分类和产生原因给出了标准化的定义.  </p>
 <h2 id="Bias-in-explicit-feedback-data"><a href="#Bias-in-explicit-feedback-data" class="headerlink" title="Bias in explicit feedback data"></a>Bias in explicit feedback data</h2><p><strong>Selection Bias.</strong>  Users are free to choose which items to rate, so that the observed ratings are not a representative sample of all ratings. In other words, the rating data is often missing not at random (MNAR). 用mt评论数据训练模型, 点了4家外卖都可以给好评, 但是可能只给其中１家点了好评.</p>
-<p><strong>Conformity Bias.</strong> Users tend to rate similarly to the others in a group, even if doing so goes against their own judgment, making the rating values do not always signify user true preference. dy短视频评论区100个人里面98个人在讽刺&#x2F;谩骂&#x2F;反对, 看到这些评论, 第101个用户能否真正客观评论?  </p>
+<p><strong>Conformity Bias.</strong> Users tend to rate similarly to the others in a group, even if doing so goes against their own judgment, making the rating values do not always signify user true preference. dy短视频评论区100个人里面98个人在讽刺/谩骂/反对, 看到这些评论, 第101个用户能否真正客观评论?  </p>
 <h2 id="Bias-in-implicit-feedback-data"><a href="#Bias-in-implicit-feedback-data" class="headerlink" title="Bias in implicit feedback data"></a>Bias in implicit feedback data</h2><p><strong>Exposure Bias.</strong> Users are only exposed to a part of specific items so that unobserved interactions do not always represent negative preference. 在已有的猜你喜欢的内容推荐中, 有交互的item都是被算法推荐的, 并不代表没给推荐的就不喜欢.  </p>
-<p><strong>Position Bias.</strong> Position bias happens as users tend to interact with items in higher position of the recommendation list regardless of the items’ actual relevance so that the interacted items might not be highly relevant. 即使是在同一个推荐列表里面, 排序较高的对相对排序较低的具有更高的点击优先权. 用户的兴趣item&#x2F;相关item也有可能在排序较低的位置.  </p>
+<p><strong>Position Bias.</strong> Position bias happens as users tend to interact with items in higher position of the recommendation list regardless of the items’ actual relevance so that the interacted items might not be highly relevant. 即使是在同一个推荐列表里面, 排序较高的对相对排序较低的具有更高的点击优先权. 用户的兴趣item/相关item也有可能在排序较低的位置.  </p>
 <h2 id="Bias-in-model"><a href="#Bias-in-model" class="headerlink" title="Bias in model"></a>Bias in model</h2><p><strong>Inductive Bias.</strong> Inductive bias denotes the assumptions made by the model to better learn the target function and to generalize beyond training data.  </p>
 <h2 id="Bias-and-Unfairness-in-Results"><a href="#Bias-and-Unfairness-in-Results" class="headerlink" title="Bias and Unfairness in Results"></a>Bias and Unfairness in Results</h2><p><strong>Popularity Bias.</strong> Popular items are recommended even more frequently than their popularity would warrant (保证). 热门商品比其流行程度推荐地更高频.  </p>
 <p><strong>Unfairness.</strong> The system systematically and unfairly discriminates against certain individuals or groups of individuals in favor others.不公平性: 对于某个具体的个人偏好不公平.  </p>
 <h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ul>
-<li><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2010.03240v2">Bias and Debias in Recommender System: A Survey and Future Directions</a>. Jiawei Chen et al.</li>
+<li><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2010.03240v2">Bias and Debias in Recommender System: A Survey and Future Directions</a>. Jiawei Chen et al. </li>
 </ul>
 
       
@@ -940,8 +922,6 @@
 
         /*访问数量*/
         
-        $.getScript("//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js");
-        
 
         /*代码高亮，行号对齐*/
         $('.pre-numbering').css('line-height',$('.has-numbering').css('line-height'));
@@ -967,13 +947,13 @@
     
     
     .nav {
-        width: 542px;
+        width: 572px;
     }
     .nav.fullscreen {
-        margin-left: -542px;
+        margin-left: -572px;
     }
     .nav-left {
-        width: 120px;
+        width: 150px;
     }
     
     
@@ -1011,19 +991,23 @@
     
     
     .nav-right .title-list nav a .post-title, .nav-right .title-list #local-search-result a .post-title {
-        color: #383636;
+        color: #000000;
     }
     
     
     .nav-right .title-list nav a .post-date, .nav-right .title-list #local-search-result a .post-date {
-        color: #5e5e5f;
+        color: #87CEFA;
     }
     
     
     .nav-right nav a.hover, #local-search-result a.hover{
-        background-color: #e2e0e0;
+        background-color: #ffffff;
     }
     
+    
+    .nav-right nav a.hover > span{
+        color: #DC143C !important;
+    }
     
 
     /*列表样式*/

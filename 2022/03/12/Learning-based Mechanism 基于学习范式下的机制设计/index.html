@@ -32,7 +32,7 @@
 
 <link href="/css/style.css?v=1.1.0" rel="stylesheet">
 
-<link href="/css/hl_theme/github.css?v=1.1.0" rel="stylesheet">
+<link href="/css/hl_theme/atom-dark.css?v=1.1.0" rel="stylesheet">
 
 <link href="//cdn.jsdelivr.net/npm/animate.css@4.1.0/animate.min.css" rel="stylesheet">
 
@@ -187,13 +187,6 @@
     </div>
     <div>
         
-            <a class="about  hasFriend  site_url"
-               
-               href="/about">About</a>
-        
-        <a style="width: 50%"
-                
-                                           class="friends">Friends</a>
         
     </div>
 </div>
@@ -257,6 +250,15 @@
            data-author="" >
             <span class="post-title" title="G&amp;R 的 Blog 发布规范">G&amp;R 的 Blog 发布规范</span>
             <span class="post-date" title="2099-01-30 20:00:00">2099/01/30</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2024/03/22/Ubuntu%2022.04%20%E9%85%8D%E7%BD%AE/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Ubuntu 22.04 配置">Ubuntu 22.04 配置</span>
+            <span class="post-date" title="2024-03-22 10:11:00">2024/03/22</span>
         </a>
         
         
@@ -495,19 +497,19 @@
         
         
         <a  class="All Coding "
-           href="/2020/09/10/cpp_2_6_%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88_2_unique_ptr/"
+           href="/2020/09/10/cpp_2_5_%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88_1_shared_ptr/"
            data-tag=""
            data-author="" >
-            <span class="post-title" title="cpp_2_6_智能指针_2_unique_ptr">cpp_2_6_智能指针_2_unique_ptr</span>
+            <span class="post-title" title="cpp_2_5_智能指针_1_shared_ptr">cpp_2_5_智能指针_1_shared_ptr</span>
             <span class="post-date" title="2020-09-10 08:00:00">2020/09/10</span>
         </a>
         
         
         <a  class="All Coding "
-           href="/2020/09/10/cpp_2_5_%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88_1_shared_ptr/"
+           href="/2020/09/10/cpp_2_6_%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88_2_unique_ptr/"
            data-tag=""
            data-author="" >
-            <span class="post-title" title="cpp_2_5_智能指针_1_shared_ptr">cpp_2_5_智能指针_1_shared_ptr</span>
+            <span class="post-title" title="cpp_2_6_智能指针_2_unique_ptr">cpp_2_6_智能指针_2_unique_ptr</span>
             <span class="post-date" title="2020-09-10 08:00:00">2020/09/10</span>
         </a>
         
@@ -675,15 +677,6 @@
         
         
         <a  class="All Coding "
-           href="/2019/12/12/Ubuntu%20%E7%B3%BB%E7%BB%9F%E8%AE%BE%E7%BD%AE/"
-           data-tag=""
-           data-author="" >
-            <span class="post-title" title="Ubuntu 系统设置">Ubuntu 系统设置</span>
-            <span class="post-date" title="2019-12-12 20:11:00">2019/12/12</span>
-        </a>
-        
-        
-        <a  class="All Coding "
            href="/2019/12/11/Data%20Analysis%20Tutorial:(Part%20I)/"
            data-tag=""
            data-author="" >
@@ -771,17 +764,6 @@
     <div class="article-meta">
         
         
-        <span id="busuanzi_container_page_pv">
-            Views 👀 :<span id="busuanzi_value_page_pv">
-                <span class="count-comment">
-                    <span class="spinner">
-                      <div class="cube1"></div>
-                      <div class="cube2"></div>
-                    </span>
-                </span>
-            </span>
-        </span>
-        
         
     </div>
     
@@ -809,23 +791,28 @@
 
 <h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><p>1.RegretNet: Optimal Auction through Deep Learning 遗憾网络: 通深度学习下的最优拍卖<br>2.Neural Auction: End2End Auction  端到端的多目标机制学习<br>3.Context-Intergrated Auction 考虑上下问的拍卖机制    </p>
 <h2 id="Auction-Design-Basics"><a href="#Auction-Design-Basics" class="headerlink" title="Auction Design Basics"></a>Auction Design Basics</h2><p>通过Deep Learning的方法优化<a target="_blank" rel="noopener" href="https://goldandrabbit.github.io/2022/02/20/Mechanism%20Design">Mechanism Design</a>, 其中Auction Design定义如下</p>
-<p>A set of $n$ bidders $N&#x3D;\left {1,…,n \right }$ and $m$ items $M&#x3D;\left {1,…,m \right }$.Each bidder $i$ has a valuation function $v_i: 2^M \to \mathbb R_{\ge 0}$, where $v_i(S)$ denotes how much the bidder values the subset of items $S \subseteq M$.   </p>
-<p>If a bidder may have additive valuations. In this case she has a value $v_i (\left {j \right })$ for each individual item $j\subseteq M$, and her value for a subset of items $S \subseteq M$ is $v_i(S) &#x3D; \sum_{j\in S}v_i(\left {j \right })$.If a bidder’s value for a subset of items $S \subseteq M$ is $v_i(S)&#x3D;{\rm max}_{j\in S} v_i(\left {j \right })$, we say this bidder has a unit-demand valuation. We also consider bidders with general combinatorial valuations.  </p>
-<p>Bidder $i$ ‘s valuation function is drawn independently from a distribution $F_i$ over possible valuation functions $V_i$. We write $v &#x3D; (v_1,…,v_n)$ for a profile of valuations, and denote $V&#x3D;\prod_{i&#x3D;1}^{n} V_i$. The auctioneer knows the distributions $F &#x3D; (F_1,…,F_n)$, but does not know the bidders’ realized valuation $v$. The bidders report their valuations (perhaps untruthfully), and an auction decides on an allocation of items to the bidders and charges a payment to them. </p>
-<p>We denote an auction<br>$$<br>(g, p)<br>$$ </p>
-<p>as a pair of allocation rules $g_i: V \to 2^M$ and payment rules $p_i: V \to \mathbb R_{\ge 0}$ (these rules can be randomized).Given bids $b &#x3D; (b_1,…,b_n) \in V$ , the auction computes an allocation $g(b)$ and payments $p(b)$.</p>
-<p>A bidder with valuation $v_i$ receives a utility<br>$$u_i(v_i; b) &#x3D; v_i(g_i(b)) − p_i(b)$$<br>for a report of bid profile $b$. Let $v_{−i}$ denote the valuation profile $v&#x3D;(v_1,…,v_n)$ without element $v_i$, similarly for $b_i$, and let $V_i&#x3D;\prod_{j\ne i} V_j$ denote the possible valuation profiles of bidders other than bidder $i$. </p>
-<p>1.An auction is <strong>dominant strategy incentive compatible</strong> (DSIC) if each bidder’s utility is maximized by reporting truthfully no matter what the other bidders report. In other words,<br>$$u_i(v_i; (v_i; b_{−i})) \ge u_i(v_i; (b_i; b_{−i}))$$<br>for every bidder $i$, every valuation $v_i \in V_i$, every bid $b_i \in V_i$, and all bids $b_{−i} \in V_{−i}$ from others.   </p>
-<p>2.An auction is ex post <strong>individually rational</strong> (IR) if each bidder receives a non-zero utility, i.e.<br>$$u_i(v_i; (v_i; b_{−i})) \ge 0$$<br>for $\forall i \in N, v_i \in V_i$, and $b_{−i} \in V_{−i}$.</p>
-<p>In a DSIC auction, it is in the best interest of each bidder to report truthfully, and so the revenue on valuation profile $v$ is<br>$$<br>{\textstyle \sum_{i} {p_i(v)}}<br>$$</p>
-<p>Optimal auction design seeks to identify a DSIC auction that maximizes expected revenue.</p>
-<h3 id="Formulation-as-a-Learning-Problem"><a href="#Formulation-as-a-Learning-Problem" class="headerlink" title="Formulation as a Learning Problem"></a>Formulation as a Learning Problem</h3><p>given a parametric class of auctions $(g^w, p^w) \in \mathcal M$, for parameter $w \in \mathbb R^d$ for some $d \in \mathbb N$, and sample a bidder valuation profiles $\mathcal S&#x3D;\left {v^{(1)},…,v^{(L)} \right }$ drawn i.i.d from $F$. The goal is to find an auction that minimizes the negated, expected revenue</p>
-<p>$$<br>-\textbf E \left [{\textstyle \sum_{i \in N}} p_i^w(v) \right]<br>$$</p>
-<h3 id="RegretNet"><a href="#RegretNet" class="headerlink" title="RegretNet"></a>RegretNet</h3><p>RegretNet replace IC constraints with a differenctiable approximation and lifts the IC constraints into the objective by augmenting the objective with a term that account for the extent to which the IC constraints are vialated.</p>
+<p>A set of $n$ bidders $N=\left \{1,…,n \right \}$ and $m$ items $M=\left \{1,…,m \right \}$.Each bidder $i$ has a valuation function $v_i: 2^M \to \mathbb R_{\ge 0}$, where $v_i(S)$ denotes how much the bidder values the subset of items $S \subseteq M$.   </p>
+<p>If a bidder may have additive valuations. In this case she has a value $v_i (\left \{j \right \})$ for each individual item $j\subseteq M$, and her value for a subset of items $S \subseteq M$ is $v_i(S) = \sum_{j\in S}v_i(\left \{j \right \})$.If a bidder’s value for a subset of items $S \subseteq M$ is $v_i(S)={\rm max}_{j\in S} v_i(\left \{j \right \})$, we say this bidder has a unit-demand valuation. We also consider bidders with general combinatorial valuations.  </p>
+<p>Bidder $i$ ‘s valuation function is drawn independently from a distribution $F_i$ over possible valuation functions $V_i$. We write $v = (v_1,…,v_n)$ for a profile of valuations, and denote $V=\prod_{i=1}^{n} V_i$. The auctioneer knows the distributions $F = (F_1,…,F_n)$, but does not know the bidders’ realized valuation $v$. The bidders report their valuations (perhaps untruthfully), and an auction decides on an allocation of items to the bidders and charges a payment to them. </p>
+<p>We denote an auction </p>
+<script type="math/tex; mode=display">
+(g, p)</script><p>as a pair of allocation rules $g_i: V \to 2^M$ and payment rules $p_i: V \to \mathbb R_{\ge 0}$ (these rules can be randomized).Given bids $b = (b_1,…,b_n) \in V$ , the auction computes an allocation $g(b)$ and payments $p(b)$.</p>
+<p>A bidder with valuation $v_i$ receives a utility </p>
+<script type="math/tex; mode=display">u_i(v_i; b) = v_i(g_i(b)) − p_i(b)</script><p>for a report of bid profile $b$. Let $v_{−i}$ denote the valuation profile $v=(v_1,…,v_n)$ without element $v_i$, similarly for $b_i$, and let $V_i=\prod_{j\ne i} V_j$ denote the possible valuation profiles of bidders other than bidder $i$. </p>
+<p>1.An auction is <strong>dominant strategy incentive compatible</strong> (DSIC) if each bidder’s utility is maximized by reporting truthfully no matter what the other bidders report. In other words, </p>
+<script type="math/tex; mode=display">u_i(v_i; (v_i; b_{−i})) \ge u_i(v_i; (b_i; b_{−i}))</script><p>for every bidder $i$, every valuation $v_i \in V_i$, every bid $b_i \in V_i$, and all bids $b_{−i} \in V_{−i}$ from others.   </p>
+<p>2.An auction is ex post <strong>individually rational</strong> (IR) if each bidder receives a non-zero utility, i.e. </p>
+<script type="math/tex; mode=display">u_i(v_i; (v_i; b_{−i})) \ge 0</script><p>for $\forall i \in N, v_i \in V_i$, and $b_{−i} \in V_{−i}$.</p>
+<p>In a DSIC auction, it is in the best interest of each bidder to report truthfully, and so the revenue on valuation profile $v$ is</p>
+<script type="math/tex; mode=display">
+{\textstyle \sum_{i} {p_i(v)}}</script><p>Optimal auction design seeks to identify a DSIC auction that maximizes expected revenue.</p>
+<h3 id="Formulation-as-a-Learning-Problem"><a href="#Formulation-as-a-Learning-Problem" class="headerlink" title="Formulation as a Learning Problem"></a>Formulation as a Learning Problem</h3><p>given a parametric class of auctions $(g^w, p^w) \in \mathcal M$, for parameter $w \in \mathbb R^d$ for some $d \in \mathbb N$, and sample a bidder valuation profiles $\mathcal S=\left \{v^{(1)},…,v^{(L)} \right \}$ drawn i.i.d from $F$. The goal is to find an auction that minimizes the negated, expected revenue</p>
+<script type="math/tex; mode=display">
+-\textbf E \left [{\textstyle \sum_{i \in N}} p_i^w(v) \right]</script><h3 id="RegretNet"><a href="#RegretNet" class="headerlink" title="RegretNet"></a>RegretNet</h3><p>RegretNet replace IC constraints with a differenctiable approximation and lifts the IC constraints into the objective by augmenting the objective with a term that account for the extent to which the IC constraints are vialated.</p>
 <p>RegretNet measure the extent to which an auction violates the incentive compatibility through the following notion of ex post regret.</p>
 <p>Fixing the bids of others, the ex post regret for a bidder is the maximum increase in her utility, considering all possible non-truthful bids. For mechanisms $(g^w, p^w)$, RegretNet is interested in <strong>expected ex post regret</strong> for bidder $i$：</p>
-<p>$$<br>rgt_i(w)&#x3D; \textbf E \left[\mathop{\rm max}\limits_{v’\in V_i} u_i^w(v_i;(v_i^{\prime},v_{-i}))-u_i^w(v_i;(v_i,v_{-i}))  \right]<br>$$</p>
-<p>where the expectation is over $v \sim F$, and $u_i^w(v_i;b)&#x3D;v_i(g_i^w(b))-p_i^w(b)$ for model parameters $w$</p>
+<script type="math/tex; mode=display">
+rgt_i(w)= \textbf E \left[\mathop{\rm max}\limits_{v'\in V_i} u_i^w(v_i;(v_i^{\prime},v_{-i}))-u_i^w(v_i;(v_i,v_{-i}))  \right]</script><p>where the expectation is over $v \sim F$, and $u_i^w(v_i;b)=v_i(g_i^w(b))-p_i^w(b)$ for model parameters $w$</p>
 <h2 id="Neural-Auction"><a href="#Neural-Auction" class="headerlink" title="Neural Auction"></a>Neural Auction</h2><h3 id="Model"><a href="#Model" class="headerlink" title="Model"></a>Model</h3><h3 id="Multi-objective-Modeling"><a href="#Multi-objective-Modeling" class="headerlink" title="Multi-objective Modeling"></a>Multi-objective Modeling</h3><h3 id="Feature-Design"><a href="#Feature-Design" class="headerlink" title="Feature Design"></a>Feature Design</h3><h3 id="Permutaion-Inequivalent-Modeling"><a href="#Permutaion-Inequivalent-Modeling" class="headerlink" title="Permutaion-Inequivalent Modeling"></a>Permutaion-Inequivalent Modeling</h3><h2 id="Context-Intergrated-Auction"><a href="#Context-Intergrated-Auction" class="headerlink" title="Context-Intergrated Auction"></a>Context-Intergrated Auction</h2><h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><p>[1].<a target="_blank" rel="noopener" href="https://arxiv.org/abs/1706.03459#:~:text=%EE%80%80Optimal%20Auctions%20through%20Deep%20Learning%EE%80%81.%20Designing%20an%20incentive,unsolved%20for%20settings%20with%20two%20or%20more%20items.">Optimal Auctions through Deep Learning</a>. Paul Dütting et al.<br>[2].<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2106.03593">Neural Auction: End-to-End Learning of Auction Mechanisms for E-Commerce Advertising</a>. Xiangyu Liu et al.<br>[3].<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/412872425">Neural Auction: 电商广告中的端到端机制优化方法</a>. Xiangyu Liu et al.  </p>
 
       
@@ -949,8 +936,6 @@
 
         /*访问数量*/
         
-        $.getScript("//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js");
-        
 
         /*代码高亮，行号对齐*/
         $('.pre-numbering').css('line-height',$('.has-numbering').css('line-height'));
@@ -976,13 +961,13 @@
     
     
     .nav {
-        width: 542px;
+        width: 572px;
     }
     .nav.fullscreen {
-        margin-left: -542px;
+        margin-left: -572px;
     }
     .nav-left {
-        width: 120px;
+        width: 150px;
     }
     
     
@@ -1020,19 +1005,23 @@
     
     
     .nav-right .title-list nav a .post-title, .nav-right .title-list #local-search-result a .post-title {
-        color: #383636;
+        color: #000000;
     }
     
     
     .nav-right .title-list nav a .post-date, .nav-right .title-list #local-search-result a .post-date {
-        color: #5e5e5f;
+        color: #87CEFA;
     }
     
     
     .nav-right nav a.hover, #local-search-result a.hover{
-        background-color: #e2e0e0;
+        background-color: #ffffff;
     }
     
+    
+    .nav-right nav a.hover > span{
+        color: #DC143C !important;
+    }
     
 
     /*列表样式*/
