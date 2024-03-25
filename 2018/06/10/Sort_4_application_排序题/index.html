@@ -1,0 +1,1686 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Sort_4_application_排序题 | G&amp;R Blog</title>
+  <meta name="keywords" content="">
+  <meta name="description" content="Sort_4_application_排序题 | G&amp;R Blog">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="Overview1.BERT is basically a trained Transformer Encoder stack.   2.Both BERT model sizes have a large number of encoder layers (which the paper calls Transformer Blocks) – twelve for the Base ve">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Bert">
+<meta property="og:url" content="http://example.com/debug_articles/Bert.html">
+<meta property="og:site_name" content="G&amp;R Blog">
+<meta property="og:description" content="Overview1.BERT is basically a trained Transformer Encoder stack.   2.Both BERT model sizes have a large number of encoder layers (which the paper calls Transformer Blocks) – twelve for the Base ve">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://s3.ax1x.com/2020/12/16/r1tx0A.png">
+<meta property="og:image" content="https://s3.ax1x.com/2020/12/16/r1tWy4.png">
+<meta property="og:image" content="https://s3.ax1x.com/2020/12/16/r1tcWT.png">
+<meta property="og:image" content="https://s3.ax1x.com/2020/12/16/r1tfOJ.png">
+<meta property="og:image" content="https://s3.ax1x.com/2020/12/16/r1tRlF.png">
+<meta property="og:image" content="https://s3.ax1x.com/2020/12/16/r1t2SU.png">
+<meta property="og:image" content="https://s3.ax1x.com/2020/12/16/r1tx0A.png">
+<meta property="article:published_time" content="2020-12-16T13:56:00.000Z">
+<meta property="article:modified_time" content="2024-03-22T05:17:40.745Z">
+<meta property="article:author" content="G &amp; R">
+<meta property="article:tag" content="Recommending System">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s3.ax1x.com/2020/12/16/r1tx0A.png">
+
+
+<link rel="icon" href="/img/avatar.jpg">
+
+<link href="/css/style.css?v=1.1.0" rel="stylesheet">
+
+<link href="/css/hl_theme/atom-dark.css?v=1.1.0" rel="stylesheet">
+
+<link href="//cdn.jsdelivr.net/npm/animate.css@4.1.0/animate.min.css" rel="stylesheet">
+
+<script src="//cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+<script src="/js/titleTip.js?v=1.1.0" ></script>
+
+<script src="//cdn.jsdelivr.net/npm/highlightjs@9.16.2/highlight.pack.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+
+<script src="//cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js"></script>
+
+
+
+<script src="//cdn.jsdelivr.net/npm/jquery.cookie@1.4.1/jquery.cookie.min.js" ></script>
+
+<script src="/js/iconfont.js?v=1.1.0" ></script>
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+<div style="display: none">
+  <input class="theme_disqus_on" value="false">
+  <input class="theme_preload_comment" value="">
+  <input class="theme_blog_path" value="">
+  <input id="theme_shortcut" value="true" />
+  <input id="theme_highlight_on" value="true" />
+  <input id="theme_code_copy" value="true" />
+</div>
+
+
+
+<body>
+<aside class="nav">
+    <div class="nav-left">
+        <a href="/"
+   class="avatar_target">
+    <img class="avatar"
+         src="/img/avatar.jpg"/>
+</a>
+<div class="author">
+    <span>G &amp; R</span>
+</div>
+
+<div class="icon">
+    
+        
+            <a title="github"
+               href="https://github.com/goldandrabbit"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-github"></use>
+                    </svg>
+                
+            </a>
+        
+    
+</div>
+
+
+
+
+
+<ul>
+    <li>
+        <div class="all active" data-rel="All">All
+            
+                <small>(123)</small>
+            
+        </div>
+    </li>
+    
+        
+            
+                
+    <li>
+        <div data-rel="Ads_RecSys">
+            
+            Ads_RecSys
+            <small>(8)</small>
+        </div>
+        
+    </li>
+
+            
+        
+    
+        
+            
+                
+    <li>
+        <div data-rel="Algorithm">
+            
+            Algorithm
+            <small>(69)</small>
+        </div>
+        
+    </li>
+
+            
+        
+    
+        
+            
+                
+    <li>
+        <div data-rel="Coding">
+            
+            Coding
+            <small>(31)</small>
+        </div>
+        
+    </li>
+
+            
+        
+    
+        
+            
+                
+    <li>
+        <div data-rel="Machine_Learning">
+            
+            Machine_Learning
+            <small>(3)</small>
+        </div>
+        
+    </li>
+
+            
+        
+    
+        
+            
+                
+    <li>
+        <div data-rel="Reading">
+            
+            Reading
+            <small>(6)</small>
+        </div>
+        
+    </li>
+
+            
+        
+    
+        
+            
+                
+    <li>
+        <div data-rel="Rethinking">
+            
+            Rethinking
+            <small>(6)</small>
+        </div>
+        
+    </li>
+
+            
+        
+    
+</ul>
+<div class="left-bottom">
+    <div class="menus">
+        
+    </div>
+    <div>
+        
+        
+    </div>
+</div>
+<input type="hidden" id="yelog_site_posts_number" value="123">
+
+<div style="display: none">
+    <span id="busuanzi_value_site_uv"></span>
+    <span id="busuanzi_value_site_pv"></span>
+</div>
+
+    </div>
+    <div class="nav-right">
+        <div class="friends-area">
+    <div class="friends-title">
+        Links
+        <i class="iconfont icon-left"></i>
+    </div>
+    <div class="friends-content">
+        <ul>
+            
+            <li><a target="_blank" href="http://yelog.org/">叶落阁</a></li>
+            
+        </ul>
+    </div>
+</div>
+        <div class="title-list">
+    <div class="right-top">
+        <div id="default-panel">
+            <i class="iconfont icon-search" data-title="搜索 快捷键 i"></i>
+            <div class="right-title">All</div>
+            <i class="iconfont icon-file-tree" data-title="切换到大纲视图 快捷键 w"></i>
+        </div>
+        <div id="search-panel">
+            <i class="iconfont icon-left" data-title="返回"></i>
+            <input id="local-search-input" autocomplete="off"/>
+            <label class="border-line" for="input"></label>
+            <i class="iconfont icon-case-sensitive" data-title="大小写敏感"></i>
+            <i class="iconfont icon-tag" data-title="标签"></i>
+        </div>
+        <div id="outline-panel" style="display: none">
+            <div class="right-title">大纲</div>
+            <i class="iconfont icon-list" data-title="切换到文章列表"></i>
+        </div>
+    </div>
+
+    <div class="tags-list">
+    <input id="tag-search" />
+    <div class="tag-wrapper">
+        
+    </div>
+
+</div>
+
+    
+    <nav id="title-list-nav">
+        
+        
+        <a  class="All Coding "
+           href="/2099/01/30/G&R%20%E7%9A%84%20Blog%20%E5%8F%91%E5%B8%83%E8%A7%84%E8%8C%83/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="G&amp;R 的 Blog 发布规范">G&amp;R 的 Blog 发布规范</span>
+            <span class="post-date" title="2099-01-30 20:00:00">2099/01/30</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2024/03/22/Ubuntu%2022.04%20%E9%85%8D%E7%BD%AE/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Ubuntu 22.04 配置">Ubuntu 22.04 配置</span>
+            <span class="post-date" title="2024-03-22 10:11:00">2024/03/22</span>
+        </a>
+        
+        
+        <a  class="All Rethinking "
+           href="/2024/02/20/2023%20Annual%20Summary%20%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="2023 Annual Summary 年终总结">2023 Annual Summary 年终总结</span>
+            <span class="post-date" title="2024-02-20 20:00:00">2024/02/20</span>
+        </a>
+        
+        
+        <a  class="All Rethinking "
+           href="/2023/05/20/2022%20Annual%20Summary%20%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="2022 Annual Summary 年终总结">2022 Annual Summary 年终总结</span>
+            <span class="post-date" title="2023-05-20 20:00:00">2023/05/20</span>
+        </a>
+        
+        
+        <a  class="All Ads_RecSys "
+           href="/2022/05/20/TabTransformer%20Tabular%20Data%20Modeling%20Using%20Contextual%20Embeddings/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="TabTransformer Tabular Data Modeling Using Contextual Embeddings">TabTransformer Tabular Data Modeling Using Contextual Embeddings</span>
+            <span class="post-date" title="2022-05-20 20:43:00">2022/05/20</span>
+        </a>
+        
+        
+        <a  class="All Ads_RecSys "
+           href="/2022/05/15/H&M%20Recommendation%20Competition%20Top1%20%E6%96%B9%E6%A1%88/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="H&amp;M Recommendation Competition Top1 方案">H&amp;M Recommendation Competition Top1 方案</span>
+            <span class="post-date" title="2022-05-15 23:55:00">2022/05/15</span>
+        </a>
+        
+        
+        <a  class="All Ads_RecSys "
+           href="/2022/03/20/Deep%20Interest%20Highlight%20Network%20for%20Click-Through%20Rate%20Prediction%20in%20Trigger-Induced%20Recommendation/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Deep Interest Highlight Network for Click-Through Rate Prediction in Trigger-Induced Recommendation">Deep Interest Highlight Network for Click-Through Rate Prediction in Trigger-Induced Recommendation</span>
+            <span class="post-date" title="2022-03-20 22:00:00">2022/03/20</span>
+        </a>
+        
+        
+        <a  class="All Ads_RecSys "
+           href="/2022/03/12/Learning-based%20Mechanism%20%E5%9F%BA%E4%BA%8E%E5%AD%A6%E4%B9%A0%E8%8C%83%E5%BC%8F%E4%B8%8B%E7%9A%84%E6%9C%BA%E5%88%B6%E8%AE%BE%E8%AE%A1/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Learning-based Mechanism 基于学习范式下的机制设计">Learning-based Mechanism 基于学习范式下的机制设计</span>
+            <span class="post-date" title="2022-03-12 23:00:00">2022/03/12</span>
+        </a>
+        
+        
+        <a  class="All Ads_RecSys "
+           href="/2022/02/20/Mechanism%20Design%20%E6%9C%BA%E5%88%B6%E8%AE%BE%E8%AE%A1/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Mechanism Design 机制设计">Mechanism Design 机制设计</span>
+            <span class="post-date" title="2022-02-20 20:00:00">2022/02/20</span>
+        </a>
+        
+        
+        <a  class="All Rethinking "
+           href="/2022/02/07/2021%20Annual%20Summary%20%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="2021 Annual Summary 年终总结">2021 Annual Summary 年终总结</span>
+            <span class="post-date" title="2022-02-07 12:11:00">2022/02/07</span>
+        </a>
+        
+        
+        <a  class="All Reading "
+           href="/2021/11/11/Cybernetics%20and%20Society%20%E6%8E%A7%E5%88%B6%E8%AE%BA%E4%B8%8E%E7%A4%BE%E4%BC%9A/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Cybernetics and Society 控制论与社会">Cybernetics and Society 控制论与社会</span>
+            <span class="post-date" title="2021-11-11 21:00:00">2021/11/11</span>
+        </a>
+        
+        
+        <a  class="All Ads_RecSys "
+           href="/2021/09/10/Bias%20and%20Debias%20in%20Recommender%20System%20%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E4%B8%AD%E7%9A%84%20bias%20%E5%92%8C%20debias/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Bias and Debias in Recommender System 推荐系统中的 bias 和 debias">Bias and Debias in Recommender System 推荐系统中的 bias 和 debias</span>
+            <span class="post-date" title="2021-09-10 21:00:00">2021/09/10</span>
+        </a>
+        
+        
+        <a  class="All Reading "
+           href="/2021/05/20/Causal%20Inference%20%E5%9B%A0%E6%9E%9C%E6%8E%A8%E6%96%AD/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Causal Inference 因果推断">Causal Inference 因果推断</span>
+            <span class="post-date" title="2021-05-20 20:00:00">2021/05/20</span>
+        </a>
+        
+        
+        <a  class="All Rethinking "
+           href="/2020/12/31/2020%20Annual%20Summary%20%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="2020 Annual Summary 年终总结">2020 Annual Summary 年终总结</span>
+            <span class="post-date" title="2020-12-31 23:11:00">2020/12/31</span>
+        </a>
+        
+        
+        <a  class="All Ads_RecSys "
+           href="/2020/11/08/The%20Essence%20of%20RecSys%20%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E7%B2%BE%E8%A6%81/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="The Essence of RecSys 推荐系统精要">The Essence of RecSys 推荐系统精要</span>
+            <span class="post-date" title="2020-11-08 11:56:00">2020/11/08</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/10/01/Hexo%20%E6%90%AD%E5%BB%BA%E6%80%BB%E7%BB%93/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Hexo 搭建总结">Hexo 搭建总结</span>
+            <span class="post-date" title="2020-10-01 20:11:00">2020/10/01</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/09/10/cpp_0_0_%E5%B1%9E%E4%BA%8E%20cpp%20%E7%9A%84%E8%AE%BE%E8%AE%A1%E5%93%B2%E5%AD%A6/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cpp_0_1_cpp设计哲学">cpp_0_1_cpp设计哲学</span>
+            <span class="post-date" title="2020-09-10 00:00:00">2020/09/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/09/10/cpp_0_1_vscode%20%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cpp_0_1_vscode 环境配置">cpp_0_1_vscode 环境配置</span>
+            <span class="post-date" title="2020-09-10 00:00:00">2020/09/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/09/10/cpp_0_2_%E5%A4%B4%E6%96%87%E4%BB%B6%20header%20file/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cpp_0_2_头文件 headerfile">cpp_0_2_头文件 headerfile</span>
+            <span class="post-date" title="2020-09-10 00:00:00">2020/09/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/09/10/cpp_0_3_%E8%B0%B7%E6%AD%8C%20C++%20%E7%BC%96%E7%A8%8B%E9%A3%8E%E6%A0%BC/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cpp_0_3_谷歌 C++ 编程风格">cpp_0_3_谷歌 C++ 编程风格</span>
+            <span class="post-date" title="2020-09-10 00:00:00">2020/09/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/09/10/cpp_1_1_%E5%B7%A6%E5%80%BC%E5%92%8C%E5%8F%B3%E5%80%BC/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cpp_1_1_左值和右值">cpp_1_1_左值和右值</span>
+            <span class="post-date" title="2020-09-10 00:00:00">2020/09/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/09/10/cpp_1_2_%E5%B7%A6%E5%80%BC%E5%BC%95%E7%94%A8%20Lvalue%20reference/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cpp_1_2_左值引用 Lvalue reference">cpp_1_2_左值引用 Lvalue reference</span>
+            <span class="post-date" title="2020-09-10 00:00:00">2020/09/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/09/10/cpp_1_3_%E5%8F%B3%E5%80%BC%E5%BC%95%E7%94%A8%20Rvalue%20reference/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cpp_1_3_右值引用 Rvalue reference">cpp_1_3_右值引用 Rvalue reference</span>
+            <span class="post-date" title="2020-09-10 00:00:00">2020/09/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/09/10/cpp_2_1_%E6%8C%87%E9%92%88%20Pointer_1_%E5%9C%B0%E5%9D%80%E5%92%8C%E6%8C%87%E9%92%88/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cpp_2_1_指针 Pointer_1_地址和指针">cpp_2_1_指针 Pointer_1_地址和指针</span>
+            <span class="post-date" title="2020-09-10 00:00:00">2020/09/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/09/10/cpp_2_2_%E6%8C%87%E9%92%88%20Pointer_2_%E7%A9%BA%E6%8C%87%E9%92%88/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cpp_2_2_指针 Pointer_2_空指针">cpp_2_2_指针 Pointer_2_空指针</span>
+            <span class="post-date" title="2020-09-10 00:00:00">2020/09/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/09/10/cpp_2_3_%E6%8C%87%E9%92%88%20Pointer_3_const%20%E4%B8%8E%E6%8C%87%E9%92%88/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cpp_2_3_指针 Pointer_3_const 与指针">cpp_2_3_指针 Pointer_3_const 与指针</span>
+            <span class="post-date" title="2020-09-10 00:00:00">2020/09/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/09/10/cpp_2_4_%E6%8C%87%E9%92%88%20Pointer_4_%E4%BC%A0%E5%9C%B0%E5%9D%80%20Pass%20by%20address/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cpp_2_4_指针 Pointer_4_传地址 Pass by address">cpp_2_4_指针 Pointer_4_传地址 Pass by address</span>
+            <span class="post-date" title="2020-09-10 00:00:00">2020/09/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/09/10/cpp_2_5_%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88_0_%E8%AE%BE%E8%AE%A1%E6%80%9D%E6%83%B3/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cpp_2_5_智能指针_0_设计思想">cpp_2_5_智能指针_0_设计思想</span>
+            <span class="post-date" title="2020-09-10 00:00:00">2020/09/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/09/10/cpp_2_6_%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88_1_shared_ptr/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cpp_2_6_智能指针_1_shared_ptr">cpp_2_6_智能指针_1_shared_ptr</span>
+            <span class="post-date" title="2020-09-10 00:00:00">2020/09/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/09/10/cpp_2_7_%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88_2_unique_ptr/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cpp_2_7_智能指针_2_unique_ptr">cpp_2_7_智能指针_2_unique_ptr</span>
+            <span class="post-date" title="2020-09-10 00:00:00">2020/09/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/09/10/cpp_3_0_constexpr%20%E5%85%B3%E9%94%AE%E5%AD%97/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cpp_3_0_constexpr关键字">cpp_3_0_constexpr关键字</span>
+            <span class="post-date" title="2020-09-10 00:00:00">2020/09/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/09/10/cpp_3_1_const%20%E5%85%B3%E9%94%AE%E5%AD%97/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cpp_3_1_const 关键字">cpp_3_1_const 关键字</span>
+            <span class="post-date" title="2020-09-10 00:00:00">2020/09/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/09/10/cpp_3_2_Lambda%20%E8%A1%A8%E8%BE%BE%E5%BC%8F/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cpp_3_2_Lambda 表达式">cpp_3_2_Lambda 表达式</span>
+            <span class="post-date" title="2020-09-10 00:00:00">2020/09/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/09/10/cpp_5_1_%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1_0_overview/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cpp_5_1_面向对象_0_overview">cpp_5_1_面向对象_0_overview</span>
+            <span class="post-date" title="2020-09-10 00:00:00">2020/09/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/09/10/cpp_5_2_%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1_1_%E7%B1%BB%E5%92%8C%E6%88%90%E5%91%98%E5%87%BD%E6%95%B0/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cpp_5_2_面向对象_1_类和成员函数">cpp_5_2_面向对象_1_类和成员函数</span>
+            <span class="post-date" title="2020-09-10 00:00:00">2020/09/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/09/10/cpp_5_3_%E5%A4%9A%E6%80%81_0_%E8%99%9A%E5%87%BD%E6%95%B0%20Virtual%20Functions/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cpp_5_3_多态_0_虚函数 Virtual Functions">cpp_5_3_多态_0_虚函数 Virtual Functions</span>
+            <span class="post-date" title="2020-09-10 00:00:00">2020/09/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/09/10/cpp_6_0_%E6%A8%A1%E6%9D%BF%20template/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cpp_6_0_模板 template">cpp_6_0_模板 template</span>
+            <span class="post-date" title="2020-09-10 00:00:00">2020/09/10</span>
+        </a>
+        
+        
+        <a  class="All Ads_RecSys "
+           href="/2020/08/15/%E6%B7%B1%E5%BA%A6%E7%82%B9%E5%87%BB%E7%8E%87%E9%A2%84%E4%BC%B0%E6%A8%A1%E5%9E%8B%E4%B8%AD%E7%9A%84%E7%89%B9%E5%BE%81%E4%BA%A4%E5%8F%89/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="深度点击率预估模型中的特征交叉">深度点击率预估模型中的特征交叉</span>
+            <span class="post-date" title="2020-08-15 20:11:00">2020/08/15</span>
+        </a>
+        
+        
+        <a  class="All Algorithm "
+           href="/2020/07/18/Leetcode_hot_100%20%E6%80%BB%E7%BB%93/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Leetcode_hot_100 总结">Leetcode_hot_100 总结</span>
+            <span class="post-date" title="2020-07-18 22:56:00">2020/07/18</span>
+        </a>
+        
+        
+        <a  class="All Machine_Learning "
+           href="/2020/04/04/Faiss%20%E5%90%91%E9%87%8F%E6%A3%80%E7%B4%A2%E5%BA%93/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Faiss 向量检索库">Faiss 向量检索库</span>
+            <span class="post-date" title="2020-04-04 20:11:00">2020/04/04</span>
+        </a>
+        
+        
+        <a  class="All Reading "
+           href="/2020/03/22/%E7%8B%BC%E4%BA%BA%E6%9D%80%E5%A6%82%E4%BD%95%E8%87%B4%E8%83%9C/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="狼人杀如何致胜">狼人杀如何致胜</span>
+            <span class="post-date" title="2020-03-22 02:12:57">2020/03/22</span>
+        </a>
+        
+        
+        <a  class="All Reading "
+           href="/2020/02/18/David%20Stern,%20who%20turned%20NBA%20into%20powerhouse/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="David Stern, who turned NBA into powerhouse">David Stern, who turned NBA into powerhouse</span>
+            <span class="post-date" title="2020-02-18 22:56:00">2020/02/18</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/02/18/Linux%20%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E6%80%BB%E7%BB%93/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Linux 常用命令总结">Linux 常用命令总结</span>
+            <span class="post-date" title="2020-02-18 22:56:00">2020/02/18</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/02/13/Tensorflow%20API%20%E6%80%BB%E7%BB%93/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Tensorflow API 总结">Tensorflow API 总结</span>
+            <span class="post-date" title="2020-02-13 22:56:00">2020/02/13</span>
+        </a>
+        
+        
+        <a  class="All Machine_Learning "
+           href="/2020/01/11/Tricks%20in%20Data%20Mining%20Competitions%20%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98%E6%AF%94%E8%B5%9B%E6%8A%80%E5%B7%A7/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Tricks in Data Mining Competitions 数据挖掘比赛技巧">Tricks in Data Mining Competitions 数据挖掘比赛技巧</span>
+            <span class="post-date" title="2020-01-11 20:11:00">2020/01/11</span>
+        </a>
+        
+        
+        <a  class="All Machine_Learning "
+           href="/2020/01/11/Word2Vec/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Word2Vec">Word2Vec</span>
+            <span class="post-date" title="2020-01-11 20:11:00">2020/01/11</span>
+        </a>
+        
+        
+        <a  class="All Reading "
+           href="/2020/01/11/Yoshua%20Bengio%20%E5%AF%B9%20ML%20%E7%A0%94%E7%A9%B6%E8%80%85%E7%9A%84%E5%BB%BA%E8%AE%AE/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Yoshua Bengio 对 ML 研究者的建议">Yoshua Bengio 对 ML 研究者的建议</span>
+            <span class="post-date" title="2020-01-11 20:11:00">2020/01/11</span>
+        </a>
+        
+        
+        <a  class="All Rethinking "
+           href="/2019/12/31/2019%20Annual%20Summary%20%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="2019 Annual Summary 年终总结">2019 Annual Summary 年终总结</span>
+            <span class="post-date" title="2019-12-31 15:11:00">2019/12/31</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2019/12/11/Data%20Analysis%20Tutorial:(Part%20I)/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Data Analysis Tutorial:(Part I)">Data Analysis Tutorial:(Part I)</span>
+            <span class="post-date" title="2019-12-11 20:11:00">2019/12/11</span>
+        </a>
+        
+        
+        <a  class="All Reading "
+           href="/2019/10/01/Interview%20record%20of%20ML%20intern%20in%202019/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Interview record of ML intern in 2019">Interview record of ML intern in 2019</span>
+            <span class="post-date" title="2019-10-01 12:12:57">2019/10/01</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2019/05/01/Errors%20Archives%20%E6%8A%A5%E9%94%99%E5%BD%92%E6%A1%A3/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Errors Archives 报错归档">Errors Archives 报错归档</span>
+            <span class="post-date" title="2019-05-01 13:03:00">2019/05/01</span>
+        </a>
+        
+        
+        <a  class="All Rethinking "
+           href="/2018/12/31/2018%20Annual%20Summary%20%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="2018 Annual Summary 年终总结">2018 Annual Summary 年终总结</span>
+            <span class="post-date" title="2018-12-31 20:17:00">2018/12/31</span>
+        </a>
+        
+        
+        <a  class="All Algorithm "
+           href="/2018/06/10/Array_1_0_%E5%89%8D%E7%BC%80%E5%92%8C%E6%95%B0%E7%BB%84/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Array_1_0_前缀和数组与差分数组">Array_1_0_前缀和数组与差分数组</span>
+            <span class="post-date" title="2018-06-10 00:00:00">2018/06/10</span>
+        </a>
+        
+        
+        <a  class="All Algorithm "
+           href="/2018/06/10/Array_1_1_%E5%B7%AE%E5%88%86%E6%95%B0%E7%BB%84/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Array_1_差分数组">Array_1_差分数组</span>
+            <span class="post-date" title="2018-06-10 00:00:00">2018/06/10</span>
+        </a>
+        
+        
+        <a  class="All Algorithm "
+           href="/2018/06/10/Array_2_%E8%8A%B1%E5%BC%8F%E6%90%9C%E7%B4%A2/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Array_2_花式搜索">Array_2_花式搜索</span>
+            <span class="post-date" title="2018-06-10 00:00:00">2018/06/10</span>
+        </a>
+        
+        
+        <a  class="All Algorithm "
+           href="/2018/06/10/Array_3_%E5%9B%BE%E5%83%8F%E7%BF%BB%E8%BD%AC/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Array_3_图像翻转">Array_3_图像翻转</span>
+            <span class="post-date" title="2018-06-10 00:00:00">2018/06/10</span>
+        </a>
+        
+        
+        <a  class="All Algorithm "
+           href="/2018/06/10/Array_4_%E7%8E%AF%E5%BD%A2%E6%95%B0%E7%BB%84/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Array_4_环形数组">Array_4_环形数组</span>
+            <span class="post-date" title="2018-06-10 00:00:00">2018/06/10</span>
+        </a>
+        
+        
+        <a  class="All Algorithm "
+           href="/2018/06/10/Array_5_%E7%9F%A9%E9%98%B5%E6%93%8D%E4%BD%9C/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Array_5_矩阵操作">Array_5_矩阵操作</span>
+            <span class="post-date" title="2018-06-10 00:00:00">2018/06/10</span>
+        </a>
+        
+        
+        <a  class="All Algorithm "
+           href="/2018/06/10/Backtrack_0_overview/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Backtrack_0_overview">Backtrack_0_overview</span>
+            <span class="post-date" title="2018-06-10 00:00:00">2018/06/10</span>
+        </a>
+        
+        
+        <a  class="All Algorithm "
+           href="/2018/06/10/Backtrack_1_N%E7%9A%87%E5%90%8E%E5%92%8C%E8%A7%A3%E6%95%B0%E7%8B%AC/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Backtrack_1_N皇后和解数独">Backtrack_1_N皇后和解数独</span>
+            <span class="post-date" title="2018-06-10 00:00:00">2018/06/10</span>
+        </a>
+        
+        
+        <a  class="All Algorithm "
+           href="/2018/06/10/Backtrack_2_%E7%94%9F%E6%88%90%E6%8E%92%E5%88%97%E7%BB%84%E5%90%88%E5%AD%90%E9%9B%86/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Backtrack_2_生成排列组合子集">Backtrack_2_生成排列组合子集</span>
+            <span class="post-date" title="2018-06-10 00:00:00">2018/06/10</span>
+        </a>
+        
+        
+        <a  class="All Algorithm "
+           href="/2018/06/10/BinarySearch_0_%E9%97%AD%E5%8C%BA%E9%97%B4%E6%90%9C%E7%B4%A2%E5%92%8C%E5%B7%A6%E9%97%AD%E5%8F%B3%E5%BC%80%E6%90%9C%E7%B4%A2/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="BinarySearch_0_闭区间搜索和左闭右开搜索">BinarySearch_0_闭区间搜索和左闭右开搜索</span>
+            <span class="post-date" title="2018-06-10 00:00:00">2018/06/10</span>
+        </a>
+        
+        
+        <a  class="All Algorithm "
+           href="/2018/06/10/BinarySearch_1_%E5%8D%95%E8%B0%83%E7%BB%93%E6%9E%84%E4%B8%8B%E4%BA%8C%E5%88%86%E6%90%9C%E7%B4%A2/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="BinarySearch_1_单调结构下二分搜索">BinarySearch_1_单调结构下二分搜索</span>
+            <span class="post-date" title="2018-06-10 00:00:00">2018/06/10</span>
+        </a>
+        
+        
+        <a  class="All Algorithm "
+           href="/2018/06/10/BinarySearch_2_%E6%97%8B%E8%BD%AC%E6%95%B0%E7%BB%84%E4%BA%8C%E5%88%86%E6%90%9C%E7%B4%A2/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="BinarySearch_2_旋转数组二分搜索">BinarySearch_2_旋转数组二分搜索</span>
+            <span class="post-date" title="2018-06-10 00:00:00">2018/06/10</span>
+        </a>
+        
+        
+        <a  class="All Algorithm "
+           href="/2018/06/10/BinarySearch_3_%E5%8D%95%E8%B0%83%E6%80%A7%E5%BA%94%E7%94%A8%E9%97%AE%E9%A2%98%E7%9A%84%E4%BA%8C%E5%88%86%E6%90%9C%E7%B4%A2/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="BinarySearch_3_单调性应用问题的二分搜索">BinarySearch_3_单调性应用问题的二分搜索</span>
+            <span class="post-date" title="2018-06-10 00:00:00">2018/06/10</span>
+        </a>
+        
+        
+        <a  class="All Algorithm "
+           href="/2018/06/10/BinaryTree_0_overview/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="BinaryTree_0_overview">BinaryTree_0_overview</span>
+            <span class="post-date" title="2018-06-10 00:00:00">2018/06/10</span>
+        </a>
+        
+        
+        <a  class="All Algorithm "
+           href="/2018/06/10/BinaryTree_1_%E5%88%86%E8%A7%A3%E9%97%AE%E9%A2%98/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="BinaryTree_1_分解问题">BinaryTree_1_分解问题</span>
+            <span class="post-date" title="2018-06-10 00:00:00">2018/06/10</span>
+        </a>
+        
+        
+        <a  class="All Algorithm "
+           href="/2018/06/10/BinaryTree_3_%E5%B1%82%E5%BA%8F%E9%81%8D%E5%8E%86/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="BinaryTree_3_层序遍历">BinaryTree_3_层序遍历</span>
+            <span class="post-date" title="2018-06-10 00:00:00">2018/06/10</span>
+        </a>
+        
+        
+        <a  class="All Algorithm "
+           href="/2018/06/10/BinaryTree_2_%E8%B7%AF%E5%BE%84%E9%97%AE%E9%A2%98/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="BinaryTree_2_路径问题">BinaryTree_2_路径问题</span>
+            <span class="post-date" title="2018-06-10 00:00:00">2018/06/10</span>
+        </a>
+        
+        
+        <a  class="All Algorithm "
+           href="/2018/06/10/BinaryTree_3_%E8%BF%AD%E4%BB%A3%E9%81%8D%E5%8E%86/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="BinaryTree_3_迭代遍历">BinaryTree_3_迭代遍历</span>
+            <span class="post-date" title="2018-06-10 00:00:00">2018/06/10</span>
+        </a>
+        
+        
+        <a  class="All Algorithm "
+           href="/2018/06/10/BinaryTree_4_%E4%BA%8C%E5%8F%89%E6%A0%91%E5%92%8C%E9%93%BE%E8%A1%A8%E7%9A%84%E4%BA%92%E7%9B%B8%E8%BD%AC%E5%8C%96/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="BinaryTree_4_二叉树和链表的互相转化">BinaryTree_4_二叉树和链表的互相转化</span>
+            <span class="post-date" title="2018-06-10 00:00:00">2018/06/10</span>
+        </a>
+        
+        
+        <a  class="All Algorithm "
+           href="/2018/06/10/BinaryTree_5_%E5%BA%8F%E5%88%97%E5%8C%96/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="BinaryTree_4_二叉树和链表的互相转化">BinaryTree_4_二叉树和链表的互相转化</span>
+            <span class="post-date" title="2018-06-10 00:00:00">2018/06/10</span>
+        </a>
+        
+        
+        <a  class="All Algorithm "
+           href="/2018/06/10/BinaryTree_6_BST_%E7%89%B9%E6%80%A7/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="BinaryTree_6_BST_特性">BinaryTree_6_BST_特性</span>
+            <span class="post-date" title="2018-06-10 00:00:00">2018/06/10</span>
+        </a>
+        
+        
+        <a  class="All Algorithm "
+           href="/2018/06/10/BinaryTree_4_%E6%9E%84%E9%80%A0/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="BinaryTree_4_构造">BinaryTree_4_构造</span>
+            <span class="post-date" title="2018-06-10 00:00:00">2018/06/10</span>
+        </a>
+        
+        
+        <a  class="All Algorithm "
+           href="/2018/06/10/BinaryTree_7_BST_%E6%9F%A5%E6%89%BE%E6%8F%92%E5%85%A5%E5%88%A0%E9%99%A4%E9%AA%8C%E8%AF%81/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="BinaryTree_7_BST_查找插入删除验证">BinaryTree_7_BST_查找插入删除验证</span>
+            <span class="post-date" title="2018-06-10 00:00:00">2018/06/10</span>
+        </a>
+        
+        
+        <a  class="All Algorithm "
+           href="/2018/06/10/BinaryTree_8_BST_%E6%9E%84%E9%80%A0/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="BinaryTree_8_BST_构造">BinaryTree_8_BST_构造</span>
+            <span class="post-date" title="2018-06-10 00:00:00">2018/06/10</span>
+        </a>
+        
+        
+        <a  class="All Algorithm "
+           href="/2018/06/10/Bipartite_%E4%BA%8C%E5%88%86%E5%9B%BE/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Bipartite_二分图">Bipartite_二分图</span>
+            <span class="post-date" title="2018-06-10 00:00:00">2018/06/10</span>
+        </a>
+        
+        
+        <a  class="All Algorithm "
+           href="/2018/06/10/Bit_%E4%BD%8D%E8%BF%90%E7%AE%97/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Bit_位运算">Bit_位运算</span>
+            <span class="post-date" title="2018-06-10 00:00:00">2018/06/10</span>
+        </a>
+        
+        
+        <a  class="All Algorithm "
+           href="/2018/06/10/DP_0_overview/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="DP_0_overview">DP_0_overview</span>
+            <span class="post-date" title="2018-06-10 00:00:00">2018/06/10</span>
+        </a>
+        
+        
+        <a  class="All Algorithm "
+           href="/2018/06/10/DP_1_%E5%A4%87%E5%BF%98%E5%BD%95/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="DP_1_备忘录">DP_1_备忘录</span>
+            <span class="post-date" title="2018-06-10 00:00:00">2018/06/10</span>
+        </a>
+        
+        
+        <a  class="All Algorithm "
+           href="/2018/06/10/DP_2_%E6%9C%80%E5%80%BC%E9%97%AE%E9%A2%98/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="DP_2_最值问题">DP_2_最值问题</span>
+            <span class="post-date" title="2018-06-10 00:00:00">2018/06/10</span>
+        </a>
+        
+        
+        <a  class="All Algorithm "
+           href="/2018/06/10/DP_3_%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="DP_3_背包问题">DP_3_背包问题</span>
+            <span class="post-date" title="2018-06-10 00:00:00">2018/06/10</span>
+        </a>
+        
+        
+        <a  class="All Algorithm "
+           href="/2018/06/10/DP_4_%E4%B9%B0%E5%8D%96%E8%82%A1%E7%A5%A8/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="DP_4_买卖股票">DP_4_买卖股票</span>
+            <span class="post-date" title="2018-06-10 00:00:00">2018/06/10</span>
+        </a>
+        
+        
+        <a  class="All Algorithm "
+           href="/2018/06/10/DP_3_%E8%87%AA%E9%A1%B6%E5%90%91%E4%B8%8B%E8%BF%98%E6%98%AF%E8%87%AA%E5%BA%95%E5%90%91%E4%B8%8A/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="DP_3_自顶向下还是自底向上">DP_3_自顶向下还是自底向上</span>
+            <span class="post-date" title="2018-06-10 00:00:00">2018/06/10</span>
+        </a>
+        
+        
+        <a  class="All Algorithm "
+           href="/2018/06/10/DP_5_%E6%89%93%E5%AE%B6%E5%8A%AB%E8%88%8D/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="DP_5_打家劫舍">DP_5_打家劫舍</span>
+            <span class="post-date" title="2018-06-10 00:00:00">2018/06/10</span>
+        </a>
+        
+        
+        <a  class="All Algorithm "
+           href="/2018/06/10/DP_6_%E9%AB%98%E7%BB%B4dp/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="DP_6_高维dp">DP_6_高维dp</span>
+            <span class="post-date" title="2018-06-10 00:00:00">2018/06/10</span>
+        </a>
+        
+        
+        <a  class="All Algorithm "
+           href="/2018/06/10/DivideConquer_0_overview/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="DivideConquer_0_overview">DivideConquer_0_overview</span>
+            <span class="post-date" title="2018-06-10 00:00:00">2018/06/10</span>
+        </a>
+        
+        
+        <a  class="All Algorithm "
+           href="/2018/06/10/Graph_0_overview/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Graph_0_overview">Graph_0_overview</span>
+            <span class="post-date" title="2018-06-10 00:00:00">2018/06/10</span>
+        </a>
+        
+        
+        <a  class="All Algorithm "
+           href="/2018/06/10/Graph_1_dfs_%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E9%81%8D%E5%8E%86/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Graph_1_dfs_深度优先遍历">Graph_1_dfs_深度优先遍历</span>
+            <span class="post-date" title="2018-06-10 00:00:00">2018/06/10</span>
+        </a>
+        
+        
+        <a  class="All Algorithm "
+           href="/2018/06/10/Graph_2_bfs_%E5%B9%BF%E5%BA%A6%E4%BC%98%E5%85%88%E9%81%8D%E5%8E%86/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Graph_2_bfs_广度优先遍历">Graph_2_bfs_广度优先遍历</span>
+            <span class="post-date" title="2018-06-10 00:00:00">2018/06/10</span>
+        </a>
+        
+        
+        <a  class="All Algorithm "
+           href="/2018/06/10/Graph_3_%E7%8E%AF%E6%A3%80%E6%B5%8B%E4%B8%8E%E6%8B%93%E6%89%91%E6%8E%92%E5%BA%8F/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Graph_3_环检测与拓扑排序">Graph_3_环检测与拓扑排序</span>
+            <span class="post-date" title="2018-06-10 00:00:00">2018/06/10</span>
+        </a>
+        
+        
+        <a  class="All Algorithm "
+           href="/2018/06/10/Graph_5_Kruskal/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Graph_5_Kruskal">Graph_5_Kruskal</span>
+            <span class="post-date" title="2018-06-10 00:00:00">2018/06/10</span>
+        </a>
+        
+        
+        <a  class="All Algorithm "
+           href="/2018/06/10/Graph_4_%E5%B2%9B%E5%B1%BF%E9%97%AE%E9%A2%98/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Graph_4_岛屿问题">Graph_4_岛屿问题</span>
+            <span class="post-date" title="2018-06-10 00:00:00">2018/06/10</span>
+        </a>
+        
+        
+        <a  class="All Algorithm "
+           href="/2018/06/10/Graph_6_Prim/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Graph_6_Prim">Graph_6_Prim</span>
+            <span class="post-date" title="2018-06-10 00:00:00">2018/06/10</span>
+        </a>
+        
+        
+        <a  class="All Algorithm "
+           href="/2018/06/10/Graph_7_Dijstra/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Graph_7_Dijstra">Graph_7_Dijstra</span>
+            <span class="post-date" title="2018-06-10 00:00:00">2018/06/10</span>
+        </a>
+        
+        
+        <a  class="All Algorithm "
+           href="/2018/06/10/Greedy_0_overview/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Greedy_0_overview">Greedy_0_overview</span>
+            <span class="post-date" title="2018-06-10 00:00:00">2018/06/10</span>
+        </a>
+        
+        
+        <a  class="All Algorithm "
+           href="/2018/06/10/Hash_0_overview/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Hash_0_overview">Hash_0_overview</span>
+            <span class="post-date" title="2018-06-10 00:00:00">2018/06/10</span>
+        </a>
+        
+        
+        <a  class="All Algorithm "
+           href="/2018/06/10/Heap_1_application/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Heap_1_application">Heap_1_application</span>
+            <span class="post-date" title="2018-06-10 00:00:00">2018/06/10</span>
+        </a>
+        
+        
+        <a  class="All Algorithm "
+           href="/2018/06/10/IntervalProblem_%E5%8C%BA%E9%97%B4%E9%97%AE%E9%A2%98/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="IntervalProblem_区间问题">IntervalProblem_区间问题</span>
+            <span class="post-date" title="2018-06-10 00:00:00">2018/06/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2018/06/10/LinkedList_%E9%93%BE%E8%A1%A8%E6%93%8D%E4%BD%9C/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="LinkedList_链表操作">LinkedList_链表操作</span>
+            <span class="post-date" title="2018-06-10 00:00:00">2018/06/10</span>
+        </a>
+        
+        
+        <a  class="All Algorithm "
+           href="/2018/06/10/Sort_0_overview/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Sort_0_overview">Sort_0_overview</span>
+            <span class="post-date" title="2018-06-10 00:00:00">2018/06/10</span>
+        </a>
+        
+        
+        <a  class="All Algorithm "
+           href="/2018/06/10/Sort_1_insertionSort_%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Sort_1_insertionSort_插入排序">Sort_1_insertionSort_插入排序</span>
+            <span class="post-date" title="2018-06-10 00:00:00">2018/06/10</span>
+        </a>
+        
+        
+        <a  class="All Algorithm "
+           href="/2018/06/10/Sort_1_mergeSort_%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Sort_1_mergeSort_归并排序">Sort_1_mergeSort_归并排序</span>
+            <span class="post-date" title="2018-06-10 00:00:00">2018/06/10</span>
+        </a>
+        
+        
+        <a  class="All Algorithm "
+           href="/2018/06/10/Sort_2_quickSort_%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Sort_2_quickSort_快速排序">Sort_2_quickSort_快速排序</span>
+            <span class="post-date" title="2018-06-10 00:00:00">2018/06/10</span>
+        </a>
+        
+        
+        <a  class="All Algorithm "
+           href="/2018/06/10/Sort_3_heapSort_%E5%A0%86%E6%8E%92%E5%BA%8F/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Sort_3_heapSort_堆排序">Sort_3_heapSort_堆排序</span>
+            <span class="post-date" title="2018-06-10 00:00:00">2018/06/10</span>
+        </a>
+        
+        
+        <a  class="All Algorithm "
+           href="/2018/06/10/Sort_2_Partition_%E5%88%92%E5%88%86%E7%AE%97%E6%B3%95/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Sort_2_Partition_划分算法">Sort_2_Partition_划分算法</span>
+            <span class="post-date" title="2018-06-10 00:00:00">2018/06/10</span>
+        </a>
+        
+        
+        <a  class="All Algorithm "
+           href="/2018/06/10/Sort_4_application_%E6%8E%92%E5%BA%8F%E9%A2%98/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Sort_4_application_排序题">Sort_4_application_排序题</span>
+            <span class="post-date" title="2018-06-10 00:00:00">2018/06/10</span>
+        </a>
+        
+        
+        <a  class="All Algorithm "
+           href="/2018/06/10/Stack_1_%E5%8D%95%E8%B0%83%E6%A0%88/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Stack_1_单调栈">Stack_1_单调栈</span>
+            <span class="post-date" title="2018-06-10 00:00:00">2018/06/10</span>
+        </a>
+        
+        
+        <a  class="All Algorithm "
+           href="/2018/06/10/Stack_0_overview/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Stack_0_overview">Stack_0_overview</span>
+            <span class="post-date" title="2018-06-10 00:00:00">2018/06/10</span>
+        </a>
+        
+        
+        <a  class="All Algorithm "
+           href="/2018/06/10/Stack_2_%E8%A1%A8%E8%BE%BE%E5%BC%8F%E8%A7%A3%E7%A0%81/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Stack_2_表达式解码">Stack_2_表达式解码</span>
+            <span class="post-date" title="2018-06-10 00:00:00">2018/06/10</span>
+        </a>
+        
+        
+        <a  class="All Algorithm "
+           href="/2018/06/10/Trie_%E5%89%8D%E7%BC%80%E6%A0%91/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Trie_前缀树">Trie_前缀树</span>
+            <span class="post-date" title="2018-06-10 00:00:00">2018/06/10</span>
+        </a>
+        
+        
+        <a  class="All Algorithm "
+           href="/2018/06/10/TwoPointers_0_overview/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="TwoPointers_0_overview">TwoPointers_0_overview</span>
+            <span class="post-date" title="2018-06-10 00:00:00">2018/06/10</span>
+        </a>
+        
+        
+        <a  class="All Algorithm "
+           href="/2018/06/10/TwoPointers_1_%E5%BF%AB%E6%85%A2%E6%8C%87%E9%92%88/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="TwoPointers_1_快慢指针">TwoPointers_1_快慢指针</span>
+            <span class="post-date" title="2018-06-10 00:00:00">2018/06/10</span>
+        </a>
+        
+        
+        <a  class="All Algorithm "
+           href="/2018/06/10/TwoPointers_2_%E5%B7%A6%E5%8F%B3%E6%8C%87%E9%92%88/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="TwoPointers_2_左右指针">TwoPointers_2_左右指针</span>
+            <span class="post-date" title="2018-06-10 00:00:00">2018/06/10</span>
+        </a>
+        
+        
+        <a  class="All Algorithm "
+           href="/2018/06/10/TwoPointers_3_%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="TwoPointers_3_滑动窗口">TwoPointers_3_滑动窗口</span>
+            <span class="post-date" title="2018-06-10 00:00:00">2018/06/10</span>
+        </a>
+        
+        
+        <a  class="All Algorithm "
+           href="/2018/06/10/TwoPointers_4_Rabin_Karp/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="TwoPointers_4_Rabin_Karp">TwoPointers_4_Rabin_Karp</span>
+            <span class="post-date" title="2018-06-10 00:00:00">2018/06/10</span>
+        </a>
+        
+        
+        <a  class="All Algorithm "
+           href="/2018/06/10/TwoPointers_5_%E9%93%BE%E8%A1%A8/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="TwoPointers_5_链表">TwoPointers_5_链表</span>
+            <span class="post-date" title="2018-06-10 00:00:00">2018/06/10</span>
+        </a>
+        
+        
+        <a  class="All Algorithm "
+           href="/2018/06/10/TwoPointers_6_n%E6%95%B0%E4%B9%8B%E5%92%8C/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="TwoPointers_6_n数之和">TwoPointers_6_n数之和</span>
+            <span class="post-date" title="2018-06-10 00:00:00">2018/06/10</span>
+        </a>
+        
+        
+        <a  class="All Algorithm "
+           href="/2018/06/10/TwoPointers_7_%E8%8D%B7%E5%85%B0%E5%9B%BD%E6%97%97/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="TwoPointers_7_荷兰国旗">TwoPointers_7_荷兰国旗</span>
+            <span class="post-date" title="2018-06-10 00:00:00">2018/06/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2018/06/10/UnionFind_%E5%B9%B6%E6%9F%A5%E9%9B%86/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="UnionFind_并查集">UnionFind_并查集</span>
+            <span class="post-date" title="2018-06-10 00:00:00">2018/06/10</span>
+        </a>
+        
+        
+        <a  class="All Algorithm "
+           href="/2018/06/10/cache_LFU/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cache_LFU">cache_LFU</span>
+            <span class="post-date" title="2018-06-10 00:00:00">2018/06/10</span>
+        </a>
+        
+        
+        <a  class="All Algorithm "
+           href="/2018/06/10/cache_LRU/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cache_LRU">cache_LRU</span>
+            <span class="post-date" title="2018-06-10 00:00:00">2018/06/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2018/04/05/Git%20%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Git 使用指南">Git 使用指南</span>
+            <span class="post-date" title="2018-04-05 22:56:00">2018/04/05</span>
+        </a>
+        
+        <div id="no-item-tips">
+
+        </div>
+    </nav>
+    <div id="outline-list">
+    </div>
+</div>
+
+    </div>
+    <div class="hide-list">
+        <div class="semicircle" data-title="切换全屏 快捷键 s">
+            <div class="brackets first"><</div>
+            <div class="brackets">&gt;</div>
+        </div>
+    </div>
+</aside>
+<div id="post">
+    <div class="pjax">
+        <article id="post-Sort_4_application_排序题" class="article article-type-post" itemscope itemprop="blogPost">
+    
+        <h1 class="article-title">Sort_4_application_排序题</h1>
+    
+    <div class="article-meta">
+        
+        
+        
+        <span class="book">
+            <i class="iconfont icon-category"></i>
+            
+            
+            <a  data-rel="Algorithm">Algorithm</a>
+            
+        </span>
+        
+        
+    </div>
+    <div class="article-meta">
+        
+            Created At : <time class="date" title='Updated At: 2024-03-25 20:45:31'>2018-06-10 00:00</time>
+        
+    </div>
+    <div class="article-meta">
+        
+        
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#252-%E4%BC%9A%E8%AE%AE%E5%AE%A4"><span class="toc-text">252.会议室</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#56-%E5%90%88%E5%B9%B6%E5%8C%BA%E9%97%B4"><span class="toc-text">56.合并区间</span></a></li></ol>
+    
+<style>
+    .left-col .switch-btn,
+    .left-col .switch-area {
+        display: none;
+    }
+    .toc-level-3 i,
+    .toc-level-3 ol {
+        display: none !important;
+    }
+</style>
+</div>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="252-会议室"><a href="#252-会议室" class="headerlink" title="252.会议室"></a>252.会议室</h2><blockquote>
+<p>给定一个会议时间安排的数组 intervals ，每个会议时间都会包括开始和结束的时间 intervals[i] = [starti, endi] ，请你判断一个人是否能够参加这里面的全部会议。</p>
+<p>示例 1：输入：intervals = [[0,30],[5,10],[15,20]] 输出：false</p>
+<p>示例 2：输入：intervals = [[7,10],[2,4]] 输出：true<br>提示：<br>0 &lt;= intervals.length &lt;= 104<br>intervals[i].length == 2<br>0 &lt;= starti &lt; endi &lt;= 106</p>
+</blockquote>
+<p>分析:<br>1.只要有重叠那么就不能参加所有会议, 按照开会起点排序, 维护并检查所有末尾扫描点  </p>
+<pre><code class="lang-cpp">class Solution &#123;
+ public:
+  bool canAttendMeetings(vector&lt;vector&lt;int&gt;&gt;&amp; intervals) &#123;
+    int n = intervals.size();
+    if (n &lt;= 0) &#123;
+      return true;
+    &#125;
+    sort(intervals.begin(), intervals.end(), [] (auto a, auto b) &#123;
+      return a[0] &lt; b[0];
+    &#125;);
+    for (int i = 1; i &lt; n; ++i) &#123;
+      if (intervals[i][0] &lt; intervals[i-1][1]) &#123;
+        return false;
+      &#125;
+    &#125;
+    return true;
+  &#125;
+&#125;;
+</code></pre>
+<h2 id="56-合并区间"><a href="#56-合并区间" class="headerlink" title="56.合并区间"></a>56.合并区间</h2><blockquote>
+<p>以数组 intervals 表示若干个区间的集合，其中单个区间为 intervals[i] = [starti, endi] 。请你合并所有重叠的区间，并返回 一个不重叠的区间数组，该数组需恰好覆盖输入中的所有区间 。</p>
+<p>示例 1：输入：intervals = [[1,3],[2,6],[8,10],[15,18]] 输出：[[1,6],[8,10],[15,18]] 解释：区间 [1,3] 和 [2,6] 重叠, 将它们合并为 [1,6].</p>
+<p>示例 2：输入：intervals = [[1,4],[4,5]] 输出：[[1,5]] 解释：区间 [1,4] 和 [4,5] 可被视为重叠区间。</p>
+</blockquote>
+<p>分析:<br>1.对所有的区间的左端点先排序<br>2.新增一个 merged 空数组, 然后遍历排序后的数组, 逐个加入到数组里面, 怎么依次往里面 merge 呢?<br>(i). 如果当前区间 cur 的左边的端点比 merged 数组中最后一个区间的右端点还大, 那么我们直接放入到 merged 末尾<br>(ii). 如果当前区间 cur 的左边端点比 merged 数组最后一个 区间 的右端点小, 那么更新最后一个数组的右端点更新成 max(cur_右端点, last_右端点)  </p>
+<pre><code class="lang-cpp">class Solution &#123;
+ public:
+  vector&lt;vector&lt;int&gt;&gt; merge(vector&lt;vector&lt;int&gt;&gt;&amp; intervals) &#123;
+    int len = intervals.size();
+    vector&lt;vector&lt;int&gt;&gt; merged;
+    if (len &lt;= 0) &#123;
+      return merged;
+    &#125;
+    auto cmp = [] (const vector&lt;int&gt;&amp; a, const vector&lt;int&gt;&amp; b) &#123;
+      return a[0] &lt; b[0];
+    &#125;;
+    sort(intervals.begin(), intervals.end(), cmp);
+    merged.push_back(intervals[0]);
+    for (int i = 1; i &lt; len; ++i) &#123;
+      int l = intervals[i][0];
+      int r = intervals[i][1];
+      int lastR = merged.back()[1];
+      // 如果当前区间的左端点 比 最后一个区间的右端点还大, 直接放到最后一个, 没有重合无需合并
+      if (l &gt; lastR) &#123;
+        merged.push_back(&#123;l, r&#125;);
+      // 否则将 cur区间 和最后一个区间合并
+      &#125; else &#123;
+        merged.back()[1] = max(merged.back()[1], r);
+      &#125;
+    &#125;
+    return merged;
+  &#125;
+&#125;;
+</code></pre>
+
+      
+       <hr><span style="font-style: italic;color: gray;"> 转载请注明来源, from goldandrabbit.github.io </span>
+    </div>
+</article>
+
+
+<p>
+    <a  class="dashang" onclick="dashangToggle()">💰</a>
+</p>
+
+
+
+
+
+
+    
+
+
+
+
+    </div>
+    <div class="copyright">
+        <p class="footer-entry">
+    ©2018-2024
+</p>
+<p class="footer-entry">Built with <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/yelog/hexo-theme-3-hexo" target="_blank">3-hexo</a> theme</p>
+
+    </div>
+    <div class="full-toc">
+        <button class="full" data-title="切换全屏 快捷键 s"><span class="min "></span></button>
+<a class="" id="rocket" ></a>
+
+    </div>
+</div>
+
+<div class="hide_box" onclick="dashangToggle()"></div>
+<div class="shang_box">
+    <a class="shang_close"  onclick="dashangToggle()">×</a>
+    <div class="shang_tit">
+        <p>Help us with donation</p>
+    </div>
+    <div class="shang_payimg">
+        <div class="pay_img">
+            <img src="/img/alipay.jpg" class="alipay" title="扫码支持">
+            <img src="/img/weixin.jpg" class="weixin" title="扫码支持">
+        </div>
+    </div>
+    <div class="shang_payselect">
+        <span><label><input type="radio" name="pay" checked value="alipay">alipay</label></span><span><label><input type="radio" name="pay" value="weixin">weixin</label></span>
+    </div>
+</div>
+
+
+</body>
+<script src="/js/jquery.pjax.js?v=1.1.0" ></script>
+
+<script src="/js/script.js?v=1.1.0" ></script>
+<script>
+    var img_resize = 'default';
+    function initArticle() {
+        /*渲染对应的表格样式*/
+        
+            $("#post .pjax table").addClass("green_title");
+        
+
+        /*渲染打赏样式*/
+        
+        $("input[name=pay]").on("click", function () {
+            if($("input[name=pay]:checked").val()=="weixin"){
+                $(".shang_box .shang_payimg .pay_img").addClass("weixin_img");
+            } else {
+                $(".shang_box .shang_payimg .pay_img").removeClass("weixin_img");
+            }
+        })
+        
+
+        /*高亮代码块行号*/
+        
+
+        /*访问数量*/
+        
+
+        /*代码高亮，行号对齐*/
+        $('.pre-numbering').css('line-height',$('.has-numbering').css('line-height'));
+
+        
+        
+    }
+
+    /*打赏页面隐藏与展示*/
+    
+    function dashangToggle() {
+        $(".shang_box").fadeToggle();
+        $(".hide_box").fadeToggle();
+    }
+    
+
+</script>
+
+<!--加入行号的高亮代码块样式-->
+
+<!--自定义样式设置-->
+<style>
+    
+    
+    .nav {
+        width: 572px;
+    }
+    .nav.fullscreen {
+        margin-left: -572px;
+    }
+    .nav-left {
+        width: 150px;
+    }
+    
+    
+    @media screen and (max-width: 1468px) {
+        .nav {
+            width: 492px;
+        }
+        .nav.fullscreen {
+            margin-left: -492px;
+        }
+        .nav-left {
+            width: 100px;
+        }
+    }
+    
+    
+    @media screen and (max-width: 1024px) {
+        .nav {
+            width: 492px;
+            margin-left: -492px
+        }
+        .nav.fullscreen {
+            margin-left: 0;
+        }
+    }
+    
+    @media screen and (max-width: 426px) {
+        .nav {
+            width: 100%;
+        }
+        .nav-left {
+            width: 100%;
+        }
+    }
+    
+    
+    .nav-right .title-list nav a .post-title, .nav-right .title-list #local-search-result a .post-title {
+        color: #000000;
+    }
+    
+    
+    .nav-right .title-list nav a .post-date, .nav-right .title-list #local-search-result a .post-date {
+        color: #87CEFA;
+    }
+    
+    
+    .nav-right nav a.hover, #local-search-result a.hover{
+        background-color: #ffffff;
+    }
+    
+    
+    .nav-right nav a.hover > span{
+        color: #DC143C !important;
+    }
+    
+
+    /*列表样式*/
+    
+
+    /* 背景图样式 */
+    
+    
+
+
+    /*引用块样式*/
+    
+
+    /*文章列表背景图*/
+    
+
+    
+</style>
+
+
+
+
+
+
+
+</html>
