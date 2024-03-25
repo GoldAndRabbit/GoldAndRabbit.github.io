@@ -515,19 +515,19 @@
         
         
         <a  class="All Coding "
-           href="/2020/09/10/cpp_3_1_const%20%E5%85%B3%E9%94%AE%E5%AD%97/"
+           href="/2020/09/10/cpp_3_0_constexpr%20%E5%85%B3%E9%94%AE%E5%AD%97/"
            data-tag=""
            data-author="" >
-            <span class="post-title" title="cpp_3_1_const 关键字">cpp_3_1_const 关键字</span>
+            <span class="post-title" title="cpp_3_0_constexpr关键字">cpp_3_0_constexpr关键字</span>
             <span class="post-date" title="2020-09-10 00:00:00">2020/09/10</span>
         </a>
         
         
         <a  class="All Coding "
-           href="/2020/09/10/cpp_3_0_constexpr%20%E5%85%B3%E9%94%AE%E5%AD%97/"
+           href="/2020/09/10/cpp_3_1_const%20%E5%85%B3%E9%94%AE%E5%AD%97/"
            data-tag=""
            data-author="" >
-            <span class="post-title" title="cpp_3_0_constexpr关键字">cpp_3_0_constexpr关键字</span>
+            <span class="post-title" title="cpp_3_1_const 关键字">cpp_3_1_const 关键字</span>
             <span class="post-date" title="2020-09-10 00:00:00">2020/09/10</span>
         </a>
         
@@ -758,7 +758,7 @@
     </div>
     <div class="article-meta">
         
-            Created At : <time class="date" title='Updated At: 2024-03-25 08:47:43'>2024-03-22 10:11</time>
+            Created At : <time class="date" title='Updated At: 2024-03-25 16:25:10'>2024-03-22 10:11</time>
         
     </div>
     <div class="article-meta">
@@ -769,7 +769,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Overview"><span class="toc-text">Overview</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85-Ubuntu-22-04"><span class="toc-text">安装 Ubuntu 22.04</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git-%E9%85%8D%E7%BD%AE"><span class="toc-text">git 配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#terminal-oh-my-zsh-vim"><span class="toc-text">terminal: oh my zsh + vim</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ide-vscode-sublime"><span class="toc-text">ide: vscode + sublime</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Reference"><span class="toc-text">Reference</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Overview"><span class="toc-text">Overview</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85-Ubuntu-22-04"><span class="toc-text">安装 Ubuntu 22.04</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git-%E9%85%8D%E7%BD%AE"><span class="toc-text">git 配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#terminal-oh-my-zsh-plugins"><span class="toc-text">terminal: oh my zsh + plugins</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ide-vim-vscode-sublime"><span class="toc-text">ide: vim + vscode + sublime</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Reference"><span class="toc-text">Reference</span></a></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -789,7 +789,7 @@
 <img src="/imgs/Ubuntu 22.04 配置/0.jpg" width="100%"/>
 </div>
 
-<h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><p>1.安装 Ubuntu 22.04<br>2.git 配置<br>3.terminal: oh my zsh + vim<br>4.ide: vscode + sublime  </p>
+<h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><p>1.安装 Ubuntu 22.04<br>2.git 配置<br>3.terminal: oh my zsh + plugins<br>4.ide: vim + vscode + sublime</p>
 <h2 id="安装-Ubuntu-22-04"><a href="#安装-Ubuntu-22-04" class="headerlink" title="安装 Ubuntu 22.04"></a>安装 Ubuntu 22.04</h2><p>1.下载 Ubuntu 22.04 LTS: <a target="_blank" rel="noopener" href="https://ubuntu.com/download/desktop">https://ubuntu.com/download/desktop</a><br>2.使用 Rufus 制作 Ubuntu 启动盘: <a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/498100251">https://zhuanlan.zhihu.com/p/498100251</a><br>3.安装的时候参考这个界面, 和实际的界面略有不同, 但也可参考: <a target="_blank" rel="noopener" href="https://ubuntu.com/tutorials/install-ubuntu-desktop#1-overview">https://ubuntu.com/tutorials/install-ubuntu-desktop#1-overview</a></p>
 <h2 id="git-配置"><a href="#git-配置" class="headerlink" title="git 配置"></a>git 配置</h2><pre><code class="lang-sh">sudo apt-get install -y git
 git config --global user.name goldandrabbit
@@ -801,16 +801,16 @@ gedit ~/.ssh/id_rsa.pub
 <p>然后 github 登录账号新建公钥  </p>
 <p>最后在 ~/ 目录下 .gitconfig 配置 git 的 alias</p>
 <pre><code class="lang-sh">[user]
-    name = goldandrabbit
-    email = goldandrabbit@foxmail.com
+  name = goldandrabbit
+  email = goldandrabbit@foxmail.com
 
 [alias]
-    co = checkout
-    ci = commit
-    br = branch
-    st = status
+  co = checkout
+  ci = commit
+  br = branch
+  st = status
 </code></pre>
-<h2 id="terminal-oh-my-zsh-vim"><a href="#terminal-oh-my-zsh-vim" class="headerlink" title="terminal: oh my zsh + vim"></a>terminal: oh my zsh + vim</h2><p>通过 curl 请求 oh my zsh</p>
+<h2 id="terminal-oh-my-zsh-plugins"><a href="#terminal-oh-my-zsh-plugins" class="headerlink" title="terminal: oh my zsh + plugins"></a>terminal: oh my zsh + plugins</h2><p>通过 curl 请求 oh my zsh</p>
 <pre><code class="lang-sh">sh -c &quot;$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)&quot;
 </code></pre>
 <p>查看所有的 shell, 最下面应该新增了 zsh 的 2 个 shell</p>
@@ -841,10 +841,18 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git
   zsh-syntax-highlighting
 )
 </code></pre>
+<h2 id="ide-vim-vscode-sublime"><a href="#ide-vim-vscode-sublime" class="headerlink" title="ide: vim + vscode + sublime"></a>ide: vim + vscode + sublime</h2><p>先来安装 vim</p>
+<pre><code class="lang-sh">sudo apt-get install vim
+</code></pre>
+<p>在 .zshrc 里面增加 vim 的 alias </p>
+<pre><code class="lang-sh">alias v=&quot;vim&quot;
+</code></pre>
 <p>在 ~/ 目录下新建 .vimrc 配置</p>
 <pre><code class="lang-sh">set number
 </code></pre>
-<h2 id="ide-vscode-sublime"><a href="#ide-vscode-sublime" class="headerlink" title="ide: vscode + sublime"></a>ide: vscode + sublime</h2><p>不使用软件商店里面的 code, 因为是一个阉割版本, 直接上官网 <a target="_blank" rel="noopener" href="https://code.visualstudio.com/">https://code.visualstudio.com/</a> 打开 dpkg 命令 打开 deb 文件</p>
+<p>不使用软件商店里面的 code, 因为是一个阉割版本, 直接上官网 <a target="_blank" rel="noopener" href="https://code.visualstudio.com/docs/setup/linux">https://code.visualstudio.com/docs/setup/linux</a>  </p>
+<pre><code class="lang-sh">sudo apt install ./&lt;file&gt;.deb
+</code></pre>
 <p>sublime 安装参考 <a target="_blank" rel="noopener" href="https://www.sublimetext.com/docs/linux_repositories.html">https://www.sublimetext.com/docs/linux_repositories.html</a></p>
 <pre><code class="lang-sh">wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/sublimehq-archive.gpg &gt; /dev/null
 
@@ -853,7 +861,7 @@ echo &quot;deb https://download.sublimetext.com/ apt/stable/&quot; | sudo tee /e
 sudo apt-get update
 sudo apt-get install sublime-text
 </code></pre>
-<p>在 .zshrc 里面增加 alias </p>
+<p>在 .zshrc 里面增加 subl 的 alias </p>
 <pre><code class="lang-sh">alias s=&quot;subl&quot;
 </code></pre>
 <h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><p>[1]. <a target="_blank" rel="noopener" href="https://maxim-danilov.github.io/make-linux-terminal-great-again/">https://maxim-danilov.github.io/make-linux-terminal-great-again/</a>  Make Linux terminal great again (Terminator + Oh My ZSH + autosuggestions + highlighting + Agnoster theme + powerline fonts + solarized colors) .<br>[2]. <a target="_blank" rel="noopener" href="https://www.sublimetext.com/docs/linux_repositories.html">https://www.sublimetext.com/docs/linux_repositories.html</a> </p>
