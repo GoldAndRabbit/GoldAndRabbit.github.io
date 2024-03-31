@@ -28,7 +28,7 @@
 <meta name="twitter:image" content="https://s3.ax1x.com/2020/12/16/r1tx0A.png">
 
 
-<link rel="icon" href="/img/avatar.png">
+<link rel="icon" href="/img/avatar3.png">
 
 <link href="/css/style.css?v=1.1.0" rel="stylesheet">
 
@@ -70,7 +70,7 @@
         <a href="/"
    class="avatar_target">
     <img class="avatar"
-         src="/img/avatar.png"/>
+         src="/img/avatar3.png"/>
 </a>
 <div class="author">
     <span>G &amp; R</span>
@@ -845,19 +845,19 @@
         
         
         <a  class="All Coding "
-           href="/2020/09/10/cpp_3_0_constexpr%20%E5%85%B3%E9%94%AE%E5%AD%97/"
+           href="/2020/09/10/cpp_2_7_%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88_2_unique_ptr/"
            data-tag=""
            data-author="" >
-            <span class="post-title" title="cpp_3_0_constexpr关键字">cpp_3_0_constexpr关键字</span>
+            <span class="post-title" title="cpp_2_7_智能指针_2_unique_ptr">cpp_2_7_智能指针_2_unique_ptr</span>
             <span class="post-date" title="2020-09-10 00:00:00">2020/09/10</span>
         </a>
         
         
         <a  class="All Coding "
-           href="/2020/09/10/cpp_2_7_%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88_2_unique_ptr/"
+           href="/2020/09/10/cpp_3_0_constexpr%20%E5%85%B3%E9%94%AE%E5%AD%97/"
            data-tag=""
            data-author="" >
-            <span class="post-title" title="cpp_2_7_智能指针_2_unique_ptr">cpp_2_7_智能指针_2_unique_ptr</span>
+            <span class="post-title" title="cpp_3_0_constexpr关键字">cpp_3_0_constexpr关键字</span>
             <span class="post-date" title="2020-09-10 00:00:00">2020/09/10</span>
         </a>
         
@@ -1781,7 +1781,7 @@
     </div>
     <div class="article-meta">
         
-            Created At : <time class="date" title='Updated At: 2024-03-26 17:15:21'>2020-12-31 23:11</time>
+            Created At : <time class="date" title='Updated At: 2024-03-31 11:13:40'>2020-12-31 23:11</time>
         
     </div>
     <div class="article-meta">
@@ -1823,10 +1823,10 @@
 <p>3.转化只是一种结果, 而用户的体感却是方方面面的. CVR 模型上线之后, 可能线上会有直接的提升, 但是还需要辅助改进一些用户体验上的策略. 比如很多高 CVR 的商品其实都是十分低价的, 仔细想想, 这是我们场景现阶段所需要的吗? 简而言之, 提升场景效果实则不难; 改善用户体验确实长久需要做的事情.  </p>
 <h3 id="1111-TLJ-Delay-FeedBack-amp-Presale"><a href="#1111-TLJ-Delay-FeedBack-amp-Presale" class="headerlink" title="1111 TLJ Delay FeedBack &amp; Presale"></a>1111 TLJ Delay FeedBack &amp; Presale</h3><p>1.大促时期是用户兴趣得到充分释放的购物时间区间, 我们需要把整个场景优化目标放眼到整个大促周期, 从”预热期”=&gt;”预售期”=&gt;”爆发期”三个阶段存在一定的相对独立性, 因此建模需要具备时间全局意识, 让每个时期的特点更鲜明的凸显出来, 就是算法核心的目标  </p>
 <p>(i). <strong>预售</strong>: 种草商品的集中体现, 商品的成交笔单价有显著的爆发, 尤其在大家电/电子设备/鞋类/高价美妆类目, 这些商品的折扣额度在这个时期内是”全年最低”, 因此推荐结果一定要从充分打满商品品牌和档次, 通过提升客单价的路径来契合用户的种草以久带来的爆发.<br>(ii). <strong>爆发</strong>: 爆发期相对来说混合了较多的因素, 包括平台最后时刻释放的临时红包, 活动以及很多场外因素(比如晚会临时带来的冲动行消费), 在爆发期具备时间短, 行为密集而丰富的主要特点, 因此这里我的设计原则是基于重定向的思路召回, 重点关注实时性需求的召回, 模型复杂度要求反而可能不需要太高. 在效果实施上有一个注意点在于一定要锁定爆发期的开始时间, 在流量迎来峰值的时候具备稳妥的变更方案, 保证线上稳定的过渡.<br>(iii). <strong>预热</strong>: 相对于以上两个时期, 用户剁手心智会极度热化, 因此需要将推荐结果和以上两类行为进行显式的区分, 具体的形式需要结合产品的形式来确定, 以抽奖, 做任务的形式来看, 需要结合相应的权益形式或者营销形式制定算法方案.  </p>
-<h2 id="技术总结"><a href="#技术总结" class="headerlink" title="技术总结"></a>技术总结</h2><h3 id="Deep-Rank"><a href="#Deep-Rank" class="headerlink" title="Deep-Rank"></a>Deep-Rank</h3><p>1.完成总结 feature interaction 模型的相关体系, 并且用 tf.estimator 结合 functional api实现. deep ctr 边际效应递减. 但对于一个推荐系统来说, deep model 只能影响到排序的一个因素, 在大流量场景可能比较明显. 但在很多时候 deep ctr 模型边际效应较小且递减明显. 尤其在小流量没有形成业务闭环的场景, 突破重点更需要一种产品或者运营的思维去看待, 简而言之, 快刀斩乱麻当断则断, 投入到边际效应更大的目标上, 带着 ROI 去推进目标.  </p>
-<h2 id="Match-MTL-Graph"><a href="#Match-MTL-Graph" class="headerlink" title="Match/MTL/Graph"></a>Match/MTL/Graph</h2><p>1.加深item-cf理解. 在梳理和落地一些match方法并且看了大量的bad case之后, 尤其加深了item-cf这种方法的理解, 虽然现在进入深度召回时代, 但能够彻底地item-cf的理解我认为是提升对推荐系统理解相当有效的路径, 宏观来看, 方法本身没有对错高低之分, 关键还是在于用方法的人.  </p>
-<p>2.Graph. Graph从一开始就为我们建立起来一种理解数据的视角, 这点当然也是follow学术界的一个正常反应.但从目前的落地的情况来, 可能还是定位于一种锦上添花的位置, 并非一种可以拿来即用的屠龙之术. 因为实际业务使用图学习的场景是动态且复杂的. 例如图的实时更新, 选择怎样的几组关系来进行抽象, 工程师需要经过比较高的迭代成本去迭代和试错. 个人感觉ROI不一定很高. 希望在2021有更多能够提升落地层次的技术应用出现.   </p>
-<h2 id="工作方法论"><a href="#工作方法论" class="headerlink" title="工作方法论"></a>工作方法论</h2><h3 id="搭建体系"><a href="#搭建体系" class="headerlink" title="搭建体系"></a>搭建体系</h3><p>搭建体系是今年方法论上的最重要的认识改变, 一个体系可以是工作或者生活中的任意一个内容, 先不用考虑太复杂的细节, 明确主要做的 3-4 个方面.<br>1.比如从推荐系统的技术角度来看, 首先有一个大的pipeline体系, 分为物料/召回/排序/策略, 每个部分由可单独拆分一个体系去展开来优化<br>2.扩大到对于一个产品的视角, 比如对于某个tk产品来说 用户增长/导购属性/工具属性, 可能是重点的三个发展的体系  </p>
+<h2 id="技术总结"><a href="#技术总结" class="headerlink" title="技术总结"></a>技术总结</h2><h3 id="Deep-Rank"><a href="#Deep-Rank" class="headerlink" title="Deep-Rank"></a>Deep-Rank</h3><p>1.完成总结 feature interaction 模型的相关体系, 并且用 tf.estimator 结合 functional api 实现. deep ctr 边际效应递减. 但对于一个推荐系统来说, deep model 只能影响到排序的一个因素, 在大流量场景可能比较明显. 但在很多时候 deep ctr 模型边际效应较小且递减明显. 尤其在小流量没有形成业务闭环的场景, 突破重点更需要一种产品或者运营的思维去看待, 简而言之, 快刀斩乱麻当断则断, 投入到边际效应更大的目标上, 带着 ROI 去推进目标.  </p>
+<h2 id="Match-MTL-Graph"><a href="#Match-MTL-Graph" class="headerlink" title="Match/MTL/Graph"></a>Match/MTL/Graph</h2><p>1.加深 item-cf 理解. 在梳理和落地一些 match 方法并且看了大量的 bad case 之后, 尤其加深了 item-cf 这种方法的理解, 虽然现在进入深度召回时代, 但能够彻底地 item-cf 的理解我认为是提升对推荐系统理解相当有效的路径, 宏观来看, 方法本身没有对错高低之分, 关键还是在于用方法的人.   </p>
+<p>2.Graph. Graph从一开始就为我们建立起来一种理解数据的视角, 这点当然也是 follow 学术界的一个正常反应.但从目前的落地的情况来, 可能还是定位于一种锦上添花的位置, 并非一种可以拿来即用的屠龙之术. 因为实际业务使用图学习的场景是动态且复杂的. 例如图的实时更新, 选择怎样的几组关系来进行抽象, 工程师需要经过比较高的迭代成本去迭代和试错. 个人感觉ROI不一定很高. 希望在 2021 有更多能够提升落地层次的技术应用出现.   </p>
+<h2 id="工作方法论"><a href="#工作方法论" class="headerlink" title="工作方法论"></a>工作方法论</h2><h3 id="搭建体系"><a href="#搭建体系" class="headerlink" title="搭建体系"></a>搭建体系</h3><p>搭建体系是今年方法论上的最重要的认识改变, 一个体系可以是工作或者生活中的任意一个内容, 先不用考虑太复杂的细节, 明确主要做的 3-4 个方面.<br>1.比如从推荐系统的技术角度来看, 首先有一个大的 pipeline 体系, 分为物料/召回/排序/策略, 每个部分由可单独拆分一个体系去展开来优化<br>2.扩大到对于一个产品的视角, 比如对于某个 tk 产品来说 用户增长/导购属性/工具属性, 可能是重点的三个发展的体系  </p>
 <h3 id="质量保证体系"><a href="#质量保证体系" class="headerlink" title="质量保证体系"></a>质量保证体系</h3><p>建立一种不以人的意志为依赖的质量保证体系. 简单来说分为两部分.<br>1.重点项目指定唯一负责 PM, PM 全局精通, 对所有问题负责<br>2.维护 checklist, 跟进 checklist 在项目迭代周期内所有的状态.  </p>
 <h2 id="2021年工作-学习需要改进-深入的点"><a href="#2021年工作-学习需要改进-深入的点" class="headerlink" title="2021年工作/学习需要改进/深入的点"></a>2021年工作/学习需要改进/深入的点</h2><p><strong>站出来, 往前冲</strong>. 在工作中, 仍然需要具备更强的owner意识, 这种意识2020年有一定提升, 但是还不够. 需要更主动的承担对问题把握.  </p>
 <p><strong>插一句, 再插一句</strong>. 在开会讨论/团队讨论中, 需要更多发表对问题的见解, 在2021年尤其需要关注的是同伴的工作, 同事的工作, 和自己kpi无关的一些内容, 大胆质疑和挑战, 提供自己的见解, 不怕在意的眼光. 只要自己不尴尬, 尴尬的就不是自己.  </p>
