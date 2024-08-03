@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>cpp_6_0_模板 template | G&amp;R Blog</title>
+  <title>G&amp;R Blog</title>
   <meta name="keywords" content="">
-  <meta name="description" content="cpp_6_0_模板 template | G&amp;R Blog">
+  <meta name="description" content="G&amp;R Blog">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="Overview1.BERT is basically a trained Transformer Encoder stack.   2.Both BERT model sizes have a large number of encoder layers (which the paper calls Transformer Blocks) – twelve for the Base ve">
 <meta property="og:type" content="website">
@@ -1773,27 +1773,17 @@
 </aside>
 <div id="post">
     <div class="pjax">
-        <article id="post-cpp_6_0_模板 template" class="article article-type-post" itemscope itemprop="blogPost">
-    
-        <h1 class="article-title">cpp_6_0_模板 template</h1>
+        <article id="page-" class="article article-type-page" itemscope itemprop="blogPost">
     
     <div class="article-meta">
         
         
-        
-        <span class="book">
-            <i class="iconfont icon-category"></i>
-            
-            
-            <a  data-rel="Coding">Coding</a>
-            
-        </span>
         
         
     </div>
     <div class="article-meta">
         
-            Created At : <time class="date" title='Updated At: 2024-03-31 08:57:23'>2020-09-10 00:00</time>
+            Created At : <time class="date" title='Updated At: 2024-07-07 10:11:15'>2024-07-07 10:11</time>
         
     </div>
     <div class="article-meta">
@@ -1804,7 +1794,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Overview"><span class="toc-text">Overview</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Why-Templates-%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E5%BC%95%E5%85%A5-Template-%E6%A8%A1%E6%9D%BF"><span class="toc-text">Why Templates? 为什么要引入 Template 模板?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Function-Template-%E5%87%BD%E6%95%B0%E6%A8%A1%E6%9D%BF"><span class="toc-text">Function Template 函数模板</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Class-Template-%E7%B1%BB%E6%A8%A1%E6%9D%BF"><span class="toc-text">Class Template 类模板</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Generic-Programming-%E6%B3%9B%E5%9E%8B%E7%BC%96%E7%A8%8B"><span class="toc-text">Generic Programming 泛型编程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Reference"><span class="toc-text">Reference</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Overview"><span class="toc-text">Overview</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Reformulating-ranking-and-retrieval-as-sequential-transduction-task"><span class="toc-text">Reformulating ranking and retrieval as sequential transduction task</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Reference"><span class="toc-text">Reference</span></a></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -1820,176 +1810,30 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><p>1.Why Templates? 为什么要引入Template模板?<br>2.Function Template 函数模板<br>3.Class Template 类模板<br>4.Generic Programming 泛型编程  </p>
-<h2 id="Why-Templates-为什么要引入-Template-模板"><a href="#Why-Templates-为什么要引入-Template-模板" class="headerlink" title="Why Templates? 为什么要引入 Template 模板?"></a>Why Templates? 为什么要引入 Template 模板?</h2><p>假设我们有一个函数 max(int x, int y), 比较两个 int 类型的 x, y 的值  </p>
-<pre><code class="lang-cpp">int max(int x, int y) &#123;
-  return x &gt; y ? x : y;
-&#125;
-</code></pre>
-<p>但是有时候我们需要用 max 函数的功能, 去返回两个 double 类型的 x 和 y 的值</p>
-<pre><code class="lang-cpp">double max(double x, double y) &#123;
-  return x &gt; y ? x : y;
-&#125;
-</code></pre>
-<p>所以我们想要一种通用版本的 max 函数写法, 能够支持参数是任何的类型.  </p>
-<p>intuitively,<br>1.模板使得函数 (或者类) 支持多个不同的数据类型<br>2.不同于一般的定义下所有的类型都需要被指定, 使用 template 时, 我们使用1个 (或者多个)  placeholder类型<br>3.类型在定义模板的时候是未知的, 然后用的时候提供具体的类型<br>4.一旦 template 被定义, 编译器使用 template 去生成很多需要的重载函数 (如果是模板类的话就相应生成多个重载类), 其中每个重载函数 (或者类) 采用不同的类型<br>5.字典里面模板这个词的解释:  </p>
-<blockquote>
-<p>a template is a model that serves as a pattern for creating similar objects. One type of template that is very easy to understand is that of a stencil. </p>
-</blockquote>
+        <p>Actions Speak Louder than Words Trillion-Parameter Sequential Transducers for Generative Recommendations</p>
+<h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><p>1.</p>
+<h2 id="Reformulating-ranking-and-retrieval-as-sequential-transduction-task"><a href="#Reformulating-ranking-and-retrieval-as-sequential-transduction-task" class="headerlink" title="Reformulating ranking and retrieval as sequential transduction task"></a>Reformulating ranking and retrieval as sequential transduction task</h2><p>先来铺垫关键 formulation:  </p>
+<ul>
+<li>$\Psi_k(t_j)$ 在 $t_j$ 时刻采集到的第 $k$ 个训练样本, $k$ 符号的设定用于标记样本的顺序关系</li>
+<li>对于每一条样本 $\Psi_k(t_j)$ 而言, $(\Phi_i, a_i)$ 是 content (图片或者视频) $\Phi_i$ 和 用户 action $a_i$ 组成的一个 tuple, action 可以是 skip 划过, video completion 完成播放, share 分享</li>
+<li>$n_c(n_c,i)$ 是用户交互过的内容个数, $i$ 表示样本 $i$</li>
+<li>$\Phi_0, \Phi_1, \dots, \Phi_{n_c-1}$: 用户交互的内容序列  </li>
+<li>$a_0,a_1,\dots, a_{n_c-1}$: 用户反馈序列, 在 binary 的设定下, 是一个 multi-hot vector</li>
+<li>$E_0,E_1,\dots,E_7,E_8$ 是 $(\Phi_0,a_0,t_0), (\Phi_1,a_1,t_1), \dots, (\Phi_{n_c-1}, a_{n_c-1},t_{n_c-1})$ 转化过来的一个 categorical feature; $F_0,F_1,\dots,F_7,F_8$ 也是  $(\Phi_0,a_0,t_0), (\Phi_1,a_1,t_1), \dots, (\Phi_{n_c-1}, a_{n_c-1},t_{n_c-1})$ 转化过来的一个 categorical feature; $E$ 和 $F$ 有什么不同 ? 取决于抽取什么特征, 比如最近点赞的 10 个图片, 和 candidate 相关的 50 个 url. </li>
+</ul>
 <div align="center">
-<img src="/imgs/cpp/6_0.jpg" width="40%"/>
+<img src="../imgs/Actions Speak Louder than Words Trillion-Parameter Sequential Transducers for Generative Recommendations/0.png" width="800%"/>
 </div>
 
-<p>6.C++ 标准库里面使用了大量的模板, 典型的例子是 standard template library (STL, 标准模板库)  </p>
-<h2 id="Function-Template-函数模板"><a href="#Function-Template-函数模板" class="headerlink" title="Function Template 函数模板"></a>Function Template 函数模板</h2><p>1.函数模板是一种作用在函数上的通用定义, 函数模板用于生成一个或者多个重载函数, 每个函数具有一组不同的实际类型.<br>2.当我们创建函数模板的时候, 我们用 placehoder type (又叫做 template parameters 或者informally template types ) 来表示任何参数类型, 表示返回类型, 或者表示希望稍后指定的函数体中使用的类型; 其实可以理解为相比int类型/double类型等各种类型, 新定义了一种特殊的类型, 叫做”模板参数”类型  </p>
-<pre><code class="lang-cpp">// 用于比较两个数的大小的函数模板
-template &lt;typename T&gt;  // 模板参数
-T max(T x, T y) &#123;
-  return (x &lt; y) ? y : x;
-&#125;
-</code></pre>
-<p>3.函数模板实例化 (function template instantiation)</p>
-<p>当编译器遇到函数  </p>
-<pre><code class="lang-cpp">max&lt;int&gt;(1, 2)
-</code></pre>
-<p>的时候, 编译器发现函数定义  </p>
-<pre><code class="lang-cpp">max&lt;int&gt;(int, int)
-</code></pre>
-<p>并不存在, 因此编译器要使用我们的函数模板  </p>
-<pre><code class="lang-cpp">max&lt;T&gt;
-</code></pre>
-<p>去实例化一个函数, 这个过程叫做函数模板实例化 function template instantiation, 被实例化出来的函数叫做函数实例 function instance; 这种因为函数调用而触发的过程叫做 implicit instantiation  </p>
-<p>4.当第一次实例化完成后, 后续继续调用不需要同类型的函数实例  </p>
-<pre><code class="lang-cpp">#include &lt;iostream&gt;
-
-template &lt;typename T&gt;
-T max(T x, T y) &#123;
-  return (a &lt; b) ? b : a;
-&#125;
-
-int main () &#123;
-  cout &lt;&lt; std::max&lt;int&gt;(1, 2) &lt;&lt; endl; // 实例化, 并调用函数max&lt;int&gt;(int, int)
-  cout &lt;&lt; std::max&lt;int&gt;(4, 3) &lt;&lt; endl; // 调用已经实例化的函数 function&lt;int&gt;(int, int)
-  cout &lt;&lt; std::max&lt;double&gt;(1.1, 2.2) &lt;&lt; endl; // 实例化, 调用函数max&lt;double&gt;(double, double)
-  return 0;
-&#125;
-</code></pre>
-<p>4.模板参数推导 template argument deduction<br>当我们想用 int 类型的 max 函数, 通过指定<int>去告诉编译器实例化出来<int>类型的函数; 另外, 我们利用模板函数推导 template argument deduction 去让编译器去推导出来类型  </p>
-<pre><code class="lang-cpp">std::cout &lt;&lt; max&lt;int&gt;(1, 2) &lt;&lt; endl; // 指定我们想要调用max&lt;int&gt;
-</code></pre>
-<p>我们让编译器去帮忙推导类型</p>
-<pre><code class="lang-cpp">std::cout &lt;&lt; max&lt;&gt;(1, 2) &lt;&lt; endl; //  the compiler will only consider max&lt;int&gt; template function overloads when determining which overloaded function to call.
-std::cout &lt;&lt; max(1, 2) &lt;&lt; endl; // the compiler will consider both max&lt;int&gt; template function overloads and max non-template function overloads.
-</code></pre>
-<pre><code class="lang-cpp">#include &lt;iostream&gt;
-
-template &lt;typename T&gt;
-T max(T x, T y) &#123;
-  std::cout &lt;&lt; &quot;called max&lt;int&gt;(int, int)\n&quot;;
-  return (x &lt; y) ? y : x;
-&#125;
-
-int max(int x, int y) &#123;
-  std::cout &lt;&lt; &quot;called max(int, int)\n&quot;;
-  return (x &lt; y) ? y : x;
-&#125;
-
-int main() &#123;
-  std::cout &lt;&lt; max&lt;int&gt;(1, 2) &lt;&lt; &#39;\n&#39;; // selects max&lt;int&gt;(int, int)
-  std::cout &lt;&lt; max&lt;&gt;(1, 2) &lt;&lt; &#39;\n&#39;;    // deduces max&lt;int&gt;(int, int) (non-template functions not considered)
-  std::cout &lt;&lt; max(1, 2) &lt;&lt; &#39;\n&#39;;      // calls function max(int, int)
-  return 0;
-&#125;
-</code></pre>
-<p>输出结果  </p>
-<pre><code class="lang-sh">called max&lt;int&gt;(int, int)
-2
-called max&lt;int&gt;(int, int)
-2
-called max(int, int)
-2
-</code></pre>
-<p>5.带有非模板参数的函数模板 function templates with non-template parameters<br>函数模板可以同时有模板参数类型, 也可以有非模板参数类型, 两个可以混着用  </p>
-<pre><code class="lang-cpp">template &lt;typename T&gt;
-int func(T x, double y) &#123;
-  return 5;
-&#125;
-</code></pre>
-<p>5.实例化的函数不一定被正确编译<br>比如string类和int类是没办法完成加法的操作的  </p>
-<pre><code class="lang-cpp">#include &lt;iostream&gt;
-#include &lt;string&gt;
-
-template &lt;typename T&gt;
-T addOne(T x) &#123;
-  return x + 1;
-&#125;
-
-int main() &#123;
-  std::string hello(&quot;Hello, world!&quot;);
-  std::cout &lt;&lt; addOne(hello) &lt;&lt; &#39;\n&#39;;
-  return 0;
-&#125;
-</code></pre>
-<p>6.在多个文件中使用模板 using function templates in multiple files<br>将所有的模板代码都放在.h文件中, 而不放在.cc文件中; 任何需要访问模板的文件都可以#include 相关的头文件，模板定义将由预处理器复制到源文件中, 然后编译器将能够实例化任何需要的函数<br>add.h</p>
-<pre><code class="lang-cpp">#ifndef ADD_H
-#define ADD_H
-
-template &lt;typename T&gt;
-T addOne(T x) &#123;// function template definition
-  return x + 1;
-&#125;
-
-#endif
-</code></pre>
-<p>main.cpp</p>
-<pre><code class="lang-cpp">#include &quot;add.h&quot; // import the function template definition
-#include &lt;iostream&gt;
-
-int main() &#123;
-  std::cout &lt;&lt; addOne(1) &lt;&lt; &#39;\n&#39;;
-  std::cout &lt;&lt; addOne(2.3) &lt;&lt; &#39;\n&#39;;
-  return 0;
-&#125;
-</code></pre>
-<p>7.带有多个模板类型的函数模板<br>函数模板中, 我们需要用到不止一种类型, 比如同时需要 doule 和 int, 所以可以定义两个模板类型参数; 这种情况下, 参数返回值的类型就需要格外注意了, 因为用到了不止一种类型; c++14 里面一种比较简单的方法是用 auto 类型做返回类型  </p>
-<pre><code class="lang-cpp">#include &lt;iostream&gt;
-
-template &lt;typename T, typename U&gt;
-T max(T x, U y) &#123;
-  return (x &lt; y) ? y : x;
-&#125;
-
-int main() &#123;
-  std::cout &lt;&lt; max(2, 3.5) &lt;&lt; &#39;\n&#39;;
-  return 0;
-&#125;
-</code></pre>
-<h2 id="Class-Template-类模板"><a href="#Class-Template-类模板" class="headerlink" title="Class Template 类模板"></a>Class Template 类模板</h2><p>我们可以定义类的模板, 其实就是函数模板推广到 oop 的  </p>
-<pre><code class="lang-cpp">#include &lt;iostream&gt;
-#include &lt;vector&gt;
-
-template &lt;class T&gt;
-class Stack &#123;
- private:
-  vector&lt;T&gt; elems;
- public:
-  T top() const;
-  void push(T const&amp;);
-  void pop();
-  bool empty() const &#123;
-    return elems.empty();
-  &#125;;
-&#125;
-
-template &lt;class T&gt;
-void Stack::push(T const&amp; elem) &#123;
-  elems.push_back(elem);
-&#125;
-</code></pre>
-<h2 id="Generic-Programming-泛型编程"><a href="#Generic-Programming-泛型编程" class="headerlink" title="Generic Programming 泛型编程"></a>Generic Programming 泛型编程</h2><p>1.模板类型有时候叫做泛型类型 (generic types) , 用模板编程又叫做泛型编程 (Generic Programming, GP).<br>2.虽然 cpp 通常非常关注类型和类型检查, 但是泛型编程让我们能够更关注算法和数据结构, 而不去多关注类型信息.<br>3.模板的优势: 习惯写函数模板有助于大量减少需要维护的代码量<br>4.模板的缺点:<br>(i). 函数模板实例化会扩展成大量的代码, 使得编译会很慢. They can expand into a crazy amount of code, which can lead to code bloat and slow compile times;<br>(ii). 可能造成很多未知的问题. They tend to produce crazy-looking, borderline unreadable error messages that are much harder to decipher than those of regular functions.<br>5.整体而言, 使用模板的缺点相比使用模板优势还是很小的;<br>6.使用模板的基础经验是: 首先创建普通函数, 然后发现需要对不同类型进行重载, 则将他们转化成函数模板  </p>
-<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ol>
-<li><a target="_blank" rel="noopener" href="https://www.learncpp.com/cpp-tutorial/function-templates/">https://www.learncpp.com/cpp-tutorial/function-templates/</a></li>
-</ol>
+<p>如何将传统推荐任务, 转化成 Generative 的任务 ? 在此之前, 我们回顾下传统的建模</p>
+<p>1.我们对比下之前的推荐系统序列建模的范式 (SASRec/GRU4Rec)<br>输入: 用户行为序列 $\Phi_0, \Phi_1, \dots, \Phi_{i-1}$<br>输出: $\Phi_i$<br>建模目标: $p(\Phi_{i+1}|u_i)$<br>建模方法: $\text{argmax} \ p(\Phi|u_i)$</p>
+<blockquote>
+<p>Generative Recommenders (GRs) combines the best of both worlds by <strong>interleaving</strong> the content and action sequences, to enable applying target-aware attention in causal, autoregressive settings.</p>
+<p>A generative approch needs to model the joint distribution over the sequence of suggested contents and user actions</p>
+</blockquote>
+<p>intuitively,<br>也就是建模如下联合分布</p>
+<script type="math/tex; mode=display">
+p(\Phi_0,a_0,\Phi_1,a_1,\dots,\Phi_{n_c-1},a_{n_c-1})</script><h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><p>[1]. Actions Speak Louder than Words: Trillion-Parameter Sequential Transducers for Generative Recommendations.</p>
 
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源, from goldandrabbit.github.io </span>
