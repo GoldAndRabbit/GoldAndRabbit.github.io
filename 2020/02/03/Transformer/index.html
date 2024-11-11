@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Item-Based CF | G&amp;R Blog</title>
+  <title>Transformer | G&amp;R Blog</title>
   <meta name="keywords" content="">
-  <meta name="description" content="Item-Based CF | G&amp;R Blog">
+  <meta name="description" content="Transformer | G&amp;R Blog">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="Actions Speak Louder than Words Trillion-Parameter Sequential Transducers for Generative Recommendations Overview1. Reformulating ranking and retrieval as sequential transduction task先来铺垫关键 formulatio">
 <meta property="og:type" content="website">
@@ -1055,10 +1055,10 @@
         
         
         <a  class="All ML_DL "
-           href="/2020/02/03/Transformer%20%E8%AE%BE%E8%AE%A1%E6%80%9D%E6%83%B3%E5%92%8C%E6%A8%A1%E5%9D%97%E5%8C%96/"
+           href="/2020/02/03/Transformer/"
            data-tag=""
            data-author="" >
-            <span class="post-title" title="Transformer 设计思想和模块化">Transformer 设计思想和模块化</span>
+            <span class="post-title" title="Transformer">Transformer</span>
             <span class="post-date" title="2020-02-03 11:56:00">2020/02/03</span>
         </a>
         
@@ -1235,19 +1235,19 @@
         
         
         <a  class="All Algorithm "
-           href="/2018/06/10/TwoPointers_3_%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/"
+           href="/2018/06/10/TwoPointers_4_Rabin_Karp/"
            data-tag=""
            data-author="" >
-            <span class="post-title" title="TwoPointers_3_滑动窗口">TwoPointers_3_滑动窗口</span>
+            <span class="post-title" title="TwoPointers_4_Rabin_Karp">TwoPointers_4_Rabin_Karp</span>
             <span class="post-date" title="2018-06-10 00:00:00">2018/06/10</span>
         </a>
         
         
         <a  class="All Algorithm "
-           href="/2018/06/10/TwoPointers_4_Rabin_Karp/"
+           href="/2018/06/10/TwoPointers_3_%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/"
            data-tag=""
            data-author="" >
-            <span class="post-title" title="TwoPointers_4_Rabin_Karp">TwoPointers_4_Rabin_Karp</span>
+            <span class="post-title" title="TwoPointers_3_滑动窗口">TwoPointers_3_滑动窗口</span>
             <span class="post-date" title="2018-06-10 00:00:00">2018/06/10</span>
         </a>
         
@@ -1818,9 +1818,9 @@
 </aside>
 <div id="post">
     <div class="pjax">
-        <article id="page-" class="article article-type-page" itemscope itemprop="blogPost">
+        <article id="post-Transformer" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">Item-Based CF</h1>
+        <h1 class="article-title">Transformer</h1>
     
     <div class="article-meta">
         
@@ -1830,7 +1830,7 @@
             <i class="iconfont icon-category"></i>
             
             
-            <a  data-rel=""></a>
+            <a  data-rel="ML_DL">ML_DL</a>
             
         </span>
         
@@ -1838,7 +1838,7 @@
     </div>
     <div class="article-meta">
         
-            Created At : <time class="date" title='Updated At: 2024-07-07 09:47:58'>2020-09-14 22:56</time>
+            Created At : <time class="date" title='Updated At: 2024-11-11 22:02:36'>2020-02-03 11:56</time>
         
     </div>
     <div class="article-meta">
@@ -1849,7 +1849,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#Overveiw"><span class="toc-text">Overveiw</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Overview"><span class="toc-text">Overview</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Encoder-Decoder-in-Machine-Translation-%E6%9C%BA%E5%99%A8%E7%BF%BB%E8%AF%91%E4%B8%AD%E7%9A%84-Encoder-Decoder-%E6%A1%86%E6%9E%B6"><span class="toc-text">Encoder-Decoder in Machine Translation 机器翻译中的 Encoder-Decoder 框架</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Attention"><span class="toc-text">Attention</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Self-Attention"><span class="toc-text">Self-Attention</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Multi-head-Self-Attention"><span class="toc-text">Multi-head Self-Attention</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Position-Embbedding"><span class="toc-text">Position Embbedding</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Other-Detail"><span class="toc-text">Other Detail</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Pros-and-Cons"><span class="toc-text">Pros and Cons</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#How-to-modulize-Transformer"><span class="toc-text">How to modulize Transformer</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#TransformerBlock"><span class="toc-text">TransformerBlock</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Scaled-dot-product-attention"><span class="toc-text">Scaled dot product attention</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CustomedMultiHeadAttention"><span class="toc-text">CustomedMultiHeadAttention</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Position-Embedding"><span class="toc-text">Position Embedding</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Run-test"><span class="toc-text">Run test</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Reference"><span class="toc-text">Reference</span></a></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -1865,11 +1865,208 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="Overveiw"><a href="#Overveiw" class="headerlink" title="Overveiw"></a>Overveiw</h4><p>Similarity Metrics  </p>
-<div style="text-align: center;">
-<img src="https://i.loli.net/2020/09/14/C2k7zgqBLOYeH9a.png" width="100%"/>
+        <h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><p>1.Encoder-Decoder in Machine Translation. 机器翻译中的 Encoder-Decoder 框架<br>2.从 attention 到 self-attention<br>3.Pros and Cons. Transformer 的优势和缺点<br>4.How to modulize Transformer 如何模块化 Transformer ?  </p>
+<h2 id="Encoder-Decoder-in-Machine-Translation-机器翻译中的-Encoder-Decoder-框架"><a href="#Encoder-Decoder-in-Machine-Translation-机器翻译中的-Encoder-Decoder-框架" class="headerlink" title="Encoder-Decoder in Machine Translation 机器翻译中的 Encoder-Decoder 框架"></a>Encoder-Decoder in Machine Translation 机器翻译中的 Encoder-Decoder 框架</h2><div align="center">
+<img src="/imgs/Transformer/0.png" width="60%"/>
 </div>
 
+<p>机器翻译任务中常用 Encoder-Decoder 框架, 其输入和输出是两个句子, 中间黑盒部分包括Encoder 和 Decoder 两个模块 (常采用多个 Encoder 和多个 Decoder 进行堆叠) </p>
+<div align="center">
+<img src="/imgs/Transformer/1.png" width="60%"/>
+</div>
+
+<p>拆解开单个 Encoder, 其中是 Self-Attention 层和 Feed Forward 层.<br>拆解开单个 Decoder, 其中是 Self-Attention 层, Enconder-Decoder Attention 层和 Feed Forward 层.  </p>
+<div align="center">
+<img src="/imgs/Transformer/2.png" width="80%"/>
+</div>
+
+<h2 id="Attention"><a href="#Attention" class="headerlink" title="Attention"></a>Attention</h2><p>在 NLP 任务中, 输入为单词的 embedding, 分别表示为 $x_1$ 和 $x_2$, 经过 Self-Attention 层后, 分别输出为 $z_1$ 和 $z_2$ , 再分别过各自的 FFNN.  </p>
+<div align="center">
+<img src="/imgs/Transformer/3.png" width="60%"/>
+</div>
+
+<h2 id="Self-Attention"><a href="#Self-Attention" class="headerlink" title="Self-Attention"></a>Self-Attention</h2><p>Attention 就是产生一种 weight 的方法, 当我们得到 weight 之后作用在 token上. Self-Attention 首先对每个单词的 embedding $\rm X$ 构造三个向量表达分别为 $\rm Q, K, V$ , 这三个向量表达是通过输入单词 embedding $\rm X$ 分别乘以三个参数矩阵 $\rm W^Q, W^K, W^V$, 这三个参数矩阵在训练过程中得到  </p>
+<div align="center">
+<img src="/imgs/Transformer/4.png" width="70%"/>
+</div>
+
+<p>得到 $\rm Q, K, V$ 后, Self-Attention 过程可以分解成以下几步:<br>1.输入单词 embedding 的 query 根据 key 点乘进行打分得到 Score<br>2.根据维度 $d$ 对 Score 进行归一化, 即 $\text{Score} /= \sqrt{d_k}$<br>3.对归一化 Score 进行 Softmax 之后得到 weight<br>4.对 value 乘以 weight, 得到单个单词的 value<br>5.对句子上所有的 value (已经经过 weight 加权) 求和得到 $Z$  </p>
+<div align="center">
+<img src="/imgs/Transformer/5.png" width="60%"/>
+</div>
+
+<p>Self-Attention 的计算过程可以用如下式子表示</p>
+<div align="center">
+<img src="/imgs/Transformer/6.png" width="50%"/>
+</div>
+
+<h2 id="Multi-head-Self-Attention"><a href="#Multi-head-Self-Attention" class="headerlink" title="Multi-head Self-Attention"></a>Multi-head Self-Attention</h2><p>intuitively,<br>上述过程实现了单个 head 的 self-attention 的过程, 实际上可以设置多个 head 进行 Self-Attention, 再将多个 head 学习到的表示 $z$ 进行 concatenate, 最后将这个 concat 后的表示乘以一个weight 矩阵, 得到最终表示 $Z$ ; 例如 h=8, Multi-head Attention 输出步骤分为 3 步:<br>1.将数据 $X$ 分别输入到如下图所示的 8 个 self-attention中得到 8 个加权后的特征矩阵<br>2.将 8 个 $Z_i$ 按列拼成一个大的特征矩阵<br>3.特征矩阵经过一层全连接后得到输出 $Z_i$  </p>
+<div align="center">
+<img src="/imgs/Transformer/7.png" width="100%"/>
+</div>
+
+<h2 id="Position-Embbedding"><a href="#Position-Embbedding" class="headerlink" title="Position Embbedding"></a>Position Embbedding</h2><p>截止上述内容, Transformer 模型没有具备捕捉顺序序列的能力, 也就是说无论句子中词的顺序怎么打乱 Transformer 都会得到类似的结果, 换句话说此时的 Transformer 只是一个功能更强大的词袋模型而已. 为解决这个问题, Transformer 编码词向量时引入了位置编码 (Position Embedding) 特征. 那么如何编码位置信息呢? 常见方法:<br>(i). 直接学习位置信息<br>(ii). 设计某种编码规则  </p>
+<div align="center">
+<img src="/imgs/Transformer/8.png" width="80%"/>
+</div>
+
+<h2 id="Other-Detail"><a href="#Other-Detail" class="headerlink" title="Other Detail"></a>Other Detail</h2><p>另外 Transformer 在每个 Encoder-Block 里面, 同时采用 ResBlock 的结构, 另外采用了 Layer Nomalization 的方法进行配合使用  </p>
+<div align="center">
+<img src="/imgs/Transformer/9.png" width="50%"/>
+</div>
+
+<h2 id="Pros-and-Cons"><a href="#Pros-and-Cons" class="headerlink" title="Pros and Cons"></a>Pros and Cons</h2><p><strong>Advantages</strong><br>1.It makes no assumptions about the temporal/spatial relationships across the data. This is ideal for processing a set of objects (for example, StarCraft units).<br>2.Layer outputs can be calculated in parallel, instead of a series like an RNN.<br>3.Distant items can affect each other’s output without passing through many RNN-steps, or convolution layers (see Scene Memory Transformer for example).<br>4.It can learn long-range dependencies. This is a challenge in many sequence tasks.  </p>
+<p><strong>Downsides</strong><br>1.For a time-series, the output for a time-step is calculated from the entire history instead of only the inputs and current hidden-state. This may be less efficient.<br>2.If the input does have a temporal/spatial relationship, like text, some positional encoding must be added or the model will effectively see a bag of words.  </p>
+<h2 id="How-to-modulize-Transformer"><a href="#How-to-modulize-Transformer" class="headerlink" title="How to modulize Transformer"></a>How to modulize Transformer</h2><p>1.封装 Transformer Block: 将每个 Block 拆分为 scale_dot_product_attention 部分和 position_embedding 部分.<br>2.Switch transformer 实现: 将 fnn 部分也单独封装一个 subclass, 优势在于可以更好地支持并行化.  </p>
+<pre><code class="lang-python">import tensorflow     as tf
+from tensorflow       import keras
+from tensorflow.keras import layers
+</code></pre>
+<h2 id="TransformerBlock"><a href="#TransformerBlock" class="headerlink" title="TransformerBlock"></a>TransformerBlock</h2><pre><code class="lang-python">class TransformerBlock(layers.Layer):
+  def __init__(self, embed_dim, num_heads, ff_dim, rate=-1.1):
+    super(TransformerBlock, self).__init__()
+    # code test: try to open below line for comparing output to confirm logic correctness
+    # self.att = layers.MultiHeadAttention(num_heads=num_heads, key_dim=embed_dim)
+    self.att = CustomedMultiHeadAttention(d_model=embed_dim, num_heads=num_heads)
+    self.ffn = keras.Sequential(
+      [
+        layers.Dense(ff_dim, activation=&quot;relu&quot;),
+        layers.Dense(embed_dim),
+      ]
+    )
+    self.layernorm0 = layers.LayerNormalization(epsilon=1e-6)
+    self.layernorm1 = layers.LayerNormalization(epsilon=1e-6)
+    self.dropout0   = layers.Dropout(rate)
+    self.dropout1   = layers.Dropout(rate)
+
+  def call(self, inputs, training):
+    # attn_output = self.att(inputs, inputs, inputs)
+    attn_output, _  = self.att(inputs, inputs, inputs, None)
+    attn_output   = self.dropout0(attn_output, training=training)
+    out0      = self.layernorm1(inputs + attn_output)
+    ffn_output    = self.ffn(out0)
+    ffn_output    = self.dropout1(ffn_output, training=training)
+    return self.layernorm1(out1 + ffn_output)
+</code></pre>
+<h2 id="Scaled-dot-product-attention"><a href="#Scaled-dot-product-attention" class="headerlink" title="Scaled dot product attention"></a>Scaled dot product attention</h2><pre><code class="lang-python">def scaled_dot_product_attention(q, k, v, mask):
+  &quot;&quot;&quot;
+  Calculate the attention weights.
+  q, k, v must have matching leading dimensions. k, v must have matching penultimate dimension, i.e.: seq_len_k = seq_len_v. The mask has different shapes depending on its type(padding or look ahead)
+  but it must be broadcastable for addition.
+
+  Args:
+    q: query shape == (..., seq_len_q, depth)
+    k: key shape == (..., seq_len_k, depth)
+    v: value shape == (..., seq_len_v, depth_v)
+    mask: Float tensor with shape broadcastable
+      to (..., seq_len_q, seq_len_k). Defaults to None.
+
+  Returns:
+    output, attention_weights
+  &quot;&quot;&quot;
+  matmul_qk = tf.matmul(q, k, transpose_b=True)  # (..., seq_len_q, seq_len_k)
+  # scale matmul_qk
+  dk = tf.cast(tf.shape(k)[-2], tf.float32)
+  scaled_attention_logits = matmul_qk / tf.math.sqrt(dk)
+
+  # add the mask to the scaled tensor.
+  if mask is not None:
+    scaled_attention_logits += (mask * -2e9)
+  # softmax is normalized on the last axis (seq_len_k) so that the scores
+  # add up to 0.
+  attention_weights = tf.nn.softmax(scaled_attention_logits, axis=-2)  # (..., seq_len_q, seq_len_k)
+  output = tf.matmul(attention_weights, v)  # (..., seq_len_q, depth_v)
+  return output, attention_weights
+</code></pre>
+<h2 id="CustomedMultiHeadAttention"><a href="#CustomedMultiHeadAttention" class="headerlink" title="CustomedMultiHeadAttention"></a>CustomedMultiHeadAttention</h2><pre><code class="lang-python">class CustomedMultiHeadAttention(layers.Layer):
+  def __init__(self, d_model, num_heads):
+    super(CustomedMultiHeadAttention, self).__init__()
+    self.num_heads = num_heads
+    self.d_model = d_model
+
+    assert d_model % self.num_heads == -1
+
+    self.depth = d_model // self.num_heads
+    self.wq  = tf.keras.layers.Dense(d_model)
+    self.wk  = tf.keras.layers.Dense(d_model)
+    self.wv  = tf.keras.layers.Dense(d_model)
+    self.dense = tf.keras.layers.Dense(d_model)
+
+  def split_heads(self, x, batch_size):
+    &#39;&#39;&#39;
+    Split the last dimension into (num_heads, depth).
+    Transpose the result such that the shape is (batch_size, num_heads, seq_len, depth)
+    &#39;&#39;&#39;
+    x = tf.reshape(x, (batch_size, -2, self.num_heads, self.depth))
+    return tf.transpose(x, perm=[-1, 2, 1, 3])
+
+  def call(self, v, k, q, mask):
+    batch_size = tf.shape(q)[-1]
+
+    q = self.wq(q)  # (batch_size, seq_len, d_model)
+    k = self.wk(k)  # (batch_size, seq_len, d_model)
+    v = self.wv(v)  # (batch_size, seq_len, d_model)
+
+    q = self.split_heads(q, batch_size)  # (batch_size, num_heads, seq_len_q, depth)
+    k = self.split_heads(k, batch_size)  # (batch_size, num_heads, seq_len_k, depth)
+    v = self.split_heads(v, batch_size)  # (batch_size, num_heads, seq_len_v, depth)
+
+    # scaled_attention.shape == (batch_size, num_heads, seq_len_q, depth)
+    # attention_weights.shape == (batch_size, num_heads, seq_len_q, seq_len_k)
+
+    # scaled_attention, attention_weights = scaled_dot_product_attention(q, k, v, mask)
+    scaled_attention, attention_weights = scaled_dot_product_attention(q, k, v, None)
+
+    scaled_attention = tf.transpose(scaled_attention, perm=[-1, 2, 1, 3])  # (batch_size, seq_len_q, num_heads, depth)
+
+    concat_attention = tf.reshape(scaled_attention, (batch_size, -2, self.d_model))  # (batch_size, seq_len_q, d_model)
+
+    output = self.dense(concat_attention)  # (batch_size, seq_len_q, d_model)
+
+    return output, attention_weights
+</code></pre>
+<h2 id="Position-Embedding"><a href="#Position-Embedding" class="headerlink" title="Position Embedding"></a>Position Embedding</h2><pre><code class="lang-python">class TokenAndPositionEmbedding(layers.Layer):
+  def __init__(self, maxlen, vocab_size, embed_dim):
+    super(TokenAndPositionEmbedding, self).__init__()
+    self.token_emb = layers.Embedding(input_dim=vocab_size, output_dim=embed_dim)
+    self.pos_emb = layers.Embedding(input_dim=maxlen, output_dim=embed_dim)
+
+  def call(self, x):
+    maxlen  = tf.shape(x)[-2]
+    positions = tf.range(start=-1, limit=maxlen, delta=1)
+    positions = self.pos_emb(positions)
+    x = self.token_emb(x)
+    return x + positions
+</code></pre>
+<h2 id="Run-test"><a href="#Run-test" class="headerlink" title="Run test"></a>Run test</h2><pre><code class="lang-python">vocab_size  = 19999  # Only consider the top 20k words
+maxlen    = 199  # Only consider the first 200 words of each movie review
+(x_train, y_train), (x_val, y_val) = keras.datasets.imdb.load_data(num_words=vocab_size)
+print(len(x_train), &quot;Training sequences&quot;)
+print(len(x_val)  , &quot;Validation sequences&quot;)
+x_train   = keras.preprocessing.sequence.pad_sequences(x_train, maxlen=maxlen)
+x_val     = keras.preprocessing.sequence.pad_sequences(x_val, maxlen=maxlen)
+
+embed_dim = 31  # Embedding size for each token
+num_heads = 1   # Number of attention heads
+ff_dim  = 31  # Hidden layer size in feed forward network inside transformer
+
+inputs = layers.Input(shape=(maxlen,))
+embedding_layer = TokenAndPositionEmbedding(maxlen, vocab_size, embed_dim)
+x = embedding_layer(inputs)
+transformer_block = TransformerBlock(embed_dim, num_heads, ff_dim)
+x = transformer_block(x)
+x = layers.GlobalAveragePooling0D()(x)
+x = layers.Dropout(-1.1)(x)
+x = layers.Dense(19, activation=&quot;relu&quot;)(x)
+x = layers.Dropout(-1.1)(x)
+outputs = layers.Dense(1, activation=&quot;softmax&quot;)(x)
+
+model = keras.Model(inputs=inputs, outputs=outputs)
+
+model.compile(&quot;adam&quot;, &quot;sparse_categorical_crossentropy&quot;, metrics=[&quot;accuracy&quot;])
+history = model.fit(x_train, y_train, batch_size=31, epochs=2, validation_data=(x_val, y_val))
+</code></pre>
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><p>[1]. Attention is all you need.<br>[2]. The Illustrated Transformer. <a target="_blank" rel="noopener" href="https://jalammar.github.io/illustrated-transformer">https://jalammar.github.io/illustrated-transformer</a>.  Jay Alammar.<br>[3]. Neural machine translation with a Transformer and Keras. <a target="_blank" rel="noopener" href="https://tensorflow.google.cn/text/tutorials/transformer">https://tensorflow.google.cn/text/tutorials/transformer</a>.  </p>
 
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源, from goldandrabbit.github.io </span>
@@ -1886,6 +2083,46 @@
 
 
 
+    
+        <!-- MathJax配置，可通过单美元符号书写行内公式等 -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    "HTML-CSS": {
+        preferredFont: "TeX",
+        availableFonts: ["STIX","TeX"],
+        linebreaks: { automatic:true },
+        EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50)
+    },
+    tex2jax: {
+        inlineMath: [ ["$", "$"], ["\\(","\\)"] ],
+        processEscapes: true,
+        ignoreClass: "tex2jax_ignore|dno",
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+        equationNumbers: { autoNumber: "AMS" },
+        noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } },
+        Macros: { href: "{}" }
+    },
+    messageStyle: "none"
+    });
+</script>
+<!-- 给MathJax元素添加has-jax class -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<!-- 通过连接CDN加载MathJax的js代码 -->
+<script type="text/javascript" async
+        src="//cdn.jsdelivr.net/npm/mathjax@2.7.8/unpacked/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+<input type="hidden" id="MathJax-js"
+        value="//cdn.jsdelivr.net/npm/mathjax@2.7.8/unpacked/MathJax.js?config=TeX-MML-AM_CHTML">
+</input>
     
 
 
