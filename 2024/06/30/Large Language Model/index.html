@@ -106,7 +106,7 @@
     <li>
         <div class="all active" data-rel="All">All
             
-                <small>(167)</small>
+                <small>(169)</small>
             
         </div>
     </li>
@@ -163,7 +163,7 @@
         <div data-rel="LLM">
             
             LLM
-            <small>(1)</small>
+            <small>(3)</small>
         </div>
         
     </li>
@@ -226,7 +226,7 @@
         
     </div>
 </div>
-<input type="hidden" id="yelog_site_posts_number" value="167">
+<input type="hidden" id="yelog_site_posts_number" value="169">
 
 <div style="display: none">
     <span id="busuanzi_value_site_uv"></span>
@@ -308,11 +308,29 @@
         
         
         <a  class="All LLM "
+           href="/2024/09/05/LLaMA/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="LLaMA">LLaMA</span>
+            <span class="post-date" title="2024-09-05 20:00:00">2024/09/05</span>
+        </a>
+        
+        
+        <a  class="All LLM "
            href="/2024/06/30/Large%20Language%20Model/"
            data-tag=""
            data-author="" >
             <span class="post-title" title="Large Language Model">Large Language Model</span>
             <span class="post-date" title="2024-06-30 20:00:00">2024/06/30</span>
+        </a>
+        
+        
+        <a  class="All LLM "
+           href="/2024/05/30/Decoder-only%20transformer/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Decoder-only transformer">Decoder-only transformer</span>
+            <span class="post-date" title="2024-05-30 20:00:00">2024/05/30</span>
         </a>
         
         
@@ -812,19 +830,19 @@
         
         
         <a  class="All Coding "
-           href="/2020/09/10/cpp_1_3_%E5%8F%B3%E5%80%BC%E5%BC%95%E7%94%A8%20Rvalue%20reference/"
+           href="/2020/09/10/cpp_1_2_%E5%B7%A6%E5%80%BC%E5%BC%95%E7%94%A8%20Lvalue%20reference/"
            data-tag=""
            data-author="" >
-            <span class="post-title" title="cpp_1_3_右值引用 Rvalue reference">cpp_1_3_右值引用 Rvalue reference</span>
+            <span class="post-title" title="cpp_1_2_左值引用 Lvalue reference">cpp_1_2_左值引用 Lvalue reference</span>
             <span class="post-date" title="2020-09-10 00:00:00">2020/09/10</span>
         </a>
         
         
         <a  class="All Coding "
-           href="/2020/09/10/cpp_1_2_%E5%B7%A6%E5%80%BC%E5%BC%95%E7%94%A8%20Lvalue%20reference/"
+           href="/2020/09/10/cpp_1_3_%E5%8F%B3%E5%80%BC%E5%BC%95%E7%94%A8%20Rvalue%20reference/"
            data-tag=""
            data-author="" >
-            <span class="post-title" title="cpp_1_2_左值引用 Lvalue reference">cpp_1_2_左值引用 Lvalue reference</span>
+            <span class="post-title" title="cpp_1_3_右值引用 Rvalue reference">cpp_1_3_右值引用 Rvalue reference</span>
             <span class="post-date" title="2020-09-10 00:00:00">2020/09/10</span>
         </a>
         
@@ -1820,7 +1838,7 @@
     </div>
     <div class="article-meta">
         
-            Created At : <time class="date" title='Updated At: 2024-11-10 23:49:51'>2024-06-30 20:00</time>
+            Created At : <time class="date" title='Updated At: 2024-11-11 21:47:39'>2024-06-30 20:00</time>
         
     </div>
     <div class="article-meta">
@@ -1848,14 +1866,21 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><p>1.From Narrow Intelligence to General Intelligence 从狭义智能到通用人工智能<br>2.Large Language Model == Next Token Prediction 大语言模型就是单字接龙模型<br>3.LLM 怎么 train?<br>4.LLM 怎么 inference?<br>5.Emergent abilities 涌现能力<br>6.Why LLM work in Everywhere? 为啥 LLM 是真的能 work?  </p>
-<h2 id="From-Narrow-Intelligence-to-General-Intelligence-从狭义智能到通用人工智能"><a href="#From-Narrow-Intelligence-to-General-Intelligence-从狭义智能到通用人工智能" class="headerlink" title="From Narrow Intelligence to General Intelligence 从狭义智能到通用人工智能"></a>From Narrow Intelligence to General Intelligence 从狭义智能到通用人工智能</h2><p>以终为始, 假设我们真要走向一个通用的人工智能, 幻想下 (这个模型) 应该是一个什么的状态? 实现了三个 [统一]<br>1.Unified architecture for various domains. 统一架构, 现在 Transformer 架构一统天下<br>2.Unified model for various tasks. 真正的多任务处理<br>3.Unified model for various modalities. 真正的多模态   </p>
+<h2 id="From-Narrow-Intelligence-to-General-Intelligence-从狭义智能到通用人工智能"><a href="#From-Narrow-Intelligence-to-General-Intelligence-从狭义智能到通用人工智能" class="headerlink" title="From Narrow Intelligence to General Intelligence 从狭义智能到通用人工智能"></a>From Narrow Intelligence to General Intelligence 从狭义智能到通用人工智能</h2><p>以终为始, 假设我们真要走向一个通用的人工智能, 具体点就是有个很强的通用的模型, 幻想下这个模型应该是一个什么的状态? 总接下来这个 [通用] 实现了三个 [统一]<br>1.Unified architecture for various domains. 统一架构, 现在 Transformer 架构一统天下<br>2.Unified model for various tasks. 真正的多任务处理<br>3.Unified model for various modalities. 真正的多模态  </p>
+<p>这么强大的模型, 放在几年前是不敢想象的, 但是最近几年 LLM 的兴起让人感觉语言模型可能真的是一条走向 AGI 的路经, 因为 LLM 和上面的三个理念能有高度的契合, 我们先来看看看 LLM 是什么?  </p>
 <h2 id="Large-Language-Model-Next-Token-Prediction-大语言模型就是单字接龙模型"><a href="#Large-Language-Model-Next-Token-Prediction-大语言模型就是单字接龙模型" class="headerlink" title="Large Language Model == Next Token Prediction 大语言模型就是单字接龙模型"></a>Large Language Model == Next Token Prediction 大语言模型就是单字接龙模型</h2><p>涉及到自然语言的任务, (几乎) 所有的任务都可以被转化成 Next Token Prediction 问题; 所以 2024.11.01 目前来看 LLM 其实就是在做 Next Token Prediction, 还是遵循的 GPT 原始的思想   </p>
 <p>比如 QA Task:<br>Where is Tsinghua hua University ? Answer:<br>=&gt; Beijing</p>
 <p>比如机器翻译<br>Machine Translation:<br>Tom chases Jerry<br>汤姆追杰瑞</p>
 <p>仍然可以理解为 Next Sentence Prediction<br>Tom chases Jerry =&gt; 汤<br>Tom chases Jerry 汤 =&gt; 姆<br>Tom chases Jerry 汤姆 =&gt; 追<br>Tom chases Jerry 汤姆追 =&gt; 杰<br>Tom chases Jerry 汤姆追杰 =&gt; 瑞</p>
-<h2 id="LLM-怎么-train"><a href="#LLM-怎么-train" class="headerlink" title="LLM 怎么 train ?"></a>LLM 怎么 train ?</h2><p>分为三个阶段  </p>
+<h2 id="LLM-怎么-train"><a href="#LLM-怎么-train" class="headerlink" title="LLM 怎么 train ?"></a>LLM 怎么 train ?</h2><p>前置条件: 需要收集海量的高质量的数据, 并进行有效的预处理; 虽然我们谈到模型总会提到各种模型结构, 炼丹技巧, 或者推理性能等等, 但是最核心的还是原始高质量数据的获得</p>
+<div align="center">
+<img src="/imgs/Large Language Model/0.png" width="100%"/>
+</div>
+
+<p>intuitively,<br>1.从互联网找到一切可用的高质量数据, 然后进行清洗工作, 具体来说就是 filtering &amp; selection: 过滤掉各种噪声数据和 dirty word, 过滤的方法其实是启发式+模型的结合, 完全取决于对数据的一种理解; 接下来就是去重, 去重需要做到各种级别: sentence-level, doc-level 或者 url-level 等等; 去重之后就要进行隐私保护, 可以理解为一种特殊的过滤<br>2.语料质量搞干净之后, 就需要 token 化, 这里涉及到一些算法<br>3.在具体训练的时候还会遇到很多问题, 比如数据混合的比例和 scaling law 的实验测试  </p>
+<p>当上述数据 ready 之后, 就可投入训练了, 训练过程分为三个阶段  </p>
 <blockquote>
-<p>Self-Supervised Pre-Training =&gt; Supervised Fine-Tuning =&gt; Reinforcement Learning from Human Feedback</p>
+<p>Self-Supervised Pre-Training<br>=&gt; Supervised Fine-Tuning<br>=&gt; Reinforcement Learning from Human Feedback</p>
 </blockquote>
 <p>1.Self-Supervised Pre-Training (自监督预训练): 收集大量的互联网数据, 利用收集到的无标注数据 training, training 就是在训练样本上做逐个 token 预测, 然后计算 loss 和 gradients, 然后做 optimization<br>2.Supervised Fine-Tuning (SFT, 有监督微调):<br>如果只有第一个阶段无监督的训练, 模型会异想天开扯一堆乱七八糟的东西, 不能拿来为人类所用 (我们先假设我们的目标是为我们所用); 因此 SFT 直接有监督学习我们要的那些个答案; SFT 的过程是必须的, 目前最强的 GPT4 花了 8 个月时间去做 SFT; 需要大量的人工标注的数据, 其实在这给人类已经注入了人工先验; 但是只要涉及到人工的答案, 很多问题没有标准答案, 很多问题有很多种表达形式比如说   </p>
 <p>Q: When was Tsinghua University founded ?<br>模型预测: In 1911, Tsinghua University was founded in Beijing.<br>Label: Tsinghua University was founded in 1911.  </p>
