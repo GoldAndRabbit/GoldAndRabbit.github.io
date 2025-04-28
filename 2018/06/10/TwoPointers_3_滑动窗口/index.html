@@ -1,0 +1,2149 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>TwoPointers_3_滑动窗口 | G&amp;R Blog</title>
+  <meta name="keywords" content="">
+  <meta name="description" content="TwoPointers_3_滑动窗口 | G&amp;R Blog">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="Overview1.BERT is basically a trained Transformer Encoder stack.   2.Both BERT model sizes have a large number of encoder layers (which the paper calls Transformer Blocks) – twelve for the Base ve">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Bert">
+<meta property="og:url" content="http://example.com/hist_articles/Bert.html">
+<meta property="og:site_name" content="G&amp;R Blog">
+<meta property="og:description" content="Overview1.BERT is basically a trained Transformer Encoder stack.   2.Both BERT model sizes have a large number of encoder layers (which the paper calls Transformer Blocks) – twelve for the Base ve">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://s3.ax1x.com/2020/12/16/r1tx0A.png">
+<meta property="og:image" content="https://s3.ax1x.com/2020/12/16/r1tWy4.png">
+<meta property="og:image" content="https://s3.ax1x.com/2020/12/16/r1tcWT.png">
+<meta property="og:image" content="https://s3.ax1x.com/2020/12/16/r1tfOJ.png">
+<meta property="og:image" content="https://s3.ax1x.com/2020/12/16/r1tRlF.png">
+<meta property="og:image" content="https://s3.ax1x.com/2020/12/16/r1t2SU.png">
+<meta property="og:image" content="https://s3.ax1x.com/2020/12/16/r1tx0A.png">
+<meta property="article:published_time" content="2020-12-16T13:56:00.000Z">
+<meta property="article:modified_time" content="2025-04-28T09:12:10.794Z">
+<meta property="article:author" content="G&amp;R">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s3.ax1x.com/2020/12/16/r1tx0A.png">
+
+
+<link rel="icon" href="/img/fox.jpg">
+
+<link href="/css/style.css?v=1.1.0" rel="stylesheet">
+
+<link href="/css/hl_theme/atom-dark.css?v=1.1.0" rel="stylesheet">
+
+<link href="//cdn.jsdelivr.net/npm/animate.css@4.1.0/animate.min.css" rel="stylesheet">
+
+<script src="//cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+<script src="/js/titleTip.js?v=1.1.0" ></script>
+
+<script src="//cdn.jsdelivr.net/npm/highlightjs@9.16.2/highlight.pack.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+
+<script src="//cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js"></script>
+
+
+
+<script src="//cdn.jsdelivr.net/npm/jquery.cookie@1.4.1/jquery.cookie.min.js" ></script>
+
+<script src="/js/iconfont.js?v=1.1.0" ></script>
+
+<meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="G&R Blog" type="application/atom+xml">
+</head>
+<div style="display: none">
+  <input class="theme_disqus_on" value="false">
+  <input class="theme_preload_comment" value="">
+  <input class="theme_blog_path" value="">
+  <input id="theme_shortcut" value="true" />
+  <input id="theme_highlight_on" value="true" />
+  <input id="theme_code_copy" value="true" />
+</div>
+
+
+
+<body>
+<aside class="nav">
+    <div class="nav-left">
+        <a href="/"
+   class="avatar_target">
+    <img class="avatar"
+         src="/img/fox.jpg"/>
+</a>
+<div class="author">
+    <span>G&amp;R</span>
+</div>
+
+<div class="icon">
+    
+        
+            <a title="github"
+               href="https://github.com/goldandrabbit"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-github"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+            <a title="email"
+               href="mailto:goldandrabbit@foxmail.com"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-email"></use>
+                    </svg>
+                
+            </a>
+        
+    
+</div>
+
+
+
+
+
+<ul>
+    <li>
+        <div class="all active" data-rel="All">All
+            
+                <small>(170)</small>
+            
+        </div>
+    </li>
+    
+        
+            
+                
+    <li>
+        <div data-rel="Ads_RecSys">
+            
+            Ads_RecSys
+            <small>(34)</small>
+        </div>
+        
+    </li>
+
+            
+        
+    
+        
+            
+                
+    <li>
+        <div data-rel="Algorithm">
+            
+            Algorithm
+            <small>(70)</small>
+        </div>
+        
+    </li>
+
+            
+        
+    
+        
+            
+                
+    <li>
+        <div data-rel="Coding">
+            
+            Coding
+            <small>(33)</small>
+        </div>
+        
+    </li>
+
+            
+        
+    
+        
+            
+                
+    <li>
+        <div data-rel="ML_DL_LLM">
+            
+            ML_DL_LLM
+            <small>(14)</small>
+        </div>
+        
+    </li>
+
+            
+        
+    
+        
+            
+                
+    <li>
+        <div data-rel="Reading">
+            
+            Reading
+            <small>(12)</small>
+        </div>
+        
+    </li>
+
+            
+        
+    
+        
+            
+                
+    <li>
+        <div data-rel="Rethinking">
+            
+            Rethinking
+            <small>(7)</small>
+        </div>
+        
+    </li>
+
+            
+        
+    
+</ul>
+<div class="left-bottom">
+    <div class="menus">
+        
+    </div>
+    <div>
+        
+        
+    </div>
+</div>
+<input type="hidden" id="yelog_site_posts_number" value="170">
+
+<div style="display: none">
+    <span id="busuanzi_value_site_uv"></span>
+    <span id="busuanzi_value_site_pv"></span>
+</div>
+
+    </div>
+    <div class="nav-right">
+        <div class="friends-area">
+    <div class="friends-title">
+        Links
+        <i class="iconfont icon-left"></i>
+    </div>
+    <div class="friends-content">
+        <ul>
+            
+            <li><a target="_blank" href="http://yelog.org/">叶落阁</a></li>
+            
+        </ul>
+    </div>
+</div>
+        <div class="title-list">
+    <div class="right-top">
+        <div id="default-panel">
+            <i class="iconfont icon-search" data-title="search shortcut key i"></i>
+            <div class="right-title">All</div>
+            <i class="iconfont icon-file-tree" data-title="switch to outline view shortcut key w"></i>
+        </div>
+        <div id="search-panel">
+            <i class="iconfont icon-left" data-title="return"></i>
+            <input id="local-search-input" autocomplete="off"/>
+            <label class="border-line" for="input"></label>
+            <i class="iconfont icon-case-sensitive" data-title="case sensitive"></i>
+            <i class="iconfont icon-tag" data-title="label"></i>
+        </div>
+        <div id="outline-panel" style="display: none">
+            <div class="right-title">outline</div>
+            <i class="iconfont icon-list" data-title="switch to article list"></i>
+        </div>
+    </div>
+
+    <div class="tags-list">
+    <input id="tag-search" />
+    <div class="tag-wrapper">
+        
+    </div>
+
+</div>
+
+    
+    <nav id="title-list-nav">
+        
+        
+        <a  class="All Coding "
+           href="/2099/01/30/G&R%20Blog%20Release%20Regulation/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="G&amp;R Blog Release Regulation">G&amp;R Blog Release Regulation</span>
+            <span class="post-date" title="2099-01-30 20:00:00">2099/01/30</span>
+        </a>
+        
+        
+        <a  class="All ML_DL_LLM "
+           href="/2099/01/01/A%20Collection%20of%20High-Quality%20Blog/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="A Collection of High-Quality Blog">A Collection of High-Quality Blog</span>
+            <span class="post-date" title="2099-01-01 20:28:00">2099/01/01</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2025/02/01/Linux%20Access%20the%20Open%20Internet/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Linux Access the Open Internet">Linux Access the Open Internet</span>
+            <span class="post-date" title="2025-02-01 20:43:00">2025/02/01</span>
+        </a>
+        
+        
+        <a  class="All Rethinking "
+           href="/2024/12/29/2024%20Annual%20Summary/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="2024 Annual Summary">2024 Annual Summary</span>
+            <span class="post-date" title="2024-12-29 09:00:00">2024/12/29</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2024/10/30/Ubuntu%2024.04%20Upgrade%20Log/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Ubuntu 24.04 Upgrade Log">Ubuntu 24.04 Upgrade Log</span>
+            <span class="post-date" title="2024-10-30 20:00:00">2024/10/30</span>
+        </a>
+        
+        
+        <a  class="All ML_DL_LLM "
+           href="/2024/09/05/LLaMA/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="LLaMA">LLaMA</span>
+            <span class="post-date" title="2024-09-05 20:00:00">2024/09/05</span>
+        </a>
+        
+        
+        <a  class="All ML_DL_LLM "
+           href="/2024/06/30/Large%20Language%20Model/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Large Language Model">Large Language Model</span>
+            <span class="post-date" title="2024-06-30 20:00:00">2024/06/30</span>
+        </a>
+        
+        
+        <a  class="All ML_DL_LLM "
+           href="/2024/05/30/Decoder-only%20transformer/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Decoder-only transformer">Decoder-only transformer</span>
+            <span class="post-date" title="2024-05-30 20:00:00">2024/05/30</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2024/03/22/Ubuntu%2022.04%20Upgrade%20Log/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Ubuntu 22.04 Upgrade Log">Ubuntu 22.04 Upgrade Log</span>
+            <span class="post-date" title="2024-03-22 10:11:00">2024/03/22</span>
+        </a>
+        
+        
+        <a  class="All Rethinking "
+           href="/2024/02/20/2023%20Annual%20Summary/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="2023 Annual Summary">2023 Annual Summary</span>
+            <span class="post-date" title="2024-02-20 20:00:00">2024/02/20</span>
+        </a>
+        
+        
+        <a  class="All Ads_RecSys "
+           href="/2024/01/20/CREAD%20A%20Classification-Restoration%20Framework%20with%20Error%20Adaptive%20Discretization%20for%20Watch%20Time%20Prediction%20in%20Video%20Recommender%20Systems/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="CREAD A Classification-Restoration Framework with Error Adaptive Discretization for Watch Time Prediction in Video Recommender Systems">CREAD A Classification-Restoration Framework with Error Adaptive Discretization for Watch Time Prediction in Video Recommender Systems</span>
+            <span class="post-date" title="2024-01-20 20:20:00">2024/01/20</span>
+        </a>
+        
+        
+        <a  class="All Reading "
+           href="/2024/01/11/%E4%BB%8E%E6%89%BE%E4%BA%8B%E7%90%86%E8%AE%BA%E5%88%B0%20TRIZ/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="从找事理论到 TRIZ">从找事理论到 TRIZ</span>
+            <span class="post-date" title="2024-01-11 20:11:00">2024/01/11</span>
+        </a>
+        
+        
+        <a  class="All Ads_RecSys "
+           href="/2023/12/30/Joint%20Optimization%20of%20Ranking%20and%20Calibration%20with%20Contextualized%20Hybrid%20Model/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Joint Optimization of Ranking and Calibration with Contextualized Hybrid Model">Joint Optimization of Ranking and Calibration with Contextualized Hybrid Model</span>
+            <span class="post-date" title="2023-12-30 20:43:00">2023/12/30</span>
+        </a>
+        
+        
+        <a  class="All Ads_RecSys "
+           href="/2023/11/20/Multi-Scenario%20Ranking%20with%20Adaptive%20Feature%20Learning/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Multi-Scenario Ranking with Adaptive Feature Learning">Multi-Scenario Ranking with Adaptive Feature Learning</span>
+            <span class="post-date" title="2023-11-20 20:08:00">2023/11/20</span>
+        </a>
+        
+        
+        <a  class="All Ads_RecSys "
+           href="/2023/11/20/Towards%20Deeper,%20Lighter%20and%20Interpretable%20Cross%20Network%20for%20CTR%20Prediction/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Towards Deeper, Lighter and Interpretable Cross Network for CTR Prediction">Towards Deeper, Lighter and Interpretable Cross Network for CTR Prediction</span>
+            <span class="post-date" title="2023-11-20 20:08:00">2023/11/20</span>
+        </a>
+        
+        
+        <a  class="All ML_DL_LLM "
+           href="/2023/10/20/Self-Attention%20with%20Relative%20Position%20Representations/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Self-Attention with Relative Position Representations">Self-Attention with Relative Position Representations</span>
+            <span class="post-date" title="2023-10-20 20:08:00">2023/10/20</span>
+        </a>
+        
+        
+        <a  class="All Ads_RecSys "
+           href="/2023/10/15/RankFlow%20Joint%20Optimization%20of%20Multi-Stage%20Cascade%20Ranking%20Systems%20as%20Flows/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="RankFlow Joint Optimization of Multi-Stage Cascade Ranking Systems as Flows">RankFlow Joint Optimization of Multi-Stage Cascade Ranking Systems as Flows</span>
+            <span class="post-date" title="2023-10-15 13:08:00">2023/10/15</span>
+        </a>
+        
+        
+        <a  class="All Ads_RecSys "
+           href="/2023/10/11/SHARK%20A%20Lightweight%20Model%20Compression%20Approach%20for%20Large-scale%20Recommender%20Systems/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="SHARK A Lightweight Model Compression Approach for Large-scale Recommender Systems">SHARK A Lightweight Model Compression Approach for Large-scale Recommender Systems</span>
+            <span class="post-date" title="2023-10-11 20:43:00">2023/10/11</span>
+        </a>
+        
+        
+        <a  class="All Reading "
+           href="/2023/09/21/Say%20Good%20Night%20To%20Insomnia/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Say Good Night To Insomnia">Say Good Night To Insomnia</span>
+            <span class="post-date" title="2023-09-21 20:43:00">2023/09/21</span>
+        </a>
+        
+        
+        <a  class="All Ads_RecSys "
+           href="/2023/09/20/Scenario-Adaptive%20Feature%20Interaction%20for%20Click-Through%20Rate%20Prediction/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Scenario-Adaptive Feature Interaction for Click-Through Rate Prediction">Scenario-Adaptive Feature Interaction for Click-Through Rate Prediction</span>
+            <span class="post-date" title="2023-09-20 20:43:00">2023/09/20</span>
+        </a>
+        
+        
+        <a  class="All Ads_RecSys "
+           href="/2023/08/20/Gini%20Coefficient%20%E5%9F%BA%E5%B0%BC%E7%B3%BB%E6%95%B0/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Gini Coefficient 基尼系数">Gini Coefficient 基尼系数</span>
+            <span class="post-date" title="2023-08-20 20:08:00">2023/08/20</span>
+        </a>
+        
+        
+        <a  class="All ML_DL_LLM "
+           href="/2023/08/20/Pairwise%20%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Pairwise 损失函数计算">Pairwise 损失函数计算</span>
+            <span class="post-date" title="2023-08-20 20:08:00">2023/08/20</span>
+        </a>
+        
+        
+        <a  class="All Ads_RecSys "
+           href="/2023/08/13/A%20Simple%20Framework%20for%20Contrastive%20Learning%20of%20Visual%20Representations/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="A Simple Framework for Contrastive Learning of Visual Representations">A Simple Framework for Contrastive Learning of Visual Representations</span>
+            <span class="post-date" title="2023-08-13 20:43:00">2023/08/13</span>
+        </a>
+        
+        
+        <a  class="All Ads_RecSys "
+           href="/2023/07/20/Delving%20into%20Deep%20Imbalanced%20Regression/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Delving into Deep Imbalanced Regression">Delving into Deep Imbalanced Regression</span>
+            <span class="post-date" title="2023-07-20 20:43:00">2023/07/20</span>
+        </a>
+        
+        
+        <a  class="All Ads_RecSys "
+           href="/2023/07/18/CASPR:%20Customer%20Activity%20Sequence-based%20Prediction%20and%20Representation/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="CASPR Customer Activity Sequence-based Prediction and Representation">CASPR Customer Activity Sequence-based Prediction and Representation</span>
+            <span class="post-date" title="2023-07-18 20:00:00">2023/07/18</span>
+        </a>
+        
+        
+        <a  class="All Ads_RecSys "
+           href="/2023/07/13/DCN%20V2%20Improved%20Deep%20&%20Cross%20Network%20and%20Practical%20Lessons%20for%20Web-scale%20Learning%20to%20Rank%20Systems/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="DCN V2 Improved Deep &amp; Cross Network and Practical Lessons for Web-scale Learning to Rank Systems">DCN V2 Improved Deep &amp; Cross Network and Practical Lessons for Web-scale Learning to Rank Systems</span>
+            <span class="post-date" title="2023-07-13 20:00:00">2023/07/13</span>
+        </a>
+        
+        
+        <a  class="All ML_DL_LLM "
+           href="/2023/07/05/Learning%20to%20Rank%20From%20Pairwise%20Approach%20to%20Listwise%20Approach/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Learning to Rank From Pairwise Approach to Listwise Approach">Learning to Rank From Pairwise Approach to Listwise Approach</span>
+            <span class="post-date" title="2023-07-05 20:08:00">2023/07/05</span>
+        </a>
+        
+        
+        <a  class="All Ads_RecSys "
+           href="/2023/07/03/Billion-user%20Customer%20Lifetime%20Value%20Prediction%20An%20Industrial-scale%20Solution%20from%20Kuaishou/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Billion-user Customer Lifetime Value Prediction An Industrial-scale Solution from Kuaishou">Billion-user Customer Lifetime Value Prediction An Industrial-scale Solution from Kuaishou</span>
+            <span class="post-date" title="2023-07-03 20:00:00">2023/07/03</span>
+        </a>
+        
+        
+        <a  class="All ML_DL_LLM "
+           href="/2023/06/29/Ord2Seq%20Regarding%20Ordinal%20Regression%20as%20Label%20Sequence%20Prediction/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Ord2Seq Regarding Ordinal Regression as Label Sequence Prediction">Ord2Seq Regarding Ordinal Regression as Label Sequence Prediction</span>
+            <span class="post-date" title="2023-06-29 20:08:00">2023/06/29</span>
+        </a>
+        
+        
+        <a  class="All ML_DL_LLM "
+           href="/2023/06/21/Selective-Supervised%20Contrastive%20Learning%20with%20Noisy%20Labels/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Selective-Supervised Contrastive Learning with Noisy Labels">Selective-Supervised Contrastive Learning with Noisy Labels</span>
+            <span class="post-date" title="2023-06-21 20:08:00">2023/06/21</span>
+        </a>
+        
+        
+        <a  class="All Ads_RecSys "
+           href="/2023/06/20/Contrastive%20Multi-view%20Framework%20for%20Customer%20Lifetime%20Value%20Prediction/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Contrastive Multi-view Framework for Customer Lifetime Value Prediction">Contrastive Multi-view Framework for Customer Lifetime Value Prediction</span>
+            <span class="post-date" title="2023-06-20 20:43:00">2023/06/20</span>
+        </a>
+        
+        
+        <a  class="All Ads_RecSys "
+           href="/2023/06/18/Ads_Target%20CPX%20v.s.%20Max%20Return/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Ads_Target CPX v.s. Max Return">Ads_Target CPX v.s. Max Return</span>
+            <span class="post-date" title="2023-06-18 00:11:10">2023/06/18</span>
+        </a>
+        
+        
+        <a  class="All Ads_RecSys "
+           href="/2023/06/18/Ads_%E9%A2%84%E6%9C%9F%E8%8A%B1%E8%B4%B9%E4%B8%8E%E5%90%8E%E9%AA%8C%E9%A2%84%E6%9C%9F%E8%8A%B1%E8%B4%B9/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Ads_预期花费与后验预期花费">Ads_预期花费与后验预期花费</span>
+            <span class="post-date" title="2023-06-18 00:10:10">2023/06/18</span>
+        </a>
+        
+        
+        <a  class="All Ads_RecSys "
+           href="/2023/06/15/MAE%20v.s.%20MSE%20%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0%E6%AF%94%E8%BE%83/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="MAE v.s. MSE 损失函数比较">MAE v.s. MSE 损失函数比较</span>
+            <span class="post-date" title="2023-06-15 20:43:00">2023/06/15</span>
+        </a>
+        
+        
+        <a  class="All Ads_RecSys "
+           href="/2023/06/13/A%20Deep%20Probabilistic%20Model%20For%20Customer%20Lifetime%20Value%20Prediction/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="A Deep Probabilistic Model For Customer Lifetime Value Prediction">A Deep Probabilistic Model For Customer Lifetime Value Prediction</span>
+            <span class="post-date" title="2023-06-13 20:43:00">2023/06/13</span>
+        </a>
+        
+        
+        <a  class="All Reading "
+           href="/2023/05/30/Jen-Hsun%20Huang%20Stanford%20student%20and%20Entrpreneur,%20co-founder%20and%20CEO%20of%20NVIDIA/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Jen-Hsun Huang Stanford student and Entrpreneur, co-founder and CEO of NVIDIA">Jen-Hsun Huang Stanford student and Entrpreneur, co-founder and CEO of NVIDIA</span>
+            <span class="post-date" title="2023-05-30 20:43:00">2023/05/30</span>
+        </a>
+        
+        
+        <a  class="All Rethinking "
+           href="/2023/05/20/2022%20Annual%20Summary/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="2022 Annual Summary">2022 Annual Summary</span>
+            <span class="post-date" title="2023-05-20 20:00:00">2023/05/20</span>
+        </a>
+        
+        
+        <a  class="All Ads_RecSys "
+           href="/2023/05/12/Contrastive%20Learning%20for%20Conversion%20Rate%20Prediction/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Contrastive Learning for Conversion Rate Prediction">Contrastive Learning for Conversion Rate Prediction</span>
+            <span class="post-date" title="2023-05-12 20:43:00">2023/05/12</span>
+        </a>
+        
+        
+        <a  class="All Ads_RecSys "
+           href="/2023/01/20/Follow%20the%20Prophet%20Accurate%20Online%20Conversion%20Rate%20Prediction%20in%20the%20Face%20of%20Delayed%20Feedback/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Follow the Prophet Accurate Online Conversion Rate Prediction in the Face of Delayed Feedback">Follow the Prophet Accurate Online Conversion Rate Prediction in the Face of Delayed Feedback</span>
+            <span class="post-date" title="2023-01-20 20:08:00">2023/01/20</span>
+        </a>
+        
+        
+        <a  class="All Ads_RecSys "
+           href="/2022/09/20/Tree%20based%20Progressive%20Regression%20Model%20for%20Watch-Time%20Prediction%20in%20Short-video%20Recommendation/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Tree based Progressive Regression Model for Watch-Time Prediction in Short-video Recommendation">Tree based Progressive Regression Model for Watch-Time Prediction in Short-video Recommendation</span>
+            <span class="post-date" title="2022-09-20 20:08:00">2022/09/20</span>
+        </a>
+        
+        
+        <a  class="All Ads_RecSys "
+           href="/2022/08/12/Field-aware%20Calibration%20A%20Simple%20and%20Empirically%20Strong%20Method%20for%20Reliable%20Probabilistic%20Predictions/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Field-aware Calibration A Simple and Empirically Strong Method for Reliable Probabilistic Predictions">Field-aware Calibration A Simple and Empirically Strong Method for Reliable Probabilistic Predictions</span>
+            <span class="post-date" title="2022-08-12 20:43:00">2022/08/12</span>
+        </a>
+        
+        
+        <a  class="All Ads_RecSys "
+           href="/2022/05/21/TabTransformer%20Tabular%20Data%20Modeling%20Using%20Contextual%20Embeddings/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="TabTransformer Tabular Data Modeling Using Contextual Embeddings">TabTransformer Tabular Data Modeling Using Contextual Embeddings</span>
+            <span class="post-date" title="2022-05-21 20:43:00">2022/05/21</span>
+        </a>
+        
+        
+        <a  class="All Ads_RecSys "
+           href="/2022/05/20/FinalMLP:%20An%20Enhanced%20Two-Stream%20MLP%20Model%20for%20CTR%20Prediction/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="FinalMLP An Enhanced Two-Stream MLP Model for CTR Prediction">FinalMLP An Enhanced Two-Stream MLP Model for CTR Prediction</span>
+            <span class="post-date" title="2022-05-20 20:43:00">2022/05/20</span>
+        </a>
+        
+        
+        <a  class="All Ads_RecSys "
+           href="/2022/05/15/H&M%20Recommendation%20Competition%20Top1%20%E6%96%B9%E6%A1%88/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="H&amp;M Recommendation Competition Top1 方案">H&amp;M Recommendation Competition Top1 方案</span>
+            <span class="post-date" title="2022-05-15 23:55:00">2022/05/15</span>
+        </a>
+        
+        
+        <a  class="All Ads_RecSys "
+           href="/2022/03/20/Deep%20Interest%20Highlight%20Network%20for%20Click-Through%20Rate%20Prediction%20in%20Trigger-Induced%20Recommendation/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Deep Interest Highlight Network for Click-Through Rate Prediction in Trigger-Induced Recommendation">Deep Interest Highlight Network for Click-Through Rate Prediction in Trigger-Induced Recommendation</span>
+            <span class="post-date" title="2022-03-20 22:00:00">2022/03/20</span>
+        </a>
+        
+        
+        <a  class="All Ads_RecSys "
+           href="/2022/03/20/Progressive%20Layered%20Extraction%20(PLE)%20A%20Novel%20Multi-Task%20Learning%20(MTL)%20Model%20for%20Personalized%20Recommendations/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Progressive Layered Extraction (PLE) A Novel Multi-Task Learning (MTL) Model for Personalized Recommendations">Progressive Layered Extraction (PLE) A Novel Multi-Task Learning (MTL) Model for Personalized Recommendations</span>
+            <span class="post-date" title="2022-03-20 20:08:00">2022/03/20</span>
+        </a>
+        
+        
+        <a  class="All Ads_RecSys "
+           href="/2022/03/12/Mechanism%20Design%20%E6%9C%BA%E5%88%B6%E8%AE%BE%E8%AE%A1_1_Learning-based%20Mechanism/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Mechanism Design 机制设计_1_Learning-based Mechanism">Mechanism Design 机制设计_1_Learning-based Mechanism</span>
+            <span class="post-date" title="2022-03-12 23:00:00">2022/03/12</span>
+        </a>
+        
+        
+        <a  class="All Ads_RecSys "
+           href="/2022/02/20/Mechanism%20Design%20%E6%9C%BA%E5%88%B6%E8%AE%BE%E8%AE%A1_0_overview/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Mechanism Design 机制设计_0_overview">Mechanism Design 机制设计_0_overview</span>
+            <span class="post-date" title="2022-02-20 20:00:00">2022/02/20</span>
+        </a>
+        
+        
+        <a  class="All Rethinking "
+           href="/2022/02/07/2021%20Annual%20Summary/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="2021 Annual Summary">2021 Annual Summary</span>
+            <span class="post-date" title="2022-02-07 12:11:00">2022/02/07</span>
+        </a>
+        
+        
+        <a  class="All Reading "
+           href="/2021/11/11/Cybernetics%20and%20Society%20%E6%8E%A7%E5%88%B6%E8%AE%BA%E4%B8%8E%E7%A4%BE%E4%BC%9A/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Cybernetics and Society 控制论与社会">Cybernetics and Society 控制论与社会</span>
+            <span class="post-date" title="2021-11-11 21:00:00">2021/11/11</span>
+        </a>
+        
+        
+        <a  class="All Ads_RecSys "
+           href="/2021/09/10/Bias%20and%20Debias%20in%20Recommender%20System%20%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E4%B8%AD%E7%9A%84%20bias%20%E5%92%8C%20debias/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Bias and Debias in Recommender System 推荐系统中的 bias 和 debias">Bias and Debias in Recommender System 推荐系统中的 bias 和 debias</span>
+            <span class="post-date" title="2021-09-10 21:00:00">2021/09/10</span>
+        </a>
+        
+        
+        <a  class="All ML_DL_LLM "
+           href="/2021/08/11/Supervised%20Contrastive%20Learning/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Supervised Contrastive Learning">Supervised Contrastive Learning</span>
+            <span class="post-date" title="2021-08-11 20:43:00">2021/08/11</span>
+        </a>
+        
+        
+        <a  class="All Ads_RecSys "
+           href="/2021/06/20/Multi-Task%20Learning%20Using%20Uncertainty%20to%20Weigh%20Losses%20for%20Scene%20Geometry%20and%20Semantics/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Multi-Task Learning Using Uncertainty to Weigh Losses for Scene Geometry and Semantics">Multi-Task Learning Using Uncertainty to Weigh Losses for Scene Geometry and Semantics</span>
+            <span class="post-date" title="2021-06-20 20:08:00">2021/06/20</span>
+        </a>
+        
+        
+        <a  class="All Reading "
+           href="/2021/05/20/Causal%20Inference%20%E5%9B%A0%E6%9E%9C%E6%8E%A8%E6%96%AD/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Causal Inference 因果推断">Causal Inference 因果推断</span>
+            <span class="post-date" title="2021-05-20 20:00:00">2021/05/20</span>
+        </a>
+        
+        
+        <a  class="All Rethinking "
+           href="/2020/12/31/2020%20Annual%20Summary/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="2020 Annual Summary">2020 Annual Summary</span>
+            <span class="post-date" title="2020-12-31 23:11:00">2020/12/31</span>
+        </a>
+        
+        
+        <a  class="All Reading "
+           href="/2020/12/20/Shoe%20Dog%20%E9%9E%8B%E7%8B%97/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Shoe Dog 鞋狗">Shoe Dog 鞋狗</span>
+            <span class="post-date" title="2020-12-20 18:53:00">2020/12/20</span>
+        </a>
+        
+        
+        <a  class="All Ads_RecSys "
+           href="/2020/11/08/The%20Essence%20of%20RecSys%20%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E7%B2%BE%E8%A6%81/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="The Essence of RecSys 推荐系统精要">The Essence of RecSys 推荐系统精要</span>
+            <span class="post-date" title="2020-11-08 11:56:00">2020/11/08</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/10/01/Hexo%20%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E6%80%BB%E7%BB%93/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Hexo 博客搭建总结">Hexo 博客搭建总结</span>
+            <span class="post-date" title="2020-10-01 20:11:00">2020/10/01</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/09/10/cpp_0_1_cpp%20%E8%AE%BE%E8%AE%A1%E5%93%B2%E5%AD%A6/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cpp_0_1_cpp 设计哲学">cpp_0_1_cpp 设计哲学</span>
+            <span class="post-date" title="2020-09-10 00:00:00">2020/09/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/09/10/cpp_0_1_vscode%20%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cpp_0_1_vscode 环境配置">cpp_0_1_vscode 环境配置</span>
+            <span class="post-date" title="2020-09-10 00:00:00">2020/09/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/09/10/cpp_0_3_%E8%B0%B7%E6%AD%8C%20C++%20%E7%BC%96%E7%A8%8B%E9%A3%8E%E6%A0%BC/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cpp_0_3_谷歌 C++ 编程风格">cpp_0_3_谷歌 C++ 编程风格</span>
+            <span class="post-date" title="2020-09-10 00:00:00">2020/09/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/09/10/cpp_0_2_%E5%A4%B4%E6%96%87%E4%BB%B6%20header%20file/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cpp_0_2_头文件 headerfile">cpp_0_2_头文件 headerfile</span>
+            <span class="post-date" title="2020-09-10 00:00:00">2020/09/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/09/10/cpp_1_1_%E5%B7%A6%E5%80%BC%E5%92%8C%E5%8F%B3%E5%80%BC/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cpp_1_1_左值和右值">cpp_1_1_左值和右值</span>
+            <span class="post-date" title="2020-09-10 00:00:00">2020/09/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/09/10/cpp_1_3_%E5%8F%B3%E5%80%BC%E5%BC%95%E7%94%A8%20Rvalue%20reference/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cpp_1_3_右值引用 Rvalue reference">cpp_1_3_右值引用 Rvalue reference</span>
+            <span class="post-date" title="2020-09-10 00:00:00">2020/09/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/09/10/cpp_1_2_%E5%B7%A6%E5%80%BC%E5%BC%95%E7%94%A8%20Lvalue%20reference/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cpp_1_2_左值引用 Lvalue reference">cpp_1_2_左值引用 Lvalue reference</span>
+            <span class="post-date" title="2020-09-10 00:00:00">2020/09/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/09/10/cpp_2_1_%E6%8C%87%E9%92%88%20Pointer_1_%E5%9C%B0%E5%9D%80%E5%92%8C%E6%8C%87%E9%92%88/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cpp_2_1_指针 Pointer_1_地址和指针">cpp_2_1_指针 Pointer_1_地址和指针</span>
+            <span class="post-date" title="2020-09-10 00:00:00">2020/09/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/09/10/cpp_2_2_%E6%8C%87%E9%92%88%20Pointer_2_%E7%A9%BA%E6%8C%87%E9%92%88/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cpp_2_2_指针 Pointer_2_空指针">cpp_2_2_指针 Pointer_2_空指针</span>
+            <span class="post-date" title="2020-09-10 00:00:00">2020/09/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/09/10/cpp_2_3_%E6%8C%87%E9%92%88%20Pointer_3_const%20%E4%B8%8E%E6%8C%87%E9%92%88/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cpp_2_3_指针 Pointer_3_const 与指针">cpp_2_3_指针 Pointer_3_const 与指针</span>
+            <span class="post-date" title="2020-09-10 00:00:00">2020/09/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/09/10/cpp_2_4_%E6%8C%87%E9%92%88%20Pointer_4_%E4%BC%A0%E5%9C%B0%E5%9D%80%20Pass%20by%20address/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cpp_2_4_指针 Pointer_4_传地址 Pass by address">cpp_2_4_指针 Pointer_4_传地址 Pass by address</span>
+            <span class="post-date" title="2020-09-10 00:00:00">2020/09/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/09/10/cpp_2_5_%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88_0_%E8%AE%BE%E8%AE%A1%E6%80%9D%E6%83%B3/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cpp_2_5_智能指针_0_设计思想">cpp_2_5_智能指针_0_设计思想</span>
+            <span class="post-date" title="2020-09-10 00:00:00">2020/09/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/09/10/cpp_2_6_%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88_1_shared_ptr/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cpp_2_6_智能指针_1_shared_ptr">cpp_2_6_智能指针_1_shared_ptr</span>
+            <span class="post-date" title="2020-09-10 00:00:00">2020/09/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/09/10/cpp_2_7_%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88_2_unique_ptr/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cpp_2_7_智能指针_2_unique_ptr">cpp_2_7_智能指针_2_unique_ptr</span>
+            <span class="post-date" title="2020-09-10 00:00:00">2020/09/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/09/10/cpp_3_0_constexpr%20%E5%85%B3%E9%94%AE%E5%AD%97/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cpp_3_0_constexpr关键字">cpp_3_0_constexpr关键字</span>
+            <span class="post-date" title="2020-09-10 00:00:00">2020/09/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/09/10/cpp_3_1_const%20%E5%85%B3%E9%94%AE%E5%AD%97/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cpp_3_1_const 关键字">cpp_3_1_const 关键字</span>
+            <span class="post-date" title="2020-09-10 00:00:00">2020/09/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/09/10/cpp_3_2_Lambda%20%E8%A1%A8%E8%BE%BE%E5%BC%8F/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cpp_3_2_Lambda 表达式">cpp_3_2_Lambda 表达式</span>
+            <span class="post-date" title="2020-09-10 00:00:00">2020/09/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/09/10/cpp_5_1_%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1_0_overview/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cpp_5_1_面向对象_0_overview">cpp_5_1_面向对象_0_overview</span>
+            <span class="post-date" title="2020-09-10 00:00:00">2020/09/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/09/10/cpp_5_2_%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1_1_%E7%B1%BB%E5%92%8C%E6%88%90%E5%91%98%E5%87%BD%E6%95%B0/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cpp_5_2_面向对象_1_类和成员函数">cpp_5_2_面向对象_1_类和成员函数</span>
+            <span class="post-date" title="2020-09-10 00:00:00">2020/09/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/09/10/cpp_5_3_%E5%A4%9A%E6%80%81_0_%E8%99%9A%E5%87%BD%E6%95%B0%20Virtual%20Functions/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cpp_5_3_多态_0_虚函数 Virtual Functions">cpp_5_3_多态_0_虚函数 Virtual Functions</span>
+            <span class="post-date" title="2020-09-10 00:00:00">2020/09/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/09/10/cpp_6_0_%E6%A8%A1%E6%9D%BF%20template/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cpp_6_0_模板 template">cpp_6_0_模板 template</span>
+            <span class="post-date" title="2020-09-10 00:00:00">2020/09/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/08/20/Python_%E5%A4%9A%E8%BF%9B%E7%A8%8B/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Python_多进程">Python_多进程</span>
+            <span class="post-date" title="2020-08-20 20:08:00">2020/08/20</span>
+        </a>
+        
+        
+        <a  class="All Ads_RecSys "
+           href="/2020/08/15/%E6%B7%B1%E5%BA%A6%E7%82%B9%E5%87%BB%E7%8E%87%E9%A2%84%E4%BC%B0%E6%A8%A1%E5%9E%8B%E4%B8%AD%E7%9A%84%E7%89%B9%E5%BE%81%E4%BA%A4%E5%8F%89/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="深度点击率预估模型中的特征交叉">深度点击率预估模型中的特征交叉</span>
+            <span class="post-date" title="2020-08-15 20:11:00">2020/08/15</span>
+        </a>
+        
+        
+        <a  class="All Algorithm "
+           href="/2020/07/18/Leetcode_hot_100%20%E6%80%BB%E7%BB%93/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Leetcode_hot_100 总结">Leetcode_hot_100 总结</span>
+            <span class="post-date" title="2020-07-18 22:56:00">2020/07/18</span>
+        </a>
+        
+        
+        <a  class="All Reading "
+           href="/2020/04/13/Status%20as%20a%20Service%20%E5%9C%B0%E4%BD%8D%E5%8D%B3%E6%9C%8D%E5%8A%A1/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Status as a Service 地位即服务">Status as a Service 地位即服务</span>
+            <span class="post-date" title="2020-04-13 20:13:00">2020/04/13</span>
+        </a>
+        
+        
+        <a  class="All ML_DL_LLM "
+           href="/2020/04/04/Faiss%20%E5%90%91%E9%87%8F%E6%A3%80%E7%B4%A2%E5%BA%93/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Faiss 向量检索库">Faiss 向量检索库</span>
+            <span class="post-date" title="2020-04-04 20:11:00">2020/04/04</span>
+        </a>
+        
+        
+        <a  class="All Reading "
+           href="/2020/03/22/%E7%8B%BC%E4%BA%BA%E6%9D%80%E5%A6%82%E4%BD%95%E8%87%B4%E8%83%9C/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="狼人杀如何致胜">狼人杀如何致胜</span>
+            <span class="post-date" title="2020-03-22 02:12:57">2020/03/22</span>
+        </a>
+        
+        
+        <a  class="All Reading "
+           href="/2020/02/18/David%20Stern,%20who%20turned%20NBA%20into%20powerhouse/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="David Stern, who turned NBA into powerhouse">David Stern, who turned NBA into powerhouse</span>
+            <span class="post-date" title="2020-02-18 22:56:00">2020/02/18</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/02/18/Linux%20%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E6%80%BB%E7%BB%93/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Linux 常用命令总结">Linux 常用命令总结</span>
+            <span class="post-date" title="2020-02-18 22:56:00">2020/02/18</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2020/02/13/Tensorflow%20API%20%E6%80%BB%E7%BB%93/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Tensorflow API 总结">Tensorflow API 总结</span>
+            <span class="post-date" title="2020-02-13 22:56:00">2020/02/13</span>
+        </a>
+        
+        
+        <a  class="All ML_DL_LLM "
+           href="/2020/02/03/Transformer/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Transformer">Transformer</span>
+            <span class="post-date" title="2020-02-03 11:56:00">2020/02/03</span>
+        </a>
+        
+        
+        <a  class="All ML_DL_LLM "
+           href="/2020/01/11/Tricks%20in%20Data%20Mining%20Competitions%20%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98%E6%AF%94%E8%B5%9B%E6%8A%80%E5%B7%A7/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Tricks in Data Mining Competitions 数据挖掘比赛技巧">Tricks in Data Mining Competitions 数据挖掘比赛技巧</span>
+            <span class="post-date" title="2020-01-11 20:11:00">2020/01/11</span>
+        </a>
+        
+        
+        <a  class="All ML_DL_LLM "
+           href="/2020/01/11/Word2Vec/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Word2Vec">Word2Vec</span>
+            <span class="post-date" title="2020-01-11 20:11:00">2020/01/11</span>
+        </a>
+        
+        
+        <a  class="All Reading "
+           href="/2020/01/11/Yoshua%20Bengio%20%E5%AF%B9%20ML%20%E7%A0%94%E7%A9%B6%E8%80%85%E7%9A%84%E5%BB%BA%E8%AE%AE/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Yoshua Bengio 对 ML 研究者的建议">Yoshua Bengio 对 ML 研究者的建议</span>
+            <span class="post-date" title="2020-01-11 20:11:00">2020/01/11</span>
+        </a>
+        
+        
+        <a  class="All Rethinking "
+           href="/2019/12/31/2019%20Annual%20Summary/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="2019 Annual Summary">2019 Annual Summary</span>
+            <span class="post-date" title="2019-12-31 15:11:00">2019/12/31</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2019/12/11/Data%20Analysis%20Tutorial:(Part%20I)/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Data Analysis Tutorial:(Part I)">Data Analysis Tutorial:(Part I)</span>
+            <span class="post-date" title="2019-12-11 20:11:00">2019/12/11</span>
+        </a>
+        
+        
+        <a  class="All Reading "
+           href="/2019/11/03/Marketing%20Management%20%E8%90%A5%E9%94%80%E7%AE%A1%E7%90%86/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Marketing Management 营销管理">Marketing Management 营销管理</span>
+            <span class="post-date" title="2019-11-03 13:03:00">2019/11/03</span>
+        </a>
+        
+        
+        <a  class="All Reading "
+           href="/2019/10/01/Interview%20record%20of%20ML%20intern%20in%202019/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Interview record of ML intern in 2019">Interview record of ML intern in 2019</span>
+            <span class="post-date" title="2019-10-01 12:12:57">2019/10/01</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2019/05/01/Errors%20Archives%20%E6%8A%A5%E9%94%99%E5%BD%92%E6%A1%A3/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Errors Archives 报错归档">Errors Archives 报错归档</span>
+            <span class="post-date" title="2019-05-01 13:03:00">2019/05/01</span>
+        </a>
+        
+        
+        <a  class="All Ads_RecSys "
+           href="/2019/03/20/Modeling%20Task%20Relationships%20in%20Multi-task%20Learning%20with%20Multi-gate%20Mixture-of-Experts/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Modeling Task Relationships in Multi-task Learning with Multi-gate Mixture-of-Experts">Modeling Task Relationships in Multi-task Learning with Multi-gate Mixture-of-Experts</span>
+            <span class="post-date" title="2019-03-20 20:43:00">2019/03/20</span>
+        </a>
+        
+        
+        <a  class="All Rethinking "
+           href="/2018/12/31/2018%20Annual%20Summary/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="2018 Annual Summary">2018 Annual Summary</span>
+            <span class="post-date" title="2018-12-31 20:17:00">2018/12/31</span>
+        </a>
+        
+        
+        <a  class="All Algorithm "
+           href="/2018/06/10/DivideConquer_0_overview/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="DivideConquer_0_overview">DivideConquer_0_overview</span>
+            <span class="post-date" title="2018-06-10 00:00:00">2018/06/10</span>
+        </a>
+        
+        
+        <a  class="All Algorithm "
+           href="/2018/06/10/Hash_0_overview/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Hash_0_overview">Hash_0_overview</span>
+            <span class="post-date" title="2018-06-10 00:00:00">2018/06/10</span>
+        </a>
+        
+        
+        <a  class="All Algorithm "
+           href="/2018/06/10/Heap_1_application/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Heap_1_application">Heap_1_application</span>
+            <span class="post-date" title="2018-06-10 00:00:00">2018/06/10</span>
+        </a>
+        
+        
+        <a  class="All Algorithm "
+           href="/2018/06/10/IntervalProblem_%E5%8C%BA%E9%97%B4%E9%97%AE%E9%A2%98/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="IntervalProblem_区间问题">IntervalProblem_区间问题</span>
+            <span class="post-date" title="2018-06-10 00:00:00">2018/06/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2018/06/10/LinkedList_%E9%93%BE%E8%A1%A8%E6%93%8D%E4%BD%9C/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="LinkedList_链表操作">LinkedList_链表操作</span>
+            <span class="post-date" title="2018-06-10 00:00:00">2018/06/10</span>
+        </a>
+        
+        
+        <a  class="All Algorithm "
+           href="/2018/06/10/Trie_%E5%89%8D%E7%BC%80%E6%A0%91/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Trie_前缀树">Trie_前缀树</span>
+            <span class="post-date" title="2018-06-10 00:00:00">2018/06/10</span>
+        </a>
+        
+        
+        <a  class="All Algorithm "
+           href="/2018/06/10/TwoPointers_0_overview/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="TwoPointers_0_overview">TwoPointers_0_overview</span>
+            <span class="post-date" title="2018-06-10 00:00:00">2018/06/10</span>
+        </a>
+        
+        
+        <a  class="All Algorithm "
+           href="/2018/06/10/TwoPointers_1_%E5%BF%AB%E6%85%A2%E6%8C%87%E9%92%88/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="TwoPointers_1_快慢指针">TwoPointers_1_快慢指针</span>
+            <span class="post-date" title="2018-06-10 00:00:00">2018/06/10</span>
+        </a>
+        
+        
+        <a  class="All Algorithm "
+           href="/2018/06/10/TwoPointers_2_%E5%B7%A6%E5%8F%B3%E6%8C%87%E9%92%88/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="TwoPointers_2_左右指针">TwoPointers_2_左右指针</span>
+            <span class="post-date" title="2018-06-10 00:00:00">2018/06/10</span>
+        </a>
+        
+        
+        <a  class="All Algorithm "
+           href="/2018/06/10/TwoPointers_4_Rabin_Karp/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="TwoPointers_4_Rabin_Karp">TwoPointers_4_Rabin_Karp</span>
+            <span class="post-date" title="2018-06-10 00:00:00">2018/06/10</span>
+        </a>
+        
+        
+        <a  class="All Algorithm "
+           href="/2018/06/10/TwoPointers_3_%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="TwoPointers_3_滑动窗口">TwoPointers_3_滑动窗口</span>
+            <span class="post-date" title="2018-06-10 00:00:00">2018/06/10</span>
+        </a>
+        
+        
+        <a  class="All Algorithm "
+           href="/2018/06/10/TwoPointers_5_%E9%93%BE%E8%A1%A8/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="TwoPointers_5_链表">TwoPointers_5_链表</span>
+            <span class="post-date" title="2018-06-10 00:00:00">2018/06/10</span>
+        </a>
+        
+        
+        <a  class="All Algorithm "
+           href="/2018/06/10/TwoPointers_6_n%E6%95%B0%E4%B9%8B%E5%92%8C/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="TwoPointers_6_n数之和">TwoPointers_6_n数之和</span>
+            <span class="post-date" title="2018-06-10 00:00:00">2018/06/10</span>
+        </a>
+        
+        
+        <a  class="All Algorithm "
+           href="/2018/06/10/TwoPointers_7_%E8%8D%B7%E5%85%B0%E5%9B%BD%E6%97%97/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="TwoPointers_7_荷兰国旗">TwoPointers_7_荷兰国旗</span>
+            <span class="post-date" title="2018-06-10 00:00:00">2018/06/10</span>
+        </a>
+        
+        
+        <a  class="All Algorithm "
+           href="/2018/06/10/UnionFind_%E5%B9%B6%E6%9F%A5%E9%9B%86/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="UnionFind_并查集">UnionFind_并查集</span>
+            <span class="post-date" title="2018-06-10 00:00:00">2018/06/10</span>
+        </a>
+        
+        
+        <a  class="All Coding "
+           href="/2018/04/05/Git%20%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Git 使用指南">Git 使用指南</span>
+            <span class="post-date" title="2018-04-05 22:56:00">2018/04/05</span>
+        </a>
+        
+        
+        <a  class="All Algorithm "
+           href="/2018/01/19/Stack_0_overview/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Stack_0_overview">Stack_0_overview</span>
+            <span class="post-date" title="2018-01-19 01:10:00">2018/01/19</span>
+        </a>
+        
+        
+        <a  class="All Algorithm "
+           href="/2018/01/19/Stack_1_%E5%8D%95%E8%B0%83%E6%A0%88/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Stack_1_单调栈">Stack_1_单调栈</span>
+            <span class="post-date" title="2018-01-19 01:09:00">2018/01/19</span>
+        </a>
+        
+        
+        <a  class="All Algorithm "
+           href="/2018/01/19/Stack_2_%E8%A1%A8%E8%BE%BE%E5%BC%8F%E8%A7%A3%E7%A0%81/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Stack_2_表达式解码">Stack_2_表达式解码</span>
+            <span class="post-date" title="2018-01-19 01:08:00">2018/01/19</span>
+        </a>
+        
+        
+        <a  class="All Algorithm "
+           href="/2018/01/19/Sort_0_overview/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Sort_0_overview">Sort_0_overview</span>
+            <span class="post-date" title="2018-01-19 00:10:00">2018/01/19</span>
+        </a>
+        
+        
+        <a  class="All Algorithm "
+           href="/2018/01/19/Sort_1_mergeSort_%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Sort_1_mergeSort_归并排序">Sort_1_mergeSort_归并排序</span>
+            <span class="post-date" title="2018-01-19 00:09:01">2018/01/19</span>
+        </a>
+        
+        
+        <a  class="All Algorithm "
+           href="/2018/01/19/Sort_1_insertionSort_%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Sort_1_insertionSort_插入排序">Sort_1_insertionSort_插入排序</span>
+            <span class="post-date" title="2018-01-19 00:09:00">2018/01/19</span>
+        </a>
+        
+        
+        <a  class="All Algorithm "
+           href="/2018/01/19/Sort_2_quickSort_%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Sort_2_quickSort_快速排序">Sort_2_quickSort_快速排序</span>
+            <span class="post-date" title="2018-01-19 00:08:01">2018/01/19</span>
+        </a>
+        
+        
+        <a  class="All Algorithm "
+           href="/2018/01/19/Sort_2_Partition_%E5%88%92%E5%88%86%E7%AE%97%E6%B3%95/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Sort_2_Partition_划分算法">Sort_2_Partition_划分算法</span>
+            <span class="post-date" title="2018-01-19 00:08:00">2018/01/19</span>
+        </a>
+        
+        
+        <a  class="All Algorithm "
+           href="/2018/01/19/Sort_3_heapSort_%E5%A0%86%E6%8E%92%E5%BA%8F/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Sort_3_heapSort_堆排序">Sort_3_heapSort_堆排序</span>
+            <span class="post-date" title="2018-01-19 00:07:00">2018/01/19</span>
+        </a>
+        
+        
+        <a  class="All Algorithm "
+           href="/2018/01/19/Sort_4_application_%E6%8E%92%E5%BA%8F%E9%A2%98/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Sort_4_application_排序题">Sort_4_application_排序题</span>
+            <span class="post-date" title="2018-01-19 00:06:00">2018/01/19</span>
+        </a>
+        
+        
+        <a  class="All Algorithm "
+           href="/2018/01/07/Greedy_0_overview/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Greedy_0_overview">Greedy_0_overview</span>
+            <span class="post-date" title="2018-01-07 01:10:00">2018/01/07</span>
+        </a>
+        
+        
+        <a  class="All Algorithm "
+           href="/2018/01/07/Graph_0_overview/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Graph_0_overview">Graph_0_overview</span>
+            <span class="post-date" title="2018-01-07 00:10:00">2018/01/07</span>
+        </a>
+        
+        
+        <a  class="All Algorithm "
+           href="/2018/01/07/Graph_1_dfs_%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E9%81%8D%E5%8E%86/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Graph_1_dfs_深度优先遍历">Graph_1_dfs_深度优先遍历</span>
+            <span class="post-date" title="2018-01-07 00:09:00">2018/01/07</span>
+        </a>
+        
+        
+        <a  class="All Algorithm "
+           href="/2018/01/07/Graph_2_bfs_%E5%B9%BF%E5%BA%A6%E4%BC%98%E5%85%88%E9%81%8D%E5%8E%86/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Graph_2_bfs_广度优先遍历">Graph_2_bfs_广度优先遍历</span>
+            <span class="post-date" title="2018-01-07 00:08:00">2018/01/07</span>
+        </a>
+        
+        
+        <a  class="All Algorithm "
+           href="/2018/01/07/Graph_3_%E7%8E%AF%E6%A3%80%E6%B5%8B%E4%B8%8E%E6%8B%93%E6%89%91%E6%8E%92%E5%BA%8F/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Graph_3_环检测与拓扑排序">Graph_3_环检测与拓扑排序</span>
+            <span class="post-date" title="2018-01-07 00:08:00">2018/01/07</span>
+        </a>
+        
+        
+        <a  class="All Algorithm "
+           href="/2018/01/07/Graph_4_%E5%B2%9B%E5%B1%BF%E9%97%AE%E9%A2%98/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Graph_4_岛屿问题">Graph_4_岛屿问题</span>
+            <span class="post-date" title="2018-01-07 00:06:00">2018/01/07</span>
+        </a>
+        
+        
+        <a  class="All Algorithm "
+           href="/2018/01/07/Graph_5_Kruskal/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Graph_5_Kruskal">Graph_5_Kruskal</span>
+            <span class="post-date" title="2018-01-07 00:05:00">2018/01/07</span>
+        </a>
+        
+        
+        <a  class="All Algorithm "
+           href="/2018/01/07/Graph_6_Prim/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Graph_6_Prim">Graph_6_Prim</span>
+            <span class="post-date" title="2018-01-07 00:04:00">2018/01/07</span>
+        </a>
+        
+        
+        <a  class="All Algorithm "
+           href="/2018/01/07/Graph_7_Dijstra/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Graph_7_Dijstra">Graph_7_Dijstra</span>
+            <span class="post-date" title="2018-01-07 00:03:00">2018/01/07</span>
+        </a>
+        
+        
+        <a  class="All Algorithm "
+           href="/2018/01/04/DP_0_overview/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="DP_0_overview">DP_0_overview</span>
+            <span class="post-date" title="2018-01-04 01:10:00">2018/01/04</span>
+        </a>
+        
+        
+        <a  class="All Algorithm "
+           href="/2018/01/04/DP_1_%E5%A4%87%E5%BF%98%E5%BD%95/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="DP_1_备忘录">DP_1_备忘录</span>
+            <span class="post-date" title="2018-01-04 01:09:00">2018/01/04</span>
+        </a>
+        
+        
+        <a  class="All Algorithm "
+           href="/2018/01/04/DP_2_%E6%9C%80%E5%80%BC%E9%97%AE%E9%A2%98/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="DP_2_最值问题">DP_2_最值问题</span>
+            <span class="post-date" title="2018-01-04 01:08:00">2018/01/04</span>
+        </a>
+        
+        
+        <a  class="All Algorithm "
+           href="/2018/01/04/DP_3_%E8%87%AA%E9%A1%B6%E5%90%91%E4%B8%8B%E8%BF%98%E6%98%AF%E8%87%AA%E5%BA%95%E5%90%91%E4%B8%8A/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="DP_3_自顶向下还是自底向上">DP_3_自顶向下还是自底向上</span>
+            <span class="post-date" title="2018-01-04 01:07:01">2018/01/04</span>
+        </a>
+        
+        
+        <a  class="All Algorithm "
+           href="/2018/01/04/DP_3_%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="DP_3_背包问题">DP_3_背包问题</span>
+            <span class="post-date" title="2018-01-04 01:07:00">2018/01/04</span>
+        </a>
+        
+        
+        <a  class="All Algorithm "
+           href="/2018/01/04/DP_4_%E4%B9%B0%E5%8D%96%E8%82%A1%E7%A5%A8/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="DP_4_买卖股票">DP_4_买卖股票</span>
+            <span class="post-date" title="2018-01-04 01:06:00">2018/01/04</span>
+        </a>
+        
+        
+        <a  class="All Algorithm "
+           href="/2018/01/04/DP_5_%E6%89%93%E5%AE%B6%E5%8A%AB%E8%88%8D/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="DP_5_打家劫舍">DP_5_打家劫舍</span>
+            <span class="post-date" title="2018-01-04 01:05:00">2018/01/04</span>
+        </a>
+        
+        
+        <a  class="All Algorithm "
+           href="/2018/01/04/DP_6_%E9%AB%98%E7%BB%B4%20dp/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="DP_6_高维 dp">DP_6_高维 dp</span>
+            <span class="post-date" title="2018-01-04 01:04:00">2018/01/04</span>
+        </a>
+        
+        
+        <a  class="All Algorithm "
+           href="/2018/01/03/cache_LFU/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cache_LFU">cache_LFU</span>
+            <span class="post-date" title="2018-01-03 01:10:00">2018/01/03</span>
+        </a>
+        
+        
+        <a  class="All Algorithm "
+           href="/2018/01/03/cache_LRU/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="cache_LRU">cache_LRU</span>
+            <span class="post-date" title="2018-01-03 00:10:00">2018/01/03</span>
+        </a>
+        
+        
+        <a  class="All Algorithm "
+           href="/2018/01/02/Bit_%E4%BD%8D%E8%BF%90%E7%AE%97/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Bit_位运算">Bit_位运算</span>
+            <span class="post-date" title="2018-01-02 04:00:00">2018/01/02</span>
+        </a>
+        
+        
+        <a  class="All Algorithm "
+           href="/2018/01/02/Bipartite_%E4%BA%8C%E5%88%86%E5%9B%BE/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Bipartite_二分图">Bipartite_二分图</span>
+            <span class="post-date" title="2018-01-02 03:00:00">2018/01/02</span>
+        </a>
+        
+        
+        <a  class="All Algorithm "
+           href="/2018/01/02/BinaryTree_0_overview/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="BinaryTree_0_overview">BinaryTree_0_overview</span>
+            <span class="post-date" title="2018-01-02 02:10:00">2018/01/02</span>
+        </a>
+        
+        
+        <a  class="All Algorithm "
+           href="/2018/01/02/BinaryTree_1_%E5%88%86%E8%A7%A3%E9%97%AE%E9%A2%98/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="BinaryTree_1_分解问题">BinaryTree_1_分解问题</span>
+            <span class="post-date" title="2018-01-02 02:09:00">2018/01/02</span>
+        </a>
+        
+        
+        <a  class="All Algorithm "
+           href="/2018/01/02/BinaryTree_2_%E8%B7%AF%E5%BE%84%E9%97%AE%E9%A2%98/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="BinaryTree_2_路径问题">BinaryTree_2_路径问题</span>
+            <span class="post-date" title="2018-01-02 02:08:00">2018/01/02</span>
+        </a>
+        
+        
+        <a  class="All Algorithm "
+           href="/2018/01/02/BinaryTree_3_%E8%BF%AD%E4%BB%A3%E9%81%8D%E5%8E%86/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="BinaryTree_3_迭代遍历">BinaryTree_3_迭代遍历</span>
+            <span class="post-date" title="2018-01-02 02:07:01">2018/01/02</span>
+        </a>
+        
+        
+        <a  class="All Algorithm "
+           href="/2018/01/02/BinaryTree_3_%E5%B1%82%E5%BA%8F%E9%81%8D%E5%8E%86/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="BinaryTree_3_层序遍历">BinaryTree_3_层序遍历</span>
+            <span class="post-date" title="2018-01-02 02:07:00">2018/01/02</span>
+        </a>
+        
+        
+        <a  class="All Algorithm "
+           href="/2018/01/02/BinaryTree_4_%E6%9E%84%E9%80%A0/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="BinaryTree_4_构造">BinaryTree_4_构造</span>
+            <span class="post-date" title="2018-01-02 02:06:01">2018/01/02</span>
+        </a>
+        
+        
+        <a  class="All Algorithm "
+           href="/2018/01/02/BinaryTree_4_%E4%BA%8C%E5%8F%89%E6%A0%91%E5%92%8C%E9%93%BE%E8%A1%A8%E7%9A%84%E4%BA%92%E7%9B%B8%E8%BD%AC%E5%8C%96/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="BinaryTree_4_二叉树和链表的互相转化">BinaryTree_4_二叉树和链表的互相转化</span>
+            <span class="post-date" title="2018-01-02 02:06:00">2018/01/02</span>
+        </a>
+        
+        
+        <a  class="All Algorithm "
+           href="/2018/01/02/BinaryTree_5_%E5%BA%8F%E5%88%97%E5%8C%96/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="BinaryTree_4_二叉树和链表的互相转化">BinaryTree_4_二叉树和链表的互相转化</span>
+            <span class="post-date" title="2018-01-02 02:05:00">2018/01/02</span>
+        </a>
+        
+        
+        <a  class="All Algorithm "
+           href="/2018/01/02/BinaryTree_6_BST_%E7%89%B9%E6%80%A7/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="BinaryTree_6_BST_特性">BinaryTree_6_BST_特性</span>
+            <span class="post-date" title="2018-01-02 02:04:00">2018/01/02</span>
+        </a>
+        
+        
+        <a  class="All Algorithm "
+           href="/2018/01/02/BinaryTree_7_BST_%E6%9F%A5%E6%89%BE%E6%8F%92%E5%85%A5%E5%88%A0%E9%99%A4%E9%AA%8C%E8%AF%81/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="BinaryTree_7_BST_查找插入删除验证">BinaryTree_7_BST_查找插入删除验证</span>
+            <span class="post-date" title="2018-01-02 02:03:00">2018/01/02</span>
+        </a>
+        
+        
+        <a  class="All Algorithm "
+           href="/2018/01/02/BinaryTree_8_BST_%E6%9E%84%E9%80%A0/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="BinaryTree_8_BST_构造">BinaryTree_8_BST_构造</span>
+            <span class="post-date" title="2018-01-02 02:02:00">2018/01/02</span>
+        </a>
+        
+        
+        <a  class="All Algorithm "
+           href="/2018/01/02/BinarySearch_0_%E9%97%AD%E5%8C%BA%E9%97%B4%E6%90%9C%E7%B4%A2%E5%92%8C%E5%B7%A6%E9%97%AD%E5%8F%B3%E5%BC%80%E6%90%9C%E7%B4%A2/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="BinarySearch_0_闭区间搜索和左闭右开搜索">BinarySearch_0_闭区间搜索和左闭右开搜索</span>
+            <span class="post-date" title="2018-01-02 01:10:00">2018/01/02</span>
+        </a>
+        
+        
+        <a  class="All Algorithm "
+           href="/2018/01/02/BinarySearch_1_%E5%8D%95%E8%B0%83%E7%BB%93%E6%9E%84%E4%B8%8B%E4%BA%8C%E5%88%86%E6%90%9C%E7%B4%A2/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="BinarySearch_1_单调结构下二分搜索">BinarySearch_1_单调结构下二分搜索</span>
+            <span class="post-date" title="2018-01-02 01:09:00">2018/01/02</span>
+        </a>
+        
+        
+        <a  class="All Algorithm "
+           href="/2018/01/02/BinarySearch_2_%E6%97%8B%E8%BD%AC%E6%95%B0%E7%BB%84%E4%BA%8C%E5%88%86%E6%90%9C%E7%B4%A2/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="BinarySearch_2_旋转数组二分搜索">BinarySearch_2_旋转数组二分搜索</span>
+            <span class="post-date" title="2018-01-02 01:08:00">2018/01/02</span>
+        </a>
+        
+        
+        <a  class="All Algorithm "
+           href="/2018/01/02/BinarySearch_3_%E5%8D%95%E8%B0%83%E6%80%A7%E5%BA%94%E7%94%A8%E9%97%AE%E9%A2%98%E7%9A%84%E4%BA%8C%E5%88%86%E6%90%9C%E7%B4%A2/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="BinarySearch_3_单调性应用问题的二分搜索">BinarySearch_3_单调性应用问题的二分搜索</span>
+            <span class="post-date" title="2018-01-02 01:07:00">2018/01/02</span>
+        </a>
+        
+        
+        <a  class="All Algorithm "
+           href="/2018/01/02/Backtrack_0_overview/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Backtrack_0_overview">Backtrack_0_overview</span>
+            <span class="post-date" title="2018-01-02 00:10:00">2018/01/02</span>
+        </a>
+        
+        
+        <a  class="All Algorithm "
+           href="/2018/01/02/Backtrack_1_N%E7%9A%87%E5%90%8E%E5%92%8C%E8%A7%A3%E6%95%B0%E7%8B%AC/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Backtrack_1_N皇后和解数独">Backtrack_1_N皇后和解数独</span>
+            <span class="post-date" title="2018-01-02 00:09:00">2018/01/02</span>
+        </a>
+        
+        
+        <a  class="All Algorithm "
+           href="/2018/01/02/Backtrack_2_%E7%94%9F%E6%88%90%E6%8E%92%E5%88%97%E7%BB%84%E5%90%88%E5%AD%90%E9%9B%86/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Backtrack_2_生成排列组合子集">Backtrack_2_生成排列组合子集</span>
+            <span class="post-date" title="2018-01-02 00:08:00">2018/01/02</span>
+        </a>
+        
+        
+        <a  class="All Algorithm "
+           href="/2018/01/01/Array_1_0_%E5%89%8D%E7%BC%80%E5%92%8C%E6%95%B0%E7%BB%84/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Array_1_0_前缀和数组与差分数组">Array_1_0_前缀和数组与差分数组</span>
+            <span class="post-date" title="2018-01-01 00:10:10">2018/01/01</span>
+        </a>
+        
+        
+        <a  class="All Algorithm "
+           href="/2018/01/01/Array_1_1_%E5%B7%AE%E5%88%86%E6%95%B0%E7%BB%84/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Array_1_差分数组">Array_1_差分数组</span>
+            <span class="post-date" title="2018-01-01 00:09:10">2018/01/01</span>
+        </a>
+        
+        
+        <a  class="All Algorithm "
+           href="/2018/01/01/Array_2_%E8%8A%B1%E5%BC%8F%E6%90%9C%E7%B4%A2/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Array_2_花式搜索">Array_2_花式搜索</span>
+            <span class="post-date" title="2018-01-01 00:08:00">2018/01/01</span>
+        </a>
+        
+        
+        <a  class="All Algorithm "
+           href="/2018/01/01/Array_3_%E5%9B%BE%E5%83%8F%E7%BF%BB%E8%BD%AC/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Array_3_图像翻转">Array_3_图像翻转</span>
+            <span class="post-date" title="2018-01-01 00:07:00">2018/01/01</span>
+        </a>
+        
+        
+        <a  class="All Algorithm "
+           href="/2018/01/01/Array_4_%E7%8E%AF%E5%BD%A2%E6%95%B0%E7%BB%84/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Array_4_环形数组">Array_4_环形数组</span>
+            <span class="post-date" title="2018-01-01 00:06:00">2018/01/01</span>
+        </a>
+        
+        
+        <a  class="All Algorithm "
+           href="/2018/01/01/Array_5_%E7%9F%A9%E9%98%B5%E6%93%8D%E4%BD%9C/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Array_5_矩阵操作">Array_5_矩阵操作</span>
+            <span class="post-date" title="2018-01-01 00:05:00">2018/01/01</span>
+        </a>
+        
+        <div id="no-item-tips">
+
+        </div>
+    </nav>
+    <div id="outline-list">
+    </div>
+</div>
+
+    </div>
+    <div class="hide-list">
+        <div class="semicircle" data-title="Toggle full screen shortcut key s">
+            <div class="brackets first"><</div>
+            <div class="brackets">&gt;</div>
+        </div>
+    </div>
+</aside>
+<div id="post">
+    <div class="pjax">
+        <article id="post-TwoPointers_3_滑动窗口" class="article article-type-post" itemscope itemprop="blogPost">
+    
+        <h1 class="article-title">TwoPointers_3_滑动窗口</h1>
+    
+    <div class="article-meta">
+        
+        
+        
+        <span class="book">
+            <i class="iconfont icon-category"></i>
+            
+            
+            <a  data-rel="Algorithm">Algorithm</a>
+            
+        </span>
+        
+        
+    </div>
+    <div class="article-meta">
+        
+            Created At : <time class="date" title='Updated At: 2025-04-28 17:20:54'>2018-06-10 00:00</time>
+        
+    </div>
+    <div class="article-meta">
+        
+        
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3"><span class="toc-text">滑动窗口</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#76-%E6%9C%80%E5%B0%8F%E8%A6%86%E7%9B%96%E5%AD%90%E4%B8%B2"><span class="toc-text">76.最小覆盖子串</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#567-%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E6%8E%92%E5%88%97"><span class="toc-text">567.字符串的排列</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#438-%E6%89%BE%E5%88%B0%E5%AD%97%E7%AC%A6%E4%B8%B2%E4%B8%AD%E6%89%80%E6%9C%89%E5%AD%97%E6%AF%8D%E5%BC%82%E4%BD%8D%E8%AF%8D"><span class="toc-text">438.找到字符串中所有字母异位词</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E6%97%A0%E9%87%8D%E5%A4%8D%E5%AD%97%E7%AC%A6%E7%9A%84%E6%9C%80%E9%95%BF%E5%AD%90%E4%B8%B2"><span class="toc-text">3.无重复字符的最长子串</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#713-%E4%B9%98%E7%A7%AF%E5%B0%8F%E4%BA%8E-K-%E7%9A%84%E5%AD%90%E6%95%B0%E7%BB%84"><span class="toc-text">713.乘积小于 K 的子数组</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1004-%E6%9C%80%E5%A4%A7%E8%BF%9E%E7%BB%AD1%E7%9A%84%E4%B8%AA%E6%95%B0-III"><span class="toc-text">1004.最大连续1的个数 III</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#239-%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3%E6%9C%80%E5%A4%A7%E5%80%BC"><span class="toc-text">239.滑动窗口最大值</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1234-%E6%9B%BF%E6%8D%A2%E5%AD%90%E4%B8%B2%E5%BE%97%E5%88%B0%E5%B9%B3%E8%A1%A1%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="toc-text">1234.替换子串得到平衡字符串</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#209-%E9%95%BF%E5%BA%A6%E6%9C%80%E5%B0%8F%E7%9A%84%E5%AD%90%E6%95%B0%E7%BB%84"><span class="toc-text">209.长度最小的子数组</span></a></li></ol>
+    
+<style>
+    .left-col .switch-btn,
+    .left-col .switch-area {
+        display: none;
+    }
+    .toc-level-3 i,
+    .toc-level-3 ol {
+        display: none !important;
+    }
+</style>
+</div>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <div align="center">
+<img src="/imgs/leetcode/0.png" width="80%"/>
+</div>
+
+<h2 id="滑动窗口"><a href="#滑动窗口" class="headerlink" title="滑动窗口"></a>滑动窗口</h2><p>1.滑动窗口是左右指针的一种特殊的情况, 通常用于实现高效的字符串/数组内的满足某种条件的子串/连续子数组搜索, 比如计算一个字符串内的最小覆盖子串; 我们如果有两个字符串, s 和 t, 我们想在 s 中搜索满足符合 t 相关条件的情况, 如果不用滑动窗口的思想基本需要2次遍历: 需要对位置 i 为结尾进行遍历, 然后再内层再遍历一次匹配过程, 这样时间复杂度很高<br>2.这时候我们采用滑动窗口的思想, 维护右边和左边两个指针, 右边的指针负责不断向右边扩展直到满足某个条件, 满足条件之后这时候左右指针区间内的子串是完全满足 t 所需要的条件的, 此时虽然满足 t 条件, 但不一定是最优的, 所以我们尝试缩小左边界的指针, 去追逐滑动窗口内满足条件下的最优性, 直到打破这种最优性变成又不满足窗口条件的情况; 这时候再右指针继续拓展右边界, 直到满足窗口条件, 再缩小左边界, 如此周而复始直到整个字符串遍历完成<br>3.采用滑动窗口编码模板可以通用性地解决这一类的问题, 维护一个当前的窗口然后进行逻辑处理, 然后再移动窗口进行处理; 以字符串为例, 维护的是 s[left, right] 这个区间内的判断和处理逻辑: 滑动窗口是先控制窗口右边的边界先往右扩展, 将 s[right] 加入到窗口, 然后在判断左边的边界是否有收缩的可能, 如果可能则将 s[left] 移除窗口, 伪代码如下所示<br>4.通常情况下, 我们处理窗口内的判断和处理逻辑时, 可能需要灵活引入哈希表等辅助结构辅助我们高效判断条件是否满足, 例如一种比较常用的情况下是<br>(i). window: 当前我们的窗口内满足的情况<br>(ii). need: 辅助用来计数我们需要达到处理窗口的条件, 通过比较当前的 window 和 need 的情况, 然后可决策是否满足题意要求, 或者决策窗口是否左侧收缩<br>5.滑动窗口在初始化时, 通常是left = right = 0, 且将窗口区间设计成左闭右开 [left, right) 这样的一个结构, 为什么设计成左闭右开? 是因为如果选择两边都闭 [left, right], 那么还没开始移动的时候区间里面就有1个元素; 如果设计成两边都开 (left, right), 那么即使向右移动一位窗口还是没有元素; 这两种都不好处理, 最好处理的情况是左闭右开 [left, right), 达到的效果是还没有移动的时候, 区间没有元素, 向右移动1个单位, 那么就加入一个元素到窗口  </p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> l = <span class="number">0</span>;</span><br><span class="line"><span class="type">int</span> r = <span class="number">0</span>;</span><br><span class="line"><span class="type">int</span> len = s.<span class="built_in">size</span>();</span><br><span class="line"><span class="keyword">while</span> (r &lt; len) &#123;</span><br><span class="line">  <span class="comment">// s[r] 加入到窗口</span></span><br><span class="line">  ++r;  <span class="comment">// 右边界移动</span></span><br><span class="line">  <span class="comment">// 窗口内统计数据更新</span></span><br><span class="line">  <span class="comment">// 窗口内统计数据更新完之后, 可能就能满足窗口条件</span></span><br><span class="line">  <span class="keyword">while</span> (window need shrink) &#123;</span><br><span class="line">    <span class="comment">// s[l] 移除窗口</span></span><br><span class="line">    ++l;  <span class="comment">// 左边界移动</span></span><br><span class="line">    <span class="comment">// 窗口内统计数据更新</span></span><br><span class="line">    <span class="comment">// 窗口内统计数据更新完之后, 可能就会不满足窗口条件了, 就会跳出这里的 while (), 右边界持续探索</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="76-最小覆盖子串"><a href="#76-最小覆盖子串" class="headerlink" title="76.最小覆盖子串"></a>76.最小覆盖子串</h2><blockquote>
+<p>给你一个字符串 s 、一个字符串 t 。返回 s 中涵盖 t 所有字符的最小子串。如果 s 中不存在涵盖 t 所有字符的子串，则返回空字符串 “” 。<br>注意：对于 t 中重复字符，我们寻找的子字符串中该字符数量必须不少于 t 中该字符数量。如果 s 中存在这样的子串，我们保证它是唯一的答案。</p>
+<p>示例 1：输入：s = “ADOBECODEBANC”, t = “ABC” 输出：”BANC” 解释：最小覆盖子串 “BANC” 包含来自字符串 t 的 ‘A’、’B’ 和 ‘C’。</p>
+<p>示例 2：输入：s = “a”, t = “a” 输出：”a” 解释：整个字符串 s 是最小覆盖子串。</p>
+<p>示例 3: 输入: s = “a”, t = “aa” 输出: “” 解释: t 中两个字符 ‘a’ 均应包含在 s 的子串中，因此没有符合条件的子字符串，返回空字符串。</p>
+</blockquote>
+<p>分析:<br>1.我们用滑动窗口处理这个最小覆盖子串的搜索问题, 初始化左右指针 left/right 都是起始位置, 对于判定子串是否覆盖, 我们先建立一个 unordered_map<char, int> need, 用于记录我们 t 字符串的计数统计, 然后维护另一个 unordered_map<char, int> window 记录我们当前的窗口内字符的出现个数情况; 这里 window 窗口内包含了其他字符出现次数统计, 所以我们还需要另一个字段 valid 区标记已经有多少个字符是满足 need 的情况, 当 valid == need.size() 我们判定能完全满足<br>2.因为我们需要记录下来最小的覆盖子串的字符串, 最简单的方法是记录下来满足条件的时候的位置, 以及是当前覆盖子串长度; 然后不断更新这个长度<br>3.我们再理一下思路: 先对 t 字符扫描进 need 统计需要的情况; 左右指针从 0 处初始化, 右边指针持续向右扫, 如果存在在当前的字符里面, 满足在 need 中需要, 那么就对 window[rc] += 1, 然后再判断是否满足覆盖的条件, valid == need.size(), 如果满足那么就尝试更新长度, 并且判断左边界缩减, 左边界缩减的条件是什么? 左指针所在的字符是需要的字符中的, —valid, 且窗口中 —window[lc]  </p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"> <span class="keyword">public</span>:</span><br><span class="line">  <span class="function">string <span class="title">minWindow</span><span class="params">(string s, string t)</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> l = <span class="number">0</span>;</span><br><span class="line">    <span class="type">int</span> r = <span class="number">0</span>;</span><br><span class="line">    unordered_map&lt;<span class="type">char</span>, <span class="type">int</span>&gt; need;</span><br><span class="line">    unordered_map&lt;<span class="type">char</span>, <span class="type">int</span>&gt; window;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">auto</span> c: t) &#123;</span><br><span class="line">      ++need[c];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="type">int</span> valid = <span class="number">0</span>;              <span class="comment">// valid 记录有多少个独立的字符是满足计数条件的</span></span><br><span class="line">    <span class="type">int</span> len = s.<span class="built_in">size</span>();</span><br><span class="line">    <span class="type">int</span> ansStart = <span class="number">0</span>;</span><br><span class="line">    <span class="type">int</span> ansLen = s.<span class="built_in">size</span>() + <span class="number">1</span>;  <span class="comment">// 初始化默认按照最长长度 + 1来</span></span><br><span class="line">    <span class="keyword">while</span> (r &lt; len) &#123;</span><br><span class="line">      <span class="type">char</span> rc = s[r];</span><br><span class="line">      ++r;</span><br><span class="line">      <span class="keyword">if</span> (need.<span class="built_in">count</span>(rc)) &#123;</span><br><span class="line">        ++window[rc];</span><br><span class="line">        <span class="keyword">if</span> (window[rc] == need[rc]) &#123;</span><br><span class="line">          ++valid;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">while</span> (valid == need.<span class="built_in">size</span>()) &#123;</span><br><span class="line">        <span class="keyword">if</span> (r - l &lt; ansLen) &#123;</span><br><span class="line">          ansStart = l;</span><br><span class="line">          ansLen = r - l;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">char</span> lc = s[l];</span><br><span class="line">        ++l;</span><br><span class="line">        <span class="keyword">if</span> (need.<span class="built_in">count</span>(lc)) &#123;</span><br><span class="line">          <span class="keyword">if</span> (window[lc] == need[lc]) &#123;</span><br><span class="line">            --valid;</span><br><span class="line">          &#125;</span><br><span class="line">          --window[lc];</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ansLen == s.<span class="built_in">size</span>() + <span class="number">1</span> ? <span class="string">&quot;&quot;</span> : s.<span class="built_in">substr</span>(ansStart, ansLen);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="567-字符串的排列"><a href="#567-字符串的排列" class="headerlink" title="567.字符串的排列"></a>567.字符串的排列</h2><blockquote>
+<p>给你两个字符串 s1 和 s2 ，写一个函数来判断 s2 是否包含 s1 的排列。如果是，返回 true ；否则，返回 false 。<br>换句话说，s1 的排列之一是 s2 的 子串 。</p>
+<p>示例 1：输入：s1 = “ab” s2 = “eidbaooo” 输出：true 解释：s2 包含 s1 的排列之一 (“ba”).</p>
+<p>示例 2：输入：s1 = “ab” s2 = “eidboaoo” 输出：false</p>
+</blockquote>
+<p>分析:<br>1.问题是要判断排列, 那么问题转化成是否包含一个子串, 包含 s1 中全部的字符且不包含其他的字符<br>2.搜索的空间是 [l, r), 左闭右开的区间<br>3.用 valid 去保存有多少个字符满足了恰好包含的需求, 判断包含的条件是 valid == need.size()<br>4.当 right 往右扩张的时候, 取出来当前字符 s[r], 如果 need[rc] &gt; 0的时候, 窗口里面 window[rc]+=1 ; 同时需要判断当前是否有某个字符满足了统计要求 need[rc] == window[rc], 那么累计一个 valid<br>5.left 边界发生缩小的条件是, r-l &gt;= s1.size()<br>6.当 left 发生边界缩减, 取出来当前的字符 s[l], 如果 need[lc] &gt; 0的时候, 先判断当前是否满足统计要求 need[lc] == window[lc], 如果是的话 valid 还原, 同时将字符从window里面去除出去<br>7.这里进入窗口和边界缩减有个不同, 进入窗口的时候是先得让 window 进来, 然后再判断; 边界缩减的时候需要先去判断满足统计要求, 再去移除窗口—window[lc]  </p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"> <span class="keyword">public</span>:</span><br><span class="line">  <span class="function"><span class="type">bool</span> <span class="title">checkInclusion</span><span class="params">(string s1, string s2)</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> l = <span class="number">0</span>;</span><br><span class="line">    <span class="type">int</span> r = <span class="number">0</span>;</span><br><span class="line">    unordered_map&lt;<span class="type">char</span>, <span class="type">int</span>&gt; need;</span><br><span class="line">    unordered_map&lt;<span class="type">char</span>, <span class="type">int</span>&gt; window;</span><br><span class="line">    <span class="type">int</span> s1Len = s<span class="number">1.</span><span class="built_in">size</span>();</span><br><span class="line">    <span class="type">int</span> s2Len = s<span class="number">2.</span><span class="built_in">size</span>();</span><br><span class="line">    <span class="type">int</span> valid = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">char</span> c: s1) &#123;</span><br><span class="line">      ++need[c];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span> (r &lt; s2Len) &#123;</span><br><span class="line">      <span class="type">char</span> rc = s2[r];</span><br><span class="line">      ++r;</span><br><span class="line">      <span class="keyword">if</span> (need.<span class="built_in">count</span>(rc)) &#123;</span><br><span class="line">        ++window[rc];</span><br><span class="line">        <span class="keyword">if</span> (need[rc] == window[rc]) &#123;</span><br><span class="line">          ++valid;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">while</span> (r - l &gt;= s1Len) &#123;</span><br><span class="line">        <span class="keyword">if</span> (valid == need.<span class="built_in">size</span>()) &#123;</span><br><span class="line">          <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">char</span> lc = s2[l];</span><br><span class="line">        ++l;</span><br><span class="line">        <span class="keyword">if</span> (need.<span class="built_in">count</span>(lc)) &#123;</span><br><span class="line">          <span class="keyword">if</span> (need[lc] == window[lc]) &#123;</span><br><span class="line">            --valid;</span><br><span class="line">          &#125;</span><br><span class="line">          --window[lc];</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>看了 leetcode 官方的解法, 感觉代码更优雅更容易理解一些, 直接用 vector<int>cnt1(26, 0) 保存 s1中各个字符出现的次数, 用 vector<int>cnt2(26,0) 保存当前遍历的子串中各个字符出现的次数, 并且用一个长度为 lenS1 的滑动窗口来维护 cntS2 的变化, 然后不断地判断 cntS1 和 cntS2 是否相等, 代码如下</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"> <span class="keyword">public</span>:</span><br><span class="line">  <span class="function"><span class="type">bool</span> <span class="title">checkInclusion</span><span class="params">(string s1, string s2)</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> lenS1 = s<span class="number">1.</span><span class="built_in">size</span>();</span><br><span class="line">    <span class="type">int</span> lenS2 = s<span class="number">2.</span><span class="built_in">size</span>();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (lenS1 &gt; lenS2) &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">cntS1</span><span class="params">(<span class="number">26</span>, <span class="number">0</span>)</span></span>;</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">cntS2</span><span class="params">(<span class="number">26</span>, <span class="number">0</span>)</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// s1 统计次数, 同时 s2 遍历第一个窗口</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; lenS1; ++i) &#123;</span><br><span class="line">      cntS1[s1[i] - <span class="string">&#x27;a&#x27;</span>] += <span class="number">1</span>;</span><br><span class="line">      cntS2[s2[i] - <span class="string">&#x27;a&#x27;</span>] += <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (cntS1 == cntS2) &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt; lenS2 - lenS1 + <span class="number">1</span>; ++i) &#123;</span><br><span class="line">      cntS2[s2[i<span class="number">-1</span>] - <span class="string">&#x27;a&#x27;</span>] -= <span class="number">1</span>;          <span class="comment">// 左边滑动1个窗口</span></span><br><span class="line">      cntS2[s2[i + lenS1 - <span class="number">1</span>] - <span class="string">&#x27;a&#x27;</span>] += <span class="number">1</span>;  <span class="comment">// 右边滑动1个窗口</span></span><br><span class="line">      <span class="keyword">if</span> (cntS1 == cntS2) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="438-找到字符串中所有字母异位词"><a href="#438-找到字符串中所有字母异位词" class="headerlink" title="438.找到字符串中所有字母异位词"></a>438.找到字符串中所有字母异位词</h2><blockquote>
+<p>给定两个字符串 s 和 p，找到 s 中所有 p 的 异位词 的子串，返回这些子串的起始索引。不考虑答案输出的顺序。 异位词 指由相同字母重排列形成的字符串（包括相同的字符串）。</p>
+<p>示例 1:输入: s = “cbaebabacd”, p = “abc” 输出: [0,6]<br>解释:<br>起始索引等于 0 的子串是 “cba”, 它是 “abc” 的异位词。<br>起始索引等于 6 的子串是 “bac”, 它是 “abc” 的异位词。</p>
+<p>示例 2: 输入: s = “abab”, p = “ab” 输出: [0,1,2]<br>解释:<br>起始索引等于 0 的子串是 “ab”, 它是 “ab” 的异位词。<br>起始索引等于 1 的子串是 “ba”, 它是 “ab” 的异位词。<br>起始索引等于 2 的子串是 “ab”, 它是 “ab” 的异位词。</p>
+</blockquote>
+<p>分析:<br>1.先采用模板的方法: 用滑动窗口搜索每个窗口内是否每个字母出现的次数和需要的次数是一致的; 首先构建一个 hash table 将需要的次数统计一下<br>2.开始滑动, 每次滑动的时候记录一下当前窗口内每个字符出现的次数, 如何判定所有的次数和整体的次数相等? 一种简单的方法是再引入一个窗口内满足条件的总次数, 每次判定当前右边指针指向的那个字符和我们想要的这个字符出现次数是匹配的情况下, ++valid, 如果 validCnt = p.size(); 那么就推出去结果  </p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"> <span class="keyword">public</span>:</span><br><span class="line">  <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">findAnagrams</span><span class="params">(string s, string p)</span> </span>&#123;</span><br><span class="line">    unordered_map&lt;<span class="type">char</span>, <span class="type">int</span>&gt; need;</span><br><span class="line">    unordered_map&lt;<span class="type">char</span>, <span class="type">int</span>&gt; window;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">char</span> c: p)</span><br><span class="line">      ++need[c];</span><br><span class="line">    <span class="type">int</span> left = <span class="number">0</span>;</span><br><span class="line">    <span class="type">int</span> right = <span class="number">0</span>;</span><br><span class="line">    <span class="type">int</span> valid = <span class="number">0</span>;</span><br><span class="line">    vector&lt;<span class="type">int</span>&gt; ans;</span><br><span class="line">    <span class="keyword">while</span> (right &lt; s.<span class="built_in">size</span>()) &#123;</span><br><span class="line">      <span class="type">char</span> r = s[right];</span><br><span class="line">      ++right;</span><br><span class="line">      <span class="keyword">if</span> (need.<span class="built_in">count</span>(r)) &#123;</span><br><span class="line">        ++window[r];</span><br><span class="line">        <span class="keyword">if</span> (need[r] == window[r])</span><br><span class="line">          ++valid;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">while</span> (right - left &gt;= p.<span class="built_in">size</span>()) &#123;</span><br><span class="line">        <span class="keyword">if</span> (valid == need.<span class="built_in">size</span>()) &#123;</span><br><span class="line">          ans.<span class="built_in">push_back</span>(left);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">char</span> l = s[left];</span><br><span class="line">        ++left;</span><br><span class="line">        <span class="keyword">if</span> (need.<span class="built_in">count</span>(l)) &#123;</span><br><span class="line">          <span class="keyword">if</span> (need[l] == window[l]) &#123;</span><br><span class="line">            --valid;</span><br><span class="line">          &#125;</span><br><span class="line">          --window[l];</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>滑动窗口的方法可以采用更简单的方式, 用 vector<int>pCnt(26, 0) 保存 p 中各个字符出现的次数, 用 vector<int>sCnt(26,0) 保存当前遍历的 s 子串中各个字符出现的次数, 并且用一个长度为 pLen 的滑动窗口来维护 sCnt 的变化, 然后 push 进去判断相等情况下的 index, 代码如下  </p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"> <span class="keyword">public</span>:</span><br><span class="line">  <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">findAnagrams</span><span class="params">(string s, string p)</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> sLen = s.<span class="built_in">size</span>();</span><br><span class="line">    <span class="type">int</span> pLen = p.<span class="built_in">size</span>();</span><br><span class="line">    vector&lt;<span class="type">int</span>&gt; ans;</span><br><span class="line">    <span class="keyword">if</span> (pLen &gt; sLen) &#123;</span><br><span class="line">      <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">sCnt</span><span class="params">(<span class="number">26</span>, <span class="number">0</span>)</span></span>;</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">pCnt</span><span class="params">(<span class="number">26</span>, <span class="number">0</span>)</span></span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; pLen; ++i) &#123;</span><br><span class="line">      ++pCnt[p[i] - <span class="string">&#x27;a&#x27;</span>];</span><br><span class="line">      ++sCnt[s[i] - <span class="string">&#x27;a&#x27;</span>];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (sCnt == pCnt) &#123;</span><br><span class="line">      ans.<span class="built_in">push_back</span>(<span class="number">0</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt; sLen - pLen + <span class="number">1</span>; ++i) &#123;</span><br><span class="line">      sCnt[s[i<span class="number">-1</span>] - <span class="string">&#x27;a&#x27;</span>] -= <span class="number">1</span>;</span><br><span class="line">      sCnt[s[i + pLen - <span class="number">1</span>] - <span class="string">&#x27;a&#x27;</span>] += <span class="number">1</span>;</span><br><span class="line">      <span class="keyword">if</span> (sCnt == pCnt) &#123;</span><br><span class="line">        ans.<span class="built_in">push_back</span>(i);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="3-无重复字符的最长子串"><a href="#3-无重复字符的最长子串" class="headerlink" title="3.无重复字符的最长子串"></a>3.无重复字符的最长子串</h2><blockquote>
+<p>给定一个字符串 s ，请你找出其中不含有重复字符的 最长子串 的长度。</p>
+<p>示例 1: 输入: s = “abcabcbb” 输出: 3  解释: 因为无重复字符的最长子串是 “abc”，所以其长度为 3。</p>
+<p>示例 2：输入: s = “bbbbb” 输出: 1 解释: 因为无重复字符的最长子串是 “b”，所以其长度为 1。</p>
+<p>示例 3: 输入: s = “pwwkew” 输出: 3 解释: 因为无重复字符的最长子串是 “wke”，所以其长度为 3。<br>请注意，你的答案必须是 子串 的长度，”pwke” 是一个子序列，不是子串。</p>
+</blockquote>
+<p>分析:<br>1.用滑动窗口对任何一个子串进行无重复判断, 维护窗口内我们搜的是最长的不重复子串<br>2.为了判断窗口内是无重复的, 我们引入一个 hash表 去记录窗口内每个字符出现的次数<br>3.如果当前右边指针指向字符发生了重复, 那么就移动左边的窗口  </p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"> <span class="keyword">public</span>:</span><br><span class="line">  <span class="function"><span class="type">int</span> <span class="title">lengthOfLongestSubstring</span><span class="params">(string s)</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> len = s.<span class="built_in">size</span>();</span><br><span class="line">    <span class="keyword">if</span> (len &lt;= <span class="number">1</span>) &#123;</span><br><span class="line">      <span class="keyword">return</span> len;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="type">int</span> l = <span class="number">0</span>;</span><br><span class="line">    <span class="type">int</span> r = <span class="number">0</span>;</span><br><span class="line">    <span class="type">int</span> ans = <span class="number">1</span>;</span><br><span class="line">    <span class="comment">// 记录无重复窗口里面的字符出现次数</span></span><br><span class="line">    unordered_map&lt;<span class="type">char</span>, <span class="type">int</span>&gt; noRepeatWindowCharCnt;</span><br><span class="line">    <span class="keyword">while</span> (r &lt; len) &#123;</span><br><span class="line">      <span class="type">char</span> rc = s[r];</span><br><span class="line">      ++r;</span><br><span class="line">      noRepeatWindowCharCnt[rc] += <span class="number">1</span>;</span><br><span class="line">      <span class="comment">// 如果右边指针出现了重复元素, 窗口左侧持续收缩, 直到窗口里面完全无重复 (noRepeatWindowCharCnt[rc] == 1)</span></span><br><span class="line">      <span class="keyword">while</span> (noRepeatWindowCharCnt[rc] &gt; <span class="number">1</span>) &#123;</span><br><span class="line">        <span class="type">char</span> lc = s[l];</span><br><span class="line">        ++l;</span><br><span class="line">        --noRepeatWindowCharCnt[lc];</span><br><span class="line">      &#125;</span><br><span class="line">      ans = <span class="built_in">max</span>(ans, r - l);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="713-乘积小于-K-的子数组"><a href="#713-乘积小于-K-的子数组" class="headerlink" title="713.乘积小于 K 的子数组"></a>713.乘积小于 K 的子数组</h2><blockquote>
+<p>给你一个整数数组 nums 和一个整数 k ，请你返回子数组内所有元素的乘积严格小于 k 的连续子数组的数目。</p>
+<p>示例 1：输入：nums = [10,5,2,6], k = 100 输出：8<br>解释：8 个乘积小于 100 的子数组分别为：[10]、[5]、[2],、[6]、[10,5]、[5,2]、[2,6]、[5,2,6]。<br>需要注意的是 [10,5,2] 并不是乘积小于 100 的子数组。</p>
+<p>示例 2：输入：nums = [1,2,3], k = 0 输出：0</p>
+</blockquote>
+<p>分析:<br>1.数组都是正整数, 往右乘总乘积就会变大, 左边缩小边界总乘积就会变小, 因此维护滑动窗口<br>2.当右侧定下来, 左侧也定下来, 满足left <em> .. </em> right &lt; k的情况的时候, 左边到右边中间所有的情况都是满足的  </p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"> <span class="keyword">public</span>:</span><br><span class="line">  <span class="function"><span class="type">int</span> <span class="title">numSubarrayProductLessThanK</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums, <span class="type">int</span> k)</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> n = nums.<span class="built_in">size</span>();</span><br><span class="line">    <span class="keyword">if</span> (n == <span class="number">0</span> || k &lt;= <span class="number">1</span>) &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="type">int</span> ans = <span class="number">0</span>;</span><br><span class="line">    <span class="type">int</span> left = <span class="number">0</span>;</span><br><span class="line">    <span class="type">int</span> right = <span class="number">0</span>;</span><br><span class="line">    <span class="type">int</span> product = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span> (right &lt; n) &#123;</span><br><span class="line">      product *= nums[right];</span><br><span class="line">      <span class="keyword">while</span> (product &gt;= k) &#123;</span><br><span class="line">        product /= nums[left];</span><br><span class="line">        ++left;</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      ans += right - left + <span class="number">1</span>;</span><br><span class="line">      ++right;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="1004-最大连续1的个数-III"><a href="#1004-最大连续1的个数-III" class="headerlink" title="1004.最大连续1的个数 III"></a>1004.最大连续1的个数 III</h2><blockquote>
+<p>给定一个二进制数组 nums 和一个整数 k，如果可以翻转最多 k 个 0 ，则返回 数组中连续 1 的最大个数 。</p>
+<p>示例 1：输入：nums = [1,1,1,0,0,0,1,1,1,1,0], K = 2 输出：6 解释：[1,1,1,0,0,1,1,1,1,1,1] 粗体数字从 0 翻转到 1，最长的子数组长度为 6。</p>
+<p>示例 2：输入：nums = [0,0,1,1,0,0,1,1,1,0,1,1,0,0,0,1,1,1,1], K = 3 输出：10 解释：[0,0,1,1,1,1,1,1,1,1,1,1,0,0,0,1,1,1,1]<br>粗体数字从 0 翻转到 1，最长的子数组长度为 10。</p>
+</blockquote>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"> <span class="keyword">public</span>:</span><br><span class="line">  <span class="function"><span class="type">int</span> <span class="title">longestOnes</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums, <span class="type">int</span> k)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="239-滑动窗口最大值"><a href="#239-滑动窗口最大值" class="headerlink" title="239.滑动窗口最大值"></a>239.滑动窗口最大值</h2><blockquote>
+<p>给你一个整数数组 nums，有一个大小为 k 的滑动窗口从数组的最左侧移动到数组的最右侧。你只可以看到在滑动窗口内的 k 个数字。滑动窗口每次只向右移动一位。返回滑动窗口中的最大值 。</p>
+<p>示例 1：输入：nums = [1,3,-1,-3,5,3,6,7], k = 3 输出：[3,3,5,5,6,7]<br>解释：<br>滑动窗口的位置                最大值</p>
+<hr>
+<p>[1  3  -1] -3  5  3  6  7       3<br> 1 [3  -1  -3] 5  3  6  7       3<br> 1  3 [-1  -3  5] 3  6  7       5<br> 1  3  -1 [-3  5  3] 6  7       5<br> 1  3  -1  -3 [5  3  6] 7       6<br> 1  3  -1  -3  5 [3  6  7]      7</p>
+<p>示例 2：输入：nums = [1], k = 1 输出：[1]</p>
+</blockquote>
+<p>分析:<br>1.核心思路是如果有一个数据结构能模拟窗口滑动的移动, 那么问题就解决了, 有没有这样的一个数据结构呢? 既要随时取出来最大的元素, 同时满足一个窗口大小是固定的; 为了满足取出来最大的元素, 想到可以持续用大顶堆取顶部元素 pq.top(), 依次取出来最大的那个元素<br>2.但是怎么模拟窗口大小固定的呢? 可以持续往大顶堆加入元素, 但是保存我们要的结果的时候需要判断一下是否在固定长度的窗口内; 也就是说, 在移动过程中, 队列持续加入元素, 但是最大元素可能不在窗口里面, 需要移除出去最大的元素, 需要注意是要持续移动直到不在窗口内的所有最大元素都移除出去<br>3.判断不在窗口内方法是队列元素增加一个维度是 index , 如果判断当前窗口添加元素后最大元素应该排除出去, 这时候有 窗口的维护是 [i-k+1, i] 这么 k 个元素, 也就是说窗口元素包含的下界是 [i-k+1], 所以 q.top().second &lt; i - k + 1 都要移除出去<br>4.举个例子 [9,10,9,-7,-4,-8,2,-6] 窗口大小是 5  </p>
+<p>移动方法是:<br>[9,10,9,-7,-4,-8,2,-6]  [9,10,9,-7,-4] max = 10<br>[9,10,9,-7,-4,-8,2,-6]  i = 5 队列放入-8 [9,10,9,-7,-4,-8] max=10<br>[9,10,9,-7,-4,-8,2,-6]  i = 6 队列放入2 [9,10,9,-7,-4,-8,2] 最大元素 10 不应该在窗口里面, 删掉10, 变成 [9,9,-7,-4,-8,2], 最大元素9从队列删除, 变成 [9,-7,-4,-8,2] max = 9<br>[9,10,9,-7,-4,-8,2,-6]  i = 7 放入-6 [9,-7,-4,-8,2,-6], 删除最左边的9, max=2<br>所以最后是 [10,10,9,2]  </p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> pair&lt;<span class="type">int</span>, <span class="type">int</span>&gt; pii;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"> <span class="keyword">public</span>:</span><br><span class="line">  <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">maxSlidingWindow</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums, <span class="type">int</span> k)</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> len = nums.<span class="built_in">size</span>();</span><br><span class="line">    <span class="keyword">auto</span> cmp = [] (<span class="type">const</span> pii&amp; a, <span class="type">const</span> pii&amp; b) &#123;</span><br><span class="line">      <span class="keyword">return</span> a.first &lt; b.first;</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="comment">// 建一个 pii 类型大顶堆, 维护 &lt;元素值, index&gt; pair</span></span><br><span class="line">    priority_queue&lt;pii, vector&lt;pii&gt;, <span class="keyword">decltype</span>(cmp)&gt; pq;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; k; ++i) &#123;</span><br><span class="line">      pq.<span class="built_in">push</span>(&#123;nums[i], i&#125;);</span><br><span class="line">    &#125;</span><br><span class="line">    vector&lt;<span class="type">int</span>&gt; ans&#123;pq.<span class="built_in">top</span>().first&#125;;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = k; i &lt; len; ++i) &#123;</span><br><span class="line">      <span class="comment">// 开始滑动窗口, 放入元素</span></span><br><span class="line">      pq.<span class="built_in">push</span>(&#123;nums[i], i&#125;);</span><br><span class="line">      <span class="comment">// 当最大元素已经不在窗口内, 持续将最大元素赶出队列</span></span><br><span class="line">      <span class="comment">// [i-k+1, i] 是当前的窗口 索引搜索的边界是 idx &lt; i - k + 1</span></span><br><span class="line">      <span class="keyword">while</span> (pq.<span class="built_in">top</span>().second &lt; i - k + <span class="number">1</span>) &#123;</span><br><span class="line">        pq.<span class="built_in">pop</span>();</span><br><span class="line">      &#125;</span><br><span class="line">      ans.<span class="built_in">push_back</span>(pq.<span class="built_in">top</span>().first);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="1234-替换子串得到平衡字符串"><a href="#1234-替换子串得到平衡字符串" class="headerlink" title="1234.替换子串得到平衡字符串"></a>1234.替换子串得到平衡字符串</h2><blockquote>
+<p>有一个只含有 ‘Q’, ‘W’, ‘E’, ‘R’ 四种字符，且长度为 n 的字符串。假如在该字符串中，这四个字符都恰好出现 n/4 次，那么它就是一个「平衡字符串」。给你一个这样的字符串 s，请通过「替换一个子串」的方式，使原字符串 s 变成一个「平衡字符串」。<br>你可以用和「待替换子串」长度相同的 任何 其他字符串来完成替换。请返回待替换子串的最小可能长度。 如果原字符串自身就是一个平衡字符串，则返回 0。</p>
+<p>示例 1：输入：s = “QWER” 输出：0 解释：s 已经是平衡的了。</p>
+<p>示例 2：输入：s = “QQWE” 输出：1 解释：我们需要把一个 ‘Q’ 替换成 ‘R’，这样得到的 “RQWE” (或 “QRWE”) 是平衡的。</p>
+<p>示例 3：输入：s = “QQQW” 输出：2 解释：我们可以把前面的 “QQ” 替换成 “ER”。 </p>
+<p>示例 4：输入：s = “QQQQ” 输出：3 解释：我们可以替换后 3 个 ‘Q’，使 s = “QWER”。</p>
+</blockquote>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"> <span class="keyword">public</span>:</span><br><span class="line">  <span class="function"><span class="type">int</span> <span class="title">balancedString</span><span class="params">(string s)</span> </span>&#123;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="209-长度最小的子数组"><a href="#209-长度最小的子数组" class="headerlink" title="209.长度最小的子数组"></a>209.长度最小的子数组</h2><blockquote>
+<p>给定一个含有 n 个正整数的数组和一个正整数 target 。<br>找出该数组中满足其和 ≥ target 的长度最小的 连续子数组 [numsl, numsl+1, …, numsr-1, numsr] ，并返回其长度。如果不存在符合条件的子数组，返回 0 。</p>
+<p>示例 1：输入：target = 7, nums = [2,3,1,2,4,3] 输出：2 解释：子数组 [4,3] 是该条件下的长度最小的子数组。</p>
+<p>示例 2：输入：target = 4, nums = [1,4,4] 输出：1</p>
+<p>示例 3：输入：target = 11, nums = [1,1,1,1,1,1,1,1] 输出：0</p>
+</blockquote>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"> <span class="keyword">public</span>:</span><br><span class="line">  <span class="function"><span class="type">int</span> <span class="title">minSubArrayLen</span><span class="params">(<span class="type">int</span> target, vector&lt;<span class="type">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+      
+       <hr><span style="font-style: italic;color: gray;"> 转载请注明来源, from goldandrabbit.github.io </span>
+    </div>
+</article>
+
+
+<p>
+    <a  class="dashang" onclick="dashangToggle()">💰</a>
+</p>
+
+
+
+
+
+
+    
+
+
+
+
+    </div>
+    <div class="copyright">
+        <p class="footer-entry">
+    ©2018-2024
+</p>
+<p class="footer-entry">Built with <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/yelog/hexo-theme-3-hexo" target="_blank">3-hexo</a> theme</p>
+
+    </div>
+    <div class="full-toc">
+        <button class="full" data-title="Toggle full screen shortcut key s"><span class="min "></span></button>
+<a class="" id="rocket" ></a>
+
+    </div>
+</div>
+
+<div class="hide_box" onclick="dashangToggle()"></div>
+<div class="shang_box">
+    <a class="shang_close"  onclick="dashangToggle()">×</a>
+    <div class="shang_tit">
+        <p>Help us with donation</p>
+    </div>
+    <div class="shang_payimg">
+        <div class="pay_img">
+            <img src="/img/alipay.jpg" class="alipay" title="扫码支持">
+            <img src="/img/weixin.jpg" class="weixin" title="扫码支持">
+        </div>
+    </div>
+    <div class="shang_payselect">
+        <span><label><input type="radio" name="pay" checked value="alipay">alipay</label></span><span><label><input type="radio" name="pay" value="weixin">weixin</label></span>
+    </div>
+</div>
+
+
+</body>
+<script src="/js/jquery.pjax.js?v=1.1.0" ></script>
+
+<script src="/js/script.js?v=1.1.0" ></script>
+<script>
+    var img_resize = 'default';
+    function initArticle() {
+        /*渲染对应的表格样式*/
+        
+            $("#post .pjax table").addClass("green_title");
+        
+
+        /*渲染打赏样式*/
+        
+        $("input[name=pay]").on("click", function () {
+            if($("input[name=pay]:checked").val()=="weixin"){
+                $(".shang_box .shang_payimg .pay_img").addClass("weixin_img");
+            } else {
+                $(".shang_box .shang_payimg .pay_img").removeClass("weixin_img");
+            }
+        })
+        
+
+        /*高亮代码块行号*/
+        
+
+        /*访问数量*/
+        
+
+        /*代码高亮，行号对齐*/
+        $('.pre-numbering').css('line-height',$('.has-numbering').css('line-height'));
+
+        
+        
+    }
+
+    /*打赏页面隐藏与展示*/
+    
+    function dashangToggle() {
+        $(".shang_box").fadeToggle();
+        $(".hide_box").fadeToggle();
+    }
+    
+
+</script>
+
+<!--加入行号的高亮代码块样式-->
+
+<!--自定义样式设置-->
+<style>
+    
+    
+    .nav {
+        width: 602px;
+    }
+    .nav.fullscreen {
+        margin-left: -602px;
+    }
+    .nav-left {
+        width: 180px;
+    }
+    
+    
+    @media screen and (max-width: 1468px) {
+        .nav {
+            width: 552px;
+        }
+        .nav.fullscreen {
+            margin-left: -552px;
+        }
+        .nav-left {
+            width: 160px;
+        }
+    }
+    
+    
+    @media screen and (max-width: 1024px) {
+        .nav {
+            width: 552px;
+            margin-left: -552px
+        }
+        .nav.fullscreen {
+            margin-left: 0;
+        }
+    }
+    
+    @media screen and (max-width: 426px) {
+        .nav {
+            width: 100%;
+        }
+        .nav-left {
+            width: 100%;
+        }
+    }
+    
+    
+    .nav-right .title-list nav a .post-title, .nav-right .title-list #local-search-result a .post-title {
+        color: #000000;
+    }
+    
+    
+    .nav-right .title-list nav a .post-date, .nav-right .title-list #local-search-result a .post-date {
+        color: #87CEFA;
+    }
+    
+    
+    .nav-right nav a.hover, #local-search-result a.hover{
+        background-color: #ffffff;
+    }
+    
+    
+    .nav-right nav a.hover > span{
+        color: #DC143C !important;
+    }
+    
+
+    /*列表样式*/
+    
+
+    /* 背景图样式 */
+    
+    
+
+
+    /*引用块样式*/
+    
+
+    /*文章列表背景图*/
+    
+
+    
+    #post .pjax article :not(pre) > code {
+        color: #24292e;
+        font-family: SFMono-Regular,Consolas,Liberation Mono,Menlo,Courier,monospace;
+        background-color: rgba(27,31,35,.05);
+        border-radius: 3px;
+        font-size: 85%;
+        margin: 0;
+        padding: .2em .4em;
+    }
+    
+</style>
+
+
+
+
+
+
+
+</html>
