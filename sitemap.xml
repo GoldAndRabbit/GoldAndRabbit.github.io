@@ -2,6 +2,51 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://example.com/2024/10/03/QLoRA%20finetune%20codegen350M/</loc>
+    
+    <lastmod>2025-05-05</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://example.com/2024/10/02/Finetune%20GPT2%20on%20wiki-text/</loc>
+    
+    <lastmod>2025-05-05</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://example.com/2024/10/01/Finetune%20bert%20using%20Trainer%20v.s.%20Pytorch%20train%20loop/</loc>
+    
+    <lastmod>2025-05-05</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://example.com/2024/01/11/%E4%BB%8E%E6%89%BE%E4%BA%8B%E7%90%86%E8%AE%BA%E5%88%B0%20TRIZ/</loc>
+    
+    <lastmod>2025-05-05</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://example.com/2020/08/20/Python_%E5%A4%9A%E8%BF%9B%E7%A8%8B/</loc>
+    
+    <lastmod>2025-05-05</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>http://example.com/2020/04/04/Faiss%20%E5%90%91%E9%87%8F%E6%A3%80%E7%B4%A2%E5%BA%93/</loc>
     
     <lastmod>2025-04-28</lastmod>
@@ -191,15 +236,6 @@
   </url>
   
   <url>
-    <loc>http://example.com/2020/09/10/cpp_6_0_%E6%A8%A1%E6%9D%BF%20template/</loc>
-    
-    <lastmod>2025-04-28</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>http://example.com/2020/08/15/%E6%B7%B1%E5%BA%A6%E7%82%B9%E5%87%BB%E7%8E%87%E9%A2%84%E4%BC%B0%E6%A8%A1%E5%9E%8B%E4%B8%AD%E7%9A%84%E7%89%B9%E5%BE%81%E4%BA%A4%E5%8F%89/</loc>
     
     <lastmod>2025-04-28</lastmod>
@@ -209,7 +245,7 @@
   </url>
   
   <url>
-    <loc>http://example.com/2024/01/11/%E4%BB%8E%E6%89%BE%E4%BA%8B%E7%90%86%E8%AE%BA%E5%88%B0%20TRIZ/</loc>
+    <loc>http://example.com/2020/03/22/%E7%8B%BC%E4%BA%BA%E6%9D%80%E5%A6%82%E4%BD%95%E8%87%B4%E8%83%9C/</loc>
     
     <lastmod>2025-04-28</lastmod>
     
@@ -218,7 +254,7 @@
   </url>
   
   <url>
-    <loc>http://example.com/2020/03/22/%E7%8B%BC%E4%BA%BA%E6%9D%80%E5%A6%82%E4%BD%95%E8%87%B4%E8%83%9C/</loc>
+    <loc>http://example.com/2020/09/10/cpp_6_0_%E6%A8%A1%E6%9D%BF%20template/</loc>
     
     <lastmod>2025-04-28</lastmod>
     
@@ -317,7 +353,7 @@
   </url>
   
   <url>
-    <loc>http://example.com/2020/09/10/cpp_2_2_%E6%8C%87%E9%92%88%20Pointer_2_%E7%A9%BA%E6%8C%87%E9%92%88/</loc>
+    <loc>http://example.com/2020/09/10/cpp_2_1_%E6%8C%87%E9%92%88%20Pointer_1_%E5%9C%B0%E5%9D%80%E5%92%8C%E6%8C%87%E9%92%88/</loc>
     
     <lastmod>2025-04-28</lastmod>
     
@@ -326,7 +362,7 @@
   </url>
   
   <url>
-    <loc>http://example.com/2020/09/10/cpp_2_1_%E6%8C%87%E9%92%88%20Pointer_1_%E5%9C%B0%E5%9D%80%E5%92%8C%E6%8C%87%E9%92%88/</loc>
+    <loc>http://example.com/2020/09/10/cpp_2_2_%E6%8C%87%E9%92%88%20Pointer_2_%E7%A9%BA%E6%8C%87%E9%92%88/</loc>
     
     <lastmod>2025-04-28</lastmod>
     
@@ -425,15 +461,6 @@
   </url>
   
   <url>
-    <loc>http://example.com/2018/06/10/TwoPointers_3_%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/</loc>
-    
-    <lastmod>2025-04-28</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>http://example.com/2018/06/10/TwoPointers_4_Rabin_Karp/</loc>
     
     <lastmod>2025-04-28</lastmod>
@@ -443,7 +470,7 @@
   </url>
   
   <url>
-    <loc>http://example.com/2018/06/10/TwoPointers_6_n%E6%95%B0%E4%B9%8B%E5%92%8C/</loc>
+    <loc>http://example.com/2018/06/10/TwoPointers_3_%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/</loc>
     
     <lastmod>2025-04-28</lastmod>
     
@@ -470,7 +497,7 @@
   </url>
   
   <url>
-    <loc>http://example.com/2024/03/22/Ubuntu%2022.04%20Upgrade%20Log/</loc>
+    <loc>http://example.com/2018/06/10/TwoPointers_6_n%E6%95%B0%E4%B9%8B%E5%92%8C/</loc>
     
     <lastmod>2025-04-28</lastmod>
     
@@ -488,7 +515,7 @@
   </url>
   
   <url>
-    <loc>http://example.com/2020/11/08/The%20Essence%20of%20RecSys%20%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E7%B2%BE%E8%A6%81/</loc>
+    <loc>http://example.com/2024/03/22/Ubuntu%2022.04%20Upgrade%20Log/</loc>
     
     <lastmod>2025-04-28</lastmod>
     
@@ -506,7 +533,7 @@
   </url>
   
   <url>
-    <loc>http://example.com/2022/09/20/Tree%20based%20Progressive%20Regression%20Model%20for%20Watch-Time%20Prediction%20in%20Short-video%20Recommendation/</loc>
+    <loc>http://example.com/2020/11/08/The%20Essence%20of%20RecSys%20%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E7%B2%BE%E8%A6%81/</loc>
     
     <lastmod>2025-04-28</lastmod>
     
@@ -525,6 +552,15 @@
   
   <url>
     <loc>http://example.com/2018/06/10/TwoPointers_0_overview/</loc>
+    
+    <lastmod>2025-04-28</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://example.com/2022/09/20/Tree%20based%20Progressive%20Regression%20Model%20for%20Watch-Time%20Prediction%20in%20Short-video%20Recommendation/</loc>
     
     <lastmod>2025-04-28</lastmod>
     
@@ -623,7 +659,7 @@
   </url>
   
   <url>
-    <loc>http://example.com/2018/01/19/Sort_1_mergeSort_%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F/</loc>
+    <loc>http://example.com/2018/01/19/Sort_1_insertionSort_%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F/</loc>
     
     <lastmod>2025-04-28</lastmod>
     
@@ -632,7 +668,7 @@
   </url>
   
   <url>
-    <loc>http://example.com/2018/01/19/Sort_1_insertionSort_%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F/</loc>
+    <loc>http://example.com/2018/01/19/Sort_1_mergeSort_%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F/</loc>
     
     <lastmod>2025-04-28</lastmod>
     
@@ -677,7 +713,7 @@
   </url>
   
   <url>
-    <loc>http://example.com/2020/08/20/Python_%E5%A4%9A%E8%BF%9B%E7%A8%8B/</loc>
+    <loc>http://example.com/2023/10/11/SHARK%20A%20Lightweight%20Model%20Compression%20Approach%20for%20Large-scale%20Recommender%20Systems/</loc>
     
     <lastmod>2025-04-28</lastmod>
     
@@ -687,15 +723,6 @@
   
   <url>
     <loc>http://example.com/2023/10/15/RankFlow%20Joint%20Optimization%20of%20Multi-Stage%20Cascade%20Ranking%20Systems%20as%20Flows/</loc>
-    
-    <lastmod>2025-04-28</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://example.com/2023/10/11/SHARK%20A%20Lightweight%20Model%20Compression%20Approach%20for%20Large-scale%20Recommender%20Systems/</loc>
     
     <lastmod>2025-04-28</lastmod>
     
@@ -767,6 +794,15 @@
   </url>
   
   <url>
+    <loc>http://example.com/2023/06/15/MAE%20v.s.%20MSE%20%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0%E6%AF%94%E8%BE%83/</loc>
+    
+    <lastmod>2025-04-28</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>http://example.com/2020/02/18/Linux%20%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E6%80%BB%E7%BB%93/</loc>
     
     <lastmod>2025-04-28</lastmod>
@@ -777,15 +813,6 @@
   
   <url>
     <loc>http://example.com/2019/11/03/Marketing%20Management%20%E8%90%A5%E9%94%80%E7%AE%A1%E7%90%86/</loc>
-    
-    <lastmod>2025-04-28</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://example.com/2023/06/15/MAE%20v.s.%20MSE%20%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0%E6%AF%94%E8%BE%83/</loc>
     
     <lastmod>2025-04-28</lastmod>
     
@@ -812,15 +839,6 @@
   </url>
   
   <url>
-    <loc>http://example.com/2023/12/30/Joint%20Optimization%20of%20Ranking%20and%20Calibration%20with%20Contextualized%20Hybrid%20Model/</loc>
-    
-    <lastmod>2025-04-28</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>http://example.com/2023/05/30/Jen-Hsun%20Huang%20Stanford%20student%20and%20Entrpreneur,%20co-founder%20and%20CEO%20of%20NVIDIA/</loc>
     
     <lastmod>2025-04-28</lastmod>
@@ -831,6 +849,15 @@
   
   <url>
     <loc>http://example.com/2019/10/01/Interview%20record%20of%20ML%20intern%20in%202019/</loc>
+    
+    <lastmod>2025-04-28</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://example.com/2023/12/30/Joint%20Optimization%20of%20Ranking%20and%20Calibration%20with%20Contextualized%20Hybrid%20Model/</loc>
     
     <lastmod>2025-04-28</lastmod>
     
@@ -875,15 +902,6 @@
   </url>
   
   <url>
-    <loc>http://example.com/2018/06/10/Hash_0_overview/</loc>
-    
-    <lastmod>2025-04-28</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>http://example.com/2022/05/15/H&M%20Recommendation%20Competition%20Top1%20%E6%96%B9%E6%A1%88/</loc>
     
     <lastmod>2025-04-28</lastmod>
@@ -893,7 +911,25 @@
   </url>
   
   <url>
+    <loc>http://example.com/2018/06/10/Hash_0_overview/</loc>
+    
+    <lastmod>2025-04-28</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>http://example.com/2018/06/10/Heap_1_application/</loc>
+    
+    <lastmod>2025-04-28</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://example.com/2023/08/20/Gini%20Coefficient%20%E5%9F%BA%E5%B0%BC%E7%B3%BB%E6%95%B0/</loc>
     
     <lastmod>2025-04-28</lastmod>
     
@@ -920,7 +956,7 @@
   </url>
   
   <url>
-    <loc>http://example.com/2023/08/20/Gini%20Coefficient%20%E5%9F%BA%E5%B0%BC%E7%B3%BB%E6%95%B0/</loc>
+    <loc>http://example.com/2018/01/07/Graph_2_bfs_%E5%B9%BF%E5%BA%A6%E4%BC%98%E5%85%88%E9%81%8D%E5%8E%86/</loc>
     
     <lastmod>2025-04-28</lastmod>
     
@@ -938,7 +974,7 @@
   </url>
   
   <url>
-    <loc>http://example.com/2018/01/07/Graph_2_bfs_%E5%B9%BF%E5%BA%A6%E4%BC%98%E5%85%88%E9%81%8D%E5%8E%86/</loc>
+    <loc>http://example.com/2018/01/07/Graph_4_%E5%B2%9B%E5%B1%BF%E9%97%AE%E9%A2%98/</loc>
     
     <lastmod>2025-04-28</lastmod>
     
@@ -948,15 +984,6 @@
   
   <url>
     <loc>http://example.com/2018/01/07/Graph_3_%E7%8E%AF%E6%A3%80%E6%B5%8B%E4%B8%8E%E6%8B%93%E6%89%91%E6%8E%92%E5%BA%8F/</loc>
-    
-    <lastmod>2025-04-28</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://example.com/2018/01/07/Graph_4_%E5%B2%9B%E5%B1%BF%E9%97%AE%E9%A2%98/</loc>
     
     <lastmod>2025-04-28</lastmod>
     
@@ -1082,15 +1109,6 @@
   </url>
   
   <url>
-    <loc>http://example.com/2018/01/04/DP_3_%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98/</loc>
-    
-    <lastmod>2025-04-28</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>http://example.com/2018/01/04/DP_3_%E8%87%AA%E9%A1%B6%E5%90%91%E4%B8%8B%E8%BF%98%E6%98%AF%E8%87%AA%E5%BA%95%E5%90%91%E4%B8%8A/</loc>
     
     <lastmod>2025-04-28</lastmod>
@@ -1109,6 +1127,15 @@
   </url>
   
   <url>
+    <loc>http://example.com/2018/01/04/DP_3_%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98/</loc>
+    
+    <lastmod>2025-04-28</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>http://example.com/2021/11/11/Cybernetics%20and%20Society%20%E6%8E%A7%E5%88%B6%E8%AE%BA%E4%B8%8E%E7%A4%BE%E4%BC%9A/</loc>
     
     <lastmod>2025-04-28</lastmod>
@@ -1118,7 +1145,7 @@
   </url>
   
   <url>
-    <loc>http://example.com/2023/07/13/DCN%20V2%20Improved%20Deep%20&%20Cross%20Network%20and%20Practical%20Lessons%20for%20Web-scale%20Learning%20to%20Rank%20Systems/</loc>
+    <loc>http://example.com/2018/01/04/DP_0_overview/</loc>
     
     <lastmod>2025-04-28</lastmod>
     
@@ -1127,7 +1154,7 @@
   </url>
   
   <url>
-    <loc>http://example.com/2018/01/04/DP_0_overview/</loc>
+    <loc>http://example.com/2023/07/13/DCN%20V2%20Improved%20Deep%20&%20Cross%20Network%20and%20Practical%20Lessons%20for%20Web-scale%20Learning%20to%20Rank%20Systems/</loc>
     
     <lastmod>2025-04-28</lastmod>
     
@@ -1154,7 +1181,7 @@
   </url>
   
   <url>
-    <loc>http://example.com/2024/01/20/CREAD%20A%20Classification-Restoration%20Framework%20with%20Error%20Adaptive%20Discretization%20for%20Watch%20Time%20Prediction%20in%20Video%20Recommender%20Systems/</loc>
+    <loc>http://example.com/2023/07/18/CASPR:%20Customer%20Activity%20Sequence-based%20Prediction%20and%20Representation/</loc>
     
     <lastmod>2025-04-28</lastmod>
     
@@ -1163,7 +1190,7 @@
   </url>
   
   <url>
-    <loc>http://example.com/2023/07/18/CASPR:%20Customer%20Activity%20Sequence-based%20Prediction%20and%20Representation/</loc>
+    <loc>http://example.com/2024/01/20/CREAD%20A%20Classification-Restoration%20Framework%20with%20Error%20Adaptive%20Discretization%20for%20Watch%20Time%20Prediction%20in%20Video%20Recommender%20Systems/</loc>
     
     <lastmod>2025-04-28</lastmod>
     
@@ -1262,15 +1289,6 @@
   </url>
   
   <url>
-    <loc>http://example.com/2018/01/02/BinaryTree_0_overview/</loc>
-    
-    <lastmod>2025-04-28</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>http://example.com/2018/01/02/BinarySearch_3_%E5%8D%95%E8%B0%83%E6%80%A7%E5%BA%94%E7%94%A8%E9%97%AE%E9%A2%98%E7%9A%84%E4%BA%8C%E5%88%86%E6%90%9C%E7%B4%A2/</loc>
     
     <lastmod>2025-04-28</lastmod>
@@ -1280,7 +1298,25 @@
   </url>
   
   <url>
+    <loc>http://example.com/2018/01/02/BinaryTree_0_overview/</loc>
+    
+    <lastmod>2025-04-28</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>http://example.com/2018/01/02/BinaryTree_1_%E5%88%86%E8%A7%A3%E9%97%AE%E9%A2%98/</loc>
+    
+    <lastmod>2025-04-28</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://example.com/2018/01/02/BinaryTree_3_%E8%BF%AD%E4%BB%A3%E9%81%8D%E5%8E%86/</loc>
     
     <lastmod>2025-04-28</lastmod>
     
@@ -1307,7 +1343,7 @@
   </url>
   
   <url>
-    <loc>http://example.com/2018/01/02/BinaryTree_3_%E8%BF%AD%E4%BB%A3%E9%81%8D%E5%8E%86/</loc>
+    <loc>http://example.com/2018/01/02/Backtrack_0_overview/</loc>
     
     <lastmod>2025-04-28</lastmod>
     
@@ -1317,15 +1353,6 @@
   
   <url>
     <loc>http://example.com/2018/01/02/Backtrack_1_N%E7%9A%87%E5%90%8E%E5%92%8C%E8%A7%A3%E6%95%B0%E7%8B%AC/</loc>
-    
-    <lastmod>2025-04-28</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://example.com/2018/01/02/Backtrack_0_overview/</loc>
     
     <lastmod>2025-04-28</lastmod>
     
@@ -1397,7 +1424,7 @@
   </url>
   
   <url>
-    <loc>http://example.com/2018/01/01/Array_3_%E5%9B%BE%E5%83%8F%E7%BF%BB%E8%BD%AC/</loc>
+    <loc>http://example.com/2018/01/01/Array_2_%E8%8A%B1%E5%BC%8F%E6%90%9C%E7%B4%A2/</loc>
     
     <lastmod>2025-04-28</lastmod>
     
@@ -1406,7 +1433,7 @@
   </url>
   
   <url>
-    <loc>http://example.com/2018/01/01/Array_2_%E8%8A%B1%E5%BC%8F%E6%90%9C%E7%B4%A2/</loc>
+    <loc>http://example.com/2018/01/01/Array_3_%E5%9B%BE%E5%83%8F%E7%BF%BB%E8%BD%AC/</loc>
     
     <lastmod>2025-04-28</lastmod>
     
@@ -1433,7 +1460,7 @@
   </url>
   
   <url>
-    <loc>http://example.com/2023/08/13/A%20Simple%20Framework%20for%20Contrastive%20Learning%20of%20Visual%20Representations/</loc>
+    <loc>http://example.com/2023/06/13/A%20Deep%20Probabilistic%20Model%20For%20Customer%20Lifetime%20Value%20Prediction/</loc>
     
     <lastmod>2025-04-28</lastmod>
     
@@ -1442,7 +1469,7 @@
   </url>
   
   <url>
-    <loc>http://example.com/2023/06/13/A%20Deep%20Probabilistic%20Model%20For%20Customer%20Lifetime%20Value%20Prediction/</loc>
+    <loc>http://example.com/2023/08/13/A%20Simple%20Framework%20for%20Contrastive%20Learning%20of%20Visual%20Representations/</loc>
     
     <lastmod>2025-04-28</lastmod>
     
@@ -1561,7 +1588,7 @@
 
   <url>
     <loc>http://example.com/</loc>
-    <lastmod>2025-04-28</lastmod>
+    <lastmod>2025-05-05</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -1571,42 +1598,42 @@
   
   <url>
     <loc>http://example.com/categories/Rethinking/</loc>
-    <lastmod>2025-04-28</lastmod>
+    <lastmod>2025-05-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://example.com/categories/AI/</loc>
-    <lastmod>2025-04-28</lastmod>
+    <lastmod>2025-05-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://example.com/categories/Ads-RecSys/</loc>
-    <lastmod>2025-04-28</lastmod>
+    <lastmod>2025-05-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://example.com/categories/Algorithm/</loc>
-    <lastmod>2025-04-28</lastmod>
+    <lastmod>2025-05-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://example.com/categories/Reading/</loc>
-    <lastmod>2025-04-28</lastmod>
+    <lastmod>2025-05-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://example.com/categories/Coding/</loc>
-    <lastmod>2025-04-28</lastmod>
+    <lastmod>2025-05-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
