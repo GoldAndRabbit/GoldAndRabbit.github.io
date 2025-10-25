@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2025-10-25T13:22:22.397Z</updated>
+  <updated>2025-04-28T09:20:54.407Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,25 +15,6 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>cypher test</title>
-    <link href="http://example.com/2025/10/25/cypher%20test/"/>
-    <id>http://example.com/2025/10/25/cypher%20test/</id>
-    <published>2025-10-24T16:00:00.000Z</published>
-    <updated>2025-10-25T13:22:22.397Z</updated>
-    
-    <content type="html"><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="密码错误！" data-whm="OOPS, these decrypted content may changed, but you can still have a look.">  <script id="hbeData" type="hbeData" data-hmacdigest="ca94b07af86b805cd87135f814e20cb872e6d7153ba3952ae9dd8ec0b704db1f">448e2aa852ea4e1d3d1feb3e4ff9338bd643e60b238e1e9a07c061e88b99bfa1002d46a45c30f75fbdb451aa97c3fdda11781e564d738f5d36f47cf021b40a1e</script>  <div class="hbe hbe-content">    <div class="hbe hbe-input hbe-input-default">      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">        <span class="hbe hbe-input-label-content hbe-input-label-content-default">密码错误，请再试一次！</span>      </label>    </div>  </div></div><script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
-    
-    
-    <summary type="html">这是一篇加密文章，输入密码以继续阅读。</summary>
-    
-    
-    
-    
-    <category term="私密" scheme="http://example.com/tags/%E7%A7%81%E5%AF%86/"/>
-    
-  </entry>
   
   <entry>
     <title>Linux Access the Open Internet</title>
@@ -107,6 +88,23 @@
     
     
     <category term="Coding" scheme="http://example.com/categories/Coding/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>gold_cv</title>
+    <link href="http://example.com/2024/10/25/gold_cv/"/>
+    <id>http://example.com/2024/10/25/gold_cv/</id>
+    <published>2024-10-24T16:00:00.000Z</published>
+    <updated>2025-10-25T13:29:28.093Z</updated>
+    
+    <content type="html"><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="密码错误！" data-whm="OOPS, these decrypted content may changed, but you can still have a look.">  <script id="hbeData" type="hbeData" data-hmacdigest="ca94b07af86b805cd87135f814e20cb872e6d7153ba3952ae9dd8ec0b704db1f">448e2aa852ea4e1d3d1feb3e4ff9338bd643e60b238e1e9a07c061e88b99bfa1002d46a45c30f75fbdb451aa97c3fdda11781e564d738f5d36f47cf021b40a1e</script>  <div class="hbe hbe-content">    <div class="hbe hbe-input hbe-input-default">      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">        <span class="hbe hbe-input-label-content hbe-input-label-content-default">密码错误，请再试一次！</span>      </label>    </div>  </div></div><script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
+    
+    
+    <summary type="html">这是一篇加密文章，输入密码以继续阅读。</summary>
+    
+    
     
     
   </entry>
