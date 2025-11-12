@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2025-11-12T01:53:00.267Z</updated>
+  <updated>2025-11-12T02:01:50.167Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -21,20 +21,28 @@
     <link href="http://example.com/2025/11/12/MacOS%2026.1%20Tahoe%20Upgrade/"/>
     <id>http://example.com/2025/11/12/MacOS%2026.1%20Tahoe%20Upgrade/</id>
     <published>2025-11-12T12:43:00.000Z</published>
-    <updated>2025-11-12T01:53:00.267Z</updated>
+    <updated>2025-11-12T02:01:50.167Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="MacOS-26-1-Tahoe-升级问题表现"><a href="#MacOS-26-1-Tahoe-升级问题表现" class="headerlink" title="MacOS 26.1 Tahoe 升级问题表现"></a>MacOS 26.1 Tahoe 升级问题表现</h2><div align="center"><img src="/imgs/MacOS 26.1 Tahoe Upgrade/0.jpg" width="80%"/></div><h2 id="问题原因"><a href="#问题原因" class="headerlink" title="问题原因"></a>问题原因</h2><ol><li>推测有些系统缓存没处理干净</li></ol><h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2><ol><li>长按强制关机</li><li>长按电源键不松手，进入一个界面，然后看到左边是 mactoish 键但不要点下面的继续， 然后按下 shift 键盘，mactoish 下面的 【继续】会改成另一个 【以安全模式继续】，然后点这个按钮</li><li>系统要求连续输入两次密码才能进入系统，进入系统之后发现升级到 Tahoe 26.1, 确认系统是升级完毕的，如果没问题就会发现这时候系统其实是能用的，只不过在安全模式下，会感觉有点卡且通常不会使用安全模式</li><li>然后重启系统，发现就能正常运行了</li></ol>]]></content>
+    <content type="html"><![CDATA[<div align="center"><img src="/imgs/MacOS 26.1 Tahoe Upgrade/1.png" width="80%"/></div><h2 id="MacOS-26-1-Tahoe-升级问题表现"><a href="#MacOS-26-1-Tahoe-升级问题表现" class="headerlink" title="MacOS 26.1 Tahoe 升级问题表现"></a>MacOS 26.1 Tahoe 升级问题表现</h2><ol><li>卡在如下页面无法进入系统，重启多次仍然会发生页面重复</li></ol><div align="center"><img src="/imgs/MacOS 26.1 Tahoe Upgrade/0.png" width="60%"/></div><h2 id="问题原因"><a href="#问题原因" class="headerlink" title="问题原因"></a>问题原因</h2><ol><li>推测有些系统缓存没处理干净</li></ol><h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2><ol><li>长按强制关机</li><li>长按电源键不松手，进入一个界面，然后看到左边是 mactoish 键但不要点下面的继续， 然后按下 shift 键盘，mactoish 下面的 【继续】会改成另一个 【以安全模式继续】，然后点这个按钮</li><li>系统要求连续输入两次密码才能进入系统，进入系统之后发现升级到 Tahoe 26.1, 确认系统是升级完毕的，如果没问题就会发现这时候系统其实是能用的，只不过在安全模式下，会感觉有点卡且通常不会使用安全模式</li><li>然后重启系统，发现就能正常运行了</li></ol>]]></content>
     
     
       
       
-    <summary type="html">&lt;h2 id=&quot;MacOS-26-1-Tahoe-升级问题表现&quot;&gt;&lt;a href=&quot;#MacOS-26-1-Tahoe-升级问题表现&quot; class=&quot;headerlink&quot; title=&quot;MacOS 26.1 Tahoe 升级问题表现&quot;&gt;&lt;/a&gt;MacOS 26.1 Tahoe </summary>
+    <summary type="html">&lt;div align=&quot;center&quot;&gt;
+&lt;img src=&quot;/imgs/MacOS 26.1 Tahoe Upgrade/1.png&quot; width=&quot;80%&quot;/&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;MacOS-26-1-Tahoe-升级问题表现&quot;&gt;&lt;a href=&quot;#MacOS-</summary>
       
     
     
     
     <category term="Coding" scheme="http://example.com/categories/Coding/"/>
     
+    
+    <category term="System" scheme="http://example.com/tags/System/"/>
+    
+    <category term="MacOS" scheme="http://example.com/tags/MacOS/"/>
     
   </entry>
   
