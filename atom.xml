@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2025-11-04T01:29:41.437Z</updated>
+  <updated>2025-11-12T01:52:51.670Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>MacOS 26.1 Tahoe Upgrade</title>
+    <link href="http://example.com/2025/11/12/MacOS%2026.1%20Tahoe%20Upgrade/"/>
+    <id>http://example.com/2025/11/12/MacOS%2026.1%20Tahoe%20Upgrade/</id>
+    <published>2025-11-12T12:43:00.000Z</published>
+    <updated>2025-11-12T01:52:51.670Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="MacOS-26-1-Tahoe-升级问题表现"><a href="#MacOS-26-1-Tahoe-升级问题表现" class="headerlink" title="MacOS 26.1 Tahoe 升级问题表现"></a>MacOS 26.1 Tahoe 升级问题表现</h2><div align="center"><img src="../imgs/MacOS 26.1 Tahoe Upgrade/0.jpg" width="80%"/></div><h2 id="问题原因"><a href="#问题原因" class="headerlink" title="问题原因"></a>问题原因</h2><ol><li>推测有些系统缓存没处理干净</li></ol><h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2><ol><li>长按强制关机</li><li>长按电源键不松手，进入一个界面，然后看到左边是 mactoish 键但不要点下面的继续， 然后按下 shift 键盘，mactoish 下面的 【继续】会改成另一个 【以安全模式继续】，然后点这个按钮</li><li>系统要求连续输入两次密码才能进入系统，进入系统之后发现升级到 Tahoe 26.1, 确认系统是升级完毕的，如果没问题就会发现这时候系统其实是能用的，只不过在安全模式下，会感觉有点卡且通常不会使用安全模式</li><li>然后重启系统，发现就能正常运行了</li></ol>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;MacOS-26-1-Tahoe-升级问题表现&quot;&gt;&lt;a href=&quot;#MacOS-26-1-Tahoe-升级问题表现&quot; class=&quot;headerlink&quot; title=&quot;MacOS 26.1 Tahoe 升级问题表现&quot;&gt;&lt;/a&gt;MacOS 26.1 Tahoe </summary>
+      
+    
+    
+    
+    <category term="Coding" scheme="http://example.com/categories/Coding/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>The Era of Real-World Human Interaction RL from User Conversations</title>
@@ -426,28 +448,6 @@
       
       
     <summary type="html">&lt;h2 id=&quot;Overview&quot;&gt;&lt;a href=&quot;#Overview&quot; class=&quot;headerlink&quot; title=&quot;Overview&quot;&gt;&lt;/a&gt;Overview&lt;/h2&gt;&lt;p&gt;1.Key Insights on Constitutional AI&lt;br&gt;2.LLM 的</summary>
-      
-    
-    
-    
-    <category term="Agent" scheme="http://example.com/categories/Agent/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>CharacterEval A Chinese Benchmark for Role-Playing Conversational Agent Evaluation</title>
-    <link href="http://example.com/2025/02/02/CharacterEval%20A%20Chinese%20Benchmark%20for%20Role-Playing%20Conversational%20Agent%20Evaluation/"/>
-    <id>http://example.com/2025/02/02/CharacterEval%20A%20Chinese%20Benchmark%20for%20Role-Playing%20Conversational%20Agent%20Evaluation/</id>
-    <published>2025-02-02T11:00:00.000Z</published>
-    <updated>2025-11-04T01:29:41.437Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="Key-Insights-On-CharacterEval"><a href="#Key-Insights-On-CharacterEval" class="headerlink" title="Key Insights On CharacterEval"></a>Key Insights On CharacterEval</h2><p>1.提出一个角色扮演的中文数据集和测试基准 CharacterEval, 测试基准包括对话能力/角色一致性/角色扮演吸引力等多个维度  </p><div align="center"><img src="/imgs/CharacterEval%20A%20Chinese%20Benchmark%20for%20Role-Playing%20Conversational%20Agent%20Evaluation/0.png" width="100%"/></div><h2 id="CharacterEval-对话数据生成与清洗"><a href="#CharacterEval-对话数据生成与清洗" class="headerlink" title="CharacterEval 对话数据生成与清洗"></a>CharacterEval 对话数据生成与清洗</h2><p>1.数据收集的核心原则<br>在启动数据收集前，团队明确了 4 条关键准则，确保数据符合角色扮演对话代理 (RPCA) 的评估需求：<br>(i). 忠于原始素材 (Fidelity to Source Material)：所有对话必须与角色的原始出处 (如小说、剧本) 一致，避免篡改角色人设 (如《武林外传》中佟湘玉的 “掌柜身份”, “泼辣性格” 需完全还原)<br>(ii). 场景分布多样 (Diversity in Distribution)：覆盖不同题材 (武侠、言情、历史等) 、不同互动场景 (工作争执、日常闲聊、情感倾诉等) ，确保能全面测试 RPCA 的泛化能力<br>(iii). 以多轮对话为主 (Multi-Turn Feature)：优先保留多轮交互数据 (而非单轮问答) ，因为 RPCA 的 “人设稳定性””对话连贯性” 需在多轮场景中才能体现<br>(iv). 人工介入质控 (Human-in-the-Loop)：不依赖 LLM 生成的 “纯合成数据”，必须通过人工筛选和修正，避免数据噪音 (如逻辑矛盾、人设偏差) </p><p>2.四步数据收集流程<br>(i). 情节划分 (Plot Division)<br>原始素材 (小说、剧本) 的情节通常连续且复杂，直接提取可能导致对话 “断章取义” (如把一个争吵场景拆分成两段，丢失中间关键冲突). 因此，团队采用GPT-4 辅助语义分割：<br>输入：完整的小说章节或剧本片段 (如《武林外传》某集剧本、金庸小说某章节)<br>任务：让 GPT-4 识别 “情节转折点”—— 即标志一个连续场景结束的句子 (如 “佟湘玉气冲冲地走进后院”，表示前一个 “柜台对账” 场景结束)<br>输出：以转折点为边界，将原始文本拆分为多个 “完整情节块”，每个块包含一个独立的互动场景 (如 “柜台对账争执””客栈员工闲聊”) ，确保后续提取的对话逻辑完整  </p><p>(ii). 对话提取 (Dialogue Extraction)<br>针对第一步得到的 “完整情节块”，继续用 GPT-4 进行结构化信息提取，确保不遗漏角色的关键特征：<br>提取内容：</p><p>基础对话：角色间的问答 / 互动语句 (如佟湘玉的 “昨天的帐都清干净没有？”、吕秀才的 “应该是吧”)<br>行为描述：角色的动作、表情、语气 (通常放在括号中，如 “(无精打采)””(拿过账本看，拍在柜台上)”) ，这些是还原角色人设的关键<br>场景信息：对话发生的地点、背景 (如 “佟湘玉在柜台处””工作中的问题争执”)<br>提取规则：通过 Prompt 严格约束 GPT-4，要求其 “完全保留原始文本中的角色语言和行为，不添加额外创作内容”，避免 LLM 生成的 “伪对话”</p><p>(iii). 质量过滤 (Quality Filtering)<br>经过前两步提取的对话仍可能存在 “场景不完整””轮次过短” 等问题，需通过规则过滤优化：<br>规则 1：保留 “ABAB 双角色对话”，剔除多角色混杂场景。原始素材中常出现 3 个及以上角色的互动 (如 “佟湘玉、吕秀才、郭芙蓉同时对话”) ，这类场景会导致 RPCA “角色定位混乱”，因此仅保留 “两个角色交替对话” 的 ABAB 结构 (如佟湘玉=&gt;吕秀才=&gt;佟湘玉=&gt;吕秀才) ，直到第三个角色加入前停止<br>规则 2：过滤短轮次对话。仅保留轮次 ≥ 5 (即≥6 句话)  的对话，因为短轮次 (如 2-3 轮) 无法测试 RPCA 的 “多轮一致性” (如前 3 轮符合人设，第 4 轮偏移的问题无法暴露)<br>规则 3：剔除逻辑断裂数据。例如对话中出现 “角色突然消失””话题无理由跳转” (如从 “对账” 突然跳到 “吃饭” 且无过渡) 的情况，确保每段对话的逻辑连贯性  </p><p>(iv). 人工标注 (Human Annotation)<br>这是确保数据质量的关键步骤，主要解决 LLM 提取可能存在的 “细节偏差”：<br>人工任务 1：质量审核。邀请专业标注员 (熟悉中文小说、剧本背景) 逐段检查对话，判断是否符合 “人设保真””逻辑连贯” 要求，例如：<br>若吕秀才的对话中出现 “我是武林高手”，则判定为 “人设偏差” 并剔除<br>若对话中 “佟湘玉质问账目” 后，吕秀才直接回应 “今天天气好”，则判定为 “逻辑断裂” 并修正<br>人工任务 2：补充角色档案。从百度百科爬取每个角色的详细背景 (如年龄、身份、性格、经历、名言) ，例如吕秀才的 “前朝知府之孙、屡试不中科举”、佟湘玉的 “龙门镖局之女、寡妇身份”，并与对话关联，形成 “角色档案 + 对话场景 + 互动内容” 的完整数据结构 (如图 1 中的示例)<br>标注员配置：共 12 名标注员，采用 “交叉验证” 机制 (即同一段对话由 2 名标注员分别审核，不一致时由第三方仲裁) ，确保标注结果的可靠性  </p><p>3.CharacterEval 数据集概述<br>通过上述流程，最终构建的 CharacterEval 数据集包含：1785 段多轮角色扮演对话; 11376 个 “角色 - 上下文 - 回复” 示例; 77 个来自不同中文小说、剧本的角色 (如《武林外传》《红楼梦》《金庸武侠系列》等) 平均每段对话轮次达 9.28，平均 tokens 数 369.69，满足 “多轮、长文本” 的 RPCA 评估需求   </p><h2 id="Evaluation-Metric-on-Role-Play-Agent"><a href="#Evaluation-Metric-on-Role-Play-Agent" class="headerlink" title="Evaluation Metric on Role-Play Agent"></a>Evaluation Metric on Role-Play Agent</h2><div align="center"><img src="/imgs/CharacterEval%20A%20Chinese%20Benchmark%20for%20Role-Playing%20Conversational%20Agent%20Evaluation/1.png" width="60%"/></div><p>Role-Playing Conversational Agent (RPCA) 的核心价值在于 “沉浸式角色扮演”，需同时满足基础对话能力 (流畅、连贯) 、角色一致性 (符合人设) 、情感吸引力 (用户愿意互动) 和人格稳定性 (长期人设不偏移) 四大需求. 因此，评估体系围绕这四大目标构建，且所有指标均结合 “人工标注 + 自动化工具 (如 CharacterRM) “ 验证，确保主观指标的可靠性, 分为 4 维度及 13 项具体指标详解</p><p>1.<strong>对话能力 (Conversational Ability)</strong><br>作为角色扮演的 “基本功”，该维度聚焦对话的 “流畅性、连贯性、一致性”，确保 RPCA 能完成正常多轮交互，而非出现逻辑断裂或语法错误。包含 3 项指标：<br>(i). 流畅性 (Fluency)：评估回复的语法正确性与可读性，例如是否存在语病、语句是否通顺，需确保用户能轻松理解内容。<br>(ii). 连贯性 (Coherency)：衡量回复与上下文的主题相关性，例如用户询问 “昨天账目是否清理” 时，RPCA 需围绕 “账目” 回应，而非转移到无关话题 (如 “今天天气如何”).<br>(iii). 一致性 (Consistency)：评估多轮对话中 RPCA 回复的自我兼容性，例如前一轮称 “账目已清理”，后一轮不能否认该表述，避免前后矛盾。</p><p>2.<strong>角色一致性 (Character Consistency)</strong><br>这是角色扮演的核心维度，需确保 RPCA 的知识、行为、语言风格完全匹配目标角色 (如《武林外传》中佟湘玉的 “掌柜身份””泼辣语气”). 包含 5 项指标，分为 “知识一致性” 和 “人设一致性” 两类：<br>(i). 知识一致性 (聚焦 “角色应该知道什么”)：</p><ul><li>知识暴露度 (Knowledge-Exposure, KE)：评估回复中是否包含角色的关键背景信息 (如吕秀才的 “前朝知府之孙” 身份) ，确保角色 “有知识可输出”，而非空洞互动。</li><li>知识准确性 (Knowledge-Accuracy, KA)：验证输出的知识是否与角色人设一致，例如佟湘玉不能说出 “我是衡山派掌门” (这是她原本未婚夫的身份) ，避免 “人设错位”。</li><li>知识幻觉 (Knowledge-Hallucination, KH)：衡量回复中是否包含角色 “不可能知道” 的信息 (如古代角色提及 “智能手机”) ，需严格规避与角色时代、背景冲突的内容。<br>(ii). 人设一致性 (聚焦 “角色应该如何表现”)：</li><li>行为一致性 (Persona-Behavior, PB)：评估 RPCA 的行为描述是否匹配角色性格，例如吕秀才的 “无精打采””回头拿账本” 等动作，需符合其 “博学但落魄” 的人设 而佟湘玉的 “拍账本、质问语气” 则符合其 “泼辣掌柜” 的特质 (行为描述通常放在括号中，如 “(无精打采) 吃不吃也就是那么回事儿”). </li><li>语言一致性 (Persona-Utterance, PU)：衡量回复的语言风格是否贴合角色，例如吕秀才常说 “子曾经曰过”，佟湘玉有 “我不是黄蓉” 的口头禅，RPCA 需还原这类独特表达习惯</li></ul><p>3.<strong>角色扮演吸引力 (Role-Playing Attractiveness)</strong><br>RPCA 的核心价值是提供情感价值，因此该维度聚焦 “用户是否愿意持续互动”，从 “拟人感、沟通技巧、表达多样性、共情能力” 4 个角度评估：<br>(i). 拟人感 (Human-Likeness, HL)：避免回复的 “机器感”，例如不使用 “我是 AI 助手，无法角色扮演” 这类生硬表述，而是以角色身份自然回应 (如吕秀才用 “在下” 自称).<br>(ii). 沟通技巧 (Communication Skills, CS)：类似 “情商”，评估 RPCA 是否能灵活应对用户情绪，例如用户抱怨 “账目混乱” 时，佟湘玉需体现 “愤怒但不失掌柜分寸”，而非机械重复 “你错了”。<br>(iii). 表达多样性 (Expression Diversity, ED)：衡量回复的行为、语言是否丰富，避免长期重复 (如每次回复都是 “好的”). 例如吕秀才思考时可加 “(皱眉翻书)”，对话中穿插哲学引用，提升沉浸感。<br>(iv). 共情能力 (Empathy, Emp.)：评估 RPCA 是否能感知并回应用户情绪，例如用户说 “对账好累” 时，吕秀才可回应 “(叹气) 是啊，科举备考更累，咱们都不容易”，体现对 “疲惫” 情绪的共情，而非冷漠忽略</p><p>4.<strong>人格回溯测试 (Personality Back-Testing)</strong><br>该维度通过 MBTI 人格测试验证 RPCA 的人格是否与角色匹配，避免 “短期人设正确、长期人设漂移”。具体方式为：<br>先从人格数据库 (如<a href="https://www.personality-database.com/">https://www.personality-database.com/</a>) 获取角色的真实 MBTI 类型 (如佟湘玉可能为 “ESFJ”，吕秀才为 “INTP”)<br>让 RPCA 回答 MBTI 测试题，计算其结果与真实 MBTI 的匹配度 (即MBTI 准确率) ，确保 RPCA 的 “底层人格” 与角色一致，而非仅表面模仿语言</p><h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><p>[1]. CharacterEval: A Chinese Benchmark for Role-Playing Conversational Agent Evaluation</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h2 id=&quot;Key-Insights-On-CharacterEval&quot;&gt;&lt;a href=&quot;#Key-Insights-On-CharacterEval&quot; class=&quot;headerlink&quot; title=&quot;Key Insights On CharacterEval&quot;&gt;&lt;/a</summary>
       
     
     
