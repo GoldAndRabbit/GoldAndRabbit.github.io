@@ -68,9 +68,9 @@
     <category term="Agent" scheme="http://example.com/categories/Agent/"/>
     
     
-    <category term="LLM" scheme="http://example.com/tags/LLM/"/>
-    
     <category term="Memory" scheme="http://example.com/tags/Memory/"/>
+    
+    <category term="LLM" scheme="http://example.com/tags/LLM/"/>
     
   </entry>
   
