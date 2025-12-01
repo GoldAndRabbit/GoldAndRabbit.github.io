@@ -104,7 +104,7 @@
     <li>
         <div class="all active" data-rel="All">All
             
-                <small>(223)</small>
+                <small>(224)</small>
             
         </div>
     </li>
@@ -161,7 +161,7 @@
         <div data-rel="Coding">
             
             Coding
-            <small>(36)</small>
+            <small>(37)</small>
         </div>
         
     </li>
@@ -194,8 +194,8 @@
         
     </div>
 </div>
-<input type="hidden" id="yelog_site_posts_number" value="223">
-<input type="hidden" id="yelog_site_word_count" value="449.4k">
+<input type="hidden" id="yelog_site_posts_number" value="224">
+<input type="hidden" id="yelog_site_word_count" value="449.9k">
 <div style="display: none">
     <span id="busuanzi_value_site_uv"></span>
     <span id="busuanzi_value_site_pv"></span>
@@ -273,15 +273,19 @@
             </li>
         
             <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>MHA</a>
+            </li>
+        
+            <li class="article-tag-list-item">
                 <i class="iconfont icon-tag"></i><a>Otome Games</a>
             </li>
         
             <li class="article-tag-list-item">
-                <i class="iconfont icon-tag"></i><a>Parrallel</a>
+                <i class="iconfont icon-tag"></i><a>PPO</a>
             </li>
         
             <li class="article-tag-list-item">
-                <i class="iconfont icon-tag"></i><a>PPO</a>
+                <i class="iconfont icon-tag"></i><a>Pytorch</a>
             </li>
         
             <li class="article-tag-list-item">
@@ -752,7 +756,7 @@
         
         <a  class="All Agent "
            href="/2024/09/27/Parallel%20Training/"
-           data-tag="Parrallel,Training"
+           data-tag="Training"
            data-author="" >
             <span class="post-title" title="Parallel Training">Parallel Training</span>
             <span class="post-date" title="2024-09-27 20:00:00">2024/09/27</span>
@@ -1542,6 +1546,15 @@
         </a>
         
         
+        <a  class="All Coding "
+           href="/2020/02/03/Multi%20Head%20Self%20Attention/"
+           data-tag="MHA,Pytorch"
+           data-author="" >
+            <span class="post-title" title="Multi Head Self Attention">Multi Head Self Attention</span>
+            <span class="post-date" title="2020-02-03 14:40:00">2020/02/03</span>
+        </a>
+        
+        
         <a  class="All Agent "
            href="/2020/02/03/Transformer/"
            data-tag=""
@@ -1732,6 +1745,15 @@
         
         
         <a  class="All Algorithm "
+           href="/2018/06/10/TwoPointers_3_%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="TwoPointers_3_滑动窗口">TwoPointers_3_滑动窗口</span>
+            <span class="post-date" title="2018-06-10 00:00:00">2018/06/10</span>
+        </a>
+        
+        
+        <a  class="All Algorithm "
            href="/2018/06/10/TwoPointers_4_Rabin_Karp/"
            data-tag=""
            data-author="" >
@@ -1750,10 +1772,10 @@
         
         
         <a  class="All Algorithm "
-           href="/2018/06/10/TwoPointers_3_%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/"
+           href="/2018/06/10/TwoPointers_6_n%E6%95%B0%E4%B9%8B%E5%92%8C/"
            data-tag=""
            data-author="" >
-            <span class="post-title" title="TwoPointers_3_滑动窗口">TwoPointers_3_滑动窗口</span>
+            <span class="post-title" title="TwoPointers_6_n数之和">TwoPointers_6_n数之和</span>
             <span class="post-date" title="2018-06-10 00:00:00">2018/06/10</span>
         </a>
         
@@ -1763,15 +1785,6 @@
            data-tag=""
            data-author="" >
             <span class="post-title" title="TwoPointers_7_荷兰国旗">TwoPointers_7_荷兰国旗</span>
-            <span class="post-date" title="2018-06-10 00:00:00">2018/06/10</span>
-        </a>
-        
-        
-        <a  class="All Algorithm "
-           href="/2018/06/10/TwoPointers_6_n%E6%95%B0%E4%B9%8B%E5%92%8C/"
-           data-tag=""
-           data-author="" >
-            <span class="post-title" title="TwoPointers_6_n数之和">TwoPointers_6_n数之和</span>
             <span class="post-date" title="2018-06-10 00:00:00">2018/06/10</span>
         </a>
         
@@ -2344,7 +2357,7 @@
     </div>
     <div class="article-meta">
         
-            Created At : <time class="date" title='Updated At: 2025-11-16 22:33:50'>2025-01-05 20:00</time>
+            Created At : <time class="date" title='Updated At: 2025-12-01 11:10:17'>2025-01-05 20:00</time>
         
     </div>
     <div class="article-meta">
@@ -2400,14 +2413,14 @@
 <li>假设我们总共有 m 个意图, 评估四类意图识别 (包含 out-of-scope detection) 的方法的准确性指标  </li>
 <li>这里我们说的意图是 “IS 意图” 即 “in-scope 意图” (范围内意图) ，指任务导向对话系统 (TODS) 预先定义、能够识别并处理的用户意图，是意图识别任务中 “需要被正确分类” 的核心目标类别，与 “out-of-scope (OOS，范围外意图) “ 相对  </li>
 </ol>
-<h3 id="Finetuned-Bert-微调小分类模型"><a href="#Finetuned-Bert-微调小分类模型" class="headerlink" title="Finetuned-Bert 微调小分类模型"></a>Finetuned-Bert 微调小分类模型</h3><p>数据预处理：为每个待分类 utterance 拼接其前 3 个 utterance 以引入上下文，并用特殊标记 \<ts> 分隔不同轮次话语，避免角色混淆:  </p>
+<h3 id="Finetuned-Bert-微调小分类模型"><a href="#Finetuned-Bert-微调小分类模型" class="headerlink" title="Finetuned-Bert 微调小分类模型"></a>Finetuned-Bert 微调小分类模型</h3><p>数据预处理：为每个待分类 utterance 拼接其前 3 个 utterance 以引入上下文，并用特殊标记 &lt;\ts&gt; 分隔不同轮次话语，避免角色混淆:  </p>
 <p>假设待分类的目标 utterance 为：<br>u_target=”我需要打印之前的检查报告” (家属所说，意图为 “请求打印检查报告”)   </p>
 <p>另外其前 3 个 utterance 分别为： </p>
 <pre><code class="lang-bash">u_1=&quot;请问内科门诊今天下午能加号吗？&quot; (患者所说) 
 u_2=&quot;内科下午加号需先到分诊台登记&quot; (机器人所说) 
 u_3=&quot;好的，那我们先去分诊台&quot; (家属所说)
 </code></pre>
-<p>按照 \<ts> 的使用规则，拼接后的输入序列为：</p>
+<p>按照 &lt;\ts&gt; 的使用规则，拼接后的输入序列为：</p>
 <pre><code class="lang-bash">请问内科门诊今天下午能加号吗？&lt;ts&gt;内科下午加号需先到分诊台登记&lt;ts&gt;好的，那我们先去分诊台&lt;ts&gt;我需要打印之前的检查报告
 </code></pre>
 <p>模型微调: 使用 BERT_BASE_uncased 预训练模型，针对数据集的 m 个 IS 意图做多分类微调 (不包含 OOS 标签)<br>模型集成: 用 5 个不同随机种子训练 5 个模型，以后续计算不确定性<br>意图预测：推理时通过对 5 个模型的多数投票确定 utterance 的 IS 意图</p>
@@ -2453,7 +2466,7 @@ u_3=&quot;好的，那我们先去分诊台&quot; (家属所说)
 <ol>
 <li><p>预准备 —— 多种子微调 BERT: 为了量化 “不确定性”，论文对 BERT 进行了5 次不同随机种子的微调 (使用BERT_BASE_uncased，目标是多分类任务，仅训练 in-scope 意图，不包含 OOS 标签) . </p>
 <ul>
-<li>输入处理：为适配多轮对话场景，每个 utterance ( utterance ) 会拼接其前 3 轮对话内容，用<ts>标记轮次切换 (如：“S1: 你好<ts>S2: 请问挂号在哪<ts>当前 utterance: 我想挂内科”) ；</li>
+<li>输入处理：为适配多轮对话场景，每个 utterance 会拼接其前 3 轮对话内容，用&lt;\ts&gt;标记轮次切换 (如：“S1: 你好<ts>S2: 请问挂号在哪 ts 当前 utterance: 我想挂内科”) ；</li>
 <li>微调细节：如学习率 1e-5、 batch size=16，训练 40 轮，用 macro F1 监控早停</li>
 </ul>
 </li>
@@ -2478,7 +2491,7 @@ u_3=&quot;好的，那我们先去分诊台&quot; (家属所说)
 <li>BERT 确定，直接输出结果</li>
 </ol>
 <ul>
-<li><p>Utterance (含上下文) ：前 3 轮：“S1: 我到医院了\<ts>S2: 需要帮您吗？\<ts>S1: 是的”, 当前待分类：“请问药房在哪里？”</p>
+<li><p>Utterance (含上下文) ：前 3 轮：“S1: 我到医院了&lt;\ts&gt;S2: 需要帮您吗？&lt;\ts&gt;S1: 是的”, 当前待分类：“请问药房在哪里？”</p>
 </li>
 <li><p>BERT 推理结果 (5 个模型的 softmax 概率) ：</p>
 </li>
@@ -2489,7 +2502,7 @@ u_3=&quot;好的，那我们先去分诊台&quot; (家属所说)
 <li>BERT 不确定，路由给 LLM</li>
 </ol>
 <ul>
-<li><p>Utterance (含上下文) ：前 3 轮：“S1: 我明天要来看病\<ts>S2: 已为您挂号\<ts>S1: 好的” 当前待分类：“我想查一下明天我的主治医生是谁”</p>
+<li><p>Utterance (含上下文) ：前 3 轮：“S1: 我明天要来看病&lt;\ts&gt;S2: 已为您挂号&lt;\ts&gt;S1: 好的” 当前待分类：“我想查一下明天我的主治医生是谁”</p>
 </li>
 <li><p>BERT 推理结果 (5 个模型的 softmax 概率) ：<br>模型种子    预测意图    概率<br>1    request_doctor    0.45<br>2    request_schedule    0.42<br>3    request_doctor    0.51<br>4    request_schedule    0.38<br>5    request_doctor    0.49</p>
 </li>
@@ -2519,7 +2532,7 @@ u_3=&quot;好的，那我们先去分诊台&quot; (家属所说)
 <ol>
 <li>实例解析 (基于 MIntRec2.0 数据集)<br>MIntRec2.0 是 TV show 多轮对话数据集，含 30 个 in-scope 意图 (如Criticize (批评) 、Complain (抱怨) 、Praise (表扬) 等) ，OOS 为 “与对话场景无关的意图”. </li>
 </ol>
-<p>实例：LSR 如何缩减标签空间并辅助 LLM, 延续 “Uncertainty-based Routing” 中 “BERT 不确定” 的场景，增加 LSR 步骤：Utterance (含上下文) ：前 3 轮：“S1: 她居然把我的东西拿走了\<ts>S2: 别生气\<ts>S1: 我实在忍不住”, 当前待分类：“她这种行为太不尊重人了”, 步骤如下: </p>
+<p>实例：LSR 如何缩减标签空间并辅助 LLM, 延续 “Uncertainty-based Routing” 中 “BERT 不确定” 的场景，增加 LSR 步骤：Utterance (含上下文) ：前 3 轮：“S1: 她居然把我的东西拿走了&lt;\ts&gt;S2: 别生气&lt;\ts&gt;S1: 我实在忍不住”, 当前待分类：“她这种行为太不尊重人了”, 步骤如下: </p>
 <ol>
 <li>BERT 的概率排序 (平均概率) 30 个 in-scope 意图中，BERT 预测的 top5 意图及概率：</li>
 </ol>
@@ -2534,7 +2547,7 @@ u_3=&quot;好的，那我们先去分诊台&quot; (家属所说)
 <ol>
 <li>动态生成 LLM 的 Prompt<br>Prompt 中仅列出 K_i (3 个意图) + OOS (UNK) ，而非全部 30 个意图：</li>
 </ol>
-<p>“任务：判断最后一句话的意图是否属于支持的意图，否则返回 UNK. 支持的意图：Criticize (批评) 、Complain (抱怨) 、Blame (指责) . 对话上下文：S1: 她居然把我的东西拿走了\<ts>S2: 别生气\<ts>S1: 我实在忍不住. 待分类句子：她这种行为太不尊重人了. 输出格式：{“intent”: “意图标签”}”</p>
+<p>“任务：判断最后一句话的意图是否属于支持的意图，否则返回 UNK. 支持的意图：Criticize (批评) 、Complain (抱怨) 、Blame (指责) . 对话上下文：S1: 她居然把我的东西拿走了&lt;\ts&gt;S2: 别生气&lt;\ts&gt;S1: 我实在忍不住. 待分类句子：她这种行为太不尊重人了. 输出格式：{“intent”: “意图标签”}”</p>
 <ol>
 <li>LLM 推理结果<br>LLM 无需在 30 个意图中纠结，仅需判断 3 个候选，最终正确输出 Criticize (与论文图 2 中 “人类标注为 Criticize，LLM 原预测为 Complain” 形成对比，LSR 提升了准确性) </li>
 </ol>
